@@ -48,14 +48,17 @@ Evaluation complete.
 
 ── Aggregate Scores ─────────────────────────────────────────
 
-|  faithfulness    |          0.9488 |
-|  answer_relevancy    |       0.6368 |
-|  factual_correctness  |     0.5121 |
-|  answer_correctness     |   0.6297 |
+| Metric              | Score  |
+|---------------------|--------|
+| faithfulness        | 0.9488 |
+| answer_relevancy    | 0.6368 |
+| factual_correctness | 0.5121 |
+| answer_correctness  | 0.6297 |
 
 ── Per-row Scores ───────────────────────────────────────────
 
 | faithfulness  | answer_relevancy  | factual_correctness    | answer_correctness  | 
+| ----------- | ----------- | ----------- | ----------- |
  | 0.800  | 0.661  | 0.180  | 0.473 | 
  | 1.000  | 0.864  | 0.410  | 0.617 | 
  | 1.000  | 0.889  | 0.360  | 0.585 | 
@@ -84,6 +87,8 @@ Evaluation complete.
 
 ── Aggregate Scores ─────────────────────────────────────────
 
+| Metric              | Score  |
+|---------------------|--------|
   |  faithfulness        |        0.9533 | 
   | answer_relevancy       |     0.6284 | 
   |  factual_correctness   |      0.3042 | 
@@ -92,6 +97,7 @@ Evaluation complete.
 ── Per-row Scores ───────────────────────────────────────────
 
  | faithfulness  | answer_relevancy  | factual_correctness  | answer_correctness  |  
+ | ----------- | ----------- | ----------- | ----------- |
  | 0.833  | 0.661  | 0.150  | 0.332  |  
  | 1.000  | 0.778  | 0.380  | 0.487  |  
  | 1.000  | 0.448  | 0.130  | 0.342  |  

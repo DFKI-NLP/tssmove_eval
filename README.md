@@ -32,10 +32,10 @@ uv run -m tssmove_eval.evaluate_testdata
 
 ## Results
 
-- Faithfulness - Answer vs retrieved contexts (claims supported by context)
-- Answer Relevancy - Answer vs Query (generate 3 pseudo-questions from the answer, average sim(query,pseudo-question))
-- Factual correctness - Answer vs reference answer, F1 at the claim level (claims in answer supported by reference)
-- Answer correctness - Weighted mix of (simplified) factual correctness + embedding similarity of answer to reference
+- [Faithfulness](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/faithfulness/) - Answer vs retrieved contexts (claims supported by context)
+- [Answer Relevancy](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_relevance/) - Answer vs Query (generate 3 pseudo-questions from the answer, average sim(query,pseudo-question))
+- [Factual correctness](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/factual_correctness/) - Answer vs reference answer, F1 at the claim level (claims in answer supported by reference)
+- [Answer correctness](https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/answer_correctness/) - Weighted mix of (simplified) factual correctness + embedding similarity of answer to reference
 
 So there should be no major differences for Faithfulness and Answer relevancy between the two runs, only for 
 the other 2 metrics

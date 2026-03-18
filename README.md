@@ -40,7 +40,7 @@ uv run -m tssmove_eval.evaluate_testdata
 So there should be no major differences for Faithfulness and Answer relevancy between the two runs, only for 
 the other 2 metrics
 
-### ## With the ChatGPT answer (created with respect to the input document) as the reference
+### With the ChatGPT answer (created with respect to the input document) as the reference
 
 Running experiment: Antwort_vs_ChatGPTBezug ...
 Running experiment: 100%|██████████| 24/24 [16:32<00:00. 41.35s/it]
@@ -79,7 +79,7 @@ Evaluation complete.
  | 0.867  | 0.469  | 0.310  | 0.498 | 
  | 1.000  | 0.750  | 0.300  | 0.546 | 
 
-## With the generic ChatGPT answer as the reference
+### With the generic ChatGPT answer as the reference
 
 Running experiment: Antwort_vs_ChatGPTGeneric ...
 Running experiment: 100%|██████████| 24/24 [15:51<00:00, 39.63s/it]

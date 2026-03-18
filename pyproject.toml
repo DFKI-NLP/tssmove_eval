@@ -1,0 +1,95 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tssmove_eval"
+version = "0.1.0"
+description = "Add your description here"
+authors = [{ name = "Your name (or your organization/company/team)" }]
+requires-python = ">=3.10.0"
+readme = "README.md"
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = [
+    "ragas>=0.4.3",
+    "openai>=2.29.0",
+]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/tssmove_eval"]
+
+#[tool.hatch.build.targets.wheel]
+#include = ["src/tssmove_eval"]
+#packages = ["src/tssmove_eval"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/tssmove_eval" = "tssmove_eval"
+
+[tool.coverage.run]
+branch = true
+source = ["tssmove_eval"]   # measure only your package (src layout is fine)
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.black]
+line-length = 99
+# limit Black’s directory walk to real Python files only (.py / .pyi);
+# avoids touching other extensions and speeds discovery on large repos
+include = '\.pyi?$'
+# don’t even scan common “noise” dirs (.git, virtualenv) when walking the tree;
+# keeps runs fast and prevents accidental formatting of vendored/ephemeral files.
+# triple-quoted here on purpose: Black treats multiline patterns as “verbose”
+# regex, making it easy to extend later.
+exclude = '''
+/(
+    \.git
+  | \.venv
+)/
+'''
+
+[tool.isort]
+profile = "black"
+known_first_party = ["tssmove_eval"]
+force_sort_within_sections = true
+
+[tool.flake8]
+ignore = ["E203", "E266", "E402", "E501", "F401", "F841", "C901", "W503", "E731", "E741"]
+max-line-length = 99
+exclude = [".git", "notebooks", "models", "data", "logs"]
+
+[tool.codespell]
+skip = "logs/**,data/**,configs/**/*template*,configs/evaluate.yaml,tests/fixtures/**.json,tests/fixtures/**.jsonl,src/kibad_llm/schema/**,tests/unit/schema/**,*.ipynb"
+ignore-words-list = "hist"
+
+# Bandit (read by pre-commit bandit with -c pyproject.toml)
+[tool.bandit]
+skips = ["B101", "B107", "B403"]
+# optionally exclude tests to reduce noise:
+# exclude_dirs = ["tests"]
+
+# mdformat (via mdformat-pyproject); tweak if you want numbering/wrapping
+[tool.mdformat]
+wrap = "keep"          # {"keep","no",INTEGER}
+number = false         # consecutive numbering for ordered lists
+end_of_line = "lf"
+validate = true
+
+# (optional) nbQA-specific knobs if you need them later:
+# [tool.nbqa.config]
+# black = "pyproject.toml"
+# isort = "pyproject.toml"
+# flake8 = "pyproject.toml"
+
+[tool.nbqa.addopts]
+flake8 = [
+    "--extend-ignore=E501"
+]
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src", "tests"]
+
+[[tool.mypy.overrides]]
+module = ["pymupdf4llm.*", "datasets.*", "llama_index.llms.openai_like.*"]
+follow_untyped_imports = true

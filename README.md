@@ -27,7 +27,7 @@ cp .env.example .env
 ## Usage
 
 ```bash
-uv run -m tssmove_eval.evaluate_testdata`
+uv run -m tssmove_eval.evaluate_testdata
 ```
 
 ## Results

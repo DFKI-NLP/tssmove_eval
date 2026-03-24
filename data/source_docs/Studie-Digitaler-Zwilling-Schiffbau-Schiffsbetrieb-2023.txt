@@ -1,0 +1,2453 @@
+Zusammenfassung
+
+
+## Zusammenfassung
+
+
+
+Die vorliegende Ausarbeitung hat zum Ziel, eine qualitative
+Übersicht zum derzeitigen Einsatz Digitaler Zwillinge im maritimen Aftersales-Service zu erstellen sowie das Meinungsbild der
+Branche zu diesem aktuellen Forschungsthema zu erfassen.
+Zu diesem Zweck werden, neben einer Literatur- und Marktrecherche, Interviews mit ausgewählten Experten verschiedener
+maritimer Akteure geführt und ausgewertet. Dabei stehen der
+aktuelle Umsetzungsgrad, aber auch Potentiale sowie Hindernisse im Fokus der Betrachtung. Der Rahmen der Ausarbeitung
+sowie die Zielsetzung werden im ersten Kapitel spezifiziert.
+
+
+In Kapitel 2 erfolgt eingangs eine kurze theoretische Einführung Digitaler Zwillinge, inklusive einer im Rahmen der
+Ausarbeitung zugrunde gelegten Definition. Zudem wird der
+Digitale Zwilling im Kontext des Produktlebenszyklus betrachtet, wobei der aktuelle Stand der Technik und aktuelle Anwendungen präsentiert werden. Darüber hinaus wird ein Ausblick
+auf andere Branchen und deren Umsetzung Digitaler Zwillinge
+gegeben.
+
+
+Dieser allgemeinen Einführung folgend, liegt in Kapitel 3 der
+Schwerpunkt auf der maritimen Umsetzung Digitaler Zwillinge,
+wobei Aftersales-Services im Fokus der Betrachtung stehen.
+Zu diesem Zweck werden zunächst Akteure der maritimen
+Branche vorgestellt und die Bedeutung des maritimen Aftersales und dessen Besonderheiten herausgearbeitet. Abschließend
+werden ausgewählte Leuchtturmprojekte aus verschiedenen
+Produktlebenszyklusphasen mit Bezug zu maritimen Digitalen
+Zwillingen vorgestellt.
+
+
+Den Kern der Ausarbeitung bildet die Befragung maritimer
+Experten, die in Kapitel 4 zusammengefasst wird. Nach einer
+Vorstellung des Konzepts und der beteiligten Akteure werden
+hier die Ergebnisse der Befragung, unterteilt nach Aussagen
+zur Digitalisierung im Allgemeinen und speziell zu Digitalen
+Zwillingen, präsentiert. Es werden jeweils Leitthesen extrahiert,
+die die Schnittmenge der Einschätzungen der Experten zu
+einzelnen Fragestellungen widerspiegeln.
+
+
+
+Abschließend erfolgt in Kapitel 5 eine zusammenfassende Betrachtung der Ergebnisse im Hinblick auf abgeleitete
+Erkenntnisse, Potentiale und den aktuellen Verbreitungsgrad.
+Darüber hinaus werden die Herausforderungen und Hürden
+identifiziert, die der Realisierung der Potentiale entgegenstehen, und Empfehlungen zum Abbau solcher Hürden
+aufgezeigt.
+
+
+Zusammenfassend lässt sich sagen, dass der aktuelle Stand
+der Nutzung Digitaler Zwillinge für den maritimen Aftersales-Service sich in der Regel auf einzelne prototypische
+Entwicklungen beschränkt. Die Branche hat kein einheitliches
+Verständnis zur Definition Digitaler Zwillinge, sieht allerdings
+Potential in diesem Bereich und erwartet in den nächsten
+Jahren eine fortschreitende Verbreitung maritimer Digitaler
+Zwillinge. Dabei muss jedoch klar der zu erzielende Nutzen im
+Vordergrund stehen. Der Digitale Zwilling ist kein Selbstzweck.
+Die Amortisation der Anfangsinvestition ist eine entscheidende
+Voraussetzung für die Umsetzung und es werden neue Formen
+der Kooperation zwischen verschiedenen Akteuren, insbesondere im Hinblick auf die Datenbereitstellung, sowie Standards
+erforderlich.
+
+
+**3**
+
+
+Inhalt
+
+
+**4**
+
+
+**5**
+
+
+Einführung und Zielsetzung
+
+## 1. Einführung und Zielsetzung
+
+
+
+Die digitale Transformation hat auch in der maritimen Wirtschaft, wie in nahezu allen Branchen, Einzug gehalten. In
+diesem herausfordernden Marktumfeld entwickeln sich sowohl
+die fortschreitende Digitalisierung an Bord und Land als auch
+die verbesserten Möglichkeiten des Datenaustauschs zwischen
+Schiff und Land als zentrale Treiber, welche die maritime
+Industrie bereits heute maßgeblich prägen. Das Zusammenspiel
+von physischen und digitalen Bereichen unter dem Schlagwort
+»Industrie 4.0« bietet in vielen Sektoren große Vorteile. Auch
+in der maritimen Wirtschaft verspricht die zunehmende Datenverfügbarkeit und -qualität in Kombination mit innovativen
+Funktionalitäten intelligenter, vernetzter Systeme die Chance,
+die Prozesseffizienz und Produktivität im Schiffsbetrieb und
+-bau zu steigern und mit neuen digitalen Leistungsangeboten
+zusätzlichen Kundennutzen zu generieren.
+
+
+Einen zentralen Trend in diesem Umfeld stellt das Konzept
+des »Digitalen Zwillings« dar. Dabei handelt es sich um
+einen Datenspeicher, der verschiedene Aspekte eines oder
+mehrerer physischer Objekte möglichst umfassend über den
+gesamten Lebenszyklus bereitstellt. Ein Digitaler Zwilling kann
+dabei unter anderem Produktionsdaten, Betriebsdaten und
+3D-Modelle beinhalten. Der zentrale Mehrwert von Digitalen
+Zwillingen entsteht durch die Verknüpfung und Nutzung der
+Informationen dieser Datenbasis für konkrete Anwendungsfälle. So können beispielsweise Sensordaten aus der Betriebsphase von technischen Anlagen mit Vorgaben aus dem
+Schiffsentwurf und der Inbetriebnahme verglichen werden, um
+Störungen im Schiffsbetrieb frühzeitig zu identifizieren.
+
+
+Ähnlich wie in vergleichbaren Branchen lässt sich auch in
+der maritimen Industrie beobachten, dass viele Akteure den
+Begriff Digitaler Zwilling bereits gehört haben. Ein einheitliches
+Verständnis über den Fachbegriff und die dahinter liegenden
+Konzepte existiert allerdings noch nicht. Aus diesem Grund
+ist das erste Ziel dieser Ausarbeitung aufzuzeigen, worum es
+sich bei einem Digitalen Zwilling im Allgemeinen handelt und
+welche Kernaspekte hierfür charakteristisch sind.
+
+
+**6**
+
+
+
+Digitale Zwillinge werden bisher vorrangig in produktionsnahen Bereichen eingesetzt. Allerdings bietet das Konzept
+des Digitalen Zwillings auch im Bereich Aftersales-Service die
+Möglichkeit, Potentiale der Industrie 4.0 gewinnbringend
+zu nutzen. Um aufzuzeigen, wie das Potential von Digitalen
+Zwillingen in der Praxis genutzt werden kann, wird in dieser
+Ausarbeitung ein Überblick über mögliche Anwendungsfälle
+durch konkrete Beispiele bereitgestellt. Dabei wird der Fokus
+vorrangig auf den Schiffbau und Schiffsbetrieb gelegt.
+
+
+Kern der Ausarbeitung bilden Experteninterviews mit Führungskräften von Akteuren aus der maritimen Branche, die
+einen Überblick über den Stand des Wissens und die Umsetzung in Bezug auf Digitalisierung und Digitale Zwillinge
+gewähren. Durch die Darstellung der wichtigsten Erkenntnisse aus diesen Gesprächen soll dem Leser ein Einblick in das
+gegenwärtige Meinungsbild ausgewählter Akteure gegeben
+werden.
+
+
+Das letzte Ziel dieser Arbeit ist es, Handlungsbedarfe zur
+Umsetzung von maritimen Digitalen Zwillingen aufzuzeigen,
+die auf den Ergebnissen der Experteninterviews aufbauen.
+Zudem wird ein Ausblick darüber gegeben, wie das Potential von Digitalen Zwillingen in Zukunft umfassender genutzt
+werden kann.
+
+
+## 2. Grundlegende Aspekte des Digitalen Zwillings
+
+### 2.1 Definition und Kernaspekte
+
+
+
+Im Kontext der Industrie 4.0 schreitet die Digitalisierung von
+Aktivitäten über den gesamten Lebenszyklus von Objekten
+fortlaufend voran. Auch die stetig wachsenden Einsatz- und
+Kommunikationsmöglichkeiten von Sensoren führen dazu,
+dass zu einem Objekt assoziierte Daten immer umfänglicher
+erhoben werden können. Infolge dieser Entwicklungen werden
+beispielsweise Sensordaten von Maschinen, Wartungsberichte,
+3D-Modelle und Fehlermeldungen in wachsender Frequenz
+und Qualität erfasst. Die digitale Verfügbarkeit derartiger
+Daten bietet die Möglichkeit, innovative Lösungen zu entwickeln und anzubieten.
+
+
+Um neuartige Mehrwerte zu erschließen, werden jedoch häufig
+Daten benötigt, die sich hinsichtlich ihrer Art, ihres Erfassungszeitpunks und ihres Formats unterscheiden. Branchenübergreifend ist zu beobachten, dass die für komplexe Anwendungsfälle
+
+
+**1** Customer-Relationship-Management
+
+
+**2** Enterprise-Resource-Planning
+
+
+**8**
+
+
+
+benötigten Daten häufig in nicht-verknüpften Systemen vorliegen, beispielsweise in CRM [1] - oder ERP [2] -Systemen, Datenbanken
+oder nur lokal bei einer zuständigen Stelle. Solche Insellösungen
+erhöhen den Aufwand der Datenzusammenstellung enorm und
+erschweren es neue Lösungen zu konzipieren.
+
+
+Um diesen Herausforderungen zu begegnen, stellen Digitale
+Zwillinge ein **Konzept zur ganzheitlichen Informations-**
+**bereitstellung und -nutzung** dar. Allerdings wird der Begriff
+des Digitalen Zwillings sowohl in der Praxis als auch in der
+wissenschaftlichen Literatur nicht einheitlich verwendet – allein
+in der wissenschaftlichen Literatur wurden bislang mehr als 20
+Definitionen vorgestellt. Kern der unterschiedlichen Auslegungen ist jedoch der Gedanke, dass es sich bei einem Digitalen
+Zwilling um das **virtuelle Abbild eines realen, eindeutig**
+**zuordenbaren Objekts** handelt. Die Art des Objekts, für das
+
+
+ein Digitaler Zwilling verwendet werden kann, ist sehr vielfältig. Beispielsweise können Digitale Zwillinge für eine virtuelle
+Repräsentation von physischen Produkten, Anlagen, Prozessen
+oder auch Services erstellt werden.
+
+
+Manche Akteure stellen sich einen Digitalen Zwilling als interaktives Modell eines Objekts, beispielsweise eines Schiffs oder
+einer spezifischen Anlage, vor. Dabei ist bereits an dieser Stelle
+hervorzuheben, dass ein Digitaler Zwilling weit über z.B. ein
+rein digitales 3D-Modell des zugehörigen Objekts hinausgeht.
+Vielmehr ist ein Digitaler Zwilling als eine **Sammlung von**
+**verschiedenartigen, mit dem Objekt verknüpften Daten**
+**sowie zugehörigen Daten- und Prozessmodellen** zu verstehen. Diese Datensammlung kann ein 3D-Simulationsmodell
+beinhalten, muss es aber nicht.
+
+
+
+Grundlegende Aspekte des Digitalen Zwillings
+
+
+Ein Digitaler Zwilling erfüllt drei Hauptfunktionen: **Bereitstel-**
+**lung, Verknüpfung und Nutzung von Informationen.** Die
+Grundfunktion der Informationsbereitstellung beschreibt die
+Fähigkeit, auf so viele relevante Informationen wie nötig **über**
+**das zugehörige reale Objekt** zugreifen zu können. Um die
+verschiedenen Arten von Informationen miteinander in Beziehung zu setzen, ist es in der Regel notwendig, heterogene
+Daten miteinander zu verknüpfen. Dabei kann es erforderlich
+sein, dass die aus unterschiedlichen Systemen stammenden
+Daten standardisiert werden müssen, um eine gemeinsame
+Verarbeitung zu ermöglichen. Die verknüpften Daten können
+anschließend für verschiedene Anwendungsfälle genutzt
+werden, um einen konkreten Mehrwert zu generieren. Die
+Bereitstellung und Verknüpfung von Informationen eines realen
+Objekts durch seinen Digitalen Zwilling kann dabei als Mittel
+
+
+
+
+
+**Digitaler Zwilling**
+
+
+**Datennutzung**
+
+
+|Col1|Col2|
+|---|---|
+|Datenzugriff|Datenzugriff|
+
+
+|Col1|Datenve|
+|---|---|
+|Datenzugriff|Datenzugriff|
+
+
+
+
+
+
+
+_Abbildung 1: Funktionen eines Digitalen Zwillings: Bereitstellung, Verknüpfung und Nutzung von Daten [eigene Darstellung]_
+
+
+
+**9**
+
+
+Grundlegende Aspekte des Digitalen Zwillings
+
+
+zum Zweck betrachtet werden. Erst die **Schaffung eines**
+**Mehrwerts** durch die Nutzung von Informationen für **konkre-**
+**te Anwendungsfälle** legitimiert den Einsatz Digitaler Zwillinge.
+Abbildung 1 stellt die zentralen Funktionen eines Digitalen Zwillings – Datenbereitstellung, -verknüpfung und -nutzung – dar.
+
+
+Laut einer Studie des Fraunhofer IPK und msg bestehen Digitale
+Zwillinge aus drei Komponenten [22]. Die erste Komponente
+bildet der »Digitale Master«, der die Stammdaten des zugehörigen Objekts als auch alle **Modelle und Informationen**
+**aus der Planungsphase** beinhaltet. Der Digitale Master kann
+zusätzlich zu grundlegenden Objektinformationen, wie Objekttyp (z.B. Motor) und Eigenschaften (Gewicht, Herstellungsjahr),
+auch Materialstücklisten oder CAD [3] -Modelle umfassen. Die
+zweite Komponente bildet der »Digitale Schatten«. Dieser beinhaltet hauptsächlich **Betriebs-, Prozess- und Zustandsdaten**
+
+
+
+**aus dem gesamten Lebenszyklus** des zugehörigen Objekts.
+Dabei kann es sich beispielsweise um übermittelte Sensordaten,
+durchgeführte Servicearbeiten oder Produktionsdaten handeln.
+Der Digitale Master und Digitale Schatten bilden zusammen die
+**Datenbasis des Digitalen Zwillings.**
+
+
+Die dritte, für die Wertschöpfung zentrale, Komponente bildet
+die Verknüpfung von Informationen aus Digitalem Master und
+Digitalem Schatten, um **Lösungen für spezifische Anwen-**
+**dungsfälle** zu schaffen [22]. Während sich Digitale Zwillinge
+branchenübergreifend häufig in der Hinsicht ähneln, dass
+sowohl Digitale Master- und Digitale Schattendaten bereitgestellt und verknüpft werden, sind die darauf aufbauenden
+Anwendungen sehr vielfältig im Hinblick auf ihre Art und Komplexität. Abbildung 2 stellt beispielhaft die Komponenten eines
+Digitalen Zwillings für einen Motor schematisch dar.
+
+
+
+**Digitaler Zwilling**
+
+
+
+
+
+
+|Col1|Col2|Intelligente Verknüpfung<br>• Zustandsüberwachung<br>• Objektlokalisierung<br>• Wartungsunterstützung<br>• Produktoptimierung<br>• ...|Col4|
+|---|---|---|---|
+||•	 Wartungsun<br>•	 Produktopti<br>•	 ...|•	 Wartungsun<br>•	 Produktopti<br>•	 ...|ng|
+|**Digitaler Master**<br>•	 Motorstammdaten<br>•	 CAD Modell<br>•	 Materialstücklisten<br>•	 Produktionsdaten<br>•	 Informationen der Inbetriebnahme<br>•	 ...|**Digitaler Master**<br>•	 Motorstammdaten<br>•	 CAD Modell<br>•	 Materialstücklisten<br>•	 Produktionsdaten<br>•	 Informationen der Inbetriebnahme<br>•	 ...|**Digitaler Master**<br>•	 Motorstammdaten<br>•	 CAD Modell<br>•	 Materialstücklisten<br>•	 Produktionsdaten<br>•	 Informationen der Inbetriebnahme<br>•	 ...|**Digitaler Master**<br>•	 Motorstammdaten<br>•	 CAD Modell<br>•	 Materialstücklisten<br>•	 Produktionsdaten<br>•	 Informationen der Inbetriebnahme<br>•	 ...|
+
+
+
+
+
+
+
+_Abbildung 2: Komponenten eines Digitalen Zwillings am Beispiel eines Motors [eigene Darstellung]_
+
+
+**3** Computer-aided Design
+
+
+**10**
+
+
+Ein zentraler Punkt der Definition des Digitalen Zwillings
+ist, dass das virtuelle Abbild einem konkreten realen Objekt
+zugeordnet werden kann. Dabei kann sich der Digitale Zwilling
+eines Objekts aus mehreren Digitalen Zwillingen von Teilsystemen des Objekts zusammensetzen. So besteht beispielsweise
+der umfassende Digitale Zwilling eines konkreten Schiffs unter
+anderem aus den Digitalen Zwillingen der Motoren, der Brückensysteme, der Lagersysteme und vielen weiteren. Dabei ist
+allerdings zu betonen, dass ein Digitaler Zwilling das zugehörige reale Objekt im Regelfall nicht vollständig abbilden kann
+bzw. es auch aus wirtschaftlichen und technischen Gesichtspunkten nicht zielführend ist, alle zugehörigen Aspekte zu
+erfassen. Vielmehr ist herauszustellen, dass **die Erschaffung**
+**von Digitalen Zwillingen zweckorientiert** **erfolgt** und
+daher nur solche Informationen erfasst werden, die für konkrete Anwendungsfälle benötigt werden. Dennoch ist es auch
+sinnvoll, ausgewählte ungenutzte Daten im Digitalen Zwilling
+zu erfassen, um neuen Anwendungen die Möglichkeit zu
+geben, diese Daten in Zukunft zu nutzen.
+
+
+Die Nutzung der Informationen im Digitalen Zwilling muss
+sich nicht auf das zugehörige Objekt beschränken. Beispielsweise ist es im Rahmen des Digitalen Zwillings auch möglich Betriebs- und Prozessdaten eines konkreten Objekts zu
+verwenden, um die Entwicklung von zukünftigen Produkten
+zu unterstützen. Zusätzliche Mehrwerte kann auch die Verknüpfung von Digitalen Zwillingen von mehreren Objekten
+hervorbringen. So können Digitale Zwillinge mehrerer (Schwester-) Schiffe kombiniert werden, um verschiedene Analysen
+durchzuführen, um beispielsweise Betriebsprofile zu erstellen
+
+
+
+oder Zusammenhänge und Gegensätze zu erkennen. Die Verknüpfung und gemeinsame Nutzung Digitaler Zwillinge unterschiedlicher Objekte wird auch »System of Twins« genannt.
+
+
+Bei einem Digitalen Zwilling handelt es sich in der Praxis häufig
+nicht um eine eigenständige Softwarekomponente, die alle
+Datenquellen und Anwendungen beinhaltet. Um die relevanten Funktionen zu erfüllen, fungiert ein Digitaler Zwilling
+üblicherweise als das Verbindungsglied mehrerer Insellösungen und bietet somit die Möglichkeit, durch die gesamtheitliche Anbindung verschiedenartige Daten aus dem gesamten
+Lebenszyklus des zugehörigen Objekts zu nutzen. Bei einem
+Digitalen Zwilling handelt es sich somit um ein idealtypisches
+Datenmanagement über den gesamten Produktlebenszyklus, wodurch es ermöglicht wird zusätzliche Mehrwerte zu
+generieren.
+
+
+Darüber hinaus können digitale Zwillinge auch die Kooperation zwischen verschiedenen Akteuren fördern. Beispielsweise
+können die Analysefunktionen eines Digitalen Zwillings eine
+Digitale Schiffsakte nutzen, in der relevante Dokumente wie
+Formulare, Rechnungen, Zertifikate und Protokolle gespeichert
+sind. Der globale Zugriff auf Teile dieser Schiffsakte durch verschiedene Akteure kann darüber hinaus betriebliche Abläufe
+erleichtern und die Kommunikation vereinfachen. Ebenso
+können unternehmensübergreifende digitale Plattformen mit
+Informationen aus verschiedenen Digitalen Zwillingen gespeist
+werden. Derartige unternehmensübergreifende Plattformen
+werden häufig auch unter dem Begriff »Digital Thread«
+entwickelt.
+
+
+**11**
+
+
+### 2.2 Digitale Zwillinge im Produktlebenszyklus
+
+
+
+Um das Potential des Digitalen Zwillings in vollem Umfang
+nutzen zu können, ist es sinnvoll, alle Daten aus den verschiedenen Produktphasen von der Konzeption bis zur späteren
+Entsorgung des dazugehörigen Objekts zu berücksichtigen. In diesem Zusammenhang wird zunächst das Konzept
+des Produktlebenszyklus im Allgemeinen erörtert und
+anschließend der Bezug zum Einsatz des Digitalen Zwillings
+hergestellt.
+
+
+Der Produktlebenszyklus ist ein betriebswirtschaftliches
+Konzept, das die idealtypische Entwicklung eines Produkts
+oder einer Dienstleistung von der Markteinführung bis zum
+-austritt mit jeweils unterschiedlichen Ertragslagen auf der
+Basis einer Lebenskurve abbildet. Er dient der Analyse der
+Wettbewerbsposition eines Produkts oder einer Dienstleistung auf einem Markt und bildet damit den Ausgangspunkt für die Einleitung von produktpolitischen Maßnahmen
+
+[12]. Vergleichbar mit biologischen Zyklen durchläuft ein
+Produkt oder eine Dienstleistung dabei im Laufe seines
+
+
+**12**
+
+
+
+Lebens verschiedene Stadien, von der Geburt (Produkteinführung) bis zum Tod (Degeneration mit anschließender
+Produktelimination).
+
+
+Das Konzept des Produktlebenszyklus kann auch auf den
+Digitalen Zwilling übertragen werden. Die Abbildung 4
+veranschaulicht die Verbindung zwischen Digitalen Masterund Digitalen Schattendaten mit den entsprechenden
+Lebenszyklusphasen.
+
+
+Durch die Verknüpfung der Informations- und Datenströme im
+Rahmen einer ganzheitlichen Betrachtung des Produktlebenszyklus lassen sich neue Nutzungsmöglichkeiten für Digitale
+Zwillinge erschließen, die im Folgenden beispielhaft beschrieben werden.
+
+
+Bereits in der Lebensanfangsphase können Simulationen
+mit dem Digitalen Zwilling im Rahmen der Konzeption und
+Entwicklung Rückschlüsse darauf geben, ob gewünschte
+
+
+Grundlegende Aspekte des Digitalen Zwillings
+
+
+
+
+
+
+
+_Abbildung 3: Der Digitale Zwilling im Kontext der Lebenszyklusphasen [eigene Darstellung]_
+
+
+
+Eigenschaften und Funktionen eines späteren Objekts oder
+Prozesses erfüllt werden können. Auf diese Weise lassen sich
+z.B. Designoptimierungen bereits in der Entwicklungsphase
+vornehmen, sodass Prototypentests zumindest teilweise durch
+Simulationen am Digitalen Zwilling ersetzt werden können.
+Auf diese Weise lassen sich in der Entwicklungsphase sowohl
+Kosten als auch Zeit einsparen.
+
+
+Darüber hinaus kann der Digitale Zwilling auf Basis von Daten
+aus dem realen Betrieb bereits im Einsatz befindlicher Produkte
+Rückschlüsse auf das Nutzungsverhalten und die Funktionalität zukünftiger Produkte oder Systeme liefern, die bei der
+Konzeption und Entwicklung neuer Produkte entsprechend
+berücksichtigt werden können. Dies ermöglicht die frühzeitige
+Identifikation und Umsetzung von Optimierungspotenzialen im
+Rahmen der Produktneuentwicklung [1].
+
+
+Die Kombination von Echtzeitdaten und Simulationsmodellen
+in der Lebensnutzungsphase ermöglicht es zusätzlich, mit Hilfe
+
+
+
+virtueller Sensoren neue Erkenntnisse über normalerweise
+nicht zugängliche Stellen eines realen Objekts zu erhalten [1].
+Die umfassende Nutzung eines Digitalen Zwillings kann somit
+zu einem geschlossenen Feedbackkreislauf in einer virtuellen
+Umgebung führen, der es einem Unternehmen ermöglicht,
+ihre Produkte und Fertigung bei geringem Kostenaufwand
+kontinuierlich zu optimieren [27].
+
+
+Zusammenfassend lässt sich konstatieren, dass die Einführung Digitaler Zwillinge den klassischen Produktlebenszyklus
+erweitert und ihm neue Dimensionen hinzufügt. Die Herausforderung besteht darin, den Lebenszyklus des Digitalen Zwillings und den Produktlebenszyklus aufeinander abzustimmen
+und mit entsprechenden produktpolitischen Maßnahmen zu
+vereinbaren.
+
+
+Konkrete Anwendungsbeispiele für maritime Umsetzungen des
+Digitalen Zwillingen entlang des Produktlebenszyklus werden
+in Abschnitt 3.3 betrachtet.
+
+
+**13**
+
+
+Grundlegende Aspekte des Digitalen Zwillings
+
+#### 2.2.1 Aktueller Stand der Technik
+
+
+
+Aufgrund der Vielzahl an Definitionen und der außerdem
+überbordenden Bandbreite an möglichen Anwendungsfeldern
+des Digitalen Zwillings steht eine vollumfängliche wissenschaftliche Beschreibung des Stands der Technik über alle Lebenszyklusphasen und Branchen hinweg nicht im Fokus dieser
+Ausarbeitung.
+
+
+Weiterhin gibt es eine solche Fülle an – beworbenen und in der
+Umsetzung befindlichen – Projekten zum Thema des Digitalen Zwillings, dass eine solche Arbeit Gefahr liefe, schon bei
+Abschluss der Betrachtung obsolet zu sein. Digitale Zwillinge
+sind aktuell in allen Bereichen ein Forschungs- und Entwicklungsfeld, in dem stetig neue Publikationen entstehen. Es
+kommt erschwerend hinzu, dass viele Anwendungen zwar den
+formalen Anforderungen an einen Digitalen Zwilling genügen,
+aber nicht als solcher identifiziert werden.
+
+
+Daher wird im Folgenden anhand von prominenten Leuchtturmprojekten der Versuch unternommen eine Abschätzung zu
+treffen, die den Digitalen Zwilling in seiner erreichten Umsetzungstiefe betrachtet.
+
+
+Im Bereich der Prozessoptimierung und -darstellung von Fabriken im Sinne einer »Digital Factory« ist Siemens als einer der
+führenden Akteure in der deutschen und weltweiten Umsetzung von Digitalen Zwillingen zu erkennen. Eines der langlaufenden Projekte ist die Umsetzung eines Digitalen Zwillings von
+Siemens für die Anlagenentwicklung des Maschinenherstellers
+Bausch und Ströbel. Seit 2012 wird in dieser Firma ein Digitaler
+Zwilling für die effiziente Anlagenentwicklung implementiert.
+Kumuliert ist dieses in einer konsequenten Integration von VRTechnologien und digitalen Simulationsverfahren für Anlagen,
+die eine virtuelle Darstellung der gebauten Verpackungsanlagen ermöglichen, etwa in einem transportablen Virtual Reality
+Center [26], [3].
+
+
+Ebenfalls unter der Mitarbeit von Siemens entsteht in den
+US-Navy-Häfen grade das wohl umfangreichste und ambitionierteste Projekt für die Umsetzung eines maritimen Digitalen
+Zwillings [28].
+
+
+Ziel dabei ist es, im Rahmen des 2018 angelaufenen Shipyard
+Infrastructure Optimization Program Werft- und Hafenanlagen
+der US-Marine zu optimieren. Mit einer Förderung von 21 Mrd.
+Dollar und einer 20-jährigen Laufzeit ist das Projekt angelegt
+eine neue Dimension der Integration Digitaler Zwillinge zu
+erforschen [14]. Die militärische Forschung lässt jedoch aus
+Sicherheitsbedenken keine umfassenden Einblicke in den
+Stand des Ausbaus zu, weshalb sich in diesem Projekt keine
+
+
+**14**
+
+
+
+eindeutige Abschätzung über den Stand der dort eingesetzten
+Technologie treffen lässt.
+
+
+Eine kommerziell verfügbare Umsetzung des Digitalen Zwillings
+ist mittlerweile jedoch auch schon von Firmen wie Digital Twin
+Marine als nachrüstbare Systemlösung für gebaute Schiffe
+verfügbar. Dabei werden die eventuell fehlenden strukturellen
+Daten des Schiffs durch 3D-Messungen As-Built erstellt und
+in ein anwendungsfähiges Datenmodell übertragen, welches
+anschließend mit weiteren Datenbanken im Sinne eines Digitalen Masters und Schattens verknüpft werden kann.
+
+
+Ebenfalls in kommerzieller Verwendung befindet sich das P&O
+Ferries digital twin performance monitoring system bei dem
+schon heute unter der Einbeziehung von We4Sea als Technologiepartner ein Digitaler Zwilling einer Fähre aufgebaut wird
+und die erhobenen Daten zur Analyse und Optimierung des
+Kraftstoffverbrauchs der Fähre genutzt werden [19].
+
+
+Aus diesen und anderen, teilweise im Verlauf dieser Ausarbeitung betrachteten, Beispielprojekten kann der Schluss gezogen
+werden, dass der Digitale Zwilling als technische Innovation
+zwar in Insel- und Leuchtturmprojekten schon umgesetzt wird,
+aber hinsichtlich seiner konzeptionellen Rolle als Eckstein der
+Industrie 4.0 noch in einer sehr frühen Phase steckt [11]. Deutlich wird weiterhin, dass sich in den bisherigen Umsetzungen
+ein Fokus auf die Lebensnutzungsphase zeigt. Eine Erweiterung auf Projekte in der Lebensendphase hat erwartungsgemäß noch nicht begonnen, da das Forschungsgebiet noch jung
+ist, sodass wenige bis keine Projekte in die Lebensendphase
+eingetreten sind. Es ist jedoch schon jetzt absehbar, dass eine
+konsequente Datensammlung und Bestandsaufnahme der
+Zustände und Umstände eines Produkts mit einem Digitalen
+Zwilling die fachgerechte und umweltgerechte Entsorgung
+erleichtern wird und somit einen wichtigen Teil zur Nachhaltigkeit beitragen kann [22].
+
+
+Grundlegende Aspekte des Digitalen Zwillings
+
+
+**15**
+
+
+Grundlegende Aspekte des Digitalen Zwillings
+
+#### 2.2.2 Aktuelle Anwendungen im Produktlebenszyklus
+
+
+
+Im Rahmen der vorliegenden Ausarbeitung soll nicht nur
+ein Überblick über die Begrifflichkeiten und Definitionen
+im Kontext Digitaler Zwillinge gegeben, sondern auch
+aktuelle Umsetzungen aufgeführt und mögliche Anwendungsbereiche aufzeigt werden. Zu unterscheiden ist hier
+zwischen bereits implementierten Anwendungen und dem
+generellen Potential Digitaler Zwillinge zur zusätzlichen
+Mehrwertgenerierung.
+
+
+Auf Basis der Phasen des Produktlebenszyklus fasst Tabelle 1
+die wesentlichen Einsatzbereiche, insbesondere aus der
+Lebensanfangs- und Lebensendphase, zusammen und bewertet diese im Hinblick auf den Digitalisierungsgrad: von noch
+nicht vollständig digitaler Umsetzung über digitale Prozesse
+ohne Einsatz Digitaler Zwillinge zu erfolgreich implementierten Digitalen Zwillingen. Die angegebenen Quellen enthalten
+
+
+
+sowohl wissenschaftliche als auch praktische Umsetzungsbeispiele, sodass ein Querschnitt des aktuellen Stands der Verbreitung Digitaler Zwillinge in der maritimen Branche präsentiert
+wird.
+
+
+Der Teilbereich des maritimen Aftersales wird im späteren Verlauf fokussiert, da produktbegleitende Dienstleistungen den
+Einsatz des eigentlichen Produktes beim Kunden optimieren,
+zur Differenzierung zwischen Wettbewerbern beitragen und
+nachhaltige Problemlösung über den gesamten Produktlebenszyklus hinweg generieren können. Hier erfolgt an dieser
+Stelle eine Eingrenzung auf die Lebensnutzungsphase, obwohl
+Aftersales-Services auch in anderen Lebensphasen zum Einsatz
+kommen können. Digitale Zwillinge können dabei insgesamt
+ein Werkzeug sein, um entsprechende Aftersales-Services zu
+forcieren.
+
+
+**Tabelle 1: Umsetzungsbeispiele und Potentiale Digitaler Zwillinge (DZ) in Lebensanfangs- und Lebensendphase**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**17**
+
+
+
+
+
+
+### 2.3 Digitale Zwillinge im Branchenvergleich
+
+
+
+Dieser Abschnitt widmet sich der Umsetzung und Anwendung
+des Digitalen Zwillings in ausgewählten Branchen und dient
+damit als Basis zur entsprechenden Einordnung des Umsetzungsstands des maritimen Digitalen Zwillings. Es werden
+die Branchen Bau-, Automobilwesen und Luftfahrt betrachtet sowie jeweils exemplarische Anwendungsbereiche des
+
+
+
+Digitalen Zwillings aufgezeigt. Tabelle 2 gibt einen Überblick
+über ausgewählte Merkmale der hier betrachteten Branchen.
+Dabei wird zwischen der Art der Fertigung, der Geschäftsbeziehung zwischen Hersteller und Kunde sowie dem primärem
+Anwendungsfokus des Digitalen Zwillings nach Produktlebenszyklusphase unterschieden.
+
+
+
+**Tabelle 2: Vergleich ausgewählter Branchen mit Anwendungsgebieten des Digitalen Zwillings**
+
+
+**Branche** **Fertigungsart** **Primäre Geschäftsbeziehung** **Anwendungsfokus Digitaler Zwilling**
+
+Bauwesen Einzelfertigung B2B, B2C Planung & Design
+
+Automobil Serienfertigung B2C Design, Simulation & Produktion
+
+Luftfahrt Kleinserienfertigung B2B Betrieb & Wartung
+
+
+**18**
+
+
+#### 2.3.1 Baubranche
+
+Das Bauwesen weist große Ähnlichkeiten mit dem Schiffbau
+auf. In beiden Branchen wird der Großteil der Produkte auf
+Bestellung gefertigt, wobei der relevante Kundenkreis oftmals
+aus fachkundigen Geschäftskunden, Konzernen oder Großunternehmen besteht.
+
+
+Wie auch in anderen Industriezweigen zu beobachten ist, gibt
+es in der Bauindustrie Bestrebungen, die durchgängige Nutzung
+eines digitalen Modells über den gesamten Lebenszyklus eines
+Gebäudes zu realisieren. In der Praxis wird hierfür das sogenannte
+Building Information Modeling (BIM) verwendet, das der digitalen Abbildung der physikalischen und funktionalen Eigenschaften
+eines Bauwerks entspricht [2]. Diese Gebäudemodellierung hilft
+Architekten, Ingenieuren und anderen Baufachleuten, Gebäude
+in 3D zu visualisieren, bevor der Bauprozess begonnen hat.
+
+
+Dabei ermöglicht der Einsatz von BIM über eine zentrale digitale Abbildung des zu errichtenden Gebäudes eine Steigerung
+der Planungseffizienz und -qualität, indem die zeitaufwändige
+und fehleranfällige Mehrfacheingabe von Informationen in verschiedenen Systemen entfällt und ein verbesserter Datenaustausch zwischen den involvierten Akteuren der verschiedenen
+Fachdisziplinen ermöglicht wird [4].
+
+
+BIM kann in allen Phasen des Lebenszyklus eingesetzt werden,
+von der Planung über den Bau bis hin zum Betrieb und Abriss
+eines Gebäudes. Konkrete Anwendungen sind in diesem
+Zusammenhang Beleuchtungsanalysen, Evakuierungssimulationen, Koordination der Baustellenlogistik, Gebäudeüberwachung und Predictive Maintenance oder Facility Management.
+
+
+#### 2.3.2 Automobilbranche
+
+Die Fertigung der Automobilindustrie ist, ähnlich wie der
+Schiffbau, durch eine Vielzahl von spezifischen Management-Tools und Datenbanken unterschiedlicher Anbieter
+gekennzeichnet, die bezüglich Datenmodellen, Schnittstellen, Prozessen und Organisationseinheiten oftmals ein
+hohes Maß an Heterogenität aufweisen. Dies erschwert die
+Nachverfolgung einzelner Informationen über den gesamten
+Produktlebenszyklus.
+
+
+Um diesen Herausforderungen zu begegnen, wird in der
+Automobilindustrie zunehmend auf das Konzept des Digitalen
+Zwillings gesetzt. Der Digitale Zwilling bietet Schnittstellen
+für unterschiedliche Modelle und Daten auf verschiedenen
+Granularitätsstufen und gewährleistet deren Konsistenz [13].
+Kombinierte Instanzen Digitaler Zwillinge können darüber
+hinaus genutzt werden, um relevante Daten zu sammeln, neue
+Methoden zu testen und das Endprodukt zu optimieren oder
+auf Fehler zu überprüfen. Dies ermöglicht die Übertragung
+und Nutzung von Informationen aus einer Phase des Produktlebenszyklus in anderen Phasen. So können beispielsweise
+Defekte während des Betriebs eines Fahrzeugs wichtige Rückschlüsse für die Designphase eines neuen Fahrzeugmodells
+liefern.
+
+
+Zu weiteren Einsatzgebieten von Digitalen Zwillingen in der der
+Automobilbranche zählen unter anderem die Bereiche Designvalidierung, Vorhersage von Fahrzeugwartungszeiten, Optimierung der Kraftstoffeffizienz oder Fahrzeugleistungstests [29].
+
+
+#### 2.3.3 Luftfahrtbranche
+
+Die Luftfahrtindustrie ist wie die Schifffahrt durch ein hohes
+Maß an technischer und betrieblicher Komplexität gekennzeichnet und umfasst ein vielschichtiges Ökosystem mit
+unterstützender Infrastruktur. Eingebettet in dieses System ist
+das sogenannte Digitale Flugzeug, die virtuelle Repräsentation
+eines Flugzeugs mit seinen geometrischen und physikalischen
+Eigenschaften unter Verwendung numerischer Simulationsmodelle und -tools. Ziel ist es, die Konsistenz aller digitalen
+Daten und Modelle während des gesamten Lebenszyklus eines
+Flugzeugs zu erreichen – vom Entwurf über die Produktion und
+den Betrieb bis hin zur Stilllegung. Um dies zu erreichen, ist die
+Abkehr von Dateninseln, bei denen die Daten in verschiedenen
+Abteilungen und lokal bei externen Dienstleistern gespeichert
+sind, hin zu standardisierten Schnittstellen und Datenformaten
+von elementarer Bedeutung [23].
+
+
+Bislang liegt der Fokus von Digitalen Zwillingen in der Luftfahrt vor allem auf den Bereichen Performance Monitoring
+und Wartung. Dazu gehört zum Beispiel ein flottenweites
+
+
+
+Grundlegende Aspekte des Digitalen Zwillings
+
+
+Benchmarking, das Anomalien in den Betriebsparametern der
+Flugzeuge identifiziert. Diese bilden den Ausgangspunkt für
+die Einleitung von entsprechenden Korrekturmaßnahmen. Zu
+diesem Zweck betreibt beispielsweise der Flugzeughersteller
+Airbus eine eigene Plattform namens Skywise [34], die Daten
+von rund 9.500 Flugzeugen und mehr als 140 Fluggesellschaften sammelt. Um einen möglichst umfassenden Überblick über
+das Produkt Flugzeug zu erhalten, sind neben den Fluggesellschaften auch Zulieferer sowie mehr als 150 verschiedene
+Systeme an die Plattform angebunden.
+
+
+Abschließend ist zu konstatieren, dass der Einsatz des Digitalen
+Zwillings in den betrachteten Branchen auf eine digitale Durchgängigkeit aller im Produktlebenszyklus verfügbaren Daten
+abzielt.
+
+
+Das nächste Kapitel befasst sich mit spezifischen Anwendungsfällen des Digitalen Zwillings im maritimen Kontext und diskutiert verschiedene Aftersales-Serviceansätze.
+
+
+
+
+
+
+## 3. Digitale Zwillinge im maritimen Kontext
+
+
+
+Nach einem theoretischen Überblick, der Einordnung
+Digitaler Zwillinge in den Produktlebenszyklus anhand von
+Umsetzungsbeispielen sowie der Präsentation von ähnlichen
+Konzepten in anderen Branchen, wird im Folgenden der
+Fokus auf die maritimen Anwendungsfelder und die Besonderheiten der Branche gerichtet. Um die Randbedingungen
+im Vergleich zu anderen Branchen herauszustellen, werden
+
+
+
+zunächst die maßgeblichen Akteure der Branche benannt
+und deren Wirkungsfeld erläutert. Anschließend wird die
+Bedeutung des maritimen Aftersales hervorgehoben. Mit der
+Aufstellung der Akteursgruppen sowie der bereits umgesetzten Anwendungsfelder können dann im Anschluss grundlegende Thesen durch eine Befragung von Akteuren evaluiert
+werden.
+
+
+### 3.1 Akteure der maritimen Branche
+
+
+
+Im Vorfeld der Ausarbeitung wurden relevante Akteure der
+maritimen Branche ermittelt, die zur Umsetzungstiefe und
+ihren Erfahrungen im Umgang mit Digitalen Zwillingen befragt
+werden.
+
+
+Die **Werften** nehmen als Vertretung des Schiffbaus eine zentrale Rolle in der Branche ein und bieten mit ihrem Know-how
+
+
+**22**
+
+
+
+einen umfassenden Einblick in das Gesamtsystem Schiff. Sie
+koordinieren Zulieferer und Reeder und fungieren dabei als
+Schnittstelle während der Entwurfsphase und als Bauhof
+gleichermaßen. Spezialisiert auf den Nischenmarkt der hochtechnologischen Spezialschiffe und der vorrangig qualitätsorientierten Personenschifffahrt, haben deutsche Werften
+weiterhin einen großen Bedarf an innovativen Lösungen, um
+
+
+ihren technisch operativen Vorsprung in einem sich ständig
+erneuernden Weltmarkt wie dem Schiffbau zu behaupten [5].
+
+
+Die **Zulieferindustrie**, als zweite Akteursgruppe im maritimen
+Sektor, beschäftigt Stand 2020 etwa 63.000 Mitarbeiter in
+rund 400 Betrieben und stellt mit einem Umsatz von rund 10,5
+Mrd. Euro den bedeutendsten Zweig in der maritimen Industrie
+Deutschlands dar.
+
+
+Stärkster Abnehmer sind dabei die **Schiffbaubetriebe** als
+Primärproduktabnehmer, insbesondere im EU-Ausland. Der
+Anteil an Aftersales-Leistungen macht jedoch mit etwa 24%
+des Umsatzes auch am Geschäft der Lieferanten bereits einen
+bedeutenden Anteil aus, mit steigender Tendenz [6, 30].
+
+
+Gerade dieser Teil des Geschäfts hat eine zunehmende Bedeutung in der Wertschöpfung der Produkte und muss gleichzeitig
+mit stetig wachsender Konkurrenz aus Drittländern mithalten.
+Eine konsequente Betrachtung der Vorteile, die eine Verbesserung des Aftersales bietet, ist also besonders in diesem Bereich
+der maritimen Branche zu führen [30].
+
+
+Die **Häfen** als Schnittstelle der maritimen zur landseitigen
+Logistik und Wertschöpfung wurden als eine dritte Säule des
+
+
+
+Digitale Zwillinge im maritimen Kontext
+
+
+betrachteten Industriezweigs identifiziert. Sie bieten eine Vielfalt an Dienstleistungen, besonders im Bereich der Koordination und Logistik.
+
+
+In enger Zusammenarbeit mit den Häfen stehen die **Reeder**
+als Betreiber der Schiffe und als Kundenseite der Aftersalesleistungen der Zulieferer und Schiffbauer. Ihnen ist, für eine
+möglichst effiziente Abwicklung der Speditionsgeschäfte, an
+umfassenden Lösungen im Risikomanagement gelegen, um
+z.B. Ausfallzeiten aufgrund von Komponentenausfällen und
+von vorzuhaltenden Kontingenten an Ersatzteilen zu minimieren. Um solchen Bedarf Rechnung zu tragen sind moderne
+Anwendungskonzepte und Dienstleistungen gefragt.
+
+
+Als letzte Akteure werden die **Behörden**, und mit ihnen
+verbunden die **Verbände und Klassifikationsgesellschaf-**
+**ten**, als integrale Akteure in der Gestaltung, Prüfung und
+Pflege der rechtlichen Rahmenbedingungen aufgeführt. Ohne
+eine Beteiligung der rechtsgebenden und -prüfenden Instanzen und etwaige notwendige Anpassungen der Gesetze und
+Verordnungen kann eine Neuorientierung der Branche nicht
+umgesetzt werden. Besonders dort, wo die Sicherheit von
+Leben und Gütern in Frage steht, müssen diese idealerweise
+schon in der Konzeptphase miteinbezogen werden.
+
+
+
+
+
+_Abbildung 4: Überblick über die Akteure der maritimen Branche [eigene Darstellung]_
+
+
+
+
+
+**23**
+
+
+Digitale Zwillinge im maritimen Kontext
+
+### 3.2 Maritimer Aftersales
+
+
+
+Während sich Maschinen- und Anlagenbauer lange Zeit
+primär durch die Qualität ihrer Produkte erfolgreich am Markt
+behaupten konnten, rücken aus Unternehmenssicht seit Beginn
+der 1990er Jahre verstärkt produktbegleitende Dienstleistungen in den Vordergrund, um sich von Wettbewerbern zu
+differenzieren. Diese Entwicklung ist hauptsächlich durch einen
+zunehmenden globalen Wettbewerbsdruck, sowie durch sich
+immer stärker angleichende Konkurrenzprodukte bedingt.
+Zusätzlich bergen die Entwicklungen der Industrie 4.0 vielfältige Möglichkeiten, um den Einsatz eines Produktes durch
+das Angebot von produktbegleitenden Dienstleistungen zu
+verbessern.
+
+
+Durch diese Entwicklung ist immer häufiger zu beobachten,
+dass es weniger um das Produkt selbst geht, sondern um
+Angebote, die dem Wunsch des Kunden nach einer nachhaltigen Problemlösung über den gesamten Produktlebenszyklus
+hinweg entsprechen.
+
+
+Derartige produktbegleitende Dienstleistungen werden üblicherweise unter dem Begriff Aftersales-Services zusammengefasst. Der Nutzen und Umfang solcher Dienstleistungen ist
+sehr vielfältig und kann sich auf einzelne Phasen des Produktlebenszyklus beschränken oder diesen komplett umspannen.
+Gemeinsam haben Aftersales-Services hingegen, dass sie
+das Produkt beim Kunden zu einem unter wirtschaftlichen
+Gesichtspunkten optimierten Einsatz bringen.
+
+
+Gerade in technologieorientieren Branchen etablieren sich
+Aftersales-Services in zunehmendem Maß als entscheidendes
+Differenzierungskriterium, da ausgereifte Services tendenziell
+schwieriger durch die Konkurrenz zu kopieren sind als technische Eigenschaften von Maschinen und Anlagen.
+
+
+Zusätzlich nimmt der Aftersales-Service in der maritimen Industrie besonders auch aufgrund von langen Lebensdauern, signifikanten Ausfallkosten, einer hohen Individualität sowie zunehmender Komplexität der Systeme eine zentrale Stellung ein.
+
+
+Im Hinblick auf Werften stellt ein ausgeliefertes Schiff ein
+Gefüge aus mehreren Systemen dar. Inwieweit eine Werft
+neben den Gewährleistungsregelungen im Sinne einer Aftersales-Betreuung agiert, ist vom Schiffstyp abhängig. Je spezieller das Schiff, desto mehr ist eine Werft direkt im Aftersales
+involviert. So wird für Wartungs- und Umbauarbeiten bei Yachten (z.B. bei Eignerwechsel) oftmals die Bauwerft konsultiert
+oder die Yacht kehrt zur Bauwerft zurück. Bei Frachtschiffen
+ist die Bindung zur Bauwerft nach der Indienststellung in der
+
+
+**24**
+
+
+
+Regel kaum vorhanden. Wartung, Reparaturen, Retrofits und
+Klasseläufe werden von Dritten durchgeführt.
+
+
+Hinzu kommt, dass der Aftersales für einzelne Systeme des
+Schiffsbetriebs beim jeweiligen Hersteller verortet ist. Mit Blick
+auf die Hauptmaschine(n) z.B. liegen Wartungszyklen, die Handhabung eines Bauteiltausches und eine mögliche Zustandsdatenüberwachung beim Motorenbauer. Die Gruppe der Zulieferer
+stellt damit einen der größten Anbieter an Aftersales-Services
+in der Branche dar, während die Reeder i.d.R. in Bezug auf das
+Flottenmanagement die Kundenperspektive einnehmen.
+
+
+Auch die Industrie 4.0 unterstützt den Paradigmenwechsel
+weg von einer Fokussierung des physischen Produkts und
+des zugehörigen Produktionsprozesses hin zu einer stärkeren
+Betrachtung von produktbegleitenden Dienstleistungen. Durch
+die Möglichkeiten der Industrie 4.0 rückt nun verstärkt die
+Frage in den Vordergrund, wie Daten und Informationen sowie
+deren Austausch und Nutzung über den gesamten Produktlebenszyklus gewinnbringend genutzt werden können.
+
+
+In einer Ausarbeitung des VDMA und des Fraunhofer-Center
+für Maritime Logistik und Dienstleistungen CML wurden sechs
+Handlungsfelder identifiziert, in denen maritime Zulieferunternehmen Betriebsdaten von vernetzten Systemen nutzen
+können, um angebotene Aftersales-Services weiterzuentwickeln oder gänzlich neue Dienstleistungen zu offerieren
+
+[18]. Die Handlungsfelder umfassen sowohl die Analyse von
+Betriebsdaten zur Unterstützung der Produktentwicklung, die
+Betriebsoptimierung und -steuerung, die Zustandsüberwachung und Ferndiagnose, als auch die Möglichkeit Entscheidungs- oder Arbeitsunterstützungssysteme anzubieten.
+
+
+Auch eine Ausarbeitung des VDMA aus dem Jahre 2018 identifizierte Erfolgsfaktoren, die den o.g. Handlungsfeldern zugeordnet werden können [30]. Abbildung 5 zeigt anschaulich, in
+welchen Bereichen der höchste Handlungsbedarf verbunden
+mit der höchsten zukünftigen Bedeutung in den Themenfeldern zu finden sind. Dies sind auf den ersten drei Plätzen die
+Ersatzteilverfügbarkeit, Reaktions- und Lieferzeiten sowie die
+Ausfallzeiten beim Kunden. Die Notwendigkeit der Weiterentwicklung ist der Branche bewusst.
+
+
+Besonders im Bereich der Zustandsüberwachung und Ferndiagnose stellt die Nutzung von leistungsfähigen Datenübertragungssystemen eine zentrale Herausforderung dar. Eine
+umfassende digitale Betreuung von Projekten im RemoteBetrieb ist daher ebenso von der Abdeckung des Einsatzgebietes
+
+
+Digitale Zwillinge im maritimen Kontext
+
+
+Digitale Zwillinge im maritimen Kontext
+
+
+Digitale Zwillinge im maritimen Kontext
+
+
+
+
+
+
+
+
+
+
+
+_Abbildung 5: Erfolgsfaktoren Aftersales [eigene Darstellung nach VDMA]_
+
+
+
+der Produkte mit Datenverkehrsnetzen, die derzeit besonders
+auf Hoher See noch nicht ausreichend ausgebaut sind, um einen
+umfassenden Datentransfer ortsunabhängig zu gewährleisten
+
+[8].
+
+
+Diese Handlungsfelder für die Digitalisierung des maritimen
+Service ergänzen herkömmliche produktbegleitende Dienstleistungen wie Wartung und Instandhaltung, das Angebot von
+Ersatzteilen, die Betreuung des Kunden und die Durchführung
+von Schulungen.
+
+
+
+Trotz vielfältiger Chancen ist eine Fokussierung auf produktbegleitende Dienstleistungen allein kein Patentrezept für
+einen langfristigen Erfolg. Über viele Branchen hinweg ist zu
+beobachten, dass die Bereitstellung von Aftersales-Services
+oft eine größere Komplexität innehat als die Herstellung der
+Primärprodukte selbst. Hinzu kommt, dass in vielen Unternehmen produktbegleitende Dienstleistungen eher historisch
+und aus der Notwendigkeit heraus gewachsen sind, Primärprodukte nach dem Verkauf mit Ersatzteilen und Wartung zu
+versorgen.
+
+
+**27**
+
+
+### 3.3 Maritime Umsetzungen des Digitalen Zwillings
+
+
+
+Es stellt sich die Frage, welche der vorangehend vorgestellten
+Konzepte des Digitalen Zwillings in der Praxis angekommen
+sind. Dabei muss vor allem zwischen Anwendungen unterschieden werden, die Digitale Zwillinge für einzelne Teilsysteme
+umsetzen – beispielsweise einen Motor oder ein Abgassystem –
+und zwischen Plattformen, die es als Ziel haben den Datenaustausch zwischen allen beteiligten Akteuren zu ermöglichen,
+um dadurch einen möglichst umfassenden Digitalen Zwilling
+zur Verfügung zu stellen. Dieser umfassende Digitale Zwilling
+kann beispielsweise eine Vielzahl von unterschiedlichen Daten
+zu einem Schiff beinhalten.
+
+
+Es lässt sich beobachten, dass insbesondere Digitale Zwillinge
+von einzelnen Teilsystemen bereits von verschiedenen Akteuren in der maritimen Branche umgesetzt werden. Besonders
+Zulieferer bieten heutzutage vermehrt Aftersales-Services an,
+die einen Digitalen Zwilling von einzelnen Teilsystemen nutzen.
+Dabei verknüpfen sie häufig Informationen aus der Produktionsphase und Inbetriebsetzung mit Betriebswerten, die von
+verschiedenen Sensoren erfasst werden. Durch die Verknüpfung
+dieser Informationen sind sie in der Lage, zusätzliche Mehrwerte
+für den Nutzer zu generieren. Einige ausgewählte Beispiele von
+derartigen Anwendungen werden in Tabelle 3 dargestellt.
+
+
+Wird der gesamte Lebenszyklus eines Schiffes betrachtet, zerfällt die effektive Nutzung des Digitalen Zwillings
+im Wesentlichen in die drei konzeptuellen Nutzbereiche
+
+
+**28**
+
+
+
+Schiffskomponenten (Bau, Entwurf und Bereitstellung durch
+verschiedene Zulieferer), Schiffsbau (Design und Montage
+in einer Werft bis zur Auslieferung an den Reeder) und den
+Betrieb des Schiffes durch den Reeder.
+
+
+Im Bereich der Herstellung von Schiffskomponenten kommen
+vor allem Systeme zum Einsatz, welche auch in anderen Branchen – etwa der Automobilbranche – eingesetzt werden. Dies
+liegt darin begründet, dass die Prozesse in der Herstellung von
+Hardwarekomponenten in der Zulieferindustrie nur wenig von
+den jeweiligen Branchen abhängen.
+
+
+Während der Montage eines Schiffes entsteht der besondere
+Umstand, dass eine deutlich größere Menge unterschiedlicher
+Maschinen und Bauteile für ein Schiff verwendet werden, als
+es z.B. in der Automobilfertigung der Fall ist. Es werden daher
+hauptsächlich auf Datenbanken basierende, inhaltliche Aufbereitungen (Datenmanagement) und Analysen verwendet, die
+die Koordination der beteiligten Akteure erleichtern. Weiterhin
+wird ein besonderes Augenmerk auf die Prozessdarstellung
+und -planung gelegt, den gesamten Bauprozess betreffend,
+von der Werkzeugmittelbereitstellung über die Personal- bis
+hin zur speziellen Montageplanung.
+
+
+Im Betrieb des Schiffes durch die Reeder sind Daten der möglicherweise eingesetzten Digitalen Zwillinge aus Zulieferung
+und Bau i.d.R. nicht mehr verfügbar – dies gilt besonders für
+
+
+_© Adobe Stock_
+
+
+
+
+
+3D-Modelle und spezifische Konfigurationen. Die Bereitschaft
+der Firmen, Daten über derart sensible Bereiche mit Dritten
+zu teilen, ist noch gering. Daher beschränken sich die meisten Umsetzungen von Digitalen Zwillingen auf Teilsysteme,
+in denen nur einzelne ausgewählte Datenquellen verwendet
+werden können. Eine Abhilfe können Systeme und Verfahren
+bieten, welche nachträglich Daten rekonstruieren (beispielsweise die Erstellung von 3D-Modellen durch Laserscanner (vgl.
+
+[7]) oder Verwendung eigener Datensammler (Begehung durch
+Personal, Einbringung von Berichten etc.)).
+
+
+Um einen umfassenderen Überblick zu aktuellen Anwendungen
+des Digitalen Zwillings geben zu können, stellt Tabelle 3 eine
+Zusammenfassung der Rechercheergebnisse zu realen Umsetzungen im maritimen Aftersales dar. Aufgeführt sind dabei,
+exemplarisch und nicht vollumfänglich, Teilbereiche des Aftersales, die große Potentiale bieten, um mit Digitalen Zwillingen
+Kosten zu senken und die Effizienz zu erhöhen. Zu jedem
+Anwendungsfall ist der aktuelle Stand der Umsetzung als Digitalisierungsgrad angegeben. In der Praxis umgesetzte Anwendungsfälle sind mit Quellen hinterlegt, sodass eine schnelle
+Übersicht ermöglicht wird. Die mit einem vollständigen Einsatz
+eines Digitalen Zwillings verbundenen Nutzungspotentiale sind
+zur Bewertung der möglichen Ergebnisse ebenfalls aufgeführt.
+
+
+Die in Tabelle 3 dargestellten Teilbereiche und -systeme zeigen
+ein großes Potential an Mehrwerten durch ganzheitliche
+
+
+
+Prozesse auf, bei denen häufig Daten von unterschiedlichen
+Akteuren benötigt werden. Um mehrere Bereiche zu verknüpfen oder externe Services anderer Partner nutzen zu können,
+bedarf es allerdings integrierter Plattformen, die sowohl Funktionen zum Einsatz Digitaler Zwillinge als auch die Infrastruktur
+für das Datenmanagement bereitstellen.
+
+
+Eine umfassende Recherche zu Plattformen, die den Datenaustausch zwischen allen beteiligten Akteuren ermöglichen,
+zeigte hingegen, dass nur wenige kommerziell nutzbare Plattformen existieren und sich viele Plattformen noch in einem
+sehr frühen Entwicklungsstadium befinden. Insbesondere der
+Funktionsumfang und der Transfer auf Cloud-Strukturen sind
+noch ungenügend umgesetzt, wodurch der Datenaustausch
+zwischen verschiedenen Akteuren zusätzlich erschwert wird.
+
+
+An integrierten Lösungen, welche den Digitalen Zwilling über den
+gesamten Lebenszyklus abbilden, wird derzeit durch verschiedene Konsortien und Firmen gearbeitet. Dabei liegt der Fokus meist
+auf der Standardisierung der Schnittstellen zwischen Firmen.
+Einige Beispiele sollen im Folgenden kurz vorgestellt werden.
+
+
+DNV bietet mehrere digitale Lösungen für Daten- und Prozessmanagement unter den Markennamen ShipManager
+und Navigator an (vgl. [9]). Die Software ShipManager Survey
+Simulator ermöglicht fotorealistische 3D-Visualisierungen für
+Trainingsszenarien.
+
+
+**29**
+
+
+Digitale Zwillinge im maritimen Kontext
+
+
+**Tabelle 3: Umsetzungsbeispiele und Potentiale Digitaler Zwillinge während der Lebensnutzungsphase**
+
+
+
+**Teilintegrierte**
+
+**Anwendungsfälle mit**
+
+**großem Digitalisierungs-**
+
+**potential**
+
+
+
+**nicht**
+
+**digital**
+
+
+
+**Digitalisierungsgrad** **Nutzungspotentiale eines DZ in**
+
+
+
+**Digitaler**
+
+**Zwilling**
+
+
+
+**Standard**
+
+**Digitalisierung**
+
+**(CAD / PLM)**
+
+
+
+**Bezug auf Kosteneinsparung**
+
+**und Effizienz in**
+
+**Geschäftsprozessen**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**30**
+
+
+**Teilintegrierte**
+
+**Anwendungsfälle mit**
+
+**großem Digitalisierungs-**
+
+**potential**
+
+
+
+**Digitalisierungsgrad** **Nutzungspotentiale eines DZ in**
+
+
+
+**Digitaler**
+
+**Zwilling**
+
+
+
+**nicht**
+
+**digital**
+
+
+
+**Standard**
+
+**Digitalisierung**
+
+**(CAD / PLM)**
+
+
+
+**Bezug auf Kosteneinsparung**
+
+**und Effizienz in**
+
+**Geschäftsprozessen**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**31**
+
+
+Die aus dem gleichen Hause stammende Software ShipManager
+Hull umfasst eine interaktive 3D-Visualisierung, die eine intuitive
+Bedienung und eine Verknüpfung von Informationen (Bilder,
+Berichte etc.) mit dem zugrunde liegenden Modell des betrachteten Objekts durch den Nutzer ermöglicht. Das so entstehende,
+semantisch belegte Modell kann im weiteren Sinne als Digitaler
+Zwilling betrachtet werden. Da diese Simulationen bzw. Visualisierungen das vollständige Schiff als Einheit, nicht aber sämtliche
+Bauteile umfasst, ist es als Anwendung für den Reeder zu sehen.
+
+
+Neueste Entwicklungen beschäftigen sich mit der vollständigen Digitalisierung der Wartungsaufgaben in Werften unter
+Verwendung von Digitalen Zwillingen. So wurde durch die USNavy Anfang 2021 für die Werft Pearl Harbor in ihrer Gesamtheit ein Zwilling entworfen (vgl. [28]). In der bisherigen Laufzeit
+des Projekts konnten Optimierungen der Daten- und Prozessmodelle vorgenommen werden, welche in naher Zukunft auf
+alle Werften der US-Navy transferiert werden sollen.
+
+
+Eine stellvertretend zu nennende Digitaler Zwillings Plattform
+wird von der Firma Kongsberg Digital kontinuierlich entwickelt.
+Kognittwin Energy wird dabei als Analyse- und Kommunikations-Framework angeboten, welches mit Azure Technologie
+cloud-basierte Software-as-a-Service (SaaS)-Lösungen für
+Kunden anbietet [25], [17]. Primärer Anwender ist hier der
+Öl- und Gas-Energiesektor, für welchen spezifische Businesslösungen ausgearbeitet wurden. Ein weiteres Produkt ist die Blue
+Insight Toolbox, welche als offene, modulare digitale Plattform zum Verarbeiten, Visualisieren und Teilen von Meeresdaten entwickelt wurde. Meteorologische und maritime Daten
+
+
+**32**
+
+
+
+werden mit Echtzeitdaten verknüpft und Remote Services per
+Cloud-Strukturen ermöglicht.
+
+
+Zusammen mit DNV, Kongsberg Maritime, SINTEF, Hyundai
+Heavy Industries, Kongsberg Digital, Vard und Offshore Simulator Centre baut das Norwegian Maritime Competence Centre
+im norwegischen Ålesund eine Open Simulation Platform (OSP,
+vgl. [10], [20]). Die Initiative strebt die Entwicklung eines Digitalen Zwillings an, welcher bereits in den Bauprozess integriert
+ist. Grundlegend ist die Benutzung des Functional Mockup
+Interface (FMI) Standards, sodass alle Akteure die entwickelten
+Simulationsmodelle wiederverwenden können, ohne sensible
+oder geschützte Daten zu teilen.
+
+
+Auch Siemens und Aker Solutions treiben die Entwicklung
+von Digitalen Zwillingen für die maritime Branche voran. Von
+Prozessautomatisierung bis hin zu Engineering- und SimulationsSoftware unterstützen die beiden Firmen den Anlagenlebenszyklus. Eine innovative Plattform ist auf Basis der Siemens Engineering-Plattform Comos in Umsetzung, welche zur Reduzierung
+von Engineering- und Betriebskosten dienen soll (vgl. [21]).
+
+
+Eine auf den Betrieb von Umwelttechnologien fokussierte
+Plattform wird von Carnival Maritime GmbH, dem Institut für
+Siedlungswasserwirtschaft und Abfalltechnik der Leibniz Universität Hannover sowie der SEGNO Industrie Automation GmbH
+im Rahmen des Projekts OSCAR entwickelt, die sogenannte
+OSCAR-Cloud, welche auf der Siemens Mindsphere Cloud
+basiert (vgl. [24]). Mit Hilfe des SEGNO IoT Connectors wird
+dabei ein sicherer Datenaustausch realisiert. Das Projekt zielt
+
+
+unter anderem auf Trainingsszenarien sowie die Einrichtung und
+Fernsteuerung von prozessspezifischen Beobachter- und Prognosemodellen (digitale Anlagenzwillinge) ab, um eine Optimierung
+des Betriebs der Umwelttechnologien zu erreichen.
+
+
+Eine hoch skalierbare, cybersichere Edge-Plattform wird in
+Kooperation von Wärtsilä Voyage und Microsoft entwickelt
+(vgl. [31]). Diese Plattform hat zum Ziel, aktuelle und zukünftige Produkte auf einer gemeinsamen Plattform verfügbar
+zu machen, um eine schnellere Bereitstellung und einfachere
+Wartung aller Wärtsilä Voyage-Technologien und -Software zu
+ermöglichen. Die Inbetriebnahme, Diagnose, Aktualisierungen
+und Upgrades von Anlagen werden so aus der Ferne durchgeführt, was die Wartung rationalisiert, die Bereitstellung
+beschleunigt und die Betriebszeit des Schiffs erhöht.
+
+
+Neben Plattformen stellen aktuell auch Datenräume und erste
+Standards einen Forschungs- und Entwicklungsschwerpunkt dar,
+um in Zukunft den Datenaustausch zu erleichtern. Der Maritime
+Data Space und GAIA-X sind Beispiele, welche aktuell entwickelt werden und für den breiten Einsatz vorbereitet werden.
+Die Initiative GAIA-X des Bundesministerium für Wirtschaft
+und Energie (BMWi) rückt die Datensouveränität für Europa
+in den Fokus. Das GAIA-X-Projekt Marispace-X definiert einen
+maritimen Datenraum, um Daten von wissenschaftlichen Einrichtungen und Instituten sowie zahlreichen Unternehmen der
+maritimen Wirtschaft – wie Geoinformationen, die per Drohnen, Satelliten, Sensoren oder anderen Messinstrumenten aus
+den Meeren erhoben werden – für neue Anwendungsfälle und
+Business-Cases verfügbar machen (vgl. [16]).
+
+
+
+_© Adobe Stock_
+
+
+Zusammen mit seinen Anwendungspartnern demonstriert
+SINTEF Digital in Norwegen anhand der offenen Industriedatenplattform DNV Veracity und zugehörigem Datenökosystem und der NAVTOR Plattform für e-Navigation eine offene,
+föderierte und sichere Datenaustausch- und Kommunikationsplattform für innovative digitale Services in der Schifffahrt. Der Datenraum ist als maritime Version des International Data Space (IDS) für den Schiffsbetrieb konzeptioniert,
+sodass eine Interoperabilität und Konnektivität gewährleistet
+ist, unter klarer Regulierung der Datenhoheit. Auf europäischer Ebene werden diese Themen ebenfalls adressiert und
+im Rahmen der Ozean Dekade Aktivitäten eine Vernetzung
+von Digital Twins of the Ocean über DITTO [33] ermöglicht.
+Ein dazu passender Ocean Data Space wird aktuell vom
+Konsortium von ILIAD: Integrated DigitaL Twins For Marine
+and MaritIme DAta AnD Information Services im Rahmen der
+Horizon 2020 Strategie mit Partnern wie Alpha Unmanned
+Systems, Thales Group, DEIMOS Eng, NextGEOSS, SINTEF
+Ocean, Digital, Norwegian University NTNU, IEEE France
+entwickelt.n (vlg. [32]).
+
+
+Zusammenfassend lässt sich sagen, dass bereits viele einzelne
+Projekte versuchen, Lösungen für zentrale Probleme in Bezug
+auf den Datenaustausch zwischen Unternehmen in der maritimen Branche zu entwickeln. Die zentrale Herausforderung des
+Datenzugriffs und der Verfügbarkeit von relevanten Informationen wurden somit erkannt. Allerdings zeigen die Vielzahl
+und Vielfalt der Projekte auch, dass ein einheitliches Vorgehen
+und zentrale Standards bislang weder verbreitet noch entwickelt sind.
+
+
+**33**
+
+
+## 4. Befragung von maritimen Akteuren
+
+
+
+Zur Überprüfung der Rechercheergebnisse zur realen Umsetzung von Digitalen Zwillingen im maritimen Aftersales wurde
+eine Befragung mit Experten durchgeführt, die stellvertretend
+für eine Akteursgruppe der Branche eine aktuelle, subjektive
+Einschätzung zur Digitalisierung im Allgemeinen sowie zum
+
+
+
+Einsatz von Digitalen Zwillingen – branchenweit und in ihrem
+jeweiligen Unternehmen – abgaben. Mit der Bitte die Sicht auf
+die maritime Branche im Umfeld zu richten, wurden strukturierte Interviews geführt und anhand der Experteneinschätzungen
+Thesen abgeleitet und bewertet.
+
+
+### 4.1 Konzeption der Befragung
+
+
+
+Die Befragung soll ein Stimmungsbild der maritimen Branche
+zum Thema Digitaler Zwilling erfassen und damit als informativer Grundstein für umfängliche Folgearbeiten fungieren.
+Im Sinne dessen wurde bewusst auf einen vollumfänglichen
+Branchenschnitt verzichtet, um in tiefgehenden Interviews mit
+anerkannten Experten Eckpunkte auszuarbeiten und einen
+qualitativen Leitfaden für den zukünftigen Diskurs zu schaffen.
+Es handelt sich somit, aufgrund des Stichprobenumfangs, nicht
+um eine statistisch repräsentative Branchenanalyse, sondern um
+eine qualitative Erfassung aktueller Entwicklungen im Bereich
+Digitaler Zwillinge.
+
+
+Dies erfolgte in drei Schritten. Im ersten Schritt wurde auf Basis
+einer Analyse der umfassenden Forschungsergebnisse ein Fragebogen konzipiert. Der erarbeitete Fragebogen wurde anschließend mit den beteiligten Branchenvertretern diskutiert, um
+Rückschlüsse auf die Aussagekraft der möglichen Antworten
+
+
+**34**
+
+
+
+ziehen zu können. Im abschließenden Schritt wurde aus den
+protokollierten Ergebnissen der Expertenbefragungen ein Leitbild erstellt, das einen Überblick über die Problemstellungen
+und Herausforderungen sowie die Potentiale der Nutzung eines
+Digitalen Zwillings für die maritime Wirtschaft in Deutschland
+insgesamt und den Bereich Aftersales im Besonderen gibt.
+
+
+Dabei wurde ein besonderes Augenmerk daraufgelegt, die
+verschiedenen Nuancen hinsichtlich der Definition Digitaler
+Zwillinge bei den befragten Experten zu erfassen.
+
+
+Als vorausgehende Verständnisbrücke wurde im Vorfeld der
+Befragung eine generelle Einschätzung der Experten zur Digitalisierung in der maritimen Branche erhoben. Anschließend wurde
+speziell eine Einschätzung zum Digitalen Zwilling, als Endprodukt einer vollkommen digitalisierten Wirtschaft, erfragt und
+dessen Umsetzungstiefe eruiert.
+
+
+### 4.2 Übersicht befragter Unternehmen
+
+Die Tabelle 4 zeigt die Akteure entsprechend des jeweiligen Branchenbereichs
+auf, mit welchen im Rahmen dieser Ausarbeitung ein etwa einstündiges Interview geführt wurde.An dieser Stelle bedanken wir uns für die Bereitschaft an
+der Ausarbeitung mitzuwirken und uns die Gelegenheit für eine aktuelle Einsicht auf das Thema Digitaler Zwilling in der Branche zu geben.
+
+
+**Tabelle 4: Übersicht befragter Unternehmen**
+
+
+**Branche** **Fertigungsart**
+
+
+Reederei Hapag-Lloyd AG, Hamburg
+
+
+
+
+
+Zulieferer
+
+
+Meeres- und
+
+Offshoretechnik
+
+
+
+Wärtsilä Shaft Line Solutions, Hamburg
+
+PROSTEP AG, Darmstadt
+
+Zeppelin Power Systems GmbH, Hamburg
+
+MacArtney Germany GmbH, Kiel
+
+Siemens Energy HH, Hamburg
+
+
+
+Schifffahrt Carnival Maritime GmbH, Hamburg
+
+
+
+Schiffbau
+
+
+
+Tamsen Maritim GmbH, Rostock
+
+MV Werften GmbH, Rostock
+
+
+
+Verband / Behörden Verband für Schiffbau und Meerestechnik e.V., Hamburg
+
+Bundesamt für Seeschifffahrt und Hydrographie, Rostock
+
+
+Befragung von maritimen Akteuren
+
+### 4.3 Ergebnisse der Befragung
+
+
+
+Im Rahmen der Expertenbefragung wurden den Teilnehmern
+vorwiegend offene Fragen ohne vorgegebene Antworten
+gestellt, um ein möglichst umfassendes Stimmungsbild der
+maritimen Branche zu erhalten. Die in den Gedächtnisprotokollen festgehaltenen Antworten wurden anschließend detailliert
+ausgewertet und aufbereitet. Das Ergebnis dieser Analyse bilden
+die folgenden Thesen, welche wiederkehrende Aussagen der
+
+
+
+Experten darstellen. Diese sind als Indikator für die aktuelle
+Expertenwahrnehmung über Digitaler Zwillinge in der maritimen
+Branche zu verstehen.
+
+
+Die Thesen sind differenziert nach den Themen Digitalisierung
+in der maritimen Branche und dem Einsatz Digitaler Zwillinge in
+der maritimen Branche.
+
+
+#### 4.3.1 Digitalisierung in der maritimen Branche
+
+
+
+**»Digitalisierung bietet eine Vielzahl an**
+**Möglichkeiten für einen innovativen und**
+**kundenorientierten Aftersales-Service.«**
+
+
+Von Remote-Services mit AR- und VR-Unterstützung für die
+Crew bis hin zur KI-basierten Optimierung der gesamten
+Flotte können durch die Digitalisierung von Daten- und Entscheidungsströmen Kosten gesenkt und Gewinne maximiert
+werden. Liegt der Fokus nicht nur auf der Erfassung und
+Übertragung von Daten, sondern auch auf der Analyse vorhandener, bisher ungenutzter Datenstrukturen, können neue
+Ertragspotentiale erschlossen werden.
+
+
+Darüber hinaus ist der Mangel an (Fach-) Personal ein branchenspezifischer Aspekt, dem durch eine fortschreitende Digitalisierung mit zunehmender Automatisierung von Geschäftsprozessen zumindest teilweise begegnet werden könne.
+
+
+**»Digitalisierung in der maritimen Branche ist**
+**ein fortlaufender, nicht abgeschlossener Prozess.«**
+
+
+Die Mehrheit der Experten bewertet den Stand der Digitalisierung in der maritimen Branche mit 4 auf einer Skala von
+1 (Digitalisierung noch nicht begonnen) bis 9 (Digitalisierung
+vollständig abgeschlossen), wobei die Digitalisierung generell
+als ein fortlaufender Prozess angesehen wird. Weiterhin wurde
+
+
+**36**
+
+
+
+darauf hingewiesen, dass sowohl die Akzeptanz digitaler
+Anwendungen als auch die Nachfrage in der traditionell konservativen maritimen Branche noch gering und die konsequente Kommerzialisierung der angebotenen digitalen Services
+nicht abgeschlossen sei.
+
+
+**»Vorhandene Daten sind kein Selbstzweck, son-**
+**dern müssen in nutzenstiftende Informationen**
+**transformiert werden.«**
+
+
+Die auf dem Markt angebotenen Analysewerkzeuge sind vielfach nicht ausreichend auf den jeweiligen Nutzerkreis zugeschnitten. Insbesondere KMU fehlen die personellen Ressourcen und das technische Know-How, um aus bereits erhobenen
+und digitalisierten Daten einen zusätzlichen Nutzen zu generieren. In diesem Zusammenhang wurde vor allem auch die
+Möglichkeit zur automatisierten Datenanalyse genannt, welche
+großes Optimierungspotenzial birgt.
+
+
+Es lässt sich festhalten, dass eine rein digitale Datensammlung
+den Bedürfnissen der Akteure nicht gerecht wird. Vielmehr
+geht es darum, Werkzeuge und Methoden für die zielgruppengerechte Aufbereitung und Analyse von Daten zu entwickeln.
+
+
+Die folgenden Thesen beschäftigen sich rund um die Anwendung des Digitalen Zwillings in der maritimen Branche.
+
+
+Befragung von maritimen Akteuren
+
+#### 4.3.1 Einsatz Digitaler Zwillinge in der maritimen Branche
+
+
+
+**»Es existiert kein einheitliches Verständnis des**
+**Digitalen Zwillings.«**
+
+
+Einige Experten verstehen unter einem maritimen Digitalen
+Zwilling das virtuelle Abbild eines Schiffes über seinen gesamten Lebenszyklus, – vom Entwurf/Konzept bis zur Stilllegung /
+Recycling – das in ständigem Austausch mit dem dazugehörigen realen Objekt steht und kontinuierlich aktualisiert wird. Für
+andere beginnt der Digitale Zwilling bereits dort, wo auf Basis
+eines Modells Aussagen über den Ist- und Soll-Zustand eines
+Bauteils, Prozesses etc. getroffen werden können. In diesem
+Zusammenhang sei der Digitale Zwilling bereits ein Modell, das
+erwartete Werte widerspiegelt und mit tatsächlichen Werten
+vergleichbar macht. Diese unterschiedlichen Auffassungen sind
+nicht verwunderlich, da es selbst in der wissenschaftlichen Literatur bislang keinen Konsens oder eine einheitliche Definition
+des Digitalen Zwillings gibt.
+
+
+Entsprechend der unscharfen Definition schätzen die befragten
+Experten den Bekanntheitsgrad des Digitalen Zwillings in der
+maritimen Branche mit 4 auf einer Skala von 1 (Begriff völlig
+unbekannt) bis 9 (Begriff vollumfänglich bekannt und definiert)
+als eher gering ein, wenngleich festgestellt werden könne, dass
+der Begriff durch die Branche wandere.
+
+
+
+**»Dateninseln und ungeklärte Datenhoheit stellen**
+**große Herausforderungen für die maritimen**
+**Akteure dar.«**
+
+
+Als zentrale Herausforderung für die Umsetzung des Digitalen Zwillings wurde von allen befragten Experten übereinstimmend die fragmentierte Datenlage und der dezentrale
+Charakter der Datenströme identifiziert. In der Regel gibt es
+keine zentrale und standardisierte Datenplattform für Digitale
+Zwillinge, weder branchenübergreifend noch innerhalb von
+Unternehmen. Stattdessen müssen Informationen mühsam
+aus verschiedenen Quellen zusammengetragen werden, wobei
+nicht nur Schnittstellen und unterschiedliche Datenformate,
+sondern auch Fragen der Datenhoheit große Herausforderungen darstellen. Es wurde auch immer wieder betont, dass die
+Verteilung relevanter Daten auf die verschiedenen Akteure eine
+enge Zusammenarbeit zwischen teilweise konkurrierenden
+Unternehmen erfordere.
+
+
+Weiterhin ist die Schnittstellenproblematik zwischen der Vielzahl der implementierten hochspezialisierten Anwendungen
+auf dem Schiff und im maritimen Betrieb allgemein zu nennen.
+Dies führt zu einem hohen organisatorischen Aufwand bei
+der Datenpflege und -kommunikation. Aus wirtschaftlichen
+
+
+Gründen werden daher derzeit nur ausgewählte Schnittstellen tatsächlich realisiert. In diesem Zusammenhang ist auch
+nicht zu vernachlässigen, dass ein Großteil der Flotten noch
+aus Zeiten stammt, in denen während der Bauphase und der
+ersten Betriebsjahre überhaupt keine oder nur sehr wenige
+Daten digital erfasst wurden. Für erhebliche Teile der Welthandelsflotte bestehen daher digitale Datenlücken.
+
+
+**»Datenverfügbarkeit, -sicherheit und -qualität**
+**stellen weitere große Herausforderungen dar.«**
+
+
+Um eine Datendurchgängigkeit im Digitalen Zwilling zu erreichen, müssen die Daten verschiedener Akteure miteinander
+verbunden werden. Diese Daten sicher und in entsprechender
+Qualität zusammenzuführen, ist eine der größten Herausforderungen bei der Umsetzung Digitaler Zwillinge.
+
+
+Neben der organisatorischen Verteilung der Daten stellt auch
+die geringe Bandbreitenabdeckung auf Hoher See eine rein
+physikalisch-technische Komplexität der Datenübertragung dar.
+Fragen der Datensicherheit, sowohl im Hinblick auf den Verlust sensibler Daten als auch auf den Schutz vor Missbrauch,
+bleiben bislang ungelöst. Verschärft wird dieses Problem
+durch historisch gewachsene Zertifizierungs- und Authentifizierungssysteme, für die die analoge Papierform gesetzlich
+vorgeschrieben ist. Eine Digitalisierung dieser Systeme hätte
+daher allenfalls einen indirekten Nutzen, bei dem unklar ist, ob
+er sich wirtschaftlich lohnt.
+
+
+**»Potentiale des Digitalen Zwillings**
+**sind vielfältig.«**
+
+
+Trotz der umfangreichen Herausforderungen und Probleme,
+die mit dem Digitalen Zwilling verbunden sind, sehen die
+Befragten auch eine Vielzahl von Potentialen, die ein Digitaler
+Zwilling in der maritimen Branche abdecken kann. Mit Hilfe
+des digitalen Zwillings könnten in Zukunft Verbesserungen
+im operativen Handling, bei Umschlags- und Lagerprozessen
+sowie Arbeitserleichterungen für Mitarbeiter erreicht werden.
+
+
+Im Hinblick auf den Aftersales wurden Stichworte wie
+E-Commerce-Plattformen, Kühlketten- und Kühlcontainermanagement, Performance Management (u.a. Wetterrouting, Trimm, flottenweites Benchmarking), Umweltmonitoring, optimiertes Design auf Basis der Erkenntnisse aus der
+Betriebsphase, Automatisierung im Allgemeinen und die
+Dekarbonisierung der Schifffahrt als potentielle Anwendungsbereiche genannt.
+
+
+Weitere Potentiale durch den Einsatz Digitaler Zwillinge werden
+in der Optimierung von Terminalprozessen, Remote-Unterstützung der Crew mittels AR & VR oder der Manöversimulation
+
+
+gesehen. Basierend auf diesen vielfältigen Ideen besteht daher
+auch ein großes Interesse in der Branche an entsprechenden
+Umsetzungsplänen und konkreten Anwendungsdemonstrationen. Auch wurde die Möglichkeit angesprochen, dass neue
+Akteure entstehen können, die Digitale Zwillinge als eigenes
+Produkt (Software-as-a-Service) anbieten.
+
+
+Die Vielfalt der genannten Potenziale zeigt, dass der Einsatz
+von Digitalen Zwillingen zweckorientiert erfolgt und in der
+Regel nicht ein reales Objekt in seiner Gesamtheit abbildet,
+sondern einem zusätzlichen Nutzen für den jeweiligen Anwendungskontext bildet.
+
+
+**»Digitale Zwillinge sind bislang nicht**
+**umfänglich in Umsetzung.«**
+
+
+So vielfältig die Potentiale des Digitalen Zwillings in der maritimen Branche sind, so selten seien tatsächliche Umsetzungen
+bisher. Nur zwei der befragten Unternehmen verfügen über
+dedizierte Mitarbeiter oder sogar Abteilungen für die Einführung Digitaler Zwillinge im Unternehmen.
+
+
+Dennoch erwarten die Experten in naher Zukunft die Entwicklung und den Einsatz Digitaler Zwillinge in Form von einzelnen
+
+
+
+Implementierungen mit Prototypcharakter. Vor diesem Hintergrund können erfolgreiche Umsetzungsbeispiele dazu beitragen, die Akzeptanz und Verbreitung Digitaler Zwillinge in der
+maritimen Branche zu steigern.
+
+
+**»Für die tatsächliche Umsetzung sind konkrete**
+**Voraussetzungen zu schaffen.«**
+
+
+Vor allem andern muss die wirtschaftliche Tragfähigkeit des
+Digitalen Zwillings nachgewiesen werden, da sonst eine
+flächendeckende Umsetzung sehr unwahrscheinlich sei. Nur
+wenn das Risiko einer hohen Anfangsinvestition durch einen
+entsprechenden wirtschaftlichen Ertrag ausgeglichen wird,
+werden Investitionen in Digitale Zwillinge zunehmen.
+
+
+Dies würde eine Integration der relevanten Systeme und Prozesse sowie eine Abkehr von den bisher vorherrschenden Insellösungen erfordern. Die Zusammenarbeit der beteiligten
+Akteure, im Sinne einer Standardisierung durch Normen oder
+Klassenrichtlinien, müsste zunehmen und auch im Interesse
+der Zulieferer gestärkt werden. In diesem Zusammenhang ist
+die Gründung Digitaler-Zwillings-Unternehmen denkbar, die als
+unabhängige Dritte – ähnliche wie Klassifikationsgesellschaften – agieren.
+
+
+**39**
+
+
+## 5. Schlussfolgerungen und Ausblick
+
+
+
+Im Folgenden Abschnitt werden aus den Erkenntnissen der
+Experteninterviews sowie aus den beobachteten Gegebenheiten in der maritimen Branche insgesamt neun Handlungsbedarfe abgeleitet, die als Wegweiser verstanden werden
+
+
+
+können, wie Digitale Zwillinge in Zukunft wertschöpfend in
+der maritimen Branche eingesetzt werden können. Anschließend wird ein Fazit gezogen, sowie ein Ausblick auf zukünftige Tätigkeiten gegeben.
+
+
+### 5.1 Abgeleitete Handlungsbedarfe
+
+
+
+**Voraussetzungen sind geschaffen – Umsetzung ist**
+**nun gefragt**
+
+
+Die zentrale Erkenntnis der Beschäftigung mit diesem Themengebiet ist, dass Digitale Zwillinge in der maritimen Branche
+definitiv kein Mythos und auch keine rein theoretischen Konstrukte sind. Die technologischen Grundlagen für die Entwicklung und Nutzung von Digitalen Zwillingen sind geschaffen,
+bei einigen Unternehmen bereits in Umsetzung und zum Teil
+bereits in die produktiven Systeme integriert.
+
+
+Dabei ist es auch an dieser Stelle noch einmal zu betonen, dass
+die Einführung von Digitalen Zwillingen nicht in einem Schritt
+
+
+**40**
+
+
+
+»Big Bang« erfolgen muss, sondern der Aufbau Schritt-fürSchritt erfolgen kann. So können zunächst nur einige wenige
+unternehmensinterne Datenquellen mithilfe eines Digitalen Zwillings zugänglich gemacht und für ausgewählte Anwendungsszenarien verwendet werden. Anschließend kann die Komplexität
+des Systems schrittweise erweitert werden. So können im Laufe
+der Zeit immer mehr Datenquellen angeschlossen und auch
+unternehmensexterne Daten integriert werden und für neuartige Anwendungsfälle genutzt werden.
+
+
+Dennoch bestehen selbstverständlich auch diverse Herausforderungen bei der Umsetzung von Digitalen Zwillingen. Wir
+haben insgesamt acht weitere Handlungsbedarfe identifiziert,
+
+
+die von betroffenen Akteuren adressiert werden sollten, um
+den Einsatz von Digitalen Zwillingen optimal zu gestalten und
+flächendeckend zu ermöglichen.
+
+
+**Einheitliches Verständnis des Digitalen Zwillings**
+
+
+Ein Hemmnis in der maritimen Branche ist, dass kein einheitliches Verständnis des Konzepts Digitaler Zwilling existiert.
+Das betrifft den Zweck, Umfang, Nutzen, Risiken und Anwendungsmöglichkeiten von Digitalen Zwillingen. Die unterschiedlichen Vorstellungen variieren von einem System, dass alle
+denkbaren Informationen in Form von Daten, Modellen und
+Visualisierungen umfasst und zugänglich macht, bis zur recht
+simplen Verarbeitung von einzelnen objektbezogenen Daten.
+Diese Beobachtung, gepaart mit unerfüllbaren Erwartungen
+und Versprechungen, hat nach unserer Einschätzung dazu
+geführt, dass einige Stakeholder dazu neigen, den Begriff des
+digitalen Zwillings negativ zu assoziieren.
+
+
+Daher besteht Handlungsbedarf für eine einheitliche Sichtweise des maritimen Digitalen Zwillings zu sorgen. Dies kann
+beispielsweise durch eine intensivere Beschäftigung mit dem
+Thema in Wissenschaft und Praxis, durch die Erarbeitung eines
+einheitlichen Standards oder dem verstärkten Austausch aller
+maritimen Akteure erreicht werden.
+
+
+**Geschäftsmodelle müssen entwickelt und der**
+**Branche aufgezeigt werden**
+
+
+Maritime Digitale Zwillinge sind kein Selbstzweck. Digitale
+Zwillinge werden nur implementiert werden, wenn sie einen
+Mehrwert für das Unternehmen oder potentielle Kunden bieten.
+Auch wenn ein Großteil der Aufwände bezogen auf Digitale
+Zwillinge auf das Datenmanagement – also die Erhebung, Verarbeitung, Speicherung und Bereitstellung von Daten – zurückzuführen sind, entstehen die monetären Mehrwerte vor allem
+durch die Nutzung der Daten für spezifische Anwendungsfälle.
+Aus vielen Beobachtungen in der Branche lässt sich schlussfolgern, dass das Potential und die Anwendungsmöglichkeiten
+noch nicht vollständig wahrgenommen werden. Daher besteht
+Handlungsbedarf, dass Geschäftsmodelle für maritime Digitale
+Zwillinge entwickelt und zugleich diese Anwendungsmöglichkeiten den relevanten Akteuren aufgezeigt werden.
+
+
+**Datenhoheit muss geklärt werden**
+
+
+Eine weitere Herausforderung in Bezug auf Digitale Zwillinge
+ist die häufig noch ungeklärte Thematik der Datenhoheit.
+Besonders in der Schifffahrt ist diese Frage von hoher Relevanz, da viele unterschiedliche Parteien – Werften, Reeder,
+Zulieferer etc. – unterschiedliche Daten und Informationen
+
+
+
+
+erstellen und erfassen. Nach unserer Beobachtung tritt besonders während des Betriebs eines Schiffes die Frage auf, wer der
+Eigentümer von welchen Daten ist, wer berechtigt ist die Daten
+zu erfassen und zu nutzen sowie welche Daten mit anderen
+beteiligten Akteuren geteilt werden müssen oder dürfen. Derartige Hindernisse halten Unternehmen davon ab, dass volle
+
+
+**Daten über den gesamten Lebenszyklus nutzbar zu**
+**machen**
+
+
+Aktuell werden noch nicht alle Möglichkeiten des modernen
+Datenmanagements in der maritimen Branche vollständig
+genutzt. So besteht weiterhin Potential relevante Daten umfassender bzw. in besserer Qualität zu erfassen und diese Daten
+vermehrt in zentralen oder verbundenen Systemen verfügbar
+zu machen. Auch die konsequente Anwendung einer Versionsverwaltung kann die Anwendungsmöglichkeiten von innovativen Services verbessern. Dabei ist es das Ziel, eine dauerhafte
+und konsistente Datenerfassung und -bereitstellung über den
+gesamten Lebenszyklus zu ermöglichen, um die Potentiale der
+Industrie 4.0 umfänglich nutzen zu können. Auch wenn die
+technologischen Voraussetzungen für ein wertschöpfendes,
+umfassendes Datenmanagement bereits gegeben sind, ist der
+damit verbundene unternehmerische Aufwand besonders im
+Bereich Big Data sehr hoch. Nur wenn der Nutzen dementsprechend groß ist, wird die Umsetzung flächendeckend stattfinden.
+
+
+**Standardisierung der Datenerfassung sowie der**
+**von Schnittstellen zum Datenaustausch**
+
+
+Besonders in international ausgerichteten Branchen ist eine
+Standardisierung der Datenerfassung zu empfehlen, um
+
+
+Komplikationen bei der Informationsgewinnung vorzubeugen.
+So können beispielsweise Konflikte bei der Datenverarbeitung entstehen, wenn Werte in unterschiedlichen Einheiten
+abgespeichert werden (z.B. °C und °F für Temperaturen) oder
+sich die Einheit im Laufe der Zeit ändert. Derartige Inkonsistenzen werden nicht nur beim Datenaustausch zwischen
+Unternehmen, sondern auch vermehrt unternehmensintern
+beobachtet. Standards zur Datenerfassung oder klare, strukturierte Beschreibungen bzw. Datenmodelle können helfen diese
+Herausforderung zu bewältigen.
+
+
+Auch für den Austausch von Daten zwischen Unternehmen ist
+es ratsam auf gewisse Standards oder Best Practices zurückgreifen zu können. Dadurch ist zu erwarten, dass sich der Aufwand bei der Einbindung von unternehmensexternen Daten
+signifikant verringern könnte. An dieser Stelle sei aber auch
+noch einmal betont, dass es für viele Unternehmen nicht nötig
+ist, mit einer Vielzahl von Unternehmen Daten auszutauschen,
+um einen Digitalen Zwilling zu erschaffen. Fast jeder maritime
+Zulieferer und Schiffbauer hat die Möglichkeit durch vorhandene Daten und Maschinen einen Digitalen Zwilling zu erschaffen, um Mehrwerte zu generieren. Die Erweiterung durch die
+Einbeziehung von unternehmensexternen Daten ist dabei meist
+eher als Zusatz zu verstehen, durch den weitere Mehrwerte
+geschaffen werden können.
+
+
+**Datenerfassung und Übertragung auf Hoher See**
+**muss ermöglicht werden**
+
+
+Je nach Anwendungsfall können maritime Digitale Zwillinge
+auf das Vorhandensein von spezifischen Daten angewiesen
+sein, beispielsweise auf aktuelle Daten aus dem Schiffsbetrieb. Dabei stellt die Verfügbarkeit von leistungsfähigen
+
+
+
+Datenübertragungssystemen allerdings besonders in der
+Seeschifffahrt eine zentrale Herausforderung dar. Aktuell ist
+auf Hoher See kein oder nur eingeschränkter Breitbandzugang
+vorhanden. Dies erschwert eine mögliche Synchronisation der
+Datenbasis zwischen Schiff und Landorganisation, die je nach
+Umsetzung für ausgewählte Anwendungsfälle erforderlich sein
+kann. Möglichkeiten um diese Herausforderungen zu bewältigen, bestehen beispielsweise in der dezentralen Verarbeitung
+und Nutzung der Daten auf dem Schiff oder darin, dass die
+Synchronisierung und Nutzung von Daten ausschließlich stattfindet, wenn ein vollständiger Datenaustausch gewährleistet
+werden kann. Zukünftig können auch neuartige Satellitennetzwerke, wie z.B. Starlink verwendet werden, um einen Datenaustausch auf Hoher See sicherzustellen.
+
+
+**Cybersicherheit muss gewährleistet werden**
+
+
+Das Konzept von Digitalen Zwillingen beinhaltet, dass eine
+Vielzahl von objektbezogenen Daten erfasst und verarbeitet
+werden. Mit steigenden Datenmengen, sicherheitskritischen
+Anwendungsfällen und Datentransfers rückt das Thema Cybersicherheit auch vermehrt in den Fokus von Digitalen Zwillingen.
+Daher ist es nötig angemessene Cybersicherheits-Maßnahmen
+rechtzeitig in die Wege zu leiten, das Personal zu schulen und
+fortlaufend den Schutz aller sicherheitsrelevanten Aspekte zu
+gewährleisten.
+
+
+**43**
+
+
+### 5.2 Fazit
+
+Die maritime Branche umfasst eine Vielzahl von Unternehmen, Verbänden und anderen Akteuren, die mit unterschiedlicher Expertise Produkte oder Dienstleistungen anbieten
+und damit Teile einer komplexen Wertschöpfungskette sind.
+Je nach Betrachtungsebene kommt so dem Aftersales eine
+unterschiedliche Rolle, als Anbieter solcher Services oder aus
+Kundensicht, zu.
+
+
+Einigkeit besteht in der Branche darüber, dass der Preisdruck
+am Markt stetig steigt und dass ein schneller, verlässlicher und
+innovativer Aftersales einen erheblichen Beitrag zur langfristigen Kundenbindung leistet.
+
+
+Eine Kooperation verschiedener Akteure könnte hier, unabhängig vom Einsatz Digitaler Zwillinge, neue und innovative
+Aftersales-Produkte hervorbringen. Die Vernetzung verschiedener Bereiche innerhalb eines Unternehmens ist oft der
+Anfang, aber auch die Vernetzung zwischen verschiedenen
+Unternehmen und sogar Branchen kann zielführend sein, was
+aber nur gelingt, wenn entsprechende Standards oder zumindest Schnittstellen verfügbar sind.
+
+
+In der Luftfahrt sind beispielsweise offene Standards weit
+verbreitet, sodass Zulieferer verschiedene Hersteller mit
+Daten beliefern können. Diese Standards ermöglichen die
+
+
+**44**
+
+
+
+unternehmensübergreifende Einbindung von Daten. Es hat sich
+allerdings herausgestellt, dass eine Kooperation mit anderen
+Branchen vorerst nur über speziell angepasste Schnittstellen
+funktioniert, da bislang keine einheitlichen Standards vorhanden sind. Hinzu kommt, dass keine aktuellen internationalen
+Standards existieren, die den entsprechenden Datenaustausch
+regeln. Hier setzen Konzepte wie der International Data Space
+(IDS) und Marispace-X an [15], [16].
+
+
+Im Kontext Digitaler Zwillinge lässt sich festhalten, dass aus
+wissenschaftlicher Perspektive die Begrifflichkeit des Digitalen
+Zwillings aktuell noch nicht einheitlich definiert und wenig
+standardisiert ist, was eine umfassende Betrachtung und
+Einschätzung der Chancen und Potentiale erschwert. Unabhängig davon sind jedoch die angewandte Forschung und
+Umsetzung von Pilotprojekten den analytischen Arbeiten teilweise schon voraus und schaffen erlebbare Eindrücke eines
+mächtigen Werkzeugs, welches potentiell das Repertoire
+von Industrieunternehmen und der zugehörigen Lieferkette
+erweitern kann.
+
+
+In der maritimen Branche mag der Digitale Zwilling in seiner
+Funktion als vollständige Datensynthese aus Realität und digitaler Welt über den gesamten Lebenszyklus hinweg zwar noch
+nicht vollständig umgesetzt sein, doch ist das gesamte Feld
+
+
+_© Adobe Stock_
+
+
+
+
+
+für die traditionsreiche Branche mit seinen speziellen Anforderungen und Herausforderungen – wie Besonderheiten bei
+der Datenübertragung auf See, komplexer Stakeholder- und
+Eignerstruktur oder vergleichsweise langer Produktlebenszyklen etc. – noch sehr jung.
+
+
+Die im Rahmen dieser Ausarbeitung ausgewerteten Interviews
+haben einen positiven Ausblick der Branche auf die Potentiale der Technologie des Digitalen Zwillings gegeben und es
+wurden auch für den Aftersales attraktive Kernthemen für die
+weitere Forschung identifiziert. Voraussetzung ist in diesem
+Kontext für die Beteiligten, wie bei allen unternehmerischen
+Entscheidungen, eine absehbare Amortisation der entsprechenden Anfangsinvestition.
+
+
+Zentrale positive Effekte werden durch die zielgerichtete
+Nutzung von Datenströmen zur Optimierung des Schiffs- und
+Flottenmanagements gesehen, die bei konsequenter Umsetzung Flotteneffekte sichtbar und Lösungsansätze empirisch
+belegbar machen.
+
+
+Innovative Dienstleistungskonzepte, wie etwa das virtuelle Training von Fachpersonal oder die remoteunterstützte Wartung
+und Instandhaltung von schwer zugänglichen Systemen, bieten
+darüber hinaus Potentiale, um den Betrieb der maritimen
+
+
+
+Anlagen weiter zu optimieren und kostenintensive Reisen zu
+reduzieren.
+
+
+Nicht zuletzt wird nach Expertenmeinung der Digitale Zwilling
+im Rahmen der Umweltwende auch instrumental zur Entwicklung in Richtung einer nachhaltigen Schifffahrt beitragen
+können.
+
+
+Es haben sich jedoch auch Hemmfaktoren herauskristallisiert,
+die einem breiten Einsatz in der Branche entgegenstehen.
+Angefangen bei einer traditionsbewussten Mentalität vieler
+Branchenvertreter über eine nicht final geklärte Frage der
+Datenhoheit bis hin zur schleppenden Netzinfrastruktur bezüglich des Datenaustausches auf den Meeren und im Inland,
+verzögern als technologieunabhängige Faktoren eine breite
+Akzeptanz des Digitalen Zwillings.
+
+
+Abschließend ist zu konstatieren, dass die teilweise in der
+vorangegangenen Ausarbeitung erläuterten Leuchtturmprojekte einen wichtigen Beitrag leisten können, um die Chancen und Potentiale Digitaler Zwillinge erlebbar und belegbar
+zu machen. Die befragten Akteure halten mittelfristig eine
+weitere Verbreitung von Digitalen Zwillingen für wahrscheinlich, sowohl für die Branche im Allgemeinen als auch für ihre
+eigenen Unternehmen.
+
+
+**45**
+
+
+Schlussfolgerungen und Ausblick
+
+
+**46**
+
+
+Schlussfolgerungen und Ausblick
+
+### 5.3 Ausblick
+
+
+Ausgehend von dem positiven Bild der Chancen und Potentiale des Digitalen Zwillings für die maritimer Branche insgesamt – und den Maritimen Aftersales im Besonderen – soll
+im Folgenden ein kurzer Ausblick auf die geplanten und eine
+abschließende Einschätzung der erforderlichen Bemühungen
+gegeben werden, die sich in der Zukunft auftun.
+
+
+Eine zentrale Rolle für eine wissenschaftlich fundierte Forschung muss zukünftig die Bestrebung haben ein einheitliches
+Verständnis für die Technologie des Digitalen Zwillings zu definieren. Ein gangbares Mittel, um eine solche zu schaffen, wäre
+eine Normung des Begriffs oder eine anderweitige Standardisierung im Sinne eines Branchenstandards zu erarbeiten. Die
+dafür benötigte unternehmensübergreifende Zusammenarbeit
+wurde jedoch gleichzeitig auch als Hindernis identifiziert.
+
+
+Aufschlussreich werden zudem die Ergebnisse laufender Projekte, wie z.B. den Anstrengungen des DNV und die HandsOn-Erfahrungen kommerzieller Produkte wie Nachrüstungsanwendungen der Firma Digital Twin Marine sein.
+
+
+Noch nicht vorherzusehen sind dabei die eventuellen Anwendungsfelder, in denen sich ein Digitaler Zwilling nicht nur technisch, sondern auch ökonomisch gegen traditionelle Methoden
+der Datenverwaltung und -auswertung durchsetzen wird. Das
+daraus erwachsene wirtschaftliche Risiko zu minimieren wird
+ein weiteres Schlüsselthema der folgenden Forschungsbemühungen bilden müssen.
+
+
+Speziell im Gebiet des Aftersales können mit einigen VRAnwendungen im Bereich der Qualifikation und Ausbildung
+von Anwendern schon jetzt attraktive Geschäftsmodelle
+identifiziert werden. Dabei gilt hinsichtlich der AR- und VRAnwendungen sicherlich auch die Maxime, das Aftersales und
+klassischer Verkauf Hand in Hand operieren müssen und die
+Technologie des Digitalen Zwillings ideale Datengrundlagen
+für eine kundenorientierte Optimierung des eigenen Portfolios
+bietet.
+
+
+Abschließend ist ein positiver Ausblick ein positiver Ausblick
+auf den Forschungsbedarf im Bereich des Digitalen Zwillings
+zu gegeben. Die zu erörternden Bereiche sind klar umrissen
+und die befragten Experten sind sich hinsichtlich der Potentiale einig, dass diese die finanziellen Aufwendungen in der
+Forschung bei einem erfolgreichen Einsatz der Technologie in
+der Wirtschaft mehr als kompensieren werden.
+
+
+**47**
+
+
+Literaturverzeichnis
+
+### Literaturverzeichnis
+
+
+1. Adamenko D, Kunnen S, Nagarajah A (2020) Digital Twin
+and Product Lifecycle Management: What Is the Difference? In: Nyffenegger F, Ríos J, Rivest L, Bouras A (Hrsg)
+Product Lifecycle Management Enabling Smart X. 17th IFIP
+WG 5.1 International Conference, PLM 2020, Rapperswil,
+Switzerland, July 5–8, 2020, Revised Selected Papers,
+1. Aufl. Springer International Publishing; Imprint Springer,
+Cham, S 150–162
+
+
+2. Albrecht M (2013) Grundlagen des ‚Building Information
+Modeling‘ (BIM). Arten, Ziele und Vorteile des BIM. Akademische Arbeit, Technische Universität Dresden
+
+
+3. Bausch+Ströbel Maschinenfabrik Ilshofen GmbH + Co. KG
+(2022) Digital Engineering | Bausch+Ströbel. https://www.
+bausch-stroebel.com/de/services/digital-engineering. Zugegriffen: 01. April 2022
+
+
+4. Borrmann A, König M, Koch C, Beetz J (Hrsg) (2021) Building Information Modeling. Technologische Grundlagen
+und industrielle Praxis, 2. Aufl. Springer eBook Collection.
+Springer Vieweg, Wiesbaden
+
+
+5. Bräuninger M, Fiedler R, Friedrich T, Girard Y, Maatsch S,
+Mecke M, Stiller S, Teuber M-O, Zimmerman P (2021) Maritime Wertschöpfung und Beschäftigung in Deutschland,
+Bremen
+
+
+6. Czwick C, Anderl R (2020) Cyber-physical twins - definition, conception and benefit. Procedia CIRP 90:584–588.
+doi:10.1016/j.procir.2020.01.070
+
+
+7. Digital Twin Marine (2021) Digital Twin Marine | As-Built
+Digital Twins of your Ship. https://digitaltwinmarine.com/.
+Zugegriffen: 24. März 2022
+
+
+8. DNV GL (2015) Ship Connectivity. DNV GL Strategic
+Research & Innovation Position Paper 04-2015. Safer, Smarter, Greener, Høvik
+
+
+9. DNV GL (2022) ShipManager software. https://www.dnv.
+com/services/ship-management-operations-and-shipdesign-software-14032. Zugegriffen: 01. April 2022
+
+
+10. DNV GL AS (2022) DNV - Digital Solutions for maritime.
+https://www.dnv.com/software/products/Digital-Solutionsfor-maritime.html. Zugegriffen: 24. März 2022
+
+
+**48**
+
+
+
+11. Eigner M (2020) Digitaler Zwilling – Stand der Technik.
+Zeitschrift für wirtschaftlichen Fabrikbetrieb 115(s1):3–6.
+doi:10.3139/104.112300
+
+
+12. Fischer M (2001) Produktlebenszyklus und Wettbewerbsdynamik. Grundlagen für die ökonomische Bewertung
+von Markteintrittsstrategien. Zugl.: Mannheim, Univ.,
+Diss., 2001, 1. Aufl. Gabler-Edition Wissenschaft Schriftenreihe des Instituts für marktorientierte Unternehmen
+(IMU), Universität Mannheim. Dt. Univ.-Verl.; Gabler,
+Wiesbaden
+
+
+13. Heber D, Michelbach F, Morelli F, Groll M (2018) Digital
+Twin-Konzeption in der Automobilindustrie: Einsatzpotenziale der Blockchain-Technologie. Anwendungen und
+Konzepte der Wirtschaftsinformatik (8)
+
+
+14. Hegmann G (2020) US-Auftrag: Siemens programmiert
+digitales Pearl Harbor - WELT. Mit diesem Geheimauftrag
+modernisiert Siemens einen ganzen US-Stützpunkt. welt.
+de. https://www.welt.de/wirtschaft/article219520616/
+US-Auftrag-Siemens-programmiert-digitales-Pearl-Harbor.
+html. Zugegriffen: 01. April 2022
+
+
+15. International Data Spaces (2022) International Data Spaces.
+International Data Spaces e. V. https://internationaldataspaces.org/. Zugegriffen: 24. März 2022
+
+
+16. IONOS SE (2022) Marispace-X | Gaia-X Case Study mit
+IONOS Cloud. https://cloud.ionos.de/gaia-x/marispace-x.
+Zugegriffen: 24. März 2022
+
+
+17. Kongsberg (2021) KONGSBERG MARITIME LAUNCHES
+BLUE INSIGHT, A POWERFUL DIGITAL TOOLBOX FOR
+OCEAN DATA MANAGEMENT AND ANALYSIS. https://
+www.kongsberg.com/maritime/about-us/news-and-media/
+news-archive/2021/blue-insight/. Zugegriffen: 24. März
+2022
+
+
+18. Kretschmann L (2018) Digitalisierung des Service in der
+maritimen Zulieferindustrie, Hamburg
+
+
+19. O‘Dwyer R (2021) P&O Ferries to use digital twins for performance monitoring - Smart Maritime Network. https://
+smartmaritimenetwork.com/2021/12/14/po-ferries-to-usedigital-twins-for-performance-monitoring/. Zugegriffen: 01.
+April 2022
+
+
+20. Prosjektbanken - Forskningsrådet (2022) Digital Twin
+Yard (DTYard) - An ecosystem for maritime models and
+digital twin simulation - Prosjektbanken. Research council of Norway. https://prosjektbanken.forskningsradet.
+no/en/project/FORISS/295918?Kilde=FORISS&distribution=Ar&chart=bar&calcType=funding&Sprak=no&sortBy=date&sortOrder=desc&resultCount=30&offset=360&ProgAkt.3=KLIMAFORSK-Stort+program+klima.
+Zugegriffen: 24. März 2022
+
+
+21. Redaktion Schiff&Hafen (2018) Siemens und Aker Solutions
+vereinbaren strategische Partnerschaft. Siemens und Aker
+Solutions haben eine strategische Kooperation vereinbart,
+um das digitale Angebot im Bereich Engineering, Betrieb
+und Services weiterzuentwickeln. DVV Media Group, Seehafen-Verl. https://www.schiffundhafen.de/nachrichten/
+offshore/detail/siemens-und-aker-solutions-vereinbarenstrategische-partnerschaft.html. Zugegriffen: 24. März
+2022
+
+
+22. Riedelsheimer T, Lünnemann P, Wehking S, Dorfhuber L
+(2020) Digital Twin Readiness Assessment, Eine Studie zum
+Digitalen Zwilling in der fertigenden Industrie. msg, Fraunhofer Verlag, Berlin
+
+
+23. Risse K (2018) Das Virtuelle Flugzeug - Die Digitalisierung in
+der Luftfahrt. In: Luft- und Raumfahrt, Nr. 3, 2018
+
+
+24. SEGNO Industrie Automation GmbH (2017) Allgemein
+
+  - Forschungsprojekt OSCAR. http://wordpress-oscarcloud-2019.p109613.webspaceconfig.de/?page_id=131.
+Zugegriffen: 24. März 2022
+
+
+25. Sidle B (2021) Building your own digital twin? https://www.
+kongsberg.com/digital/resources/blogs/2021/6/buildingyour-own-digital-twin/. Zugegriffen: 24. März 2022
+
+
+26. Siemens Aktiengesellschaft Reale Erfolge durch digitale
+Zwillinge. Bausch + Ströbel will mindestens 30 Prozent
+mehr Engineering-Effizienz bis 2020. https://new.siemens.
+
+
+
+com/de/de/branchen/maschinenbau/referenzen/bauschstroebel.html. Zugegriffen: 01. April 2022
+
+
+27. Siemens Deutschland (2022) Digital Enterprise – Infinite
+opportunities from infinite data. Schnelle und sichere
+Entscheidungen mit dem Digital Enterprise. https://new.siemens.com/de/de/unternehmen/themenfelder/digital-enterprise.html?gclid=EAIaIQobChMIj-KOktjq9AIVhf93Ch0RZQYFEAAYASAAEgJdBfD_BwE. Zugegriffen: 24. März 2022
+
+
+28. Tajdeh Y (2021) Navy Optimizing Shipyards With Digital
+Twin Technology. National DEFENSE. https://www.nationaldefensemagazine.org/articles/2021/3/1/navy-optimizingshipyards-with-digital-twin-technology. Zugegriffen: 24.
+März 2022
+
+
+29. Tao F, Zhang M, Nee AYC (2019) Digital twin driven smart
+manufacturing. Academic Press an imprint of Elsevier,
+London, United Kingdom, San Diego, CA, Cambridge, MA,
+Oxford, United Kingdom
+
+
+30. VDMA FC (2018) Digitalisierung des Service in der maritimen Zulieferindustrie. Fraunhofer CML / VDMA Arbeitsgemeinschaft Marine Equipment and Systems, Hamburg
+
+
+31. Wartsila.com (2021) Wärtsilä partners with Microsoft to
+strengthen their Edge platform and industrialise Marine IoT.
+Wärtsilä Corporation. https://www.wartsila.com/media/
+news/07-12-2021-wartsila-partners-with-microsoft-tostrengthen-their-edge-platform-and-industrialise-marineiot-3019154. Zugegriffen: 24. März 2022
+
+
+32. Zernichow BM von, Nesheim DA (2021) Maritime Data
+Space - MDS. https://www.sintef.no/projectweb/maritimedata-space-mds/about/. Zugegriffen: 24. März 2022
+
+
+33. Ditto. 2022, Digital Twins of the Ocean. https://dittooceandecade.mailchimpsites.com,
+
+
+34. Skywise: https://skywise.airbus.com/
+
+
+**49**
+
+
+Tabellenliteraturverzeichnis
+
+### Tabellenliteraturverzeichnis
+
+
+
+T1. **Digital Twin Marine.** As-built Digital Twins of Your Ship.
+Digital Twin Marine. 2021.
+
+
+T2. **DNV GL AS.** Ship inspection: Hull integrity: Shipmanager
+Hull. s.l. : dnv.com.
+
+
+T3. **Augustyn, Dawid, Ulriksen, Martin D. und Sørensen,**
+**John D.** Reliability Updating of Offshore Wind Substructures by Use of Digital Twin Information. Energies. 2021,
+Bd. 14, 18.
+
+
+T4. On Digital Twin Condition Monitoring Approach for
+Drivetrains in Marine Applications. **Johansen, Sigrid**
+**S. und Nejad, Amir R.** 2019. International Conference
+on Offshore Mechanics and Arctic Engineering. Bd. 10:
+Ocean Renewable Energy .
+
+
+T5. Navy optimizing shipyards with Digital Twin Technology. **Tajdeh, Yasmin.** Arlington : s.n., 2021, National
+DEFENSE.
+
+
+T6. **Hamburg Port Authority AöR.** Digitales Testfeld. 2022.
+
+
+T7. **Eckstein, Megan.** NAVSEA seeing ship sustainment
+successes with digital twins, but wants a more comprehensive tool. USNI News. 2021.
+
+
+T8. Product life-cycle management in ship design: From
+concept to decommission in a virtual. **Andrade, S. L.,**
+**Monteiro, T. G. und Gaspar, H. M.** 2015. European
+Conference on Modelling and Simulation. Bd. 29.
+
+
+T9. Digital twins for the maritime sector. **Lind, Mikael,** **et al.**
+2020.
+
+
+**50**
+
+
+
+T10. **Czwick, Cordula und Anderl, Reiner.** Cyber-physical
+twins - definition, conception and benefit. Procedia CIRP.
+2020, Bd. 90.
+
+
+T11. **Giering, Jan-Erik und Dyck, Alexander.** Maritime Digital Twin architecture: A concept for holistic Digital Twin
+application for shipbuilding and shipping. at - Automatisierungstechnik. 2021, Bd. 69, S. 1081--1095.
+
+
+T12. **Kavin, Kim.** The future is now: Virtual Reality brings a
+new dimension to yacht design and construction. Yachtsinternational.com. 2016, S. 45-49.
+
+
+T13. **Skylight.** Supercharge your workforce with Skylight.
+
+[Online] 2022. https://upskill.io/skylight/.
+
+
+T14. **Proby, Raches.** SceneScan: A laser focus on the future of
+dynamic positioning. s.l. : wartsila.com, 2020.
+
+
+T15. ENHANCING WORKABILITY BY OPERATIONAL WAVE
+MODELLING. **Dekeuleneer, François, de Vroom, Joris**
+**und Mol, Arjan.** Panama City : s.n., 2018. PIANC-World
+Congress Panama City.
+
+
+T16. Digital Twin of a Maneuvering Ship: Real-Time Estimation of Derivatives and Resistance Coefficient Based on
+Motion Sensor. **Sasaki, Humberto A. Uehara, et al.**
+2021. International Conference on Offshore Mechanics
+and Arctic Engineering.
+
+
+T17. Digital Twin Modelling of Ship Power and Propulsion Systems: Application of the OpenSimulation Platform (OSP).
+**Perabo, Florian, et al.** 2020. 29th International Symposium on Industrial Electronics (ISIE).
+
+

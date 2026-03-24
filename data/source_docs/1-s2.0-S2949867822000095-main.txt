@@ -1,0 +1,1055 @@
+[High-speed Railway 1 (2023) 47–55](https://doi.org/10.1016/j.hspr.2022.12.003)
+
+
+[Contents lists available at ScienceDirect](http://www.sciencedirect.com/science/journal/29498678)
+## High-speed Railway
+
+
+[journal homepage: www.keaipublishing.com/en/journals/high-speed-railway](https://www.keaipublishing.com/en/journals/high-speed-railway)
+
+
+Research article
+### Study on key technologies of GNSS-based train state perception for train- centric railway signaling
+
+Baigen Cai [a][,][b][,][⁎], Jingnan Liu [c][,][d], Xurong Dong [e], Jiang Liu [b]
+
+a _School of Computer and Information Technology, Beijing Jiaotong University, Beijing 100044, China_
+b _Frontiers Science Center for Smart High-speed Railway System, Beijing Jiaotong University, Beijing 100044, China_
+c _School of Geodesy and Geomatics, Wuhan University, Wuhan 430079, China_
+d _GNSS Research Center, Wuhan University, Wuhan 430079, China_
+e _Space Engineering University, Beijing 101416, China_
+
+
+
+
+
+A R T I C L E I N F O
+
+
+_Keywords:_
+Railway signaling
+Train control
+Global Navigation Satellite System
+Sensor data fusion
+Virtual Balise
+Train integrity
+Performance evaluation
+
+
+**1. Introduction**
+
+
+
+A B S T R A C T
+
+
+The application of Global Navigation Satellite Systems (GNSSs) in the intelligent railway systems is rapidly
+developing all over the world. With the GNSS-based train positioning and moving state perception, the au­
+tonomy and flexibility of a novel train control system can be greatly enhanced over the existing solutions relying
+on the track-side facilities. Considering the safety critical features of the railway signaling applications, the GNSS
+stand-alone mode may not be sufficient to satisfy the practical requirements. In this paper, the key technologies
+for applying GNSS in novel train-centric railway signaling systems are investigated, including the multi-sensor
+data fusion, Virtual Balise (VB) capturing and messaging, train integrity monitoring and system performance
+evaluation. According to the practical characteristics of the novel train control system under the moving block
+mode, the details of the key technologies are introduced. Field demonstration results of a novel train control
+system using the presented technologies under the practical railway operation conditions are presented to il­
+lustrate the achievable performance feature of autonomous train state perception using BeiDou Navigation
+Satellite System (BDS) and related solutions. It reveals the great potentials of these key technologies in the next
+generation train control system and other GNSS-based railway implementations.
+
+
+
+The train control system plays a significant role in ensuring the safety
+of railway operation and improving the transportation efficiency. Chinese
+Train Control Systems (CTCSs), including CTCS level 2 and level 3, have
+been widely implemented in the high-speed railway system. Current
+CTCSs adopt the track circuit to realize the train occupancy examination
+and identification of train integrity, where the wheel speed sensor is
+adopted to obtain the train’s speed and along-track location [1]. Under this
+architecture, the Balises are utilized to realize corrections to the accu­
+mulative position error, which requires a large number of track-side
+equipments and thus the expected cost efficiency for the maintenance
+operation cannot be achieved. At the same time, the fixed block operation
+mode for the trains constrains the possibility of improving the railway
+traffic density and operational efficiency. It can be seen that there has
+been a rapid growth of transport demand and the increasing urgency for
+the enhanced autonomy and intelligence of novel train control systems
+
+
+
+
+[2]. Thus, the improvement of transportation efficiency with reduced
+track-side equipments, construction cost and the maintenance burden has
+been highly concerned, with which the advanced train state perception
+and operation control systems with the train-centric design will be the core
+development direction in the near future.
+
+To realize the novel train-centric control system architecture, the
+train state perception is an enabling issue in determining the control
+orders by the on-board sub-system. Different from the conventional
+positioning solutions based on the track-side facilities, autonomous train
+positioning using the GNSS (Global Navigation Satellite System) is
+highly concerned to reduce the Balises in position calibration [3], which
+is the foundation to achieve accurate and reliable perception of the
+train’s running states. Through the rapid development and moderniza­
+tion of GNSSs, like GPS and Galileo, GNSS-enabled autonomous train
+state perception has been concerned and explored in many countries.
+Besides that, other train-borne positioning methods that have been
+utilized in the high-speed railway, like INS (Inertial Navigation System)
+
+
+
+⁎ Corresponding author.
+
+_E-mail address:_ [bgcai@bjtu.edu.cn (B.G. Cai).](mailto:bgcai@bjtu.edu.cn)
+
+
+[https://doi.org/10.1016/j.hspr.2022.12.003](https://doi.org/10.1016/j.hspr.2022.12.003)
+Received 10 November 2022; Received in revised form 25 December 2022; Accepted 26 December 2022
+Available online 30 December 2022
+2949-8678/© 2023 The Authors. Published by Elsevier B.V. on behalf of KeAi Communications Co. Ltd. This is an open access article under the CC BY-NC-ND license
+[(http://creativecommons.org/licenses/by-nc-nd/4.0/).](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+
+_B.G. Cai, J.N. Liu, X.R. Dong et al._ _High-speed Railway 1 (2023) 47–55_
+
+
+
+and the Doppler radar, also show great potentials in realizing the au­
+tonomous train positioning with a low cost over the Balise-based solu­
+tions [4]. However, it can be found that the single-sensor-based solution
+cannot satisfy the requirement of the train control system due to specific
+limitations and disadvantages in practical scenarios [5]. How to explore
+the capabilities of multiple perception sensors and break through the
+application-demand-oriented information fusion processing technology
+is the key to realize the satisfaction of novel train control systems with
+the train-centric design. Hence, it is important to overcome the key
+technologies of autonomous train positioning based on the fusion of
+GNSS and assistant sensors. By developing a novel train control system
+with dynamic configuration of the trains’ interval, reduced involvement
+of track-side equipments, and enhanced maintainability of the on-board
+train positioning system, the advantages of the train-centric mode will
+be practically reflected and utilized for specific railway lines. In this
+paper, key technologies of the novel train control system with GNSSbased autonomous perception are investigated and demonstrated in the
+practical environment, which illustrate the necessity and advantages of
+the utilization of GNSS, especially BDS (BeiDou Navigation Satellite
+System), in future safety-related railway systems in China.
+
+
+**2. Multi-sensor data fusion**
+
+
+In existing railway signaling systems, the track occupancy of the
+train is determined by the track circuit, and the exact along-track lo­
+cation of the train is calculated by integrating both the train-borne
+odometer (or Doppler radar) and track-side Balises. The novel traincentric signaling system determines the track occupancy and train lo­
+cation without relying on those track-side facilities. Thus, raw mea­
+surements from multiple train-borne sensors will be integrated to
+achieve the required accuracy level, reduce the uncertainty and en­
+hance the dependability.
+
+
+_2.1. GNSS/INS/Odometer sensor data fusion_
+
+
+The ODO (Odometer) is the most commonly used train positioning
+method in existing train control systems. Wheel slide and slip during
+the train operation, as well as wheel diameter wear, may result in errors
+in the train speed measurement, and lead to error accumulation in the
+along-track location calculation results. Such errors will be brought into
+the INS/ODO integrated positioning system. The train positioning error
+by INS/ODO drifts over time until the position calibration results are
+available. Different from the Balises, results of GNSS positioning can
+provide the correction without relying on the track-side. Performance
+of a GNSS/INS/ODO integrated positioning system will be determined
+by the reliability and accuracy of GNSS. When the GNSS performance
+decreases or the GNSS signal is blocked for a long time, the result of INS
+will not be guaranteed effectively [6]. Therefore, the availability and
+observation quality of GNSS greatly affect the precision and effective­
+ness of train positioning using INS and ODO.
+
+The key issue in realizing the multi-sensor integrated train positioning
+is the sensor fusion logic. It is in charge of combining the measurements
+from multiple sensors, improving the reliability and fault tolerance of the
+integrated system, providing suitable auxiliary information for the ex­
+isting location determination system, and simplifying the system com­
+plexity over those track-side-relied solutions. Among different sensor fu­
+sion algorithms, Federated Kalman Filter (FKF) is a distributed cascaded
+integrated sensor fusion method and widely considered in applications
+because of its flexibility, low computational effort, and excellent fault
+tolerance capability. FKF consists of several local filters and a main filter,
+in which the system information is allocated in the local filters and then
+fused in the main filter. For the GNSS/INS/ODO integrated train posi­
+tioning system based on the FKF, INS is integrated due to its advantages in
+high output rate, autonomy and reliability. Considering the INS-related
+local filtering structures, two local filters for GNSS/INS and INS/ODO can
+
+
+
+**Fig. 1.** Architecture of GNSS/INS/ODO sensor data fusion for integrated train
+positioning.
+
+
+be established, as shown in Fig. 1. These two local filters operate in
+parallel to obtain local estimations through the measurements _**z**_ 1 and _**z**_ 2.
+Once the requirements of the main filter are satisfied, the global esti­
+mation will be performed in the main filter, which will be fed back to the
+local filters for future iterations.
+
+
+_2.2. Trackmap-enhanced data fusion_
+
+
+Considering the constraint of the train’s trajectory, priori informa­
+tion about the spatial characteristics of the train position can be ob­
+tained through the trackmap database with a high precision level
+through precise measuring and data processing. Using the map
+matching logic, the raw sensor fusion-derived coordinates can be cali­
+brated according to the known track information. At the same time, the
+along track travelling distance over the corresponding referencing point
+can be calculated to describe the one-dimensional train location.
+
+A variety of map matching algorithms already exist. For single line
+railways, the vertical projection method can efficiently derive the map
+matched train position. Principle of the vertical projection for map
+matching is shown in Fig. 2, where the dark gray curve represents the
+railway line, the light gray “ ” represents the discrete points in the
+trackmap, the red “ ” denotes the estimated train position obtained by
+the on-board positioning system, the yellow “ ” indicates the track
+position after map matching, and the black dotted line between the red
+and yellow “ ” represents the residual between the sensor fusion de­
+rived train position and the candidate target track segment.
+
+When the train is operating in the throat area of a railway station and
+the route information of the train is unknown to the train positioning
+system, there will be a hesitation area when the train passes through the
+switch point. The projection point on the main line will be calculated by
+map matching so that the mileage of the train can be acquired. However,
+the track discrimination has to be realized to describe the track occu­
+pancy when the accuracy of positioning is sufficient. When the train is
+not running through the switch area, track occupation will be identified
+and the candidate track piece will be locked before the corrected train
+position is calculated by vertical projection.
+
+From Fig. 2, it can be found that the residual error of map matching
+illustrates the lateral error of the positioning result by sensor fusion. It
+allows us to evaluate the quality of sensor fusion and protect the map
+matching from faulty or biased positioning results. The map matching
+residual error will be examined with a pre-defined threshold. When the
+residual exceeds the threshold, the map matching results will not be
+adopted to generate train position output to the train control kernel,
+and an alarm will be triggered to indicate the failure in the map
+matching operation. The residual threshold is an important decisive
+factor to control the quality of residual examination. It is determined
+considering the accuracy level of GNSS. A reasonable threshold that
+matches the GNSS quality level can ensure the accuracy and availability
+of train positioning and avoid incorrect map matching operations.
+
+
+
+48
+
+
+_B.G. Cai, J.N. Liu, X.R. Dong et al._ _High-speed Railway 1 (2023) 47–55_
+
+
+
+**Fig. 2.** Principle of map matching using the vertical projection logic.
+
+
+_2.3. Integrity monitoring at the sensor fusion level_
+
+
+To effectively improve the integrity level of train positioning con­
+sidering the safety requirement of the railway signaling system, the IM
+(Integrity Monitoring) is of great necessity. The user-level IM method only
+uses redundant sensor measurements for consistency verification. Since it
+does not rely on external integrity enhancement auxiliary systems, the userlevel IM strategy is adopted in the train control applications that emphasize
+the autonomous capability of the on-board system. Once the fusion filtering
+and map matching are completed with the trackmap database, the derived
+results will be utilized to evaluate the HPE (Horizontal Position Error) with
+the ground truth from the reference system. With the pre-define HAL
+(Horizontal Alert Limit) based on the system requirements, HPE will be
+compared with the HAL to identify the fault state of the positioning system.
+
+To specify whether the train localization output satisfies the application
+requirements, a decision can be made on the integrity status before gen­
+erating the location report. The HPL (Horizontal Protection Level) that is
+calculated with the sensor fusion filter and map matching operations, the
+HPE between the positioning result and the reference information, and the
+pre-defined HAL, will be considered at the same time to identify the train
+positioning integrity status. Under the normal condition with a reliable
+
+
+
+estimation to the HPE, HPL should cover HPE to realize an effect error
+envelope. An alarm is required to be activated when HPL exceeds HAL.
+However, the relationship among HPE, HPL and HAL does not always fall
+into the normal situation due to faults or failures by the effect of various
+factors. Hence, different integrity status cases may be obtained in the ex­
+amination as shown in Fig. 3. In the figures, the HPL and HAL values are
+represented by the radius of the circles, and the HPE can be evaluated by
+the distance from the coordinate origin to the point represented by the HPE.
+
+Five cases shown in Fig. 3 can be described as follows.
+
+
+1) Normal with (HAL _>_ HPL _>_ HPE). The positioning error meets the
+application requirements and fault is not detected in this case.
+2) Dangerous Detected (DD) with (HPL _>_ HAL) (HPE _>_ HAL).
+When HPE exceeds the limit HAL under the situation HPL > HAL,
+the fault occurrence can be detected and an alarm will be activated.
+In addition, it is not necessary to distinguish the two situations with
+
+HPE _>_ HPL and HPE HPL since the fault is always detectable.
+3) Safe Detected (SD) with (HPL _>_ HAL _>_ HPE). The train position
+error does not exceed the limit HAL but it is determined that the
+fault exists at the current instant. Although the corresponding alarm
+will be triggered, it is not harmful to the normal operation of the
+train control system.
+4) Dangerous Undetected (DU) with (HPE _>_ HAL _>_ HPL). It indicates
+the situation where the train position error exceeds the threshold
+but it is not detected. It will not trigger an alarm under the dan­
+gerous situation. If this status continues for a long time, it will
+seriously affect the normal operation of the location-based appli­
+cations because the potential danger cannot be recognized by users
+and the corresponding protective measures will not be taken.
+5) Safe Undetected (SU) with (HAL _>_ HPE _>_ HPL). The train position
+error does not exceed the limit HAL, but HPL fails to bound the HPE.
+Although this status is still within the safe operation domain, the
+risk of the DU status still exists when the error keeps increasing.
+
+
+Based on the above analysis to the integrity monitoring status, the
+fault status of the train positioning system can be determined according
+to the decision space as Table 1.
+
+
+
+**Fig. 3.** Different integrity status cases by comparison of HPE, HPL and HAL.
+
+
+49
+
+
+_B.G. Cai, J.N. Liu, X.R. Dong et al._ _High-speed Railway 1 (2023) 47–55_
+
+
+
+**Table 1**
+Principle of integrity status identifcation.
+
+No. Fault detection result Determination condition
+
+
+1 Normal HAL > HPL > HPE
+2 NGO No GNSS output
+3 Dangerous Detected (DD) (HPL > HAL) ∩ (HPE > HAL)
+4 Safe Detected (SD) HPL > HAL > HPE
+5 Dangerous Undetected (DU) HPE > HAL > HPL
+6 Safe Undetected (SU) HAL > HPE > HPL
+
+
+**3. Virtual Balise**
+
+
+The concept of VB (Virtual Balise) can effectively integrate the sa­
+tellite positioning technology into existing train control system frame­
+works without modification to the specifications [7,8]. VB capture is
+acknowledged by matching the train position and the preset VB re­
+ference position along the track [9]. Within a specific distance limit, a
+success matching will enable the determination of the time instant when
+a train passes through the target VB. Then, the VB telegram can be ex­
+tracted and transmitted to the ATP (Automatic Train Protection) system
+kernel. Based on the existing VB capture mechanism, a pre-capture de­
+cision logic is necessary to effectively reduce the risk of missed VB
+capturing. A VB capture recognition method based on the forward
+search strategy is proposed to accurately determine the position and
+time of VB capture, which improves the VB capture performance over
+conventional solution requires a pre-defined capture interval.
+
+
+3.1. Pre-capture decision logic
+
+
+With the aid of the train state prediction method, the NVB (Next
+Virtual Balise) pre-capture decision is made according to the relative
+position relationship between the train and the NVB. By comparing the
+predicted mileage _St+_ 1 [per unit time with the distance ] _[S]_ NVB [between ]
+the train and the NVB at instant _t_, the following principles are used to
+realize the NVB pre-capture.
+
+
+
+_t_
+
+
+
+_VBStatei_
+
+
+
+_=_
+
+
+
+
+
+
+
+
+
+_t+_ 1 _t_
+
+
+
+_t+_
+
+
+_t+_
+
+
+
+
+
+
+
+
+
+identification will be triggered in the following unit cycle time _T_ . It is
+obvious that the involvement of DCI allows us to prevent the missed VB
+capture when there is a relatively large train position prediction error.
+
+
+3.2. VB capture identification
+
+
+In the train position prediction for pre-capture, the IMM (Interactive
+Multiple Model) algorithm has been adopted to constrain the prediction
+error considering different kinematical models of the train, including
+Constant Stop (CS), Constant Velocity (CV), Constant Acceleration (CA)
+and Constant Turn (CT). According to the probability evaluation results of
+each sub-model, it is considered that the model _Fi_ with the largest
+probability may effectively represent the current running characteristics
+of the train. To exactly determine the VB passage instant, the cycle time
+for pre-capturing is divided into ( _N_ 1) equal intervals. When the precapture is identified, the microscope forward recursion of the train lo­
+cation within the following cycle interval (, _t t_ _+_ _T_ ) will be carried out
+according to Eq. (2) to predict the train’s state, and each recursion is
+carried out based on the previous recursion result. By calculating the
+traveling distance of the train within the interval (, _t t_ _+_ _T_ ), the exact
+moment when the head of the train passes through the NVB can be cal­
+culated, so as to determine the location with the NVB capture identifi­
+cation. Fig. 5 shows the principle of VB capture identification within the
+interval (, _t t_ _+_ _T_ ) when the pre-capture has been identified at instant _t_ .
+
+_Xt+j t_ _=_ _FXt+_ ( _j_ 1) _t_ ( _j_ _=_ 1, 2, ... _N_ 1) (2)
+
+
+**Fig. 5.** Principle of VB capture identification.
+
+
+**4. Train integrity monitoring**
+
+
+The connection mode between the train carriages is a rigid connection.
+When the train is grouped, the length of the train will be fixed covering the
+length of all the locomotives and carriages (or EMUs for the high-speed
+railway) [10,11]. In the practical operation, a normal train integrity state
+indicates that the relative speed of the HOT (Head-of-Train) and EOT
+(End-of-Train) is zero and the projected HOT-EOT interval equals to the
+nominal train length. When decoupling occurs, the train will be in an
+incomplete state, the thus the EOT will lose the traction force and de­
+celerate until the speed falls to zero. An abnormal integrity status will
+result in an increased HOT-EOT relative speed, leading to an increasing
+HOT-EOT distance. Therefore, the train integrity state can be identified by
+evaluating the HOT/EOT relevant state and the train length.
+
+
+_4.1. Train integrity monitoring based on GNSS and trackmap_
+
+
+Through the monitoring of along-track position, speed and direction
+of the HOT and EOT with the aid of the trackmap database, the train
+integrity status can be determined through the dynamic evaluation of
+the train length.
+
+Based on the POI (Point-of-Interest) set _MAP_ 84 _=_ { _P_ 1, _P_ 2, _…_,, _Pi_ _…_, _Pm_ },
+_Pi_ _=_ ( _Bi_, _Li_, _H Si_, _i_ ) from the trackmap, where ( _Bi_, _Li_, _H Si_, _i_ ) represent
+latitude, longitude, altitude and mileage of the POI, map matching can
+be carried out to determine the along-track location (1D mileage that is
+not affected by the curve shape of the railway line) of HOT and EOT for
+train length ( _L_ matching) evaluation, which means
+
+_L_ matching _=_ _S_ HOT _S_ EOT (3)
+
+
+
+_t+_ 1 _t_
+
+
+
+
+_>_
+
+
+
+_t+_
+
+
+
+where _i_ is the VB ID number, _DCI_ is the fitting value of the train po­
+sition prediction error by the LS (Least Squares) method based on the
+historical state information, which changes dynamically with the train
+speed; _VBState_ is the result of the NVB pre-capture decision.
+
+As shown in Fig. 4, it can be found that the sub-figure (a) shows that
+the predicted train position does not pass the NVB at instant ( _t_ _+_ 1).
+Since the predicted train position is still far from the NVB, the VB
+capture and recognition will not be activated under this situation and
+the VB capture logic will have to continue the train state monitoring
+( _VBState_ _=_ 0). The sub-figure (b) shows two successful cases of NVB
+pre-capture recognition ( _VBState_ _=_ 1), indicating that the predicted
+train position falls into the pre-capture range and thus the VB capture
+
+
+**Fig. 4.** Different situations of VB pre-capture decision logic.
+
+
+
+50
+
+
+_B.G. Cai, J.N. Liu, X.R. Dong et al._ _High-speed Railway 1 (2023) 47–55_
+
+
+
+**Fig. 6.** Principle of length-based train integrity monitoring based on GNSS and
+trackmap.
+
+
+Due to the existence of positioning error, especially the uncertainty
+of EOT positioning resulted by the constrained satellite visibility, the
+uncertainty of the derived train length has to be concerned [12]. As
+shown in Fig. 6, an uncertainty buffer has to be added to the estimated
+HOT and EOT position to form an enhanced “envelope” for the train
+integrity determination purpose. A conservative evaluation of the un­
+certainty ranges is necessary due to the safety assurance target, and
+thus several factors related to the positioning performance have to be
+investigated, including the measurement noise, state estimation error
+and the potential fault(s) and failure(s). With this consideration, the
+derived train length would be larger than truth, and thus the threshold
+for train integrity identification has to be effectively determined to
+avoid false alarm to the abnormal train integrity events.
+
+The uncertainties in HOT and EOT positioning results lead to the es­
+timation deviation of the train length. When the quality of GNSS posi­
+tioning degrades with the change of the observation condition, the de­
+viation of train length estimation would be large and thus the failure of
+accurate train integrity monitoring may occur. Therefore, the consistency
+evaluation of the HOT/EOT relative speed can be involved to consolidate
+the integrity status identification through multiple information resources.
+
+Considering the errors in position and speed measurements of the
+both ends, it would be necessary to constrain the errors through the
+filtering operation. It can be found that there are mainly two specific
+trends to the monitoring variables, including relative static and relative
+acceleration according to the HOT-EOT-based train length and relative
+speed estimation. Therefore, a sliding window strategy can be involved
+for mean filtering, and then the filtered data in the window can be fitted
+by LS-based linear fitting. According to the fitting results, the qualita­
+tive trend of the data in the sliding window can be recognized to ana­
+lyze the changing status of the HOT/EOT relative speed and the esti­
+mation deviation of the train length.
+
+
+_4.2. Safe train envelope estimation_
+
+
+For GNSS-based train positioning and train integrity monitoring, the
+uncertainty in state estimation has to be concerned to ensure the safety
+and efficiency of train operation by utilizing the integrity monitoring
+result. Under the moving block train control scheme, where the occu­
+pancy of the track segments is determined by the practical length of the
+train, it is necessary to add a reasonable margin to the raw HOT and EOT
+location to form a safe occupancy range [13]. The safe train position has
+to cover the most unfavorable conditions. With this consideration, the
+margin should be sufficiently large to realize a high possibility to protect
+the unsatisfied situations. However, an excessive margin will lead to
+unreasonable identification of track occupancy, which may greatly af­
+fect the operational efficiency. To realize the expected balance level
+between the safety and efficiency characteristics, a constrained safe
+margin has to be adopted on the basis of safety and rationality, so as to
+reduce the train tracing interval and improve the system efficiency.
+
+The essence of the safe train envelope is to realize the safety as­
+surance of train control by describing the reliability of train positioning.
+The safe train envelope extends the positioning output based on the
+evaluation of the uncertainty of positioning errors, and provides a safe
+overlay to the most possible position derived by the HOT/EOT
+
+
+
+positioning unit. The safe margin consists of the HPL by integrity
+monitoring result and the confidential interval of the positioning error.
+
+The HPL, which indicates the radius of a circle in the horizontal
+plane with its center being at the true position to describe the region
+assured to contain the indicated horizontal position, is usually regarded
+as the safety boundary of positioning result by GNSS. However, the
+existence of the integrity risk may lead to an unbounded position error
+that exceeds the HPL. Without the high-level referencing system during
+the dynamic operation, it is difficult to accurately evaluate the relia­
+bility of the safety boundary by HPL. In order to guarantee the cred­
+ibility of the safe margin for envelope evaluation, it is necessary to
+estimate the possible range of the positioning error by a specific error
+confidence interval strategy. Considering the track-constrained alongtrack operation of railway trains, the error confidence interval indicates
+a one-dimensional along-track interval that can be represented by the
+uncertainties in state prediction, measurement update and the
+trackmap-based location determination, which means
+
+[ low ( ), _k_ up ( )] _k_ _=_ _f_ ( _**z**_ _k_, ˆ, _**x**_ _k_ _**g**_ ) (4)
+
+where low ( ) _k_ and up ( ) _k_ represent the lower and upper limits of the
+confidence interval at instant _k_, _**z**_ _k_ indicates the user measurement
+result, _**x**_ ˆ _k_ denotes the prediction result, and _**g**_ represents the prior
+geographic information from the trackmap database.
+
+Based on the lower and upper limits, the error confidence interval
+can be evaluated by the range of the two limits as
+_LCI k_ ( ) _=_ up ( ) _k_ low ( ) _k_ and is updated with time. Thus, the safe train
+envelope _S_ envelope ( ) _k_ can be calculated by combining the HPL and error
+confidence interval as
+
+_S_ envelope ( ) _k_ _=_ _HPL k_ ( ) _+_ _LCI k_ ( ) (5)
+
+
+**5. State perception performance evaluation**
+
+
+_5.1. RAMS architecture for railway signaling_
+
+
+The performance indices of GNSS-based positioning are different from
+the requirements of railway systems, especially for the safety-related
+railway applications. With the EN50126 standard definition, the RAMS
+(Reliability, Availability, Maintainability & Safety) architecture is presented
+with different requirements to specific railway systems and functions.
+
+1) Reliability. It refers to the ability of a product or a system to perform a
+specified function under specified conditions and within a specified time
+period. The evaluation indicators with respect to the reliability include
+failure rate, MTBF (Mean Time Between Failure) and MUT (Mean Up Time).
+
+2) Availability. It refers to the extent to which a product or a system is in
+a workable or usable state at any moment when the required external re­
+sources are met or when it starts to perform its tasks. The availability of a
+product is a composite representation of its reliability and maintainability.
+
+3) Maintainability. It refers to the ability of a product or a system to
+perform specified maintenance work under the specified conditions and
+within the specified time using the specified procedures and resources
+for maintenance.
+
+4) Safety. It refers to the ability to not incur risks that may cause
+damage. The safety requirements of the GNSS autonomous positioningbased train control system include functional safety requirements and
+other safety requirements. Among them, functional safety requirements
+are described by SIL (Safety Integrity Level), and different SIL levels are
+defined by the THR (Tolerable Hazard Rate).
+
+For a novel train control system based on autonomous perception
+using GNSS, the RAMS indices also have to be considered in the design
+and operation phases. The relationship of RAMS indices in the railway
+domain is shown in Fig. 7. If the reliability and maintainability are met,
+and long-term maintenance and control are performed according to the
+environment in which the system is located, the safety and availability
+of the system can also be met.
+
+
+
+51
+
+
+_B.G. Cai, J.N. Liu, X.R. Dong et al._ _High-speed Railway 1 (2023) 47–55_
+
+
+
+**Fig. 7.** Relationship of different indices in the RAMS architecture.
+
+
+_5.2. Indices of integrated train state perception_
+
+
+It can be found that the GNSS-enabled train state perception can be
+evaluated using different indices from the railway-specified RAMS ar­
+chitecture. The relationship between GNSS-related performance index
+system and the RAMS definitions has to be investigated to achieve ef­
+fective evaluation of the GNSS-based applications in the railway do­
+main. The performance indices corresponding to GNSS are summarized
+as follows.
+
+1) Accuracy. As the most essential evaluation indicator for the
+GNSS-enabled train positioning, the concept of accuracy mainly in­
+cludes static accuracy and dynamic accuracy. Accuracy can be divided
+into two parts, including correctness and precision. As described in
+Table 2, it can be expressed by the position error and the degree of
+confidence, respectively.
+
+2) Integrity. Integrity status identification of GNSS-based train state
+perception can be performed by combining fault detection at different
+information processing stages. Only horizontal position results are
+considered in the railway applications, the integrity of an integrated
+train positioning solution like the GNSS/INS integrated mode can be
+defined as “the ability of the train positioning unit to alert the train
+
+
+
+control system if it cannot provide available horizontal position re­
+sults”.
+
+The evaluation of the integrity status is different from the accuracy
+since it concerns more about the behaviors of the perception logic
+against the critical conditions with fault(s) or failure(s). It can be de­
+scribed by the false alarm rate, missed detection rate, HPE, HPL, HAL
+and TTA (Time to Alert), which are summarized in Table 3.
+
+For the train positioning integrity assessment aiming at train posi­
+tioning status identification, the output parameter is the train posi­
+tioning output result integrity status. In the train positioning integrity
+state, in addition to the normal state, there are three non-normal states:
+alarmed non-hazardous state, alarmed hazardous state and no alarmed
+hazardous state.
+
+For the integrity assessment aiming at the identification of train
+positioning status, the “integrity state” will be identified as the output
+of the assessment, which is defined as status of the train positioning
+output results obtained with the integrity assessment input parameters.
+It can be classified as normal, safe alarmed, dangerous alarmed, and
+dangerous un-alarmed.
+
+3) Availability. According to the definition of availability in
+EN50126, availability of an integrated train positioning system like
+GNSS/INS mode is defined as “the extent to which the train positioning
+is available at any given moment”. The required parameters for the
+availability assessment mainly include the integrity status, hardware
+failure rate, and environmental scene parameters, which can be de­
+scribed as Table 4.
+
+The availability evaluation results can be reflected by the in­
+stantaneous availability and steady-state availability. The instantaneous
+availability _A_ ( _t_ ) evaluates the probability that a train positioning unit
+normally provides the reliable location service at a certain moment. Under
+the normal circumstances, the train positioning unit is able to provide
+location information at a fixed frequency _f_ N. If the train location unit is
+able to provide the reliable location service normally at instant _t_ 1, it is
+considered to be available in the period from _t_ 0 = _t_ 1-1/ _f_ N to _t_ 1, denoted as
+_A_ ( _t_ 1)= 1. Otherwise, it is considered to be unavailable at this instance,
+which means _A_ ( _t_ 1)= 0. Different from the instantaneous availability, the
+steady-state availability _A_ illustrates the probability that a train posi­
+tioning unit provides the location service correctly after reaching a steady
+
+
+
+**Table 2**
+Parameters in accuracy evaluation.
+
+Parameter Symbol Description
+
+
+Position error _e_ Deviation of the measurement result from the truth.
+Degree of confidence 1- _α_ Degree of agreement of the measurement results, which can be measured by the dispersion of the measurement results; the length of
+the region where the overall parameter lies within a certain confidence level is called the confidence interval
+
+
+**Table 3**
+Parameters in integrity evaluation.
+
+Indicator Symbol Description
+
+
+Horizontal position error _HPE_ The difference between the measured position of the train at a certain moment and the reference value output by the
+reference system in the horizontal direction. The reference system is able to achieve a higher accuracy installed at the
+same location as the current train positioning unit.
+False alarm rate _P_ fa Required parameters for fault detection, fault isolation and horizontal protection level calculation. In practice, the
+settings should be defined concerning the requirements of specific railway lines with different traffic densities.
+Missed detection rate _P_ md Required parameters for fault detection, fault isolation and horizontal protection level calculation. In practice, the
+settings should be defined concerning safety requirements and the tolerable risk raised by the positioning unit.
+Horizontal protection level _HPL_ The position output thresholds obtained on the basis of false alarm rate and missed detection rate. The HPL should
+effectively bounds the HPE under normal conditions.
+Horizontal alert limit _HAL_ The maximum horizontal position error value that does not activate the alarm. It is related to the practical requirement of
+the train control system and the environmental factors of specific railway lines.
+Time to alert _TTA_ The maximum time interval permitted from the time when the fault information is collected until the user receives an
+alarm. The determination of the TTA is also related to the operational requirements. An integrity event should not be
+considered as such unless it lasts for longer than the TTA without an alarm being raised.
+Environmental scene parameter _S_ c The results of environmental scene clustering classification based on a priori information. It is used to improve the filter
+estimation quality to further ensure the accuracy and integrity of GNSS-based perception.
+
+
+52
+
+
+_B.G. Cai, J.N. Liu, X.R. Dong et al._ _High-speed Railway 1 (2023) 47–55_
+
+
+
+**Table 4**
+Inputs of availability evaluation.
+
+Parameter Symbol Description
+
+
+Integrity state _S_ i Obtained through the integrity assessment.
+Hardware failure rate _λ_ H Probability of hardware failure for the
+sensor(s) or the data processing module in
+the train positioning unit.
+Environmental scene _S_ c Clustering result of environmental scenes
+parameter based on a priori information, which is
+
+used to implement state transfer analysis
+and availability assessment of subenvironmental scenes.
+
+
+**Table 5**
+Defnition of diferent SILs according to the THR.
+
+Tolerable Hazard Rate (per hour, per function) SIL level
+
+
+10 9 _THR_ _<_ 10 8 4
+
+10 8 _THR_ _<_ 10 7 3
+
+10 7 _THR_ _<_ 10 6 2
+
+10 6 _THR_ _<_ 10 5 1
+
+
+state over a longer period of operation. Thus, the relationship between the
+two availability parameters can be described as
+
+
+_A_ _=_ lim _A t_ ( )
+_t_ (6)
+
+4) Safety. Safety stands for the ability to eliminate the risk of un­
+acceptable damage to a positioning unit. The railway sector uses safety
+integrity level to describe the likelihood that a system achieves the
+required safety function within a specified time under all specified
+conditions. The SIL specifies the safety integrity requirement for the
+safety functions assigned to the safety-related systems. Different SIL
+levels can be described in Table 5.
+
+The risk assessment needs to be performed for the safe design of
+train positioning architecture for the railway signaling applications.
+The risk assessment results can be classified as risky and the risk-free
+
+
+
+cases. Therefore, the output of safety assessment can be defined as the
+frequency of risky event _P_ risk.
+
+It has to be noted that the above-mentioned indices considering both
+the RAMS and GNSS systems are closely correlated, which means that
+performance evaluation is carried out based on a systemic measure. The
+relationship among the performance indicators for GNSS-based train
+positioning and state perception can be described as Fig. 8.
+
+
+**6. Field demonstration and analysis**
+
+
+Based on the development of the novel train control system, an
+advanced train positioning unit for the railway train control applica­
+tion was designed and developed. The unit is realized based on the safe
+platform with a 2-out-of-2 (2oo2) redundant architecture. Under the
+safe platform architecture, the sensor data collection boards and
+communication boards are designed independently. Two sensor data
+collection boards are involved to independently collect raw measure­
+ments from the GPS/BDS receivers, INS sensors and the odometer. The
+communication boards are designed for information interaction be­
+tween the train positioning unit and the ATP kernel. The core position
+calculation unit realizes the sensor data fusion and location determi­
+nation using the presented technologies in this paper. In 2021, a field
+test was carried out at the Haergai-Muli railway. The test section is
+more than 120 kilometers with a high altitude between 3200 and
+4200 m. Five stations are involved in the field test section, including
+Huancang, Chaidaer II, Chaidaer I, Wailihada and Jiangcang.
+Trackmap database of the test section was measured and generated
+before the field demonstration. Specific track-side GPS/BDS differ­
+ential stations were developed and installed to enhance the perfor­
+mance of train-borne receivers. Field data collection for trackmap
+generation and the equipment deployment status in the field test are
+shown in Fig. 9.
+
+In the field test, the whole train control system, including onboard equipments, track-side facilities, train control center and the
+integrated communication subsystem, were involved to validate the
+novel train control mode under the moving block scheme with the
+state perception by BDS. According to the operation plan for vali­
+dating the train position and route resource management cap­
+abilities, the on-board equipments of three test trains independently
+
+
+
+**Fig. 8.** Relationship of the performance indicators for GNSS-based train perception.
+
+
+53
+
+
+_B.G. Cai, J.N. Liu, X.R. Dong et al._ _High-speed Railway 1 (2023) 47–55_
+
+
+**Fig. 9.** Trackmap generation and equipment deployment in field test in Haergai-Muli railway.
+
+
+**Table 6**
+Train positioning errors under diferent modes in feld test (meters).
+
+Positioning mode Mean STD 95 % probability error
+
+
+Static positioning 1.53 0.38 2.59
+Dynamic positioning (single-mode GNSS) 3.09 0.88 4.67
+Dynamic positioning (dual-mode GNSS, BDS+GPS) 1.59 0.87 3.20
+Dynamic positioning (GNSS/INS/ODO fusion) 1.49 0.81 3.02
+Dynamic positioning (differential GNSS and sensor fusion) 1.42 0.26 1.76
+
+
+
+realized the track resource allocation, route establishment and re­
+source release operations. The position of the leading train, within a
+tracing train couple, can be identified by the train-to-train commu­
+nication, with which the on-board equipment of the following train
+was able to independently calculate the MA (Moving Authority)
+considering both the operation plan and the route resource appli­
+cation status. The trackmap database was designed and generated
+effectively with a reduced data volume, which releases the require­
+ment to the train-ground communication and the complexity of
+system interfaces for trackmap verification. Through the integration
+of static trackmap information, sensor data fusion for BDS/GPS re­
+ceivers, INS sensors and the odometer measurements were realtimely achieved with a high availability level under the complex and
+time-changing operation environment. Both the static and dynamic
+test cases were involved in the field demonstration. Table 6 sum­
+marizes the accuracy results of train positioning under different
+system modes.
+
+The results from field demonstration illustrate that involvement of
+the presented key technologies, including the safe platform and multisource sensor fusion mechanism, effectively guarantees the perfor­
+mance of GNSS-based autonomous train positioning and state percep­
+tion even under complex and time-varying operational conditions. The
+utilization of the differential GNSS technology and the integrity mon­
+itoring logic makes it possible of achieving the high accuracy and ro­
+bustness against the possible difficult or even critical conditions. The
+field test results demonstrate the feasibility and the advantages of
+
+
+
+utilizing BDS in realizing a novel autonomous train control system with
+a train-centric design, which is of great significance in the future highspeed and plateau railway applications with the enhanced environ­
+mental flexibility and whole life cycle cost efficiency.
+
+
+**7. Conclusion**
+
+
+The application of GNSS technology is one of the representative
+characteristics of intelligent railway systems in the future. However, there
+are specific requirements to the GNSS-based train positioning and state
+perception in the railway signaling applications due to the critical re­
+quirement to the safety. Thus, the utilization of GNSS has to be enhanced
+by the specific technical solutions. The sensor data fusion technique is of
+great significance to enhance the service availability under degraded or
+even a critical GNSS observing condition. To ensure the compatibility to
+the existing system specifications, the VB technology enables the in­
+tegration of the GNSS capabilities into the train control system and
+meanwhile the train integrity monitoring logic allows the opportunity to
+realize moving block-based train operation control through the dynamic
+identification of the track occupancy and safe envelope of the train. By
+investigating the relationship between the GNSS performance system and
+the RAMS specification, the performance evaluation of the GNSS-based
+train positioning can be effectively realized. It can be found that the in­
+volvement of these key technologies consolidates the autonomy and cap­
+abilities of the train-borne system, which releases the requirement to the
+track-side facilities like track circuit and Balises. The field demonstration
+
+
+
+54
+
+
+_B.G. Cai, J.N. Liu, X.R. Dong et al._ _High-speed Railway 1 (2023) 47–55_
+
+
+
+further validated the effectiveness of the presented key technologies under
+the complex real environment. With the development of the global BDS-III
+system, it can be expected that more GNSS-based applications will be
+promoted in the intelligent railway systems in the future.
+
+
+**Acknowledgements**
+
+
+This research was supported by National Key Research and
+Development Program of China (2022YFB4300501), and National
+Natural Science Foundation of China (62027809, U2268206, T2222015).
+
+
+**References**
+
+
+[[1] H.R. Dong, B. Ning, B.G. Cai, et al., Automatic train control system development and](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref1)
+[simulation for high-speed railways, IEEE Circuits Syst. Mag. 10 (2) (2010) 6–18.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref1)
+
+[[2] J.T. Lin, J.W. Dang, Y.Z. Min, NGCTCS: Next-generation Chinese Train Control](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref2)
+[System, J. Eng. Sci. Technol. Rev. 9 (6) (2016) 122–130.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref2)
+
+[[3] O. Jon, B. Alfonso, L. Iban, et al., A Survey of train positioning solutions, IEEE Sens.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref3)
+[J. 17 (20) (2017) 6788–6797.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref3)
+
+[[4] Z.Q. Sun, K.H. Tang, M.P. Wu, et al., High-speed train positioning method based on](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref4)
+[motion constraints suppressing INS error in tunnel, J. Northwestern Polytech. Univ.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref4)
+[39 (3) (2021) 624–632.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref4)
+
+
+
+
+[[5] X.C. Zhang, X.M. Cui, B. Huang, The design and implementation of an inertial GNSS](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref5)
+[odometer integrated navigation system based on a federated Kalman filter for high-](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref5)
+[speed railway track inspection, Appl. Sci. 11 (11) (2021) 1–18.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref5)
+
+[[6] C. Chen, G.B. Chang, Low-cost GNSS/INS integration for enhanced land vehicle](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref6)
+[performance, Measur. Sci. Technol. 31 (3) (2019) 1–10.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref6)
+
+[[7] J. Liu, B.G. Cai, J. Wang, et al., Track map-aided capture of virtual Balises: a](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref7)
+[compatible approach to satellite-based railway train control, IEEE Intell. Transp.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref7)
+[Syst. Mag. 14 (3) (2022) 233–249.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref7)
+
+[[8] N. Heekwon, J. Vezinet, C. Milner, Diagnostics of GNSS-based virtual](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref8)
+[Balise in railway using embedded odometry and track geometry, International](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref8)
+[Technical Meeting of The Institute of Navigation, Reston, Virginia (2019)](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref8)
+[296–305.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref8)
+
+[[9] B. George, Virtual Balise functional requirement specification, European Rail](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref9)
+[Research Institute (ERRI), Utrecht, The Netherlands (2019).](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref9)
+
+[[10] J.Q. Guo, Overview and application prospect of train integrity inspection tech­](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref10)
+
+[nology, Railway Signal. Commun. Eng. 17 (7) (2020) 84–87.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref10)
+
+[[11] Q.R. Chen, Y.P. Jiang, L. Wang, A Train integrity monitoring method based on](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref8a)
+[information integration of GNSS and odometer, International Conference on](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref8a)
+[Computational Infrastructure and Urban Planning, New York, NY, USA (2022)](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref8a)
+[5–12.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref8a)
+
+[[12] W.Y. Shuai, X.R. Dong, J. Wang, et al., RAMS research and evaluation of GNSS for](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref11)
+[train positioning, J. China Railway Soc. 42 (6) (2020) 70–78.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref11)
+
+[[13] H.F. Song, J.Y. Liu, E. Schnieder, Validation, verification and evaluation of a train](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref12)
+[to train distance measurement system by means of colored petri nets, Reliab. Eng.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref12)
+[Syst. Saf. 164 (2017) 10–23.](http://refhub.elsevier.com/S2949-8678(22)00009-5/sbref12)
+
+
+
+55
+
+

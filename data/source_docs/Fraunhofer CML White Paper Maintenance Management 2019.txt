@@ -1,0 +1,678 @@
+### MAINTENANCE MANAGEMENT. MATHEMATICALLY OPTIMIZED.
+
+
+
+
+### **MAINTENANCE MANAGEMENT.** **MATHEMATICALLY OPTIMIZED.**
+
+
+**INTRODUCTION**
+
+
+Ship management comprises fi ve core tasks, namely crewing, technical management, fi nancial ma
+nagement, quality & safety and procurement. Out of these core tasks, many shipping companies
+
+consider crewing and technical management as the most challenging tasks for the mid-term future.
+
+
+**Image 1: Ship Manage-**
+
+**ment Circle**
+
+
+For technical management, one of the key competencies is to fi nd the optimal maintenance stra
+tegy. Unplanned maintenance causes a signifi cant part of ship operation costs. Including spare part
+
+procurement, unscheduled or corrective maintenance account for up to 25 % of the total ship ope
+ration costs (Drewry Maritime Research, 2015). Finding and implementing an optimal maintenance
+
+strategy is therefore a crucial task in technical management and has a great impact on the success
+
+of the entire ship management.
+
+
+The goal of maintenance management is to balance costs of preventive maintenance or of external
+
+maintenance services with costs of equipment failure. The challenge is therefore to fi nd appropriate
+
+maintenance intervals that prevent unplanned maintenance and costly downtime of equipment.
+
+Another problem is to distribute the workload evenly under consideration of the vessel’s voyage in
+
+order to effi ciently deploy human resources and to avoid rescheduling of jobs. Increasing require
+ments by classifi cation societies, charters and compliance pressures add to the complexity.
+
+
+2
+
+
+
+73
+
+
+
+A further task of ship management is crewing. It contributes a signifi cant part of the fi xed opera
+ting costs. In order to manage crew resources effectively and compliant with rest hour regulations,
+
+the crew demand assessment is an essential part of crew management. Increased capacities of
+
+merchant ships as well as tighter port frequencies led to higher workload in the last decades. In
+
+combination with new legislative regulations, this makes the crew demand assessment solely by
+
+knowledge and experience even more diffi cult.
+
+
+In comparison to other industries, the maritime industry has the unique trait that the same crew is
+
+responsible for both operating and maintaining the vessel. Consequently, maintenance manage
+ment is closely intertwined with crewing management. In addition, route and freight planning has
+
+an impact on the crew’s workload and their capacity for preventive maintenance. Therefore, it is a
+
+challenge to take the interdependencies between maintenance, operational and crewing manage
+ment into account when managing a ship.
+
+
+To tackle these challenges, the days of paper based processes are outdated and computer based
+
+information management systems play a key role. In previous years, we have already addressed the
+
+need for data based decision support in crew demand assessment. We developed a software tool
+
+that computes mathematically optimized crew schedules and derives the voyage and ship specifi c
+
+crew demand: SCEDAS [®] . It has been deployed in fl eets of several ship types and is constantly being
+
+further developed.
+
+
+In our recent developments, we approach a data based decision support system for maintenance
+
+management. It provides support in effi cient and compliant maintenance scheduling under con
+sideration of the crew’s voyage specifi c workload and distributes jobs evenly. It considers require
+ments by company policy, classifi cation societies, charters and legislative regulations. For that, we
+
+build up on the development of SCEDAS [®] and develop an interdisciplinary software tool.
+
+
+## MAINTENANCE STRATEGIES
+
+An essential task of maintenance management is to fi nd the optimal maintenance strategy. It
+
+should keep the vessel at constant operating state and avoid costly unscheduled maintenance and
+
+downtime of equipment. However, it should also be cost-effi cient and keep unnecessary main
+tenance measures at a minimum. The key is therefore to take maintenance measures only when
+
+they are necessary without risking costly equipment failure. But how is this possible?
+
+In general, maintenance strategies can be categorized into corrective, preventive and predictive
+
+maintenance.
+
+
+
+**TREND: CONDITION BASED AND PREDICTIVE MAINTENANCE**
+
+
+Nonetheless, the trend is going towards condition based or even predictive maintenance because
+
+of advances in sensing and computing. Condition based maintenance is a form of preventive
+
+maintenance in which the maintenance intervals are dependent on the equipment’s condition.
+
+It implies to continuingly sense the equipment’s condition (e.g. temperature, vibration, acoustic
+
+emission) and automatically derive appropriate maintenance intervals from the sensor data, e.g. by
+
+defi ning thresholds or characteristic patterns. In the aviation industry, condition based maintenan
+ce has already been successfully deployed for some time.
+
+
+Predictive maintenance takes condition based maintenance to a higher level. Algorithms constant
+ly evaluate the sensor data and predict the remaining lifetime of the equipment from stochastic
+
+degradation models. By this, chief engineers onboard know when the equipment’s condition re
+quires maintenance and can schedule maintenance only then when necessary. Taking the crew’s
+
+workload through operations into account, they can schedule maintenance optimally. Conse
+quently, the trend is shifting from constant maintenance intervals to varying intervals dependent
+
+on the equipment’s condition. This complicates the scheduling of maintenance. A scheduling tool
+
+that reacts instantly to varying maintenance intervals is thus a valuable support.
+
+
+
+**UNPLANNED MAINTENANCE**
+
+
+Corrective maintenance implies to take action
+
+in the case of equipment failure. This strategy
+
+does not pursue any measures to prevent failu
+re. This causes costly unplanned maintenance.
+
+However, for the cases when no recommended
+
+maintenance interval, no knowledge about the
+
+equipment’s wear behaviour or about its con
+dition is available, it is the only possible main
+tenance strategy.
+
+
+**COMMON STRATEGY: PLANNED MAINTENANCE**
+
+
+On the other hand, preventive maintenance strategies require maintenance actions that prevent
+
+equipment from failing. This means regular maintenance of equipment within specifi ed intervals.
+
+These maintenance intervals can be either time based or condition based. The time based preven
+tive maintenance is called planned maintenance. In the case of planned maintenance, the main
+tenance intervals are predefi ned through vague estimation of the equipment’s expected lifespan
+
+and do not consider its condition in the course of ship operation. The intervals are e.g. in time or
+
+in running hours. Because the equipment’s condition has no infl uence on the maintenance inter
+vals, this maintenance strategy does not exhaust the maximal operating periods and can lead to
+
+unnecessary workload. This entails avoidable costs for shipping companies. Yet, this is currently the
+
+most common maintenance strategy in ship operation.
+
+
+**4**
+
+
+
+**Image 2: Maintenance**
+
+**strategies categorized by**
+
+**DIN (German Institute for**
+
+**Standardization)**
+
+
+
+5
+
+
+# DIGITALIZATION IN MAINTENANCE MANAGEMENT
+
+**PLANNED MAINTENANCE SYSTEMS**
+
+
+For ship maintenance, so-called planned maintenance systems (PMS) are already well established.
+
+Their original purpose is to manage planned maintenance tasks. They provide a central overview
+
+over recurring maintenance tasks of the vessel and a tool for on board documentation. Thereby,
+
+these systems serve as a central communication platform for all technical matters and provide
+
+valuable support for shipping companies. PMS become more and more integrated with extensive
+
+software, such as procurement and purchasing systems and quality and safety software systems.
+
+Some PMS already support analysis tools for condition monitoring, such as visualization of com
+pliance with predefined thresholds or trend functions.
+
+
+**CONNECTING MAINTENANCE MANAGEMENT WITH SHIP OPERATION**
+
+
+Our aspiration is to take the developments in the digitalization of maintenance management a step
+
+further and integrate maintenance scheduling into crew and voyage planning. This can be achieved
+
+with an interface between the PMS and crew scheduling. By that, the impact of maintenance ma
+nagement to the crew demand as well as the impact of operational management to the maintenance
+
+workload can be quantified. By calculating different scenarios, different maintenance strategies are
+
+comparable and maintenance management can be optimized. Thereby new maintenance strategies
+
+can be tested and evaluated before implementing them onboard. The rise of automation and connec
+tivity goes hand with hand with decreasing crew sizes, placing the crews competences and workload
+
+at the heart of maintenance management.
+
+
+**PREREQUISITE: HARMONIZED DATA**
+
+
+However, a prerequisite for successful further development of digitalized maintenance management
+
+is fleet wide administered maintenance data. In order to gain synergies between vessels, it is essential
+
+to have harmonized maintenance specifications of all vessels of a fleet.
+
+
+# UNITING TECHNICAL MANAGEMENT, OPERATIONAL AND CREWING MANAGEMENT
+
+**VISION: DATA BASED DECISION SUPPORT IN MAINTENANCE MANAGEMENT**
+
+
+When finding the optimal maintenance strategy manually, it is almost impossible to take all cost
+
+and compliance pressures as well as the impact on operation and crewing into account. We are now
+
+introducing a software tool that provides mathematically proven decision support in maintenance
+
+management under consideration of all of those constraints. Our development builds on a previous
+
+software solution that creates optimized voyage specific crew schedules and assess crew demands.
+
+
+**SCEDAS: CREW SCHEDULING AND DEMAND ASSESSMENT**
+
+
+The crew management and scheduling system SCEDAS [®] is invented and constantly being further
+
+developed by Fraunhofer CML. Its purpose is to provide well-founded decision support in ship
+
+management matters, especially crewing questions to customer specifications and needs. It mathe
+matically determines the ideal crew demand on board and optimizes ship and voyage specific work
+
+schedules under consideration of constraints.
+
+
+
+6
+
+
+
+7
+
+
+
+**1**
+
+
+
+**1**
+
+
+**Image 3: SCEDAS** **[®]** **sche-**
+
+**dules the voyage depen-**
+
+**dent workload under the**
+
+**consideration of the crew‘s**
+
+**qualifi cations and rest**
+
+**hour regulations** (watch
+
+displayed in light purple,
+
+other operational tasks
+
+dark purple, rest hours in
+
+beige and available time
+
+for maintenance in grey)
+
+
+
+**Image 4: Integration of**
+
+**maintenance into crew**
+
+**work schedules**
+
+
+The SCEDAS [®] algorithms schedule all relevant tasks for safe ship operation and derive the ideal crew
+
+demand from this. Once those operational tasks are scheduled, the crew’s capacity for maintenance
+
+(displayed in grey) becomes apparent. Our approach is to assign PMS jobs (displayed in green) to
+
+these time slots under the consideration of their maintenance intervals and prioritization. SCEDAS [®]
+
+will then provide mathematically optimized maintenance schedules under consideration of voyage
+
+specifi c constraints.
+
+In order to avoid redundant data administration in separate systems, our aim is a cohesive system
+
+with an interface to the PMS. Then, SCEDAS [®] can automatically read out maintenance tasks. In or
+der to schedule maintenance tasks, the algorithms need information on qualifi cations and duration
+
+per task. Through a user interface, the maintenance data can be completed and task specifi cations,
+
+crew and voyage data can be edited.
+
+
+**PROCEDURE FOR IMPLEMENTATION**
+
+
+The scheduling algorithms assign tasks to seafarers based on their qualifi cations. Therefore, all
+
+tasks that are relevant for ship operation need to be defi ned. A realistic defi nition of the tasks is of
+
+high importance in order to get good results. On the other side the optimization is enabled if the
+
+specifi cation of the inputs e.g. tasks is done up to a certain aggregation level with some degrees of
+
+freedom for the calculation. The defi nition of tasks with these properties is of course very challen
+ging. This process can be supported by an onboard software tool that collects the crew‘s work hours
+
+to task specifi c detail. Where applicable, the tasks are associated to ship operating states (e.g. port
+
+stay, transit, berthing, pilot takeover,…). Then, the tasks are assigned to groups of crew positions.
+
+Hereby, alternatives can be listed with prioritization (e.g. if the fi rst bosun is unavailable, the second
+
+bosun can execute the task). The task defi nition as well as the defi nition of positions is considered
+
+as the base data.
+
+Then, the interface to the PMS is set up. All information relevant for scheduling can automatically
+
+
+9
+
+
+
+A task based approach takes the workload, the crew’s qualifi cations and voyage specifi c dependen
+cies as input. Per task, alternative qualifi cation requirements can be assigned in order to increase
+
+the degree of freedom. Mathematical algorithms create a voyage dependent schedule under the
+
+consideration of legislative regulations for rest hours and company specifi c requirements. From that,
+
+the voyage specifi c crew demand and capacity for maintenance is derived. The mathematical model
+
+has been validated both in the merchant and the cruise ship domain.
+
+
+The software is used as an onboard tool to create work schedules on the fl y that take the current
+
+work and rest hours of the crew into account. Moreover, it is used as a strategic tool to quantify the
+
+impact of fl eet wide ship management questions to the crew demand.
+
+
+SCEDAS [®] can already model the interdependency between ship operation and crewing. As a next
+
+step, we will draw the connection to maintenance management.
+
+
+**APPROACH: COMBINED SCHEDULING OF SHIP OPERATION AND MAINTENANCE**
+
+
+Our approach is to integrate the scheduling of maintenance into the algorithms of SCEDAS [®] sche
+duling and crew demand assessment.
+
+
+
+8
+
+
+
+**1**
+
+
+be read out of the PMS database, e.g. maintenance tasks with their due dates and their frequencies.
+
+However, in order to schedule the maintenance tasks, information on the duration and qualifi cation
+
+requirements per task is necessary. The user can also defi ne a prioritization of maintenance tasks.
+
+This information needs to be entered manually via a user interface. Here, all (maintenance) data can
+
+be administered and manipulated to prepare different calculation scenarios.
+
+
+At this point all relevant information is prepared. Next, different port rotations are created. Here,
+
+the sequence of ship operating states and corresponding work packages are defi ned. From this, the
+
+algorithm creates a work schedule that corresponds to the base data defi nition and maintenance
+
+input. The tool can be used either in the offi ce to assess the crew demand for specifi c ship and
+
+voyage, or onboard to create work schedules on the fl y.
+
+
+**MAINTENANCE SCHEDULES RESPECTING:**
+
+
+**• W O R K L O A D A N D A V A I L A B L E R E S O U R C E S**
+
+**• T A S K S P E C I F I C Q U A L I F I C A T I O N S**
+
+**• W O R K A N D R E S T H O U R R E G U L A T I O N S**
+
+**• S H I P S P E C I F I C M A I N T E N A N C E P O L I C I E S**
+
+**• P O R T R O T A T I O N**
+
+**• M A I N T E N A N C E P R I O R I T I Z A T I O N**
+
+
+1 0
+
+
+
+**Image 5: implementation**
+
+**process of SCEDAS** **[®]** **with**
+
+**integrated maintenance**
+
+**scheduling**
+
+
+# BENEFITS AND POTENTIAL
+
+**Image 6: Unity of Opera-**
+
+**tion, Maintenance, and**
+
+**Crewing Management**
+
+
+**OPTIMIZED MAINTENANCE SCHEDULES**
+
+
+The integration of maintenance into crew scheduling would increase effi ciency in ship manage
+ment and entail several benefi ts for ship management. It facilitates the consideration of require
+ments and regulatory of the company’s policy, classifi cation society or charters of the vessel for
+
+maintenance scheduling. It helps to deploy human resources on board more effi ciently and ensures
+
+work and rest hour compliance. This decision support thus makes the maintenance scheduling
+
+process easier for superintendents and chief engineers. As a result, maintenance within due dates
+
+is assured and the reliability of vessel maintenance increases. Therefore, unplanned maintenance
+
+and costly downtime of equipment is prevented.
+
+
+**FLEXIBILITY**
+
+
+The possibility to generate schedules on demand during the passage allows fl exibility regarding
+
+unforeseen changes in voyage, workload or human resources. This allows quick reactions to work
+
+and rest incidents or unplanned maintenance.
+
+This is particularly useful as maintenance strategies are developing towards condition based main
+
+1 1
+
+
+tenance. In this case, the maintenance intervals vary dependent on the equipment‘s condition. The
+
+on board scheduling with SCEDAS [®] can react to varying maintenance due dates and adjust work
+
+schedules.
+
+
+**TOOL TO ANALYZE MAINTENANCE STRATEGIES**
+
+
+In addition, this information management system provides profound decision support in interdisci
+plinary ship management. This tool can quantify the interdependencies between crewing, opera
+tional and maintenance management in terms of crew demand. Superintendents can effortlessly
+
+compute different scenarios and evaluate the impact of maintenance management to the ship and
+
+voyage specific crew demand.
+
+
+Computing scenarios can analyze different maintenance strategies before implementing them on
+
+board, e.g. adjustments of maintenance intervals, balancing maintenance efforts against external
+
+services, how maintenance tasks should be assigned to crew qualifications or if cost-optimized
+
+bundling of certain maintenance tasks is feasible.
+
+
+**HARMONIZED FLEET WIDE MAINTENANCE AND CREWING DATA**
+
+
+Implementing an interdisciplinary crewing system makes a significant contribution to the harmo
+nization of fleet wide data. In order to profit from synergies between vessels, it is essential that
+
+maintenance data is administered from a central fleet wide data source. Implementing this infor
+mation system harmonizes maintenance data and broadens the data structure to durations and
+
+qualifications.
+
+The interface between planned maintenance systems and this crewing system is a promising appro
+ach for a cohesive IT system that connects the on board data structures. Recording work hours with
+
+maintenance task specification would allow the automatic synchronisation between the PMS and
+
+scheduling and reduce maintenance administration.
+
+
+1 2
+
+
+
+**BENEFITS OF INTERDISCIPLINARY MAINTENANCE SCHEDULING:**
+
+
+**• S I M P L I F I C A T I O N O F M A I N T E N A N C E S C H E D U L I N G**
+
+**P R O C E S S**
+
+**• M O R E R E L I A B L E A N D C O S T- E F F I C I E N T M A I N T E N A N C E**
+
+**• F L E X I B I L I T Y T H R O U G H S C H E D U L E S O N T H E F LY**
+
+**• I M P L E M E N T A T I O N O F C O N D I T I O N - B A S E D M A I N T E N A N C E**
+
+**• Q U A N T I F I C A T I O N O F C O R R E L A T I O N B E T W E E N M A I N -**
+
+**T E N A N C E, O P E R A T I O N A N D C R E W I N G**
+
+**• D E C I S I O N S U P P O R T F O R A N A LY Z I N G M A I N T E N A N C E S T R A -**
+
+**T E G I E S**
+
+**• H A R M O N I Z A T I O N O F M A I N T E N A N C E D A T A W I T H L I N K**
+
+**T O C R E W I N G**
+
+**• A D V A N C E S T O W A R D S C O H E S I V E I T I N F R A S T R U C T U R E**
+
+**O N B O A R D**
+
+**• M A I N T E N A N C E P R I O R I T I Z A T I O N**
+
+
+
+1 3
+
+
+### The Unit Ship and Information Management at Fraunhofer CML develops decision support so- lutions for the maritime industry, for example SCEDAS [®] .
+
+**THE AUTHORS**
+
+
+**Celien Bosma** **Anisa Rizvanolli** **Ole John**
+
+
+
+**Contact:**
+SCEDAS [®]
+
+www.scedas.com
+
+info@scedas.com
+
+
+Fraunhofer Center for
+Maritime Logistics and
+Services CML
+
+Am Schwarzenberg-Campus 4, Building D
+
+21073 Hamburg
+
+Phone +49 40 42878-4450
+
+info@cml.fraunhofer.de
+
+www.cml.fraunhofer.de
+
+
+**Pictures:**
+
+Front Page © Pixabay Image by Skeeze
+
+Last Page © Pixabay Image Technology by KarinKarin
+
+
+
+**The integration of maintenance scheduling into the al-**
+
+**gorithms of SCEDAS** **[®]** **was funded by the Ministry of**
+
+**Economy, Transport and Innovation, Free and Hanseatic**
+
+**City of Hamburg.**
+
+
+
+1 4
+
+
+**Contact:**
+SCEDAS [®]
+
+www.scedas.com
+
+info@scedas.com
+
+
+Fraunhofer Center for
+Maritime Logistics and
+Services CML
+
+Am Schwarzenberg-Campus 4, Building D
+
+21073 Hamburg
+
+Phone +49 40 42878-4450
+
+info@cml.fraunhofer.de
+
+www.cml.fraunhofer.de
+
+

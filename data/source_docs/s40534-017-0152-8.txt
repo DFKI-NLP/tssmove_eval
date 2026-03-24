@@ -1,0 +1,1164 @@
+# A novel handover scheme using torch nodes and adaptive measurement aggregation mechanism to improve QoS in high-speed railway communication
+
+P. J. Pramod [1] - B. C. Jinaga [2]
+
+
+Received: 24 April 2017 / Revised: 9 November 2017 / Accepted: 15 November 2017 / Published online: 1 December 2017
+
+- The Author(s) 2017. This article is an open access publication
+
+
+
+Abstract Technological advancement in the field of
+transportation and communication is happening at a faster
+pace in the past few decades. As the demand for high-speed
+transportation increases, the need for an improved seamless
+communication system to handle higher data traffic in a
+highly mobile environment becomes imperative. This
+paper proposes a novel scheme to enhance the quality of
+service in high-speed railway (HSR) communication
+environment using the concept of torch nodes (TNs) and
+adaptive measurement aggregation (AMA). The system
+was modeled using an object-oriented discrete event simulator, and the performance was analyzed against the
+existing single-antenna scheme. The simulation results
+show that the proposed scheme with its minimal implementation overhead can efficiently perform seamless handover with reduced handover failure and communication
+interruption probability.
+
+
+Keywords High-speed railway � Cellular wireless
+technology � Long-term evolution � Mobile relays �
+Handover scheme � Quality of services
+
+
+& P. J. Pramod
+pramodpj@cdac.in
+
+
+B. C. Jinaga
+jinagabc@gmail.com
+
+
+1 Electronic System Design and Manufacturing (ESDM)
+Group, Centre for Development of Advanced Computing (CDAC), Plot No. 6 and 7, Hardware Park, Hyderabad,
+Telangana 500005, India
+
+
+2 Electronics and Communication Engineering Department,
+Jawaharlal Nehru Technological University Hyderabad,
+Kukatpally, Hyderabad, Telangana 500085, India
+
+## 123
+
+
+
+1 Introduction
+
+
+The twenty-first century is experiencing tremendous
+growth of data and Internet services [1] to meet the significant rise in socioeconomic developmental needs [2] and
+user demand. Smart devices demanding cellular wireless
+connectivity are increasing exponentially and have crossed
+the current world population [3]. Wireless networks are
+also enhancing its capability to handle more devices, users
+and larger data traffic.
+Advancement in high-speed railway (HSR) transportation has resulted in more passengers transiting through
+railway networks [4]. HSR is currently becoming more and
+more popular, and this mode of public transportation is
+preferred in several countries due to its speed, safety,
+energy efficiency and larger passenger handling capacity
+
+[5–9]. The demand for high-quality video, voice and data
+over broadband wireless communication in an HSR environment has thrown open various limitations of cellular
+wireless technology.
+The LTE-Advanced standardization was through 3GPP
+release 10 version of specification has introduced longterm evolution-advanced (LTE-Advanced) [10, 11] which
+provides better bandwidth, higher efficiency and enhanced
+intercell interference coordination (eICIC). The data rates
+were enhanced to 1 Gbps (downlink, DL)/500 Mbps
+(uplink, UL) for low mobility application and 100 Mbps
+(DL)/50 Mbps (UL) for high mobility application [12]
+along with an increase in requirements of peak spectral
+efficiency to 30 bps/Hz (DL)/15 bps/Hz(UL). This
+enhancement has put forward significant implementation
+challenges to HSR system designers [13].
+Figure 1 shows the architecture of LTE-Advanced with
+two distinct components: (1) evolved universal terrestrial
+radio access network (E-UTRAN) and (2) evolved packet
+
+
+A novel handover scheme using torch nodes and adaptive measurement aggregation mechanism to… 25
+
+
+
+
+
+Fig. 1 LTE-Advanced network architecture
+
+
+
+
+
+core (EPC) [14]. The EPC consists of mobility management entity (MME), serving gateways (S-GW) and packet
+data network gateway (P-GW) which provide services like
+signaling, handover, security, whereas the E-UTRAN
+incorporates multiple interconnected evolved NodeBs
+(eNBs) [15]. These eNBs are interconnected using X2
+interface, whereas they are connected to EPC through S1
+interface.
+A highly mobile HSR scenario involves long narrow
+strips, bridges, viaducts and directional antennas with
+reduced cell coverage. The deployment of wireless networks for such a scenario is challenging due to increased
+handover (HO) frequency resulting in significant performance degradation [16]. To make the condition worse, the
+implementation of HO in LTE-Advanced is a hard HO
+which requires breaking the radio link with source before
+connecting with target eNB. Frequent HOs in such traditional networks would increase the network load and power
+consumption of user equipment (UE), thereby affecting the
+overall quality of services (QoS) [17]. Group HO, frequent
+HO at short time intervals, Doppler frequency shift, penetration path loss and fading in propagation characteristics
+due to shielded carriage of trains, viaduct, hilly terrain and
+tunnel [18, 19] are major concern for system designers in a
+high-speed scenario.
+In order to improve communication in a long-distance
+HSR scenario, leaky coaxial cable (LCX)-based radio
+communication system [20] was introduced to provide
+better bandwidth and efficient frequency reuse. The need
+for repeaters to compensate for transmission losses, high
+
+
+
+maintenance cost and large deployment cost limits the
+acceptance of LCX system for high-speed train-ground
+information transmission. Radio-over-fiber (RoF)-based
+system [21, 22] with remote antennal units (RAU)
+deployed along railway lines to transmit data wirelessly to
+the onboard unit is another promising technology for HSR
+communication. Support for higher bandwidth, cost-effectiveness, reduced power consumption due to linear radiated
+antenna, and reduced HO are the major features of RoF
+technology [23, 24].
+Introduction of wireless local area networks (WLAN) to
+complement satellite communication in HSR scenario by
+M. Han et al. [25] was another significant work to overcome the limitation of HO and coverage. However, the
+bandwidth limitation, inherent delay in satellite-based
+system, blind spots, initial investment cost and requirement
+of line of sight have confined the scalability of this model
+in HSR.
+A seamless HO scheme based on dual-link architecture
+was proposed by Lin Tian et al. [26]. The system with two
+antennas in the front and rear takes advantage of bi-casting
+and dual antennas to implement soft HO with reduced
+overhead and latency.
+3GPP TR-36.836 has introduced mobile relays as base
+station [27] to circumvent the connectivity issues in HSR.
+These multi-RAT relays would provide wireless connectivity and services to onboard UE. Such a shift in connectivity maintenance from portable mobile devices to
+relays has significantly reduced the UE power consumption
+
+[28], signal storming or group HO [29], Doppler frequency
+shift and penetration path loss [30]. Though mobile relays
+have improved the performance between UE and eNB, the
+HO issues limiting the performance and reliability persist.
+Introducing relays as an intermediate node has only shifted
+the HO issues from UE to relay nodes. Increased load on
+these nodes has further deteriorated the packet latency,
+QoS, frequent HO and resilience capability of the overall
+system.
+An effective two-link architecture based on distributed
+antenna system (DAS) and mobile relay was introduced by
+Liu et al. [31]. Onboard devices in this system are connected to train relay nodes which are further interfaced to
+remote central station using multiple RAUs based on RoF
+technology. However, the proposed system has neglected
+the period of HO, which significantly affects the performance in real networks [32]. An enhanced HO scheme [33]
+was proposed using special control mobile relays (cMRs)
+equipped in front of a train and several mobile relays were
+distributed across the train. This scheme also proposed an
+enhanced measurement procedure to reduce the duration of
+cMR signal measurement based on the direction of
+movement. The cMR-based scheme is effective in reducing
+the signaling overhead and HO interruption time, whereas
+
+
+## J. Mod. Transport. (2018) 26(1):24–35 123
+
+
+26 P. J. Pramod, B. C. Jinaga
+
+
+
+TN   - Torch node
+
+
+DMR  - Distributed mobile relay
+
+
+AP   - Access point
+
+
+Fig. 2 System architecture
+
+
+failure of HO at cMR would inherently affect the overall
+connectivity of the system.
+In this paper, in order to overcome the limitations of
+existing systems, we introduce a novel HO scheme to
+enhance the QoS in an HSR communication environment
+by proposing the concept of torch nodes (TNs) and
+mobility-based adaptive measurement aggregation (AMA)
+to improve the existing HO mechanism. By introducing
+this approach through a distributed mobile relay (DMR)based architecture, we also address the resilience capability
+in HSR systems.
+The rest of the paper is organized as follows. In the next
+section, we present our proposed solution, describing the
+system architecture and operational procedures. Various
+stages of the proposed HO scheme are elaborated in
+Sect. 3. Section 4 details the AMA mechanism. Implementation of simulation model and performance analysis
+will be carried out in Sect. 5. Finally, in Sect. 6 we summarize our results and present our conclusions.
+
+
+2 Proposed system
+
+
+Considering the rapid proliferation of smart devices among
+travelers and passenger accommodation capacity in highspeed trains, an onboard distributed relay mechanism is
+proposed for HSR as shown in Fig. 2. The DMR nodes
+mounted on trains will act as relay nodes and equip the
+system to be resilient toward single-point failures. DMRs
+are further interfaced to the backhaul using WLAN Link
+(LTE-LAA) or LTE-Advanced.
+
+
+
+DeNB - LTE-Advanced base station
+
+
+OPU  - On board processing unit
+
+
+Torch nodes (TNs) equipped in the front (TN-1) and rear
+(TN-2) of the train act as measurement nodes to provide
+prior information of donor eNBs (DeNBs) in a highly
+mobile environment. TNs report the measurement values to
+the onboard processing unit (OPU), which further uses this
+information for HO decision of respective DMRs. A global
+positioning system (GPS) integrated inertial measurement
+unit (IMU) is used to determine the speed of train. This unit
+is interfaced to OPU.
+The OPU carries out two independent functionalities.
+The load balancer module of OPU effectively distributes
+the signaling load across multiple DMRs, whereas the
+measurement engine processes measurement details from
+TNs and DMRs based on speed of train and generate DMRspecific measurement report to be forwarded to respective
+DeNBs. OPU is connected with nodes using optical medium for faster data transfer and incorporates interface
+modules for TNs, DMRs, APs and IMU. Based on load
+sharing and network topology requirements, the OPU can
+be specific for each DMR node or a group of DMRs can
+share an OPU along with IMU. The block diagram of OPU
+is depicted in Fig. 3.
+Based on the load being handled by respective DMRs,
+the OPU will dynamically link UEs to respective DMRs,
+thereby curbing the issue of overload. The onboard UEs are
+interfaced to DMRs via OPU through WLAN access points
+(APs) deployed across carriages.
+When the train is at a higher speed, the measurement
+details of TNs will provide prior information of upcoming
+DeNBs to which HO needs to be initiated. Leveraging this
+information will provide sufficient lead time for DMRs in
+
+
+## 123 J. Mod. Transport. (2018) 26(1):24–35
+
+
+A novel handover scheme using torch nodes and adaptive measurement aggregation mechanism to… 27
+
+
+facilitate DMRs to effectively speculate the upcoming
+DeNBs and initiate the HO early.
+
+
+
+
+
+
+
+
+
+
+
+Fig. 3 Onboard processing unit
+
+
+initiating and executing HO in a highly mobile HSR
+environment. At lower speeds or when the train is stationary, the signal strength information from respective
+DMR will be given preference while estimating measurement reports.
+Based on velocity readings from IMU, the OPU provides a mobility-based adaptive measurement aggregation
+mechanism of values collected by TNs and DMRs to
+generate periodic- or event-based measurement report. This
+adaptive reporting strategy based on speed of train will
+
+
+
+3 Stages of proposed HO scheme
+
+
+The handover scheme proposed has the following three
+stages: (1) HO preparation, (2) HO execution and (3) HO
+completion.
+
+
+3.1 HO preparation stage
+
+
+LTE-Advanced adopts a UE assistance-based networkcontrolled hard HO procedure. In the context of HSR, the
+relay nodes deployed in train will take over the connectivity aspect from UEs, by acting as enablers between UE
+and DeNB as shown in Fig. 4. The DMRs will start its
+measurement procedure after receiving a measurement
+control command from the serving DeNB (S-DeNB). The
+DMRs will forward this measurement control command to
+OPU for configuring the TNs and IMU for initiating
+measurement in those nodes.
+The measurement of DMRs, TNs and IMU will be
+forwarded as per pre-configured interval to the measurement engine module of OPU. This module implements an
+AMA mechanism based on the speed of train. Priority
+toward DMR measurement will be given at a time wherein
+the train is stationary or at lower speed. When the train
+attains moderate or higher speeds, AMA mechanism will
+give preference to readings from TNs, thereby facilitating
+an early reporting mechanism. This will provide
+
+
+
+Fig. 4 Handover preparation stage
+
+
+
+
+## J. Mod. Transport. (2018) 26(1):24–35 123
+
+
+28 P. J. Pramod, B. C. Jinaga
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Fig. 5 Handover execution and completion stage
+
+
+
+E-UTRAN and EPC with sufficient lead time in completing
+the HO procedures.
+The OPU/DMR can be configured for periodic- or
+event-based reporting as per the measurement control
+command provided. Periodic configuration ensures that the
+OPU/DMR will report the measured signal strength values
+of target DeNB (T-DeNB) to S-DeNB in a fixed report
+interval (RI). S-DeNB performs HO when the signal
+quality of T-DeNB is above a threshold for continuous
+k reports, where the value of k is defined by cellular
+operator. During event-based reporting, the measurement
+control command will carry the appropriate event types and
+time-to-trigger (TTT) values.
+Based on the LTE-Advanced radio resource control
+(RRC) specification, A3, A4 and A5 are the three event
+types defined to trigger the measurement reports.
+
+
+3.2 Handover execution stage
+
+
+As soon as the DMR receives the RRC reconfiguration
+message, the device detaches from S-DeNB. Further, it
+uses the configuration details to synchronize with the
+T-DeNB by sending contention-free-based random access
+preamble message. At the same time, the S-DeNB forwards
+the buffered data and status transfer command to T-DeNB.
+Once successfully synchronized, the DMR sends a tracking
+area update to MME along with RRC connection configuration complete message. This will establish the uplink
+communication between DMR and T-DeNB.
+
+
+
+3.3 Handover completion stage
+
+
+Based on the tracking update message from DMR, the
+MME updates the DMR location and replies with a
+tracking area update accept command to the DMR. The
+T-DeNB will also send a path switch request message to
+inform the MME that the S-DeNB of the DMR has changed and the routing path needs to be modified. Then, the
+MME issues a user plane update request command to
+S-GW to switch the routing path. A successful update will
+result in S-GW replying with a user plane update response
+command to the MME and MME further notifying
+T-DeNB using a path switch request acknowledgement
+(ACK). This would enable the T-DeNB and S-GW to
+forward data to DMR along the new path. Further, T-DeNB
+sends a context release message to request S-DeNB in
+releasing the context of DMR. This will complete the HO
+process. HO execution and completion stages are depicted
+in Fig. 5.
+As observed, the proposed methodology will only
+modify the HO preparation stage of LTE-Advanced for
+reducing latency and improving the HO failure rates. Due
+to this strategy, the proposed mechanism can be easily
+adopted in the existing implementation with little or no
+modification in the mobile relay-based infrastructure setup.
+By adopting an AMA-based HO foreseeing approach, the
+system adapts itself to the dynamic nature of HSR
+environment.
+
+
+## 123 J. Mod. Transport. (2018) 26(1):24–35
+
+
+A novel handover scheme using torch nodes and adaptive measurement aggregation mechanism to… 29
+
+
+
+4 AMA mechanism
+
+
+The adaptive measurement aggregation is a mechanism
+with which the DMR decides the measurement parameters
+to be reported to the S-DeNB. The decision in this regard
+will give due consideration to the mobility aspects of train
+and implements a predictive approach at higher speeds by
+correlating the measurement values of TNs along with
+DMR measurements.
+
+
+4.1 Measurement parameters
+
+
+According to 3GPP, reference signal received power
+(RSRP) and reference signal received quality (RSRQ) are
+the major DMR-related values which need to be considered
+as measurement parameters in LTE-Advanced.
+The RSRP measurement, RP, is the linear average of the
+power contributions by cell-specific resource elements that
+carry reference signals within the measurement frequency
+bandwidth as shown in Eq. (1). For absolute RSRP, the
+requirement would vary from ± 6 to ± 11 dB, whereas a
+relative measurement requirement varies from ± 2
+to ± 3 dB for intra-frequency and widens to ± 6 dB for
+interfrequency measurement. The RSRP measurements are
+further mapped to integer numbers, whose value ranges
+from 0 to 97 before they are included in the RRC messages.
+
+
+RP ¼ PTX � TLS � f ðl; rÞ; ð1Þ
+
+
+where PTX is the transmission power of DeNB, TLS is the
+path loss of the signal between DeNB and DMR and f(l, r)
+is the shadow fading which usually follows Gaussian
+distribution with mean l being zero and variance r [2] . For
+illustration, the path loss in dB [34] for a line of sight
+DeNB-DMR to model the propagation environment is as
+follows:
+
+
+TLS ¼ 22 � lg d þ 28:0 þ 20 � lg FR; 10 m\ d \ dBP;
+ð2Þ
+
+
+where FR is the frequency (Hz); dBP is the breakpoint
+distance; the distance d between DMR and DeNB is
+estimated as
+
+qfi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi fi f
+d ¼ ðyt � yiÞ [2] þ ðxt � xiÞ [2] ; ð3Þ
+
+
+where (xt, yt) describes the position of DMR at time t and
+(xi, yi) defines the location of DeNBi.
+RSRQ is a cell-specific signal quality metric, expressed
+in dB, which is defined as NRBRP/RS, where NRB is the
+number of resource blocks over which the measurement is
+conducted, and RS is the RSSIE-UTRA parameter which
+represents the entire received power from all interference
+and thermal noise source. In LTE-Advanced, the RSRQ
+
+
+
+measurement is also mapped from dBm to an integer
+number ranging from 0 to 34.
+Since RSRQ measurement combines signal strength and
+interference levels, this parameter is significant in assisting
+the mobility management in E-UTRAN. Mathematically,
+as the RSRQ measurement is proportional to the RSRP and
+signal strength, the current implementation considers
+RSRQ as the key measurement parameter along with
+mobility to implement the AMA mechanism. This optimizes and provides a fast, simplified and efficient aggregation and reporting mechanism.
+In order to implement an effective HO mechanism for
+HSR, parameters with regard to mobility and service
+quality should also be considered while generating measurement reports. Such multi-criteria approach will provide
+an effective solution to enhance HO efficiency and increase
+resource utilization. In the current effort, the implementation consideration with regard to service quality is beyond
+the scope and will be addressed through a separate paper.
+
+
+4.2 AMA based on HSR mobility
+
+
+In a realistic LTE-Advanced scenario, the network will
+combine multiple radio access technologies (RATs), frequencies and cell sizes for efficient deployment [35] and
+the UEs carry out parameter measurement for multi-RAT
+intra-/interfrequency mobility. For elaboration simplicity,
+we consider interfrequency E-UTRAN HO process in the
+current context, whereas the proposed system with minimal
+enhancement can also be employed for inter-RAT HO
+mechanism.
+Measurement reporting in LTE-Advanced can be configured as periodic, event triggered or event-triggered
+periodic. Triggering events as defined by 3GPP for monitoring the quality of serving cell and target cell are given in
+Table 1 and are calculated based on the entering conditions
+as elaborated in TS 36.331.
+The triggering events as defined for LTE-Advanced are
+more suitable for low mobility scenarios, whereas their
+applicability in a highly mobility environment like HSR
+requires considerable modification. Along with the measurement parameters as observed from target and serving
+cells, it is indispensable that the system should also consider the velocity of high-speed train (HST) to dynamically
+adapt the triggering events in a highly mobile environment.
+Considering various mobility scenarios in HSR, the variation in event triggering based on HST speed, S, is identified
+as follows:
+
+
+(1) Movement of HST at lower speed (SLow)
+
+
+When stationary or at a lower speed than a threshold level
+(for example 200 km/h), the event triggering is considered
+
+
+## J. Mod. Transport. (2018) 26(1):24–35 123
+
+
+30 P. J. Pramod, B. C. Jinaga
+
+
+Table 1 Event triggers for measurement report
+
+
+Event Description
+
+
+Inter-LTE mobility
+
+
+A1 S-DeNB better than absolute threshold
+
+
+A2 S-DeNB worse than absolute threshold
+
+
+A3 T-DeNB better than offset relative to S-DeNB
+
+
+A4 T-DeNB better than absolute threshold
+
+
+A5 S-DeNB worse than one absolute threshold (AT1) and T-DeNB better than another absolute threshold (AT2)
+
+
+A6 T-DeNB better than offset relative to secondary DeNB
+
+
+Inter-RAT mobility
+
+
+B1 T-DeNB better than absolute threshold
+
+
+B2 S-DeNB worse than one absolute threshold ATR1 and T-DeNB better than other absolute threshold ATR2
+
+
+
+based on the standard LTE-Advanced mechanism as
+detailed in Table 1.
+
+
+(2) Movement of HST at higher speed (SHigh)
+At an increased mobility scenario wherein the value of
+SHigh increases beyond a threshold level (for example,
+200 km/h), it is essential for relay nodes to foresee the
+parameters of upcoming DeNB’s and correlate the data
+with the measurements of DeNB’s which are left behind to
+have an effective HO decision. Considering the assumption
+that the DeNBs deployed in an HSR is directional and
+continuous, the TNs deployed in the front and back of the
+train provide sufficient visibility to the futuristic and past
+parametric information.
+In order to exemplify the above, we denote by RQ1-FTN,
+RQ1-RTN and RQ1-DMR the RSRQ measurements as observed
+by front TN, rear TN and DMR for S-DeNB, respectively,
+and by RQ2-FTN, RQ2-RTN and RQ2-DMR the counterparts as
+reported for T-DeNB. A parameter pattern, RQ1-RTN C
+RQ1-DMR C RQ1-FTN, being reported for S-DeNB node
+observed for TTT duration, can be inferred to be a condition wherein the train is leaving the vicinity of a cell.
+Meanwhile, RQ2-FTN C RQ2-DMR for the T-DeNB node
+indicates that the train is entering the cell.
+Considering this aspect, the HO event generated at HO
+initiate time for DMR-TN, THS-initiate, as shown in Eq. (4)
+provides a realistic and accurate HO decision-making
+scenario, in comparison with HO initiate time, THO-initiate,
+as recommended by 3GPP standard where event triggering
+occurs whenever the T-DeNB is better than the S-DeNB.
+
+
+ðRQ1-RTN [ RQ1-DMR � RQ1-FTNÞAND Rð Q2-FTN [ RQ2-DMRÞ:
+
+ð4Þ
+
+
+In such a scenario, it is ideal to have the HO initiated at
+time THS-initiate, which is DT duration prior to the time
+THO-initiate as defined by the 3GPP specification. This would
+provide sufficient lead time in initiating the HO procedure
+
+
+
+in a high mobility HSR scenario. Moreover, the proposed
+method envisages significant reduction in the time for
+DMR to reenter (TReentry) and the time to re-establish the
+corresponding DMR connection during call drop
+(TReconnect)
+
+THS-initiate ¼ THO-initiate � DT: ð5Þ
+
+
+In contrast to the conventional approach of taking
+measurement parameters from a single MRN, it is essential
+to adapt to the varied mobility conditions and estimate the
+parameter values dynamically. Though various approaches
+can be applied to generate events as mentioned in Eq. (4), a
+weighted average mechanism to aggregate the S-DeNB and
+T-DeNB measurements across front TN (TN-1), rear TN
+(TN-2) and DMR is adopted here as shown in Eq. (6). The
+weights are determined on the basis of mobility conditions
+of HST.
+
+
+RQ-MN ¼ W1 � RQ-DMR þ W2 � RQ-FTN þ W3 � RQ-RTN; ð6Þ
+
+
+where RQ-MN is the aggregate RSRQ measurement to be
+reported for event triggering, and Wi (i = 1, 2, 3) is the
+significance parameter.
+
+
+5 Simulation and performance analysis
+
+
+5.1 Implementation of simulation model
+
+
+The proposed model was designed and implemented on an
+object-oriented discrete event simulator [36] extended with
+an LTE-Advanced package [37]. A representative illustration of the simulation environment on Omnet??
+involving a train traveling in an HSR environment between
+two stations is presented in Fig. 6a. The simulated infrastructure consists of DeNBs, Routers, P-GW and Server.
+The DeNBs uses omnidirectional anisotropic antennas and
+are interconnected through X2 interface.
+
+
+## 123 J. Mod. Transport. (2018) 26(1):24–35
+
+
+A novel handover scheme using torch nodes and adaptive measurement aggregation mechanism to… 31
+
+
+Fig. 6 Omnet?? simulation screenshot. a HSR simulation between two stations. b Simulated onboard train network. c LAN network across
+coaches. d Wireless LAN connectivity at coaches
+
+
+
+As shown in Fig. 6b, the implementation of onboard
+train network involves front torch nodes (TN-1), rear torch
+nodes (TN-2), two distributed mobile relay nodes (DMR-1
+and DMR-2), onboard processing units (OPU1 and OPU2)
+and train networks (TNET1 and TNET2). Figure 6c shows
+the implementation of TNET which establishes LAN
+connectivity across multiple coaches. TNETs are further
+interfaced to the UEs through wireless APs as shown in
+Fig. 6d. IMU unit was implemented as a module in OPU,
+and implementation of load balancer was simplified to
+handle individual DMR. Table 2 summarizes the simulation parameters. The simulation uses ITU Urban Macro
+
+[38] for path loss and Jakes fading model [39].
+
+
+
+5.2 Simulation results
+
+
+We validated the model and carried out simulations to
+assess the performance of the proposed system in
+improving the HO latency and HO failure probability.
+Performance of the proposed model is compared with that
+of the single link mobile wireless relay node (MRN). The
+MRN uses only single wireless link to connect to DeNB, in
+comparison with the proposed DMR-TN system, which
+involves TNs for efficient estimation of measurements in a
+mobile environment, multiple antenna scheme to enhance
+the load distribution, enhanced monitoring using AMA and
+efficient message handling capabilities.
+
+
+## J. Mod. Transport. (2018) 26(1):24–35 123
+
+
+32 P. J. Pramod, B. C. Jinaga
+
+
+
+Table 2 Simulation parameters
+
+
+Parameters Values
+
+
+DeNB Single cell base station
+
+
+User equipment (UE) 120 Nos.
+
+
+Macrocell radius 1500 m
+
+
+Macrooverlapped area 400 m
+
+
+Railway distance 7000 m
+
+
+Speed of train 200–400 km/h
+
+
+Length of train 200 m
+
+
+Application VOIP
+
+
+Carrier frequency 2 GHz
+
+
+Bandwidth 5 MHz (25 RBs)
+
+
+Path loss model ITU Urban Macro
+
+DeNBTx power 46 dB
+
+
+Mobility model Linear mobility
+
+
+Simulation time 75 s
+
+
+(1) HO latency
+
+
+The HO latency is computed from the time when the SDeNB begins its HO to the time when the connection is
+established for data transmission to T-DeNB. The HO
+latency THO-latency is estimated as follows:
+
+
+THO-latency ¼ PSHO � THO
+
+       -        þ 1 � PSHO �ðTReentry þ TReconnect ; ð7Þ
+
+
+where the THO is the time taken to handover; PSHO is the
+probability estimate value for calculating the average HO
+latency, and is considered based on [26, 40]. The probability estimate of successful handover for MRN scheme,
+PSHO-MRN, is derived as 0.97, and the probability estimate
+of successful handover for DMR-TN, PSHO-DMR-TN, is
+0.999. The HO in the proposed approach significantly
+reduces the TReentry and TReconnect and increases the probability of success at each stage. The onboard measurement
+
+
+160
+
+
+140
+
+
+120
+
+
+100
+
+
+80
+
+
+60
+
+
+40
+
+
+20
+
+
+0
+
+
+
+analyzer and multi-antenna with load balancer have
+reduced the HO latency in comparison with the existing
+systems.
+Figure 7 illustrates the HO latency of the simulation run
+wherein the proposed DMR-TN scheme outperforms the
+single-antenna-based MRN scheme. Although users with
+high mobility are expected to experience an increase in HO
+latency, the HO latency in the proposed solution is comparatively smaller and increases gradually as the speed
+increases.
+
+
+(2) HO failure probability
+
+
+Once HO is triggered, any subsequent degradation of
+T-DeNB signal strength below a threshold level will result
+in connection losses and an HO failure will occur if this
+interruption exceeds the predefined delay limit. In the
+proposed scheme, the measurement report from TNs
+provides a further assurance in estimating the T-DeNB,
+resulting in significant reduction in HO failures. Figure 8
+shows that the HO failure probability of the simulated
+model is on an average of 0.01, whereas the value is near to
+0.05 for MRN scheme.
+
+
+(3) Communication interruption probability
+The probability of communication interruption (CI) during
+an HO procedure provides a detailed overview of the
+efficacy of a model. For a system to provide improved QoS
+and seamless user experience, the communication interruption probability needs to be smaller. In the simulation
+model, we plotted the CI probability as a function of HO
+locations within a range of 1100–1500-m region in the
+overlap area. In comparison with the single-antenna MRN
+model, the interruption probability for the proposed DMRTN scheme is less than 0.1 for the majority of overlap area,
+as shown in the simulation results given in Fig. 9. The
+involvement of torch nodes and adaptive measurement
+aggregation mechanism module has significantly
+
+
+
+Fig. 7 HO latency
+
+## 123 J. Mod. Transport. (2018) 26(1):24–35
+
+
+A novel handover scheme using torch nodes and adaptive measurement aggregation mechanism to… 33
+
+
+0.08
+
+
+
+0.07
+
+
+0.06
+
+
+0.05
+
+
+0.04
+
+
+0.03
+
+
+0.02
+
+
+0.01
+
+
+0.00
+
+
+
+
+
+1 0 0 0 1 0 5 0 1 1 0 0 1 1 5 0 1 2 0 0 1 2 5 0 1 3 0 0 1 3 5 0 1 4 0 0 1 4 5 0 1 5 0 0
+
+
+HO location (m)
+
+
+Fig. 8 HO failure probability
+
+
+0.4
+
+
+0.35
+
+
+0.3
+
+
+0.25
+
+
+0.2
+
+
+0.15
+
+
+0.1
+
+
+0.05
+
+
+0
+
+1000 1050 1100 1150 1200 1250 1300 1350 1400 1450 1500
+
+
+HO location (m)
+
+
+Fig. 9 Communication interruption probability for the proposed DMR-TN scheme
+
+
+
+contributed in decreasing the failure probability as the
+distance increases.
+
+
+6 Conclusion and future work
+
+
+This paper presents the details of a novel scheme to
+improve QoS in a high-speed railway communication
+system. The proposed scheme involves the following key
+features: (1) torch nodes to effectively forecast target
+DeNBs, (2) adaptive measurement aggregation based on
+mobility and (3) distributed mobile relays with load balancer for efficient resource utilization. The proposed
+scheme was simulated using Omnet?? tool, and the performance is analyzed in terms of handover latency, handover failure probability and communication interruption
+probability. The preliminary analysis shows that the DMRTN scheme outperforms the single-antenna scheme and
+provides better performance with reduced handover failure
+
+
+
+and communication interruption probability. The proposed
+scheme can be easily implemented in high-speed railways
+with reduced implementation overhead. In the future work,
+we plan to carryout further optimization by considering
+service-based parameters (e.g., voice, video, and data) to
+enhance handover efficiency and resource optimization.
+
+
+Acknowledgements The authors would like to thank Centre for
+Development of Advanced Computing (C-DAC), Hyderabad, and
+Jawaharlal Nehru Technological University, Hyderabad, in facilitating this research work.
+
+
+Open Access This article is distributed under the terms of the
+[Creative Commons Attribution 4.0 International License (http://](http://creativecommons.org/licenses/by/4.0/)
+[creativecommons.org/licenses/by/4.0/), which permits unrestricted](http://creativecommons.org/licenses/by/4.0/)
+use, distribution, and reproduction in any medium, provided you give
+appropriate credit to the original author(s) and the source, provide a
+link to the Creative Commons license, and indicate if changes were
+made.
+
+
+## J. Mod. Transport. (2018) 26(1):24–35 123
+
+
+34 P. J. Pramod, B. C. Jinaga
+
+
+
+References
+
+
+1. Saleh AAM, Simmons JM (2011) Technology and architecture to
+enable the explosive growth of the internet. IEEE Commun Mag
+[49(1):126–132. https://doi.org/10.1109/MCOM.2011.5681026](https://doi.org/10.1109/MCOM.2011.5681026)
+2. Corcoran P (2017) Mobile-edge computing and internet of things
+for consumers: part II: energy efficiency, connectivity, and economic development. IEEE Consum Electron Mag 6(1):51–52.
+[https://doi.org/10.1109/MCE.2016.2614418](https://doi.org/10.1109/MCE.2016.2614418)
+3. GSMA Intelligence (2016) Global mobile trends. Study Report
+4. Garcia Alvarez A (2014) The advantages and advances of electric
+[railways [viewpoint]. IEEE Electr Mag 2(3):60–64. https://doi.](https://doi.org/10.1109/MELE.2014.2339411)
+[org/10.1109/MELE.2014.2339411](https://doi.org/10.1109/MELE.2014.2339411)
+5. Xiaowen Fu, Zhang Anming, Lei Zheng (2012) Will China’s
+airline industry survive the entry of high-speed rail? Res Trans
+[Econ 35(1):13–25. https://doi.org/10.1016/j.retrec.2011.11.006](https://doi.org/10.1016/j.retrec.2011.11.006)
+6. A [˚ ] kerman Jonas (2011) The role of high-speed rail in mitigating
+climate change—The Swedish case Europabanan from a life
+cycle perspective. Transp Res Part D Trans Environ
+[16(3):208–217. https://doi.org/10.1016/j.trd.2010.12.004](https://doi.org/10.1016/j.trd.2010.12.004)
+7. Cascetta Ennio, Papola Andrea, Pagliara Francesca, Marzano
+Vittorio (2011) Analysis of mobility impacts of the high speed
+Rome-Naples rail link using within day dynamic mode service
+[choice models. J Transp Geogr 19(4):635–643. https://doi.org/10.](https://doi.org/10.1016/j.jtrangeo.2010.07.001)
+[1016/j.jtrangeo.2010.07.001](https://doi.org/10.1016/j.jtrangeo.2010.07.001)
+8. Chen Chia-Lin, Hall Peter (2011) The impacts of high-speed
+trains on British economic geography: a study of the UK’s
+InterCity 125/225 and its effects. J Transp Geogr 19(4):689–704.
+[https://doi.org/10.1016/j.jtrangeo.2010.08.010](https://doi.org/10.1016/j.jtrangeo.2010.08.010)
+9. Hang Z (2011) The impact of the high-speed train in China. Int
+[Conf Manag Serv Sci Wuhan. https://doi.org/10.1109/ICMSS.](https://doi.org/10.1109/ICMSS.2011.5998237)
+[2011.5998237](https://doi.org/10.1109/ICMSS.2011.5998237)
+10. 3rd Generation Partnership Project (2009) 3GPP-TR-25.913
+Requirements for evolved UTRA (E-UTRA) and evolved
+UTRAN (E-UTRAN). Technical Report
+11. 3rd Generation Partnership Project (2015) 3GPP-TR-36.913
+Requirements for further advancements for Evolved Universal
+Terrestrial Radio Access (E-UTRA) (LTE-Advanced). Technical
+Report
+12. Akyildiz Ian F, Gutierrez-Estevez David M, Reyes Elias
+Chavarria (2010) The evolution to 4G cellular systems: lTE[Advanced. Phys Commun 3(4):217–244. https://doi.org/10.1016/](https://doi.org/10.1016/j.phycom.2010.08.001)
+[j.phycom.2010.08.001](https://doi.org/10.1016/j.phycom.2010.08.001)
+13. Agilent Tech (2011) Introducing LTE-advanced. Application
+note
+14. Ali-Yahiya Tara (2011) Understanding LTE and its Performance.
+[Springer-Verlag, New York. https://doi.org/10.1007/978-1-4419-](https://doi.org/10.1007/978-1-4419-6457-1)
+[6457-1. ISBN 978-1-4419-6457-1](https://doi.org/10.1007/978-1-4419-6457-1)
+15. 3rd Generation Partnership Project (2016) 3GPP-TR-36.300
+Evolved Universal Terrestrial Radio Access (E-UTRA) and
+Evolved Universal Terrestrial Radio Access Network (EUTRAN)—Overall description. Technical specification
+16. Youping Zhao and Jinxing Li (2011) Analysis of the impact of
+Doppler spread on OFDM-based next-generation high-speed rail
+broadband mobile communications. IET Int Conf Commun
+[Technol Appl Beijing. https://doi.org/10.1049/cp.2011.0642](https://doi.org/10.1049/cp.2011.0642)
+17. Ghazzai H, Bouchoucha T, Alsharoa A, Yaacoub E, Alouini MS,
+Al-Naffouri TY (2017) Transmit power minimization and base
+station planning for high-speed trains with multiple moving
+relays in OFDMA systems. IEEE Trans Veh Technol
+[66(1):175–187. https://doi.org/10.1109/TVT.2016.2542344](https://doi.org/10.1109/TVT.2016.2542344)
+18. Lin X, Xu C, Zhang Siyu, Zhao Ruojun and Xiao Xiang (2014)
+Comparative analysis on fading characteristics of the LTE-R
+channel in viaduct and hilly terrain scenarios. In: International
+
+
+
+symposium on wireless personal multimedia communications
+[(WPMC), Sydney https://doi.org/10.1109/WPMC.2014.7014804](https://doi.org/10.1109/WPMC.2014.7014804)
+19. He R, Zhong Z, Ai B, Ding J, Jiang W, Zhang H, and Li X (2014)
+A standardized path loss model for the GSM-Railway based highspeed railway communication systems. In: IEEE 79th vehicular
+[technology conference (VTC Spring), Seoul https://doi.org/10.](https://doi.org/10.1109/VTCSpring.2014.7022797)
+[1109/VTCSpring.2014.7022797](https://doi.org/10.1109/VTCSpring.2014.7022797)
+20. Sun W, Wang H, Bu B (2011) Feasibility research on trainground information transmission based on leaky coaxial cable in
+CBTC. In: Proceedings of 2011 IEEE international conference on
+[service operations, logistics and informatics Beijing. https://doi.](https://doi.org/10.1109/SOLI.2011.5986626)
+[org/10.1109/SOLI.2011.5986626](https://doi.org/10.1109/SOLI.2011.5986626)
+21. Lannoo B, Colle D, Pickavet M, Demeester P (2007) Radio-overFiber based solution to provide broadband internet access to train
+passengers [topics in optical communications]. IEEE Commun
+[Mag 45(2):56–62. https://doi.org/10.1109/MCOM.2007.313395](https://doi.org/10.1109/MCOM.2007.313395)
+22. Kawanishi T, Kanno A, Dat PT and Yamamoto N (2016)
+Seamless access networks using radio-over-fiber technology for
+high-speed trains. In: IEEE Sixth international conference on
+[communications and electronics (ICCE), Ha Long. https://doi.](https://doi.org/10.1109/CCE.2016.7562666)
+[org/10.1109/CCE.2016.7562666](https://doi.org/10.1109/CCE.2016.7562666)
+23. Haddad A and Gagnaire M (2014) Radio-over-Fiber (RoF) for
+mobile backhauling: a technical and economic comparison
+between analog and digitized RoF. In: International conference
+on optical network design and modeling, Stockholm
+24. Hou HA and Wang LC (2015) A systematic approach to improve
+fiber-wireless access network in high speed railway tunnels. In:
+IEEE international conference on communication workshop
+[(ICCW), London. https://doi.org/10.1109/ICCW.2015.7247196](https://doi.org/10.1109/ICCW.2015.7247196)
+25. Han M, Lee N, Han K, Lee D (2008) Fast IP handover between
+satellite networks and wireless LAN networks for high-speed
+trains. IP Netw Over Next-Gener Satell Syst Springer, New York.
+[https://doi.org/10.1007/978-0-387-75428-4_4](https://doi.org/10.1007/978-0-387-75428-4_4)
+26. Tian L, Li J, Huang Y, Shi J, Zhou J (2012) Seamless dual-link
+handover scheme in broadband wireless communication systems
+for high-speed rail. IEEE J Sel Areas Commun 30(4):708–718.
+[https://doi.org/10.1109/JSAC.2012.120505](https://doi.org/10.1109/JSAC.2012.120505)
+27. 3rd Generation Partnership Project (2014) 3GPP-TR-36.836
+Evolved Universal Terrestrial Radio Access (E-UTRA); Study on
+Mobile Relay. Technical Report
+28. Chen L, Huang Y, Xie F, Gao Y, Chu L, He H, Li Y, Liang F,
+Yuan Y (2013) Mobile relay in LTE-advanced systems. IEEE
+[Commun Mag 51(11):144–151. https://doi.org/10.1109/MCOM.](https://doi.org/10.1109/MCOM.2013.6658666)
+[2013.6658666](https://doi.org/10.1109/MCOM.2013.6658666)
+29. Li W, Zhang C, Duan X, Jia S, Liu Y and Zhang L (2012)
+Performance evaluation and analysis on group mobility of mobile
+relay for LTE advanced system. In: IEEE vehicular technology
+[conference (VTC Fall), Quebec City. https://doi.org/10.1109/](https://doi.org/10.1109/VTCFall.2012.6399277)
+[VTCFall.2012.6399277](https://doi.org/10.1109/VTCFall.2012.6399277)
+30. Alsharoa A, Ghazzai H, Yaacoub E and Alouini MS (2014)
+Energy-efficient two-hop LTE resource allocation in high speed
+trains with moving relays. In: International symposium on modeling and optimization in mobile, Ad Hoc, and Wireless Networks (WiOpt), Hammamet. [https://doi.org/10.1109/WIOPT.](https://doi.org/10.1109/WIOPT.2014.6850342)
+[2014.6850342](https://doi.org/10.1109/WIOPT.2014.6850342)
+31. Liu Z, Fan P (2014) An effective handover scheme based on
+antenna selection in ground-train distributed antenna systems.
+[IEEE Trans Veh Technol 63(7):3342–3350. https://doi.org/10.](https://doi.org/10.1109/TVT.2014.2300154)
+[1109/TVT.2014.2300154](https://doi.org/10.1109/TVT.2014.2300154)
+32. Deng T, Zhang Z, Wang X and Fan P (2016) A network assisted
+fast handover scheme for high speed rail wireless networks. In:
+IEEE 83rd vehicular technology conference (VTC Spring),
+[Nanjing. https://doi.org/10.1109/VTCSpring.2016.7504083](https://doi.org/10.1109/VTCSpring.2016.7504083)
+33. Pan MS, Lin TM, Chen WT (2015) An enhanced handover
+scheme for mobile relays in lte-a high-speed rail networks. IEEE
+
+
+## 123 J. Mod. Transport. (2018) 26(1):24–35
+
+
+A novel handover scheme using torch nodes and adaptive measurement aggregation mechanism to… 35
+
+
+
+[Trans Veh Technol 64(2):743–756. https://doi.org/10.1109/TVT.](https://doi.org/10.1109/TVT.2014.2322374)
+[2014.2322374](https://doi.org/10.1109/TVT.2014.2322374)
+34. Wang H, Rosa C, Pedersen KI (2016) Dual connectivity for LTEadvanced heterogeneous networks. K.I. Wireless Networks
+[22(4):1315–1328. https://doi.org/10.1007/s11276-015-1037-6](https://doi.org/10.1007/s11276-015-1037-6)
+35. Munoz P, Barco R, Laselva D, Mogensen P (2013) Mobilitybased strategies for traffic steering in heterogeneous networks.
+IEEE Commun Mag 51(5):54–62. [https://doi.org/10.1109/](https://doi.org/10.1109/MCOM.2013.6515047)
+[MCOM.2013.6515047](https://doi.org/10.1109/MCOM.2013.6515047)
+36. Andra´sVarga and Rudolf Hornig. (2008) An overview of the
+OMNeT?? simulation environment. In: Proceedings of the 1st
+international conference on Simulation tools and techniques for
+communications, networks and systems & workshops (Simutools
+‘08) Belgium
+37. Virdis A, Stea G and Nardini G (2014) SimuLTE—A modular
+system-level simulator for LTE/LTE-A networks based on
+
+
+
+OMNeT??. 4th International Conference on Simulation And
+Modeling Methodologies, Technologies And Applications
+(SIMULTECH), Vienna, Austria. [https://doi.org/10.5220/](https://doi.org/10.5220/0005040000590070)
+[0005040000590070](https://doi.org/10.5220/0005040000590070)
+38. 3rd Generation Partnership Project (2010) TR-36.814 Further
+advancements forE-UTRA physical layer aspects. Technical
+Report
+39. Jakes William C (1994) Microwave Mobile Communications. An
+IEEE Press Classic Reissue, Wiley. ISBN 978-0-7803-1069-8
+40. Lee CW, Chuang MC, Chen MC, Sun YS (2014) Seamless
+Handover for high-speed trains using femtocell-based multiple
+egress network interfaces. IEEE Trans Wireless Commun
+[13(12):6619–6628. https://doi.org/10.1109/TWC.2014.2364179](https://doi.org/10.1109/TWC.2014.2364179)
+
+
+## J. Mod. Transport. (2018) 26(1):24–35 123
+
+

@@ -1,0 +1,1418 @@
+**COMPUTATIONAL** **RESEARCH** **PROGRESS** **IN** **APPLIED** **SCIENCE** **&** **ENGINEERING** **(CRPASE)**
+
+
+**CRPASE: TRANSACTIONS OF CIVIL AND ENVIRONMENTAL ENGINEERING**
+
+
+[Journal homepage: http://www.crpase.com](http://www.crpase.com/)
+
+
+CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025 ISSN 2423-4591
+
+
+Review Article
+
+# **Perception Technologies for Autonomous Transportation: A Comparative Analysis of** **LiDAR, Radar, Camera, and Sonar**
+
+
+Mohammad Soltanirad [1] [], Mahdi Baghersad [2]
+
+
+1 _Department of Civil, Environmental and Construction Engineering, Texas Tech University, Lubbock, TX 79409, USA_
+
+2 _Department of Civil, Construction, and Environmental Engineering, University of Alabama at Birmingham, Birmingham, AL 35294, USA_
+
+
+**Keywords** **Abstract**
+
+
+
+Perception Technologies,
+LiDAR,
+Radar,
+Camera,
+Sonar,
+Sensor Fusion,
+Autonomous Vehicles.
+
+
+**1.** **Introduction**
+
+
+
+This paper presents a comprehensive comparative analysis of the primary perception
+technologies, LiDAR, Radar, Camera, and Sonar, that underpin modern intelligent
+transportation systems and autonomous vehicles. While numerous studies have examined
+individual sensor technologies, this paper's primary contribution lies in its holistic, crossmodal analysis, presenting a unified framework that directly links sensor performance
+metrics to specific transportation application requirements. It reviews the operating
+principles, variants, and data processing algorithms for each modality. The study evaluates
+these sensors across critical performance metrics, including spatial accuracy, resolution,
+robustness in adverse environmental conditions, and cost, grounding these comparisons in
+quantitative data from established industry benchmarks. The study emphasizes multi-sensor
+fusion strategies, discussing the architectures and trade-offs involved. Furthermore, the
+paper provides a detailed discussion on application-specific sensor selection and the open
+challenges facing the field, such as validation and the role of simulation. The analysis
+concludes that while each sensor has unique strengths, such as LiDAR's centimeter-level
+accuracy (typically ±2-5 cm) or radar's direct, high-precision velocity sensing (often ±0.1
+m/s), a multi-modal, fused-sensor approach is essential for achieving the safety, reliability,
+and operational robustness required for the widespread deployment of autonomous
+transportation.
+
+
+
+The evolution of modern transportation is intrinsically linked
+to the advancement of sensing technologies. The global push
+towards intelligent transportation systems (ITS), which
+includes areas like advanced traffic flow prediction [1], and
+autonomous vehicles (AVs) has magnified the need for
+robust, reliable, and comprehensive environmental
+perception capabilities [2]. These systems rely on a suite of
+sensors to gather real-time data about their surroundings,
+
+
+
+enabling critical functions such as object detection,
+localization, navigation, and collision avoidance. The
+accuracy and dependability of this perception layer are
+paramount to ensuring the safety of passengers, pedestrians,
+and other road users. This layer forms the bedrock upon
+which autonomous decision-making algorithms operate [3].
+
+Among the myriad of available technologies, four
+primary modalities have become foundational to
+
+
+
+ Corresponding Author: Mohammad Soltanirad
+E-mail address: Mohammad.soltanirad@ttu.edu, ORCID: https://orcid.org/0009-0003-6148-3165
+
+
+Received: 28 September 2025; Revised: 14 October 2025; Accepted: 10 November 2025
+[https://doi.org/10.82042/crpase.11.4.2967](https://doi.org/10.82042/crpase.11.4.2967)
+
+
+Academic Editor: **Vahid Najafi Moghadam Gilani**
+
+
+
+
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+
+transportation applications: Light Detection and Ranging
+(LiDAR), Radio Detection and Ranging (Radar), passive
+optical cameras, and Sound Navigation and Ranging (Sonar).
+LiDAR systems offer exceptional spatial resolution,
+generating detailed three-dimensional point clouds that are
+invaluable for precise object mapping and classification [4].
+Radar is highly resilient to adverse weather conditions,
+providing reliable velocity and range measurements that are
+crucial for applications like adaptive cruise control and
+forward collision warning [5]. Cameras, the most ubiquitous
+sensors, deliver rich, high-resolution color and texture
+information, which is essential for scene interpretation,
+traffic sign recognition, and lane detection [6]. Finally, Sonar
+sensors provide a cost-effective solution for short-range
+object detection, making them ideal for low-speed
+applications such as parking assistance and blind-spot
+monitoring [7].
+
+Despite the individual strengths of these sensors, each
+possesses inherent limitations. LiDAR performance can
+degrade significantly in fog, rain, or snow. Cameras are
+highly sensitive to variations in lighting and weather. Radar
+offers lower resolution, making it difficult to classify
+complex objects. Sonar is limited by its short operational
+range and slow propagation speed [8]. These trade-offs have
+created a complex engineering challenge: selecting and
+
+
+
+integrating the optimal sensor suite for specific
+transportation tasks. Consequently, the concept of multisensor fusion has gained significant traction. This approach
+aims to combine the outputs of different modalities to create
+a synergistic system that is more robust and accurate than
+any individual sensor [9].
+
+This paper provides a comprehensive comparative
+evaluation of LiDAR, Radar, camera, and Sonar
+technologies within the context of transportation
+applications. It analyzes each modality against critical
+performance metrics, including spatial accuracy,
+environmental robustness, cost, and suitability for specific
+functions. Furthermore, this study examines the benefits and
+challenges of multi-sensor fusion strategies, highlighting
+how integrated systems can overcome the deficiencies of
+individual sensors. The objective is to offer a clear, evidencebased framework for engineers, researchers, and
+policymakers to guide the design and deployment of nextgeneration perception systems for intelligent and
+autonomous transportation. To guide the design and
+deployment of next-generation perception systems for
+intelligent and autonomous transportation. The overall
+methodology and structure of this comparative review are
+illustrated in Figure 1.
+
+
+
+**Figure 1.** Methodological flowchart of the comparative analysis conducted in this study.
+
+
+
+2
+
+
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+
+**2.** **Sensor Modalities: Principles and Characteristics**
+
+
+A thorough understanding of each sensor's underlying
+principles, technological variants, and data processing
+
+
+
+pipelines is essential for a meaningful comparison. Figure 2
+displays examples of the physical sensors discussed in this
+review. This section details these aspects for each of the four
+primary modalities.
+
+
+
+**Figure 2.** Examples of perception sensors used in transportation: (a) automotive LiDAR unit [10], (b) automotive radar
+
+sensor [11], (c) automotive camera module [12], and (d) sonar sensor [13].
+
+
+
+_2.1._ _Light Detection and Ranging (LiDAR)_
+
+
+LiDAR has emerged as a cornerstone technology for
+high-level autonomous driving due to its ability to generate
+direct, high-precision 3D measurements of the environment.
+Unlike passive sensors, LiDAR is an active modality,
+meaning it provides its own illumination in the form of laser
+beams. It operates on the principle of time-of-flight (ToF),
+where it emits pulses of infrared laser light and measures the
+precise time it takes for these pulses to reflect off objects and
+return to the sensor. By knowing the speed of light, it
+calculates the distance to millions of discrete points per
+second with a typical distance accuracy of ±2-5 cm, creating
+a dense and geometrically precise 3D representation of its
+surroundings known as a "point cloud" [4]. This capability is
+fundamental for tasks that require detailed spatial
+understanding, such as recognizing object shapes, precise
+localization within a map, and detecting traversable spaces.
+
+
+_2.1.1._ _Types of LiDAR_
+
+
+Mechanical Scanning LiDAR: These are the most
+traditional types, using a spinning assembly of lasers and
+detectors to achieve a 360° field of view. They offer high
+performance but are mechanically complex, expensive, and
+less durable due to moving parts [14].
+
+Solid-State LiDAR: This emerging category contains no
+large moving parts, making it more compact, robust, and
+cost-effective. Sub-types include Micro-Electro-Mechanical
+Systems (MEMS), which use tiny mirrors to steer the laser
+beam; Optical Phased Arrays (OPAs), which steer light
+electronically; and Flash LiDAR, which illuminates the
+entire scene at once like a camera flash [15].
+
+
+
+_2.1.2._ _Data Processing Algorithm_
+
+
+A typical LiDAR data processing pipeline converts raw
+point clouds into a list of tracked objects, a multi-stage
+process detailed in Algorithm 1.
+Algorithm 1: LiDAR Object Detection and Tracking
+
+1. Input: Raw point cloud frame Pt at time t.
+2. Step 1: Voxelization and Filtering. Downsample the
+
+point cloud into a grid of 3D pixels (voxels) to manage
+computational complexity. Apply statistical outlier
+removal filters to eliminate noise points [16].
+3. Step 2: Ground Segmentation. Identify and remove the
+
+ground plane. A common method is Random Sample
+Consensus (RANSAC) [17], an iterative method that
+fits a model to data containing a significant number of
+outliers, which iteratively selects random subsets of
+points and fits a plane model, keeping the model with
+the most inliers.
+4. Step 3: Clustering. Group the remaining non-ground
+
+points into distinct object clusters. Density-Based
+Spatial Clustering of Applications with Noise
+(DBSCAN) is often used, which groups points that are
+closely packed together, thereby identifying clusters
+based on point density, marking as outliers points that
+lie alone in low-density regions [18].
+5. Step 4: Feature Extraction & Classification. For each
+
+cluster, extract geometric features (e.g., dimensions,
+point density). Use these features in a machine learning
+classifier (e.g., SVM) or, more commonly, feed the
+entire cluster into a deep neural network like
+
+
+3
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+
+PointNet++ [19] for direct classification (vehicle,
+pedestrian, etc.).
+6. Step 5: Tracking. Associate detected objects across
+
+frames. A multi-object tracking algorithm, often based
+on a Kalman filter combined with an association
+method like the Hungarian algorithm, is used to predict
+object positions and maintain a consistent track ID for
+each object [20]. Advanced algorithms are also being
+developed to address challenges such as full occlusion
+and repairing vehicle trajectories, even with limited
+data points from roadside LiDAR sensors [21].
+7. Output: A list of tracked objects with state estimates
+
+(position, velocity, classification).
+
+
+_2.1.3._ _Algorithm Comparison_
+
+
+Clustering is a critical step where trade-offs must be
+made. Table 1 compares common algorithms used in the
+LiDAR processing pipeline. While qualitatively useful, the
+
+
+
+ultimate performance is measured in detection accuracy on
+standard benchmarks. For example, on the challenging
+nuScenes 3D detection benchmark, state-of-the-art LiDARbased models can achieve a mean average precision (mAP)
+of over 70%, demonstrating their high capability in complex
+urban scenes [22].
+
+
+_2.2._ _Radio Detection and Ranging (Radar)_
+
+
+Radar is one of the most mature and widely adopted
+sensing technologies in the automotive industry, forming the
+backbone of modern ADAS. Like LiDAR, it is an active
+sensor, but it transmits radio waves instead of light. Its
+operation is based on measuring the time-of-flight of these
+radio signals to determine range, typically with an accuracy
+of ±10-50 cm. Critically, Radar also directly measures the
+frequency shift in the return signal caused by the Doppler
+effect, which allows for a highly accurate, instantaneous
+measurement of an object's relative velocity, often with a
+precision of ±0.1 m/s [5]
+
+
+
+**Table 1.** Comparison of LiDAR Point Cloud Clustering Algorithms
+
+
+
+Computational
+Algorithm Accuracy
+
+Cost
+
+
+
+Robustness to
+
+Key Characteristic
+Density
+
+
+
+Euclidean Clustering Moderate Low Low Fast but struggle with varying point densities.
+
+Moderate–
+DBSCAN High High Effectively handles noise and arbitrary shapes [14].
+
+High
+
+Robust for fitting geometric shapes (e.g., planes)
+RANSAC N/A (Segmentation) Moderate High
+
+[13].
+
+
+
+This ability to directly sense speed, combined with the fact
+that radio waves are largely unaffected by adverse weather
+conditions, makes Radar an exceptionally robust and reliable
+sensor for safety-critical dynamic tasks.
+
+In transportation, radar systems are typically classified
+by their operational range and field of view, which dictates
+their specific application.
+
+
+_2.2.1._ _Types of Radar_
+
+
+Long-Range Radar (LRR): Used for applications like
+Adaptive Cruise Control (ACC), with a range of up to 250
+meters but a narrow field of view (e.g., 15-20°).
+
+Medium-Range Radar (MRR): Offers a wider field of
+view for functions like cross-traffic alert and lane-change
+assist.
+
+Short-Range Radar (SRR): Provides a very wide field of
+view (e.g., 120-150°) for near-field applications like parking
+aid and pre-collision warnings [5].
+
+4D Imaging Radar: An advanced type that provides
+elevation data, achieving an angular resolution of under 1°,
+a significant improvement over the 3-5° common in
+traditional radars. This creates a sparse 3D point cloud that
+improves object classification capabilities, bridging the gap
+between radar and LiDAR in terms of resolution [23].
+
+
+_2.2.2._ _Data Processing Algorithm_
+
+
+Algorithm 2: Radar Signal Processing and Tracking
+
+1. Input: Raw analog signals from the radar antenna.
+2. Step 1: Frequency Modulated Continuous Wave
+
+(FMCW) Signal Processing. For FMCW radar,
+
+
+
+perform a series of Fast Fourier Transforms (FFTs) on
+the digitized signal. A 1D FFT yields range, a 2D FFT
+on consecutive chirps yields range and Doppler, and a
+3D FFT across multiple antennas yields range,
+Doppler, and azimuth angle [24].
+3. Step 2: Detection. Apply a Constant False Alarm Rate
+
+(CFAR) algorithm to the Range-Doppler-Angle map
+to distinguish true target reflections from noise. Cellaveraging CFAR estimates the noise level from
+neighboring cells and flags a cell as a target if its power
+exceeds this estimate by a set threshold [25].
+4. Step 3: Clustering. Group the detected points (now a
+
+sparse point cloud) into objects using algorithms like
+DBSCAN.
+5. Step 4: Tracking. Use an Extended Kalman Filter
+
+(EKF) or Unscented Kalman Filter (UKF) to track
+objects. These filters are suitable for the non-linear
+motion models typical in vehicle tracking [26].
+6. Output: A list of tracked objects with state estimates
+
+(position, velocity).
+
+
+_2.2.3._ _Algorithm Comparison_
+
+
+The tracking stage is crucial for radar-based perception.
+Table 2 compares common filtering algorithms used for
+tracking objects. The choice of filter depends on the
+complexity of the object's motion model; while the EKF is
+computationally efficient, the UKF provides better accuracy
+for highly non-linear dynamics.
+
+
+_2.3._ _Camera_
+
+
+The camera is a passive sensor that functions analogously
+to the human eye, capturing reflected ambient light to form
+
+4
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+
+a 2D image of the world. Its ubiquity, low cost, and high
+resolution have made it an indispensable component of
+transportation systems. While other sensors provide
+geometric or motion data, the camera's unique strength lies
+in its ability to deliver rich semantic and textural
+information. It can distinguish colors, read text, and
+recognize intricate patterns, allowing it to perform tasks that
+
+
+
+are impossible for LiDAR or Radar, such as identifying
+traffic light states, reading road signs, and detecting lane
+markings [27]. The rapid advancement of deep learning and
+convolutional neural networks has further unlocked the
+camera's potential, enabling sophisticated scene
+understanding and object classification from image data
+alone.
+
+
+
+**Table 2.** Comparison of Radar Tracking Filter Algorithms
+
+
+
+Computational
+Algorithm Accuracy
+
+Cost
+
+
+
+Handling of Non
+Key Characteristic
+Linearity
+
+
+
+Prone to divergence if linearization is
+Extended Kalman Filter (EKF) Moderate–High Low Good (via linearization)
+
+poor.
+
+
+
+Excellent (via unscented
+Unscented Kalman Filter (UKF) High Moderate
+
+transform)
+
+
+
+More robust and accurate for non-linear
+
+models than EKF [22].
+
+Can model arbitrary distributions but is
+
+
+
+Excellent (nonParticle Filter (PF) Very High High
+
+
+
+parametric) computationally intensive.
+
+
+Camera systems in vehicles come in several 2. Step 1: Image Pre-processing. Apply corrections for
+configurations, each designed to capture different lens distortion, white balance, and brightness
+perspectives and types of visual information. normalization.
+
+
+
+parametric)
+
+
+
+2. Step 1: Image Pre-processing. Apply corrections for
+
+lens distortion, white balance, and brightness
+normalization.
+3. Step 2: Feature Extraction. Pass the image through a
+
+
+
+_2.3.1._ _Types of Cameras_
+
+
+Monocular Camera: A single camera providing a 2D
+view. Depth is inferred using AI models.
+
+Stereo Camera: Two cameras separated by a known
+distance. Depth is calculated through triangulation.
+
+Fisheye/Surround-View Cameras: Wide-angle cameras
+for a 360° view.
+
+Event Cameras: Asynchronous sensors that report perpixel brightness changes, offering high dynamic range and
+low latency [28].
+
+
+_2.3.2._ _Data Processing Algorithm_
+
+
+Modern camera-based perception is dominated by deep
+learning pipelines that transform 2D image frames into
+semantic information, a process summarized in Algorithm 3.
+Algorithm 3: Camera-Based Object Detection
+
+1. Input: A 2D image frame.
+
+
+Object detection models are a cornerstone of camerabased perception. This comparison illustrates the critical
+trade-off between accuracy and speed. For instance, on the
+widely used MS COCO benchmark, a two-stage detector like
+Faster R-CNN can achieve a high mean Average Precision
+(mAP) of around 42.0% but operates at a slow 7 frames per
+second (FPS). In contrast, a single-stage model like
+
+
+
+Convolutional Neural Network (CNN) backbone (e.g.,
+ResNet, EfficientNet) to extract a rich hierarchy of
+features [29].
+4. Step 3: Object Detection/Segmentation. Use a
+
+detection head to process the features.
+
+    - For Object Detection: Models like YOLOv7
+predict 2D bounding boxes and class
+probabilities directly from the feature maps
+
+[30,31].
+
+    - For Semantic Segmentation: Models like U-Net
+use an encoder-decoder structure to classify
+every pixel in the image (e.g., road, sky,
+vehicle) [32].
+5. Step 4: Depth Estimation (Monocular). A separate
+
+CNN, often trained on stereo or LiDAR data, predicts
+a depth value for each pixel, creating a depth map.
+6. Output: A list of 2D/3D bounding boxes with class
+
+labels, or a fully segmented image.
+
+
+_2.3.3._ _Algorithm Comparison_
+
+
+YOLOv7 offers a higher mAP of 56.8% while running in
+real-time at approximately 160 FPS on a V100 GPU [31–33].
+Models like SSD are optimized for efficiency, delivering
+moderate performance at high speeds suitable for edge
+devices. Table 3 qualitatively summarizes these trade-offs
+between leading deep learning architectures.
+
+
+
+**Table 3.** Comparison of Camera Object Detection Models (based on public benchmarks)
+Model Accuracy Speed Computational Cost Key Characteristic
+
+Two-stage detector, highly accurate
+Faster R-CNN High Low High
+
+but slow [33].
+
+Single-stage, excellent balance of
+YOLOv7 High Very High Low–Moderate
+
+speed and accuracy [31].
+
+Single-stage, fast but often less
+SSD Moderate High Low
+
+accurate than YOLO [35].
+
+
+
+_2.4._ _Sound Navigation and Ranging (Sonar)_
+
+
+Sonar, commonly implemented as ultrasonic sensors in
+the automotive context, is an active sensing technology that
+
+
+
+uses sound waves to detect objects. These sensors operate by
+emitting a short burst of high-frequency sound (typically 4060 kHz) and listening for the echo. By measuring the time it
+
+
+5
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+
+takes for the sound to travel to an object and back, the sensor
+calculates the distance. These sensors provide an effective
+detection range of approximately 0.1 to 8 meters with a
+conical beam width often between 60 and 120 degrees [7].
+While lacking the range and resolution of other modalities,
+sonar holds a critical niche due to its exceptional costeffectiveness and reliability for near-field detection.
+Research is also exploring the use of neural networks to
+improve the capabilities of ultrasonic arrays, moving beyond
+simple distance measurement to enable shape recognition
+
+[34].
+
+While the underlying technology is consistent,
+automotive ultrasonic sensors are generally categorized by
+their output signal type, which corresponds to their role in
+the vehicle's systems.
+
+
+_2.4.1._ _Types of Sonar_
+
+
+Digital Output Sensors: These are the most common type
+used for parking assist. They provide a simple digital signal
+when an object is detected within a predefined range.
+
+Analog Output Sensors: Provide a variable voltage that
+corresponds to the measured distance, offering more
+granular data for applications like automated parking
+systems.
+
+
+_2.4.2._ _Data Processing Algorithm_
+
+
+The processing for ultrasonic sensors is significantly
+simpler than for other modalities, focusing on a direct timeof-flight calculation as detailed in Algorithm 4.
+
+
+
+Algorithm 4: Sonar Distance Measurement
+
+
+1. Input: Trigger signal from the vehicle's Electronic
+
+Control Unit (ECU).
+2. Step 1: Pulse Emission. A piezoelectric transducer is
+
+excited, emitting a short burst of ultrasonic sound.
+3. Step 2: Echo Detection. The transducer switches to
+
+listening mode, waiting for the sound wave to reflect
+off an object and return.
+4. Step 3: Time-of-Flight Calculation. An internal timer
+
+measures the duration between emission and echo
+reception.
+5. Step 4: Filtering. Simple time-gating or thresholding
+
+is applied to reject noise and spurious, weak echoes.
+6. Step 5: Distance Calculation & Output. The time is
+
+converted to a single distance value using the speed
+of sound, adjusted for ambient temperature. The
+result is sent to the ECU.
+
+
+_2.4.3._ _Algorithm Comparison_
+
+
+The algorithms in sonar sensors are primarily basic filters
+to improve reliability. Table 4 provides a qualitative
+comparison. The choice is a manufacturer-level design
+decision balancing cost and performance in rejecting false
+positives.
+
+
+
+**Table 4.** Comparison of Sonar Filtering Techniques
+Technique Effectiveness Computational Cost Key Characteristic
+Thresholding
+
+
+
+Rejects echoes below a certain signal strength. Simple but can miss weak
+Moderate Very Low
+
+
+
+targets.
+Time Gating Good Very Low Ignores echoes that return too quickly (e.g., from rain) or too late.
+Median Filtering High Low Takes several measurements and outputs the median, rejecting spurious outliers.
+
+
+
+**3.** **Comprehensive Comparative Analysis**
+
+
+This section provides a multi-faceted comparison of the
+four sensor modalities, evaluating their operational
+characteristics and environmental robustness. A high-level
+overview of each sensor's strengths and weaknesses across
+several key performance indicators is presented in Table 5.
+This table serves as a quick reference, highlighting the
+complementary nature of the sensors; for example, LiDAR's
+high-resolution contrasts with radar's superior performance
+in adverse weather, while cameras excel in classification.
+
+Building on the general comparison, Table 6 provides a
+more detailed analysis of sensor performance specifically in
+
+
+
+adverse environmental conditions. It clearly illustrates
+radar's significant advantage in robustness, as it remains
+largely unaffected by conditions like heavy rain and fog,
+which severely degrade LiDAR and camera performance.
+
+
+**4.** **Multi-Sensor Fusion Strategies**
+
+
+Given that no single sensor is sufficient, multi-sensor
+fusion is critical. Fusion architectures can be categorized by
+the level at which data is combined.
+
+
+
+**Table 5.** Multi-Factor Sensor Comparison for Transportation Applications
+Parameter LiDAR Radar Camera Sonar
+Range Long (~200–300 m) Very Long (>250 m) Long (>200 m) Very Short (<10 m)
+Resolution Very High (Angular) Low (Angular) Very High (Angular) Very Low
+Accuracy Very High (cm-level) High (Range) Low (Depth) Low
+Velocity Sensing Indirect Direct (Doppler) Indirect (Optical Flow) Indirect
+Adverse Weather Poor Excellent Poor Good
+Lighting Excellent (Active) Excellent (Active) Poor (Passive) Excellent (Active)
+Classification Good (Shape) Poor Excellent (Semantics) None
+Cost Very High Moderate Low Very Low
+Complexity High (Computational) Low (Computational) Very High (AI) Very Low
+
+
+
+6
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+**Table 6.** Sensor Performance in Adverse Environmental Conditions
+Condition LiDAR Radar Camera Sonar
+Heavy Rain Degraded (Scattering) Unaffected Severely Degraded Unaffected
+Fog/Mist Severely Degraded Unaffected Severely Degraded Unaffected
+
+Degraded
+Snow Unaffected Degraded (Obscuration) Unaffected
+(Scattering/Absorption)
+
+Degraded
+Direct Sunlight Unaffected Unaffected Unaffected
+(Glare/Washout)
+
+
+
+Night (Darkness) Unaffected Unaffected Inoperable (w/o IR) Unaffected
+Dust/Smoke Degraded Unaffected Degraded Unaffected
+
+_4.1._ _Low-Level (Early) Fusion_ The primary drawback is the risk of an "information
+
+
+
+Raw data or low-level features from multiple sensors are
+combined before processing. For example, LiDAR points
+can be projected onto a camera image, "coloring" the point
+cloud, which allows a single deep learning model to process
+a rich, multi-modal input. A key advantage of this approach
+is its potential to achieve the highest possible performance
+by allowing the fusion algorithm to operate on the complete
+raw dataset. However, this method faces significant
+challenges, as it requires tight temporal synchronization,
+precise and stable calibration between sensors, and highbandwidth data transmission [36].
+
+
+_4.2._ _High-Level (Late) Fusion_
+
+
+Each sensor runs its own perception pipeline to generate
+a list of object tracks, and a central fusion engine then
+combines these track lists. This architecture offers the
+benefits of being simpler to implement, more modular, and
+inherently robust to the failure of an individual sensor, as the
+system can continue to operate on the remaining object lists.
+
+
+
+The primary drawback is the risk of an "information
+bottleneck," where critical low-level data is lost during the
+individual sensor's processing pipeline before it can be
+considered in the fusion stage [9].
+
+
+
+_4.3._ _Hybrid Fusion_
+
+
+This approach combines aspects of both early and late
+fusion, often by fusing features at an intermediate stage of
+processing.
+
+The most effective fusion strategies combine sensors
+with complementary characteristics. Table 7 summarizes
+common sensor pairings, outlining their primary strengths,
+typical fusion level, and key implementation challenges.
+This highlights why combinations like radar and camera are
+popular for their cost-effective robustness, while LiDAR and
+camera are preferred for high-accuracy 3D perception.
+
+
+
+**Table 7.** Common Sensor Fusion Combinations
+Combination Fusion Level Primary Strength Key Challenge
+
+
+
+High-accuracy 3D object detection with
+LiDAR + Camera Low or High
+
+semantic classification.
+
+All-weather object detection and
+Radar + Camera High
+
+tracking; cost-effective.
+
+Highly robust 3D perception, combines
+LiDAR + Radar High
+geometric detail with weather immunity.
+
+The most robust solution, providing
+Radar + Camera + LiDAR High/Hybrid
+
+redundancy and cross-validation.
+
+
+
+Precise calibration; performance drop in
+
+bad weather.
+
+Associating sparse radar tracks with
+
+dense camera pixels.
+
+High cost; data association between
+
+dense and sparse data.
+
+System complexity, cost, and
+
+computational load.
+
+
+
+**5.** **Discussion: Application-Specific Sensor Strategies**
+
+
+The selection and integration of sensors are not uniform
+but are highly dependent on the target application, which
+spans from driver assistance to full autonomy.
+
+
+_5.1._ _Standalone Sensor Applications_
+
+
+LiDAR: Due to its high cost and unparalleled geometric
+precision, LiDAR is best suited for applications where
+detailed environmental modeling is critical. Its primary use
+case is in the development of high-definition (HD) maps,
+which form the foundation for autonomous vehicle
+localization. For real-time perception, it excels in dense
+urban environments for reliably detecting and classifying
+vulnerable road users like pedestrians and cyclists based on
+
+
+
+their shape [37], and in providing rich data for proactive
+safety analysis through microsimulation models [38].
+
+Radar: Radar is the sensor of choice for core Advanced
+Driver-Assistance Systems (ADAS). Its robustness in
+adverse weather makes it ideal for safety-critical functions
+like Adaptive Cruise Control (ACC) and Automatic
+Emergency Braking (AEB), where reliable range and
+velocity measurements are paramount [5]. However, its poor
+angular resolution makes it unsuitable for applications
+requiring fine-grained classification, such as distinguishing
+a pedestrian from a signpost or detecting lane markings.
+
+Camera: The camera is the most versatile sensor for
+semantic understanding. It is the only modality capable of
+reading traffic signs, identifying traffic light colors, and
+detecting lane markings, making it essential for Lane
+
+
+7 6
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+
+Keeping Assist (LKA) and Traffic Sign Recognition (TSR)
+systems [6]. Its primary limitation is its passive nature,
+making it unreliable in poor lighting (night, glare) and
+adverse weather, rendering it insufficient as a primary sensor
+for safety-critical object detection without significant
+redundancy.
+
+Sonar: Sonar's application is exclusively in the lowspeed, short-range domain. It is the optimal technology for
+Parking Assist systems and basic Blind Spot Monitoring due
+to its extremely low cost and reliability in detecting large,
+nearby objects regardless of lighting or material [7]. Its short
+range and slow update rate make it entirely unsuitable for
+any high-speed or long-range application.
+
+
+_5.2._ _Fused System Applications_
+
+
+Radar-Camera Fusion: This is the most prevalent fusion
+architecture in modern production vehicles (SAE Levels 12). It provides a cost-effective, robust solution for
+mainstream ADAS. Radar provides reliable, all-weather
+object detection, while the camera provides the necessary
+classification. For example, the radar can detect an object
+ahead, and the camera can confirm whether it is a vehicle, a
+pedestrian, or a piece of road debris, enabling more
+intelligent AEB decisions. This combination is not typically
+sufficient for higher levels of autonomy due to the limitations
+in 3D scene reconstruction.
+
+LiDAR-Camera Fusion: This combination is the
+cornerstone of most SAE Level 4-5 autonomous vehicle
+prototypes. LiDAR provides a precise 3D point cloud that
+serves as a geometric scaffold, which is then enriched with
+color and texture information from the camera. This allows
+for highly accurate 3D object detection and classification,
+enabling complex maneuvers in dense traffic. Its primary
+drawback is the shared weakness of both sensors in severe
+weather and the high system cost.
+
+Full-Suite Fusion (LiDAR, Radar, Camera): This
+approach, often referred to as "belts and suspenders,"
+provides the highest level of robustness and redundancy. In
+this configuration, each sensor's strengths cover the others'
+weaknesses. Radar provides a weather-proof safety net,
+LiDAR provides high-fidelity geometric data in clear
+conditions, and the camera provides semantic context. This
+allows the system to operate across the widest possible range
+of environmental conditions, making it the preferred solution
+for robotaxi fleets and other high-autonomy applications
+where safety and operational availability are paramount [39].
+The main barriers are cost, complexity, and the
+computational power required to process and fuse the data
+from all sensors in real-time.
+
+
+**6.** **Open Challenges and Future Research Directions**
+
+
+While significant progress has been made, the path to
+fully robust and ubiquitous autonomous perception systems
+is still fraught with challenges. This section outlines key
+areas that require further research and development.
+
+
+
+_6.1._ _The Challenge of Long-Tail Events_
+
+
+One of the most significant hurdles is handling "longtail" events-rare and unpredictable scenarios that are not
+well-represented in training datasets. These can include
+unusual objects on the road, complex weather phenomena,
+or erratic human behavior. Collecting real-world data for
+every conceivable edge case is infeasible. Therefore, future
+research must focus on developing perception systems that
+can generalize well to unseen situations and fail gracefully
+when they encounter something truly novel.
+
+
+_6.2._ _Validation and Verification of AI Systems_
+
+
+For safety-critical systems, it is not enough for them to
+perform well on average; they must be demonstrably safe.
+Proving the reliability of complex, deep learning-based
+perception models is an open problem. Unlike traditional
+software, their behavior is learned, not explicitly
+programmed, making exhaustive testing impossible. New
+methodologies for the formal verification and validation of
+AI perception stacks are needed to provide the safety
+guarantees required for public deployment.
+
+
+_6.3._ _The Role of Simulation and the Reality Gap_
+
+
+High-fidelity simulation has become an indispensable
+tool for developing and testing autonomous systems.
+Simulators allow for the safe, repeatable, and scalable testing
+of perception algorithms against a vast number of scenarios,
+including dangerous edge cases. However, a "reality gap"
+often exists between simulated sensor data and real-world
+data. Models trained purely on synthetic data may not
+perform well in reality. A critical area of research is focused
+on closing this gap through advanced rendering techniques,
+accurate sensor modeling, and domain adaptation methods
+that allow models to transfer knowledge from simulation to
+the real world, a topic that is the subject of extensive ongoing
+research.
+
+
+_6.4._ _Emerging Sensor Modalities_
+
+
+While this paper focuses on the four primary sensors,
+research into novel sensing modalities continues. Thermal
+cameras, for example, can reliably detect pedestrians and
+animals at night by their heat signatures, with recent deep
+learning approaches enabling real-time deer detection and
+warning systems in connected vehicles [40]. Event cameras,
+which report per-pixel brightness changes asynchronously,
+offer extremely high dynamic range and low latency, making
+them promising for high-speed scenarios and operation in
+challenging lighting conditions. Integrating these emerging
+sensors into future fusion systems could provide further
+gains in robustness and safety.
+
+
+**7.** **Conclusion**
+
+
+This paper addressed a critical gap in the existing
+literature: the need for a consolidated, comparative analysis
+that directly links the performance characteristics of primary
+perception sensors to the tiered requirements of modern
+transportation applications. Our analysis of LiDAR, Radar,
+Camera, and Sonar sensors reveals a landscape of
+
+
+8
+
+6
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+
+complementary strengths and weaknesses. LiDAR stands as
+the gold standard for geometric accuracy (±2-5 cm), though
+it is hindered by cost and weather susceptibility. Radar is the
+workhorse of all-weather perception, offering unparalleled
+robustness and direct velocity measurements. Cameras are
+the masters of semantic understanding, providing low-cost
+visual context unattainable with other sensors. Finally, Sonar
+remains the undisputed, cost-effective solution for near-field
+obstacle detection.
+
+It is unequivocally clear that the path to safe and reliable
+autonomous transportation is paved with multi-sensor
+fusion. This study demonstrates that by intelligently
+combining modalities, such as the geometric precision of
+LiDAR with the semantic richness of cameras, or the allweather resilience of radar with the classification power of
+cameras, a perception system can be created that is far more
+robust than the sum of its parts. The optimal sensor suite is
+not fixed but is dependent on the target application,
+balancing performance against cost constraints.
+
+Building upon this work, future research should prioritize
+three key areas. First, there is a critical need to develop novel
+fusion algorithms specifically designed to handle the 'longtail' of unpredictable edge cases, moving beyond current
+models. Second, establishing standardized validation and
+verification methodologies for AI-based perception systems
+is paramount to provide the certifiable safety guarantees
+required for public deployment. Finally, advancing
+simulation technologies to close the 'reality gap' will be
+essential for the scalable and safe testing of next-generation
+systems. Continued innovation in these areas will drive the
+field forward, making transportation progressively safer,
+more efficient, and more intelligent.
+
+
+**Conflict of Interest Statement**
+
+
+The authors declare no conflict of interest.
+
+
+**References**
+
+
+[1] R. Liu, S.-Y. Shin, A Review of Traffic Flow Prediction
+
+Methods in Intelligent Transportation System Construction,
+Applied Sciences 15 (2025) 3866.
+https://doi.org/10.3390/app15073866.
+
+[2] J. Ziegler, P. Bender, M. Schreiber, H. Lategahn, T. Strauss,
+
+C. Stiller, T. Dang, U. Franke, N. Appenrodt, C.G. Keller, E.
+Kaus, R.G. Herrtwich, C. Rabe, D. Pfeiffer, F. Lindner, F.
+Stein, F. Erbs, M. Enzweiler, C. Knöppel, J. Hipp, M. Haueis,
+M. Trepte, C. Brenk, A. Tamke, M. Ghanaat, M. Braun, A.
+Joos, H. Fritz, H. Mock, M. Hein, E. Zeeb, Making Bertha
+Drive—An Autonomous Journey on a Historic Route, IEEE
+Intelligent Transportation Systems Magazine 6 (2014) 8–20.
+https://doi.org/10.1109/MITS.2014.2306552.
+
+[3] Y. Wang, Z. Han, Y. Xing, S. Xu, J. Wang, A Survey on
+
+Datasets for the Decision Making of Autonomous Vehicles,
+IEEE Intelligent Transportation Systems Magazine 16 (2024)
+23–40. https://doi.org/10.1109/MITS.2023.3341952.
+
+[4] M. Soltanirad, S. Naseralavi, K. Jimee, Q. Luo, T. Bataineh,
+
+M. Igene, H. Liu, Development of a New Safety Indicator for
+Predictive Safety Analysis Based on Different Arbitrary
+Surrogate Safety Measures Using LiDAR Sensor Data., in:
+Transportation Research Board 104th Annual Meeting,
+Washington DC, United States, 2025.
+
+[5] J. Hasch, E. Topak, R. Schnabel, T. Zwick, R. Weigel, C.
+
+Waldschmidt, Millimeter-Wave Technology for Automotive
+
+
+
+Radar Sensors in the 77 GHz Frequency Band, IEEE
+Transactions on Microwave Theory and Techniques 60 (2012)
+845–860. https://doi.org/10.1109/TMTT.2011.2178427.
+
+[6] C. Wang, X. Wang, H. Hu, Y. Liang, G. Shen, On the
+
+Application of Cameras Used in Autonomous Vehicles, Arch
+Computat Methods Eng 29 (2022) 4319–4339.
+https://doi.org/10.1007/s11831-022-09741-8.
+
+[7] Y. Wei, Applications of Ultrasonic Sensors: A Review,
+
+Applied and Computational Engineering 99 (2024) 144–148.
+https://doi.org/10.54254/2755-2721/99/20251773.
+
+[8] Z. Wang, Y. Wu, Q. Niu, Multi-Sensor Fusion in Automated
+
+Driving: A Survey, IEEE Access 8 (2020) 2847–2868.
+https://doi.org/10.1109/ACCESS.2019.2962554.
+
+[9] F. Castanedo, A Review of Data Fusion Techniques, The
+
+Scientific World Journal 2013 (2013) 704504.
+https://doi.org/10.1155/2013/704504.
+
+[10] A. Hill, Velodyne Lidar Buys Bluecity, ITS International,
+
+2022.
+https://www.itsinternational.com/its2/its4/its8/news/velodyne
+-lidar-buys-bluecity (accessed October 10, 2025).
+
+[11] Upper Arlington to Spend $84K on Radars to Enhance Traffic
+
+Flow, Safety, The Columbus Dispatch, 2022.
+https://www.dispatch.com/story/news/local/communities/upp
+er-arlington/2022/11/16/upper-arlington-to-spend-84k-onradars-to-enhance-traffic-flow-safety/69619204007/
+(accessed October 10, 2025).
+
+[12] New York State Department of Transportation, Traffic
+
+Cameras, NY MOVES.
+https://www.dot.ny.gov/divisions/operating/oom/transportati
+on-systems/systems-optimization-section/ny-moves/trafficcameras (accessed October 10, 2025).
+
+[13] Federal Highway Administration, Underwater Inspection of
+
+Bridge Substructures Using Imaging Technology, Publication
+No. FHWA-HIF-18-049, U.S. Department of Transportation,
+2018. https://www.fhwa.dot.gov/bridge/nbis/hif18049.pdf.
+
+[14] S. Royo, M. Ballesta-Garcia, An Overview of Lidar Imaging
+
+Systems for Autonomous Vehicles, Applied Sciences 9 (2019)
+4093. https://doi.org/10.3390/app9194093.
+
+[15] W. Li, T. Shi, R. Wang, J. Yang, Z. Ma, W. Zhang, H. Fu, P.
+
+Guo, Advances in LiDAR Hardware Technology: Focus on
+Elastic LiDAR for Solid Target Scanning, Sensors 24 (2024)
+7268. https://doi.org/10.3390/s24227268.
+
+[16] B. Xiong, W. Jiang, D. Li, M. Qi, Voxel Grid-Based Fast
+
+Registration of Terrestrial Point Cloud, Remote Sensing 13
+(2021) 1905. https://doi.org/10.3390/rs13101905.
+
+[17] Z. Yaniv, Random Sample Consensus (RANSAC) Algorithm,
+
+A Generic Implementation, The Insight Journal (2010).
+https://doi.org/10.54294/ia6mzx.
+
+[18] M. Ester, H. Kriegel, J. Sander, X. Xu, A Density-Based
+
+Algorithm for Discovering Clusters in Large Spatial
+Databases with Noise, in: 1996.
+https://www.semanticscholar.org/paper/A-Density-BasedAlgorithm-for-Discovering-Clusters-EsterKriegel/5c8fe9a0412a078e30eb7e5eeb0068655b673e86
+(accessed September 27, 2025).
+
+[19] C.R. Qi, L. Yi, H. Su, L.J. Guibas, PointNet++: deep
+
+hierarchical feature learning on point sets in a metric space,
+in: Proceedings of the 31st International Conference on Neural
+Information Processing Systems, Curran Associates Inc., Red
+Hook, NY, USA, 2017: pp. 5105–5114.
+
+[20] N.P. Arun Kumar, R. Laxmanan, S. Ram Kumar, V. Srinidh,
+
+R. Ramanathan, Performance Study of Multi-target Tracking
+Using Kalman Filter and Hungarian Algorithm, in: S.M.
+Thampi, G. Wang, D.B. Rawat, R. Ko, C.-I. Fan (Eds.),
+Security in Computing and Communications, Springer,
+
+
+9 6
+
+
+_Soltanirad and Baghersad - CRPASE: Transactions of Civil and Environmental Engineering 11 (4) Article ID: 2967, 1–10, December 2025_
+
+
+
+Singapore, 2021: pp. 213–227. https://doi.org/10.1007/978981-16-0422-5_15.
+
+[21] Q. Luo, Z. Xu, Y. Zhang, M. Igene, T. Bataineh, M.
+
+Soltanirad, K. Jimee, H. Liu, Vehicle Trajectory Repair Under
+Full Occlusion and Limited Datapoints with Roadside
+LiDAR, Sensors 25 (2025) 1114.
+https://doi.org/10.3390/s25041114.
+
+[22] H. Caesar, V. Bankiti, A.H. Lang, S. Vora, V.E. Liong, Q. Xu,
+
+A. Krishnan, Y. Pan, G. Baldan, O. Beijbom, nuScenes: A
+multimodal dataset for autonomous driving, (2020).
+https://doi.org/10.48550/arXiv.1903.11027.
+
+[23] Z. Han, J. Wang, Z. Xu, S. Yang, L. He, S. Xu, J. Wang, K.
+
+Li, 4D Millimeter-Wave Radar in Autonomous Driving: A
+Survey, (2024). https://doi.org/10.48550/arXiv.2306.04242.
+
+[24] V.C. Chen, H. Ling, Time-frequency transforms for radar
+
+imaging and signal analysis, 2002.
+
+[25] H. Rohling, Radar CFAR Thresholding in Clutter and
+
+Multiple Target Situations, IEEE Transactions on Aerospace
+and Electronic Systems AES-19 (1983) 608–621.
+https://doi.org/10.1109/TAES.1983.309350.
+
+[26] S.J. Julier, J.K. Uhlmann, Unscented filtering and nonlinear
+
+estimation, Proceedings of the IEEE 92 (2004) 401–422.
+https://doi.org/10.1109/JPROC.2003.823141.
+
+[27] M. Mirmozaffaria, Filtering in Image Processing, ENG
+
+TRANSACTIONS 1 (2020) 1–5.
+
+[28] G. Gallego, T. Delbruck, G. Orchard, C. Bartolozzi, B. Taba,
+
+A. Censi, S. Leutenegger, A. Davison, J. Conradt, K.
+Daniilidis, D. Scaramuzza, Event-based Vision: A Survey,
+IEEE Trans. Pattern Anal. Mach. Intell. 44 (2022) 154–180.
+https://doi.org/10.1109/TPAMI.2020.3008413.
+
+[29] K. He, X. Zhang, S. Ren, J. Sun, Deep Residual Learning for
+
+Image Recognition, in: 2016 IEEE Conference on Computer
+Vision and Pattern Recognition (CVPR), 2016: pp. 770–778.
+https://doi.org/10.1109/CVPR.2016.90.
+
+[30] J. Redmon, S. Divvala, R. Girshick, A. Farhadi, You Only
+
+Look Once: Unified, Real-Time Object Detection, in: 2016
+IEEE Conference on Computer Vision and Pattern
+Recognition (CVPR), 2016: pp. 779–788.
+https://doi.org/10.1109/CVPR.2016.91.
+
+[31] C.-Y. Wang, A. Bochkovskiy, H.-Y.M. Liao, YOLOv7:
+
+Trainable bag-of-freebies sets new state-of-the-art for realtime object detectors, (2022).
+https://doi.org/10.48550/arXiv.2207.02696.
+
+[32] O. Ronneberger, P. Fischer, T. Brox, U-Net: Convolutional
+
+Networks for Biomedical Image Segmentation, in: N. Navab,
+J. Hornegger, W.M. Wells, A.F. Frangi (Eds.), Medical Image
+Computing and Computer-Assisted Intervention – MICCAI
+2015, Springer International Publishing, Cham, 2015: pp.
+234–241. https://doi.org/10.1007/978-3-319-24574-4_28.
+
+[33] S. Ren, K. He, R. Girshick, J. Sun, Faster R-CNN: Towards
+
+Real-Time Object Detection with Region Proposal Networks,
+IEEE Transactions on Pattern Analysis and Machine
+Intelligence 39 (2017) 1137–1149.
+https://doi.org/10.1109/TPAMI.2016.2577031.
+
+[34] S. Hadadi, Ultrasonic System to Improve Position
+
+Measurement and Shape Recognition Based on Neural
+Network, COMPUTATIONAL RESEARCH PROGRESS IN
+APPLIED SCIENCE & ENGINEERING 7 (2021) 1–6.
+https://doi.org/10.52547/crpase.7.4.2411.
+
+[35] W. Liu, D. Anguelov, D. Erhan, C. Szegedy, S. Reed, C.-Y.
+
+Fu, A.C. Berg, SSD: Single Shot MultiBox Detector, in: B.
+Leibe, J. Matas, N. Sebe, M. Welling (Eds.), Computer Vision
+
+   - ECCV 2016, Springer International Publishing, Cham,
+2016: pp. 21–37. https://doi.org/10.1007/978-3-319-464480_2.
+
+[36] J. Fayyad, M.A. Jaradat, D. Gruyer, H. Najjaran, Deep
+
+Learning Sensor Fusion for Autonomous Vehicle Perception
+
+
+
+and Localization: A Review, Sensors 20 (2020) 4220.
+https://doi.org/10.3390/s20154220.
+
+[37] M.A. Khan, H. Menouar, M. Abdallah, A. Abu-Dayya,
+
+LiDAR in Connected and Autonomous Vehicles - Perception,
+Threat Model, and Defense, IEEE Transactions on Intelligent
+Vehicles (2024) 1–19.
+https://doi.org/10.1109/TIV.2024.3510787.
+
+[38] M. Igene, Q. Luo, K. Jimee, M. Soltanirad, T. Bataineh, H.
+
+Liu, Integrating LiDAR Sensor Data into Microsimulation
+Model Calibration for Proactive Safety Analysis, Sensors 24
+(2024) 4393. https://doi.org/10.3390/s24134393.
+
+[39] A. Tigadi, P. N, SURVEY ON SENSOR FUSION FOR
+
+AUTONOMOUS DRIVING: TECHNIQUES AND
+CHALLENGES, in: International Journal of Research and
+Analytical Reviews (IJRAR), 2023: pp. 950–954.
+
+[40] H. Puppala, W. Sarasua, S. Biyaguda, F. Farzinpour, M.
+
+Chowdhury, Real-time Deer Detection and Warning in
+Connected Vehicles via Thermal Sensing and Deep Learning,
+(2025). https://doi.org/10.48550/arXiv.2509.18779.
+
+
+10 6
+
+

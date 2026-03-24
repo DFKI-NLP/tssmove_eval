@@ -1,0 +1,1370 @@
+# Stackelberg Game-Based Radio Resource Management Algorithm in an Urban Rail Transit Communication System
+
+Yingxia Shao [1] - Hailin Jiang [1] - Hongli Zhao [1]
+
+
+Received: 10 December 2020 / Revised: 26 January 2021 / Accepted: 25 March 2021 / Published online: 24 April 2021
+
+- The Author(s) 2021
+
+
+
+Abstract Train-to-wayside (T2W) and train-to-train (T2T)
+communication modes may coexist in future train-centric
+communication-based train control (CBTC) systems. The
+feasibility of T2T communication in urban rail transit is
+analyzed first. Referring to the device-to-device (D2D)
+communication scenario in the general cellular network,
+this paper establishes a radio resource optimization model
+for the coexistence of train-to-train communication and
+train-to-wayside communication. With the aim of more
+efficient scheduling of radio time-frequency resources in
+the dedicated frequency band, we propose a Stackelberg
+game-based radio resource management algorithm based
+on the consideration of different service priorities of trains.
+The analysis and simulation results show that the proposed
+algorithm can effectively guarantee the performance of the
+system and improve the reliability of the CBTC system.
+
+
+Keywords Train-to-train communication � Radio resource
+management � Device-to-device � Stackelberg game
+
+
+& Hongli Zhao
+hlzhao@bjtu.edu.cn
+
+
+Yingxia Shao
+18120250@bjtu.edu.cn
+
+
+Hailin Jiang
+lhjiang@bjtu.edu.cn
+
+
+1 National Engineering Research Center of Rail Transportation
+Operation and Control System, Beijing Jiaotong University,
+Beijing 100044, People’s Republic of China
+
+
+Communicated by Bo Ai.
+
+## 123
+
+
+
+1 Introduction
+
+
+Communications-based train control (CBTC) systems
+realize continuous and real-time two-way communication
+between train and ground through wireless communication
+technology, which can ensure the safety of train operation
+to the greatest extent and has become the preferred signal
+system in current urban rail transit [1]. The evolution of
+T2T communication technology, which is a part of vehicleto-vehicle (V2V) communications, is closely related to the
+wide application of the CBTC system in rail transit. In the
+CBTC system based on T2T communication, most of the
+functions implemented by ground equipment are transferred to the onboard train subsystem [2], which reduces
+the complexity of the system. Thus the CBTC system is an
+important development direction for the next generation of
+train control.
+Vehicle-to-everything (V2X) technology is a communication mode for the exchange of information between a
+car and the outside world, which mainly includes the
+communication between the car and another car, the
+pedestrian, the road infrastructure, and the cloud. Cellular
+Vehicle-to-Everything (C-V2X) is a communication technology based on the 3rd Generation Parternship Project
+(3GPP) global unified standard [3], including Long Term
+Evolution V2X (LTE-V2X), 5th Generation-V2X (5GV2X) and subsequent iterations. Although the communication environment and performance requirements of road
+traffic and rail traffic are quite different, the communication protocols are similar. At present, the dedicated frequency band allocated to the Long Term Evolution for
+Metro (LTE-M) system of urban rail is 1785–1805 MHz
+
+[4]. When train-to-wayside communication and train-totrain communication coexist in the system, the same time
+frequency can be multiplexed between two links. How to
+
+
+Urban Rail Transit (2021) 7(2):128–138 129
+
+
+
+make full use of radio resources to meet the quality of
+service (QoS) requirements of different services and
+improve the overall performance of wireless communication systems is a problem that must be solved.
+Wang et al. [5] introduced the current status of C-V2X
+technology and the progress of communication architecture
+standards. Emara et al. [6] studied the end-to-end delay
+evaluation of C-V2X communication based on multiple
+access edge calculation, where its research background is
+the road vehicle scene. Chen et al. [7] proposed a C-V2X
+framework based on network slicing and spatial multiplexing, and allocated resources on demand for different
+types of users. Knoll et al. [8] put forward a C-V2X
+resource deployment architecture based on mobile network
+escort. None of these studies was aimed at urban rail transit
+application scenarios. At present, C-V2X vehicle-to-vehicle communication is based on D2D technology.
+The research on radio resource management of D2D
+technology is mainly concentrated on the public network,
+including D2D communication mode selection and D2D
+communication interference coordination. In terms of
+mode selection, Azam et al. [9] proposed a communication
+mode selection mechanism to maximize the system
+throughput, using a linear approximation algorithm to solve
+the mixed integer optimization problem to obtain the
+suboptimal solution. Tang et al. [10] established a joint
+optimization problem of sub-channel allocation and transmit power in different D2D communication modes, and
+proposed a distributed two-stage method to separate mode
+selection and resource allocation, with low computational
+complexity. Hossain et al. [11] introduced a mode selection
+scheme based on game theory. The optimization goal is to
+reduce the transmit power of D2D users and improve
+energy efficiency. In terms of interference coordination,
+Oduola et al. [12] considered D2D users multiplexing
+cellular users’ downlink resources for communication,
+established a power control optimization problem, and
+proposed centralized and distributed D2D power allocation
+mechanisms to ensure the QoS indicators of D2D users.
+Lee et al. [13] designed a distributed power allocation
+mechanism based on random geometric Poisson distribution, with the goal of maximizing D2D user throughput, but
+this mechanism does not take into account the interference
+of cellular users and the system performance of the cellular
+network. A D2D communication cellular network spectrum
+allocation algorithm based on game theory was proposed
+by Song et al. [14]. This algorithm can effectively avoid the
+interference between cellular and D2D users and make full
+use of resources.
+To sum up, most of the existing research on radio
+resource management of D2D technology does not consider the complexity of the scene and the difference of user
+requirements. Different from pursuing fairness
+
+
+
+between user equipments (UEs) proposed in Wang’s
+work [15], we propose a radio resource management
+algorithm based on the Stackelberg game model for the
+specific application scenarios of urban rail transit, taking
+into account the priority of different train transmission
+services. The train-to-train communication responsible for
+the transmission of CBTC services is taken as the leader,
+and the train-to-wayside communication responsible for
+the transmission of Passenger Information System (PIS),
+CCTV, and other services is taken as the follower.
+The rest of this paper is summarized as follows. The
+feasibility of implementing train-to-train communication is
+analyzed in Sect. 2. Section 3 proposes a radio resource
+management algorithm based on the Stackelberg game
+model, which effectively improves the reliability of train
+CBTC service under the coexistence of train-to-wayside
+and train-to-train communication modes. Simulation
+results and discussions are given in Sect. 4. Finally, we
+conclude the study in Sect. 5.
+
+
+2 Feasibility Analysis of Train-to-Train
+Communication
+
+
+In this section the feasibility of the train-to-train communication mode is analyzed from two aspects: the wireless
+signal coverage of the train as the transmitter and the train
+interval in the actual operation scene of the urban rail
+transit train.
+
+
+2.1 Wireless Signal Coverage
+
+
+In the CBTC system, the train antenna is located at the
+front or rear of the train, it interacts with ground equipment
+to realize two-way communication between the train and
+the ground. The LTE-M system equipment technical
+specification [16] points out that the train shall meet the
+requirements for train-to-wayside communication when the
+received signal-to-interference-plus-noise ratio (SINR)
+value is greater than or equal to -2 dB. We use this
+specification as a benchmark to simulate the quality of the
+wireless received signal SINR changes with the train-totrain communication distance based on the actual simulation parameters of the LTE-M wireless communication
+system by taking into account large-scale fading and
+small-scale fading models, as shown in Fig. 1.
+As can be seen from Fig. 1, with the increase of train-totrain communication distance, the quality of the wireless
+channel at the receiver continuously decreases. Taking the
+wireless quality of the receiver as -2 dB in reference [17],
+the coverage range of the onboard antenna transmission
+power is about 700 m.
+
+## 123
+
+
+130 Urban Rail Transit (2021) 7(2):128–138
+
+
+Fig. 1 The coverage of train-totrain communication
+
+
+
+2.2 Train Tracking Interval
+
+
+In the rail transit transportation system, with the development of precise positioning technology and mobile communication technology for trains, moving block control has
+gradually replaced fixed block control and quasi-movable
+block control. The target braking point of tracking train is
+set as the rear of the front vehicle to dynamically control
+the train operation. Based on the train tracking distance in
+the absolute distance braking mode, this section regards the
+speed of the front train as 0, that is, the tail-place of the
+front train as the end point of mobile authorization, and
+demonstrates the feasibility of train-to-train communication between adjacent trains.
+The train operation scene in the absolute distance
+braking mode is shown in Fig. 2. Lb is the service braking
+
+
+Fig. 2 Absolute braking control
+mode
+
+## 123
+
+
+
+distance corresponding to the current running speed of the
+tracking train; Ls is the safety protection distance between
+the tracking train and the train ahead; Lmin is the minimum
+tracking distance of two trains in this mode.
+According to the curve of most commonly used braking
+characteristics and emergency braking characteristics of
+trains given in [18], the relation between the value of
+deceleration corresponding to different speeds and the
+minimum tracking distance is shown in Table 1. With the
+increase of train speed, the minimum tracking distance will
+increase gradually.
+It can be seen from Table 1 that under the commonly
+used train running speed of 80km/h, the minimum tracking
+distance is 478m, which is less than the coverage of trainto-train communication. Therefore, train-to-train communication is feasible in the urban rail transit environment.
+
+
+Urban Rail Transit (2021) 7(2):128–138 131
+
+
+Table 1 Braking characteristic parameters of common trains
+
+
+Speed (km/h) Maximum common deceleration (m/s [2] ) Emergency brake deceleration (m/s [2] ) Minimum tracking distance (m)
+
+
+20 0.747 0.882 86
+
+
+70 0.747 1.395 379
+
+
+80 0.726 1.395 478
+
+
+90 0.684 1.317 599
+
+
+118 0.619 1.243 1098
+
+
+
+3 Radio Resource Management Model
+and Algorithm
+
+
+The optimization goal of radio resource management is
+given by taking into account the characteristics of train-totrain communication service in urban rail transit. The
+coexistence scenario of train-to-train communication and
+train-to-wayside communication is described. Based on
+this, the rationality of applying a Stackelberg game to deal
+with the radio resource management problem is
+demonstrated.
+
+
+3.1 System Model
+
+
+3.1.1 Optimization Objectives and Transmission Mode
+
+
+Compared with CBTC service, passenger information
+system (PIS) and image monitoring system (IMS) services
+have less significance in urban rail transit systems, and the
+train-to-train communication should mainly bear train
+control related services, namely CBTC services. Therefore,
+the optimization index of train-to-train communication
+radio resource management should be based on the QoS
+requirements of CBTC services, that is, higher requirements for reliability but lower requirements for data rate.
+After the introduction of train-to-train communication, the
+urban rail transit wireless communication system has
+become more complicated, which puts forward higher
+requirements for radio resource management as well. How
+to improve the service quality of the train-to-train communication train carrying service based on service priority
+is the optimization goal of radio resource management in
+this paper.
+D2D communication is divided into centralized control
+and distributed control. Compared with distributed control,
+centralized control not only can take advantage of D2D
+communication, but can also facilitate the management and
+control of resources. Therefore, in this scenario, the trainto-train communication mode adopts centralized control.
+When train-to-train communication and train-to-wayside
+communication coexist and the same time-frequency
+resources are multiplexed, the two communication links
+
+
+
+will interfere with each other. In the resource multiplexing
+mode, it can be divided into two situations: multiplexing
+train-to-wayside communication uplink resources and
+downlink resources [19]. Due to the limitation of onboard
+terminal power, the LTE system is an uplink limited system, so this paper takes the LTE uplink as the research
+object. In Fig. 3, the D2D link (Sidelink) between train 2
+and train 3 multiplex the uplink Uu channel resources of
+train 1. Train 2 is used as the transmitter of the D2D link,
+and train 3 is used as the receiver. The interference situation in the system is divided into two parts: the Uu link of
+the base station is interfered by the transmission power of
+the Sidelink link of train 2, and the Sidelink is interfered by
+the running channel on the Uu link of the train-to-wayside
+communication of train 1. The next step is to study the
+multiplexing of D2D Sidelink link and establish a resource
+scheduling model with Fig. 3 as an application scenario.
+
+
+3.1.2 Optimization of Problem Transformation
+
+
+Different from the public network that pursues fairness in
+resource allocation, the number of urban rail transit users is
+small and the priorities of different train services are different. Train-to-train communication is used to bear the
+CBTC service with the highest priority, while train-towayside communication is used to bear PIS and CCTV
+services with lower reliability requirements. Therefore, in
+the Stackelberg model game, the train-to-train communication link is the leader so as to encourage the establishment of the D2D link to improve the reliability of the
+CBTC business. Since the D2D link and the train-to-wayside communication link multiplex wireless resources, the
+train-to-wayside communication will cause interference to
+the train-to-train communication link, which may affect the
+transmission rate of the CBTC service. Therefore, the trainto-wayside communication is defined as a follower. On the
+basis of ensuring that the CBTC service is not affected, the
+throughput of video services such as PIS is increased as
+much as possible to maximize the link revenue.
+According to the transmission mode mentioned above,
+the transmission mode of train-to-train communication is
+multiplexing the uplink channel of train ground
+
+## 123
+
+
+132 Urban Rail Transit (2021) 7(2):128–138
+
+
+Fig. 3 The diagram of reusing
+the uplink channel of the train
+except the D2D-link
+
+
+
+communication link. Compared with the downlink, the
+spectrum resources used for uplink in the LTE-M cell are
+also divided into several channels N which are orthogonal
+to each other. The difference is that LTE-M cell uplink
+adopts single-carrier frequency-division multiple access
+(SC-FDMA) technology for uplinks, so the physical uplink
+shared channel (PUSCH) allocates physical resource block
+(PRB) resources to users continuously in order to support
+single carrier characteristics.
+In this section, the concept of PRB is used for resource
+scheduling during analysis. Combined with the actual
+scenario, in order to avoid complex channel interference
+caused by channel multiplexing, it is assumed that the D2D
+link multiplexes the PRB of a single train-to-wayside
+communication link. Each PRB is occupied by one train-towayside communication link at most and one D2D link at a
+time. And it is assumed that the link is not interfered by
+other factors except for the interference caused by channel
+multiplexing and Gaussian white noise.
+Based on the above analysis, it can be concluded that the
+wireless signal quality at the receiver of the D2D link d can
+be expressed as Eq. 1. We first define a binary variable xd;n.
+If the D2D link d occupies PRBn, then the value of xd;n is 1;
+otherwise, the value of xd;n is 0 [15].
+
+
+
+
+           - �2
+p [n] d� [h] d [n]       SINR [n] d [¼] ~~�~~ ~~�~~ 2
+
+
+
+
+~~�~~ ~~�~~ 2 ð1Þ
+xd;np [n] c�� [f][ n] c;d�� þN0
+
+
+
+N0 represents Gaussian white noise power. Similarly, the
+wireless signal quality of the base station corresponding to
+the train-to-wayside communication link at PRBn can be
+expressed as Eq. 2.
+
+           - �2
+p [n] c� [h] c [n]       SINR [n] e [¼] ~~�~~ ~~�~~ 2 ð2Þ
+
+xd;np [n] d�� [f][ n] d;c�� þN0
+
+
+where h [n] c [represents the channel gain of the link between]
+the train-to-wayside communication train and the base
+station. fd [n] ;c [represents the interference of the train at the]
+transmitter of the D2D link to the base station. According
+to the previous analysis, the impact of train-to-train communication on the reliability of the train’s CBTC service
+depends on the transmission power of the D2D link
+transmitter when the quality of the D2D link wireless
+channel is certain. However, the transmitter of the D2D
+link will interfere with the traditional train-to-wayside
+communication link, thereby affecting the throughput of
+the train-to-wayside communication user service. Therefore, in this paper, the problem of resource allocation under
+the coexistence of train-to-train communication and trainto-wayside communication is transformed into the study of
+throughput of both parties.
+
+
+3.2 Radio Resource Management Algorithm Based
+on Stackelberg Game
+
+
+Since the D2D link and the train-to-wayside communication link multiplex radio resources while improving the
+spectrum utilization rate and CBTC service reliability, it
+will inevitably cause interference to the train-to-wayside
+communication link. In order to reduce the influence of
+interference on the two communication modes, the
+
+
+
+In Eq. 1, p [n] d [represents the transmit power on][ PRB][n][ at the]
+transmitter of the D2D link, h [n] d [is the channel gain of the]
+D2D link, p [n] c [represents the transmit power of the base]
+station of the train-to-wayside link on PRBn, fc [n] ;d [represents]
+the interference of the train-to-wayside communication
+base station to the train at the receiver of the D2D link, and
+
+## 123
+
+
+Urban Rail Transit (2021) 7(2):128–138 133
+
+
+
+Stackelberg model game is introduced to coordinate
+resources [20]. Train-to-train communication bears the
+highest-priority in CBTC service and takes priority in
+resource occupation. Therefore, this paper defines the D2D
+link as the leader and the cellular user (CU) link as the
+follower. The leader owns channel resources. If the followers want to share channel resources, the leader will
+formulate a strategy to charge appropriate fees; followers
+will consider whether shared resources are beneficial
+according to the cost, and determine the transmission
+power to obtain revenue.
+
+
+3.2.1 Utility Function of Leader D2D Link
+
+
+
+3.2.2 Utility Function of the Follower CU Link
+
+
+
+Since the D2D link multiplexes the uplink channel
+resources of the CU link, the train d at the transmitter of the
+D2D link causes interference to the base station c. Similar
+to the leader’s utility function, the follower’s utility function is defined as Eq. 6:
+
+
+
+
+- 
+pugc
+1 þ - apdgd;c
+
+
+
+pugc
+uc að ; pdÞ ¼ log2 1 þ
+pdgd;c þ N0
+
+
+
+ð6Þ
+
+
+
+þ [1]
+bv [þ][ c][p][u][g][c]
+
+
+
+For the D2D link, the train in the CU link causes inter0
+ference to the train d at the receiver of the D2D link during
+uplink transmission. The train runs at high speed in the
+tunnel, and the channel quality of vehicle-to-vehicle communication is related to speed. The faster the speed, the
+larger the Doppler spread, and the more drastic the channel
+changes. In this model, the leader’s utility function is
+determined by service priority, train speed, CU link interference, and base station, which is defined as throughput
+plus CBTC service priority weight and gain from CU link,
+and minus the loss caused by CU link interference to
+receiver, as shown in Eq. 3.
+
+
+
+pdgdd [0]
+ud að ; pdÞ ¼ log2 1 þ pcgu;d [0] þ N0
+
+þ [b]
+v [�] [c][p][c][g][u][;][d][0]
+
+
+
+!
+
+
+
+þ apdgd;c
+
+
+
+ð3Þ
+
+
+
+where gc,jhcj [2] and gd;c,jfd;cj [2] respectively represent the
+channel gain of the link between the CU train and the base
+station, and the channel gain between the train and the base
+station at the transmitter of the D2D link. The optimization
+of the leader’s utility function can be summarized as
+adjusting a to maximize ud að ; pdÞ, as shown in formula 7.
+
+
+max ud að ; pdÞ ð7Þ
+a
+
+
+3.2.3 Optimize the Utility Function of the Leader D2D
+Link
+
+
+In the Stackelberg model game, the follower chooses the
+optimal strategy based on the leader’s strategy fee a. At
+this time, the leader benefit function ud að ; pdÞ is a unary
+function of pd and is differentiable. Taking the derivative
+of ud að ; pdÞ, we can get:
+
+
+
+gdd [0]
+pcgu;d [0] þ N0 þ pdgdd [0] [þ][ a][g][d][;][c] ð8Þ
+
+
+
+where gdd [0] ¼ jhdj [2] and gu;d [0] ¼ jfu [n] ;d [0] [j][2][ represent the channel]
+gain of the D2D link and the channel gain between the CU
+train and the train d at the receiver of the D2D link,
+respectively. pu is the transmit power of the CU link train;
+pd is the transmit power of train d at the transmitter of the
+D2D link; a is the charge price (a [ 0), which represents
+the fee charged to the D2D link because the D2D link
+reuses the uplink channel of the CU link for communication. b represents the priority of the CBTC service, m represents the train speed, and c represents the priority of the
+video service.
+The optimization of the follower utility function can be
+summarized as adjusting pd so as to maximize uc að ; puÞ, as
+shown in formula 4. In addition, since the train transmission power pd is limited by practical factors such as power
+limit and antenna gain, there is a constraint condition of
+pmin � pd � pmax, shown in formula 5.
+
+maxpu [u][c][ a] ð [;][ p][d] Þ ð4Þ
+
+
+s.t. pmin � pd � pmax ð5Þ
+
+
+
+oud að ; pdÞ ¼ [1]
+opd ln 2
+
+
+
+. The function f pð dÞ ¼ ud að ; pdÞ is continuous in the closed
+interval p½ min; pmax�. According to the Maximum Theorem,
+the function f pð dÞ has a maximum value. When
+p [�] d [2][ p] ½ [min][;][ p][max] �, the first derivative at p [�] d [is equal to 0, and]
+the second derivative is less than 0, so p [�] d [is the only]
+extreme point in the interval p½ min; pmax� and is the maximum point. Therefore, it can be proved that p [�] d [is the]
+maximum point of the function f pð dÞ in p½ min; pmax� by
+
+## 123
+
+
+
+Suppose the above formula is equal to 0, and the only
+stationary point is:
+
+
+1
+p [�] d [¼ �] ð9Þ
+agd;c ln 2 [�] [p][c][g][u] g [;][d] dd [0][ þ][0] [ N][0]
+
+
+Continuing to analyze and solve the second derivative of
+ud að ; pdÞ, it is always less than 0.
+
+
+
+
+- [2] ud að ; pdÞ
+¼ � [1]
+
+  - [2] pd ln 2
+
+
+
+gdd [0]
+pcgu;d [0] þ N0 þ pdgdd [0]
+
+
+
+!2
+\0 ð10Þ
+
+
+134 Urban Rail Transit (2021) 7(2):128–138
+
+
+
+
+                     -                      contradiction, and the maximum value is f p [�] d . When
+p [�] d [62][ p] ½ [min][;][ p][max] �, the function f pð dÞ has monotonicity in the
+interval p½ min; pmax�, and the maximum point is obtained at
+the endpoint of the interval pd ¼ pmin or pd ¼ pmax, and the
+maximum value is f pð minÞ or f pð maxÞ. In summary, the
+�maximum �point of the function f pð dÞ belongs to
+pmin�pmaxp [�] d, that� is, the leader’s optimal strategy
+pd 2 pmin; pmax; p [�] d .
+
+
+3.2.4 Optimizing Utility Function of the Follower CU Link
+
+
+From formula 9, whether p [�] d [belongs to the interval]
+½pmin; pmax� is related to the price a determined by the
+leader. When a is too large, p [�] d [�] [p][min][, and the follower’s]
+optimal strategy is pd ¼ pmin. It can be obtained from the
+leader’s utility function (4) that if pd is too small, the
+income will decrease. When a is too small, p [�] d [�] [p][max][, the]
+optimal strategy for the follower at this time is pd ¼ pmax,
+which will increase the interference of the leader and
+reduce its profit. Therefore, when the leader makes a
+decision, it hopes p [�] d [2][ p] ½ [min][;][ p][max] �. According to formula
+(10), p [�] d [and][ a][ are negatively correlated, and][ a][ must satisfy:]
+
+gdd [0]
+amin ¼ ~~�~~ ~~�~~ ð11Þ
+
+gdd [0] pmax þ pcgu;d [0] þ N0 gd;c ln 2
+
+
+gdd [0]
+amax ¼ ~~�~~ ~~�~~ ð12Þ
+
+gdd [0] pmin þ pcgu;d [0] þ N0 gd;c ln 2
+
+
+At this time, substituting the leader’s best strategy formula 9 into the follower’s utility function 6, we can get:
+
+
+
+ouc að ; pdÞ
+oa
+
+BA [2]
+¼ C þ
+
+½ðN0a � A � CaÞ Nð 0a � A � Ca þ BaÞ�
+
+
+
+ð15Þ
+
+
+
+Let the derivative function be equal to 0, and analyze the
+coefficients of the quadratic term to get the quadratic
+equations in one variable about a, as follows:
+
+
+
+8
+>>><
+
+>>>:
+
+
+
+½�C Nð 0 � CÞ Bð - C þ N0Þ�a [2] þ AC½ 2ð N0 þ B � 2CÞ�a
+
+þA [2] ðB � CÞ ¼ 0; B � C þ N0 6¼ 0
+
+½AC 2ð N0 þ B � 2CÞ�a þ A [2] ðB � CÞ ¼ 0; B � C þ N0 ¼ 0
+ABCa þ A [2] ðB � CÞ ¼ 0; N0 � C ¼ 0
+
+ð16Þ
+
+
+
+By solving the above equation, the following equation can
+be obtained:
+
+
+
+pfi **f**
+A 2ð N0 þ B � 2CÞ � D
+
+B � C þ N0 6¼ 0
+2 Nð 0 � CÞ Bð - C þ N0Þ [;]
+
+A
+B � C þ N0 ¼ 0
+C [�] B [A] [;]
+
+A
+N0 � C ¼ 0
+B [�] C [A] [;]
+
+ð17Þ
+
+
+
+a [�] ¼
+
+
+
+8
+>>>>>><
+
+>>>>>>:
+
+
+
+0
+
+B
+B
+B
+@
+
+
+
+N0 � a ln 21 [�]
+
+
+
+uc að ; pdÞ ¼ log2B1 þ pc ~~�~~ gc
+
+
+
+1
+
+C
+C
+C
+A
+
+
+
+
+~~�~~ ~~�~~
+pcgu;d0 þN0
+
+
+
+gdd0
+
+
+
+gd;c
+
+
+
+þ [1]
+ln 2 [þ][ a][g][d][;][c]
+
+
+
+pcgu;d [0] þ N0
+þ [1]
+gdd [0] bv [þ][ c][p][u][g][c]
+
+
+
+ð13Þ
+
+
+Observing the structure of the above formula, let A ¼ ln 21 [,]
+
+
+
+B ¼ pcgc, C ¼
+
+
+
+ðpcgu;dg0 þdd0N0Þgd;c and D ¼ b [1] v [þ][ c][p][u][g][c][, and sim-]
+
+
+
+plify the above formula for subsequent analysis. At this
+time, the follower’s utility function can be rewritten as:
+
+
+
+
+     -     
+Ba
+uc að ; pdÞ ¼ log2 1 þ þ A þ aC þ D
+N0a � A � Ca
+
+
+Derivation of the price a:
+
+## 123
+
+
+
+ð14Þ
+
+
+
+
+               -               where C 6¼ 0 and D ¼ 4A [2] BC C [2] - 2CN0 þ N0 [2] [þ][ BN][0] .
+According to the relationship between N0 � C and B �
+C þ N0 and 0, the best strategy of the follower is obtained
+at a ¼ a [�], a ¼ amin and a ¼ amax, respectively. From this, it
+can be concluded that the follower’s optimal strategy is
+a 2 af [�] ; amin; amaxg.
+So far, the analysis of radio resource management for
+the leaders (train-to-wayside communication) and the followers (train-to-train communication) based on the Stackelberg model game is completed under the coexistence of
+train-to-wayside communication and train-to-train communication modes in urban rail transit.
+
+
+4 Simulation and Verification
+
+
+4.1 Simulation Model and Parameters
+
+
+The scenario including train-to-train communication is
+shown in Fig. 3, in which trains meet the minimum
+tracking interval requirements, and CU links are established with the base station. In addition, the train group that
+meets certain conditions will establish a D2D communication link according to the train-to-train communication
+process assisted by the base station. The simulation
+parameters including train-to-train communication are
+shown in Table 2.
+
+
+Urban Rail Transit (2021) 7(2):128–138 135
+
+
+
+4.2 Simulation Results and Analysis
+
+
+4.2.1 Change of Train-to-Train Communication Distance
+
+
+(1) Influence on the Strategies of Both Parties in the
+Game
+
+
+Figure 4 describes the impact of train-to-train communication distance on the CU link strategy. It can be seen from the
+figure that as the train-to-train communication distance
+increases, the best price strategy for the CU link continues to
+decrease. The reason is that under the condition that the
+transmission power of the CU link train and the wireless
+channel gain are unchanged, as the channel quality of the
+D2D link continues to decrease, the revenue that the CU link
+obtains from the D2D link is also constantly decreasing.
+Therefore, in order to improve the reliability of the CBTC
+service and encourage D2D link communication, the price
+charged by the CU link is also continuously decreasing.
+Figure 5 describes the influence of train-to-train communication distance on the D2D link power strategy. As a follower, the D2D link provides the best transmit power strategy
+based on the price charged by the CU link. It can be seen from
+Fig. 5 that the optimal transmission strategy of the D2D link
+increases with the increase of the train-to-train communication distance, and can be divided into three segments
+
+- pmin; pmax; p [�] d . When the train-to-train communication
+distance is too close, due to excessive interference to the CU
+link, the price charged by the CU link is very high. In order not
+tolosemoreontheD2Dlink,thebesttransmissionstrategyfor
+the transmitter is pmin. When the train-to-train communication
+distance is moderate, and the price charged by the CU link
+makes the stagnation point of the D2D link utility function fall
+within p½ min; pmax�, the optimal transmission strategy of the
+transmitter is p [�] d [, and the CU link and the D2D link reaches the]
+game equilibrium. When the distance between trains is too
+big, although the CU link charge price is low due to the large
+lossoftheD2Dlink,inordertoimproveitsthroughputthebest
+transmission strategy of the transmitter is pmax.
+
+
+Table 2 Simulation parameters
+
+
+Simulation parameters Parameter Value
+
+
+Frequency point 1.8 GHz
+
+
+Bandwidth 180 kHz
+
+
+Base station transmit power 46 dBm
+
+
+CU link train transmit power 23 dBm
+
+
+D2D link train transmit power 0–25 dBm
+
+
+Noise power spectral density -174 dBm/Hz
+
+Bit error rate (BER) 10 [�][3]
+
+Path loss model 136:5 þ 11:58 � log10 dð Þ
+
+Shadow fading model Lognormal distribution
+
+
+Small-scale fading ITU-VA six-path model
+
+
+
+2× 10 [18]
+
+
+1.5
+
+
+1
+
+
+0.5
+
+
+0
+
+0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5
+The coverage of train-to-train communication(km)
+
+
+Fig. 4 The optimal price strategy of CU link
+
+
+25
+
+
+20
+
+
+15
+
+
+10
+
+
+5
+
+
+0
+
+0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5
+The coverage of train-to-train communication(km)
+
+
+Fig. 5 The optimal transmitted power strategy of D2D link
+
+
+(2) Changes in throughput
+
+
+In order to verify that train-to-train communication can
+improve the reliability of CBTC business, this paper simulates the changes in the throughput of CBTC and the
+throughput of the base station side of the CU link after the
+introduction of train-to-train communication, and compares
+it with the situation of traditional train-to-wayside communication, as shown in Fig. 6.
+It can be seen from Fig. 6 that after the introduction of
+train-to-train communication, the throughput of train CBTC
+service has been significantly improved, from 0.1 Mbps in
+traditional train-to-wayside communication to about 0.8
+Mbps. This is because the D2D link improves the wireless
+signal quality of the train at the receiver, thereby increases
+the throughput. In addition, the throughput of the train CBTC
+service that introduces train-to-train communication has
+undergone a process of declining, rising, and then decreasing
+
+## 123
+
+
+136 Urban Rail Transit (2021) 7(2):128–138
+
+
+
+with the increase of the train-to-train communication distance. This is because although the optimal power strategy of
+the D2D link continues to rise, the increase cannot offset the
+path loss caused by the increase in the train-to-train communication distance, so the throughput of the CBTC service
+has declined. When the train-to-train communication distance increases to 0.4 km, the charge from CU link to D2D
+link is 0. Figure 5 shows that the optimal power strategy of
+the train increases sharply at this time, reaching pmax, so the
+throughput of CBTC business begins to rise. As the train-totrain communication distance continues to increase, the path
+loss continues to increase, and the optimal train power
+strategy is limited by pmax, thus the throughput of CBTC
+services begins to decline.
+As for the throughput of the base station, because the D2D
+link multiplexes the uplink channel of the CU link, the base
+station will inevitably be interfered, so the throughput of the
+base station on this uplink channel is reduced compared with
+the scenario of the traditional train-to-wayside communication mode. However, since the CU link only allows the
+D2D link to multiplex one sub-channel, the number of uplink
+channels available to the train is large. Taking 10 MHz
+bandwidth as an example, the number of physical layer radio
+resource blocks is 50. Therefore, on the whole, the
+throughput of the base station is basically unchanged.
+
+
+4.2.2 Change of Train-to-Wayside Communication
+Distance
+
+
+(1) Influence on the Strategies of Both Parties in the
+Game
+
+
+With the increase of the train-to-wayside communication
+distance, the uplink signal received by the base station side
+
+
+1.4
+
+
+
+1.2
+
+
+1
+
+
+0.8
+
+
+0.6
+
+
+0.4
+
+
+0.2
+
+
+0
+
+
+
+
+|Col1|Col2|with D2D<br>with D2D|base stati<br>train CBT|on throug<br>C through|hput<br>put|Col7|Col8|Col9|Col10|
+|---|---|---|---|---|---|---|---|---|---|
+|||||||||||
+|||||||||||
+|||without D<br>without D|2D base<br> 2D train C|tation thro<br>   BTC thro|ughput<br>    ghput|ughput<br>    ghput||||
+|||||||||||
+|||||||||||
+|||||||||||
+|||||||||||
+|||||||||||
+|||||||||||
+|||||||||||
+
+
+
+0.1 0.15 0.2 0.25 0.3 0.35 0.4 0.45 0.5
+The coverage of train-to-train communication(km)
+
+
+Fig. 6 The comparison of throughput before and after introducing
+train-to-train communication
+
+## 123
+
+
+
+is continuously decreasing. When the quality of the wireless channel of the D2D link and the signal of the transmitter remain unchanged, the interference from the D2D
+link received by the base station side remains unchanged,
+so the CU link revenue decreases. The CU link hopes to
+reduce the interference of D2D link by charging a higher
+price, which is reflected in that the optimal price strategy
+increases with the increase of vehicle ground communication distance, as shown in Fig. 7.
+For the train at the receiver of D2D link, although the
+interference from the uplink signal from the CU link train
+is decreasing, as the CU link is the leader and the charging
+price is continuously increasing, D2D link will gradually
+reduce the transmitting power of its transmitter in order to
+pay as little as possible, as shown in Fig. 8.
+
+
+5× 10 [16]
+
+
+4.5
+
+
+4
+
+
+3.5
+
+
+3
+
+
+2.5
+
+
+2
+
+
+1.5
+
+
+1
+
+0.3 0.35 0.4 0.45 0.5 0.55 0.6
+Train-to-wayside communication distance(km)
+
+
+Fig. 7 The optimal price strategy of CU link
+
+
+15
+
+
+14
+
+
+13
+
+
+12
+
+
+11
+
+
+10
+
+
+9
+
+
+8
+
+0.3 0.35 0.4 0.45 0.5 0.55 0.6
+Train-to-wayside communication distance(km)
+
+
+Fig. 8 The optimal transmitted power strategy of D2D-link
+
+
+Urban Rail Transit (2021) 7(2):128–138 137
+
+
+
+(2) Changes in throughput
+
+
+This section simulates the influence process of the change
+of train-to-wayside communication distance on throughput
+before and after the introduction of train-to-train communication, and the results are shown in Fig. 9.
+As can be seen from Fig. 9, after the introduction of
+train-to-train communication, the throughput of the train
+CBTC service at the receiver of the D2D link has been
+significantly improved, and it increases with the train-towayside communication distance. This is because,
+although the power of the transmitter of the D2D link
+continues to decrease, the interference of the CU link
+train to the train on the receiver of the D2D link
+decreases faster. On the other hand, the throughput of
+the base station side decreases with the train-to-wayside
+communication distance, because the path loss increases
+with the distance when the transmission power of the CU
+link train remains unchanged. At the same time, after the
+introduction of the train-to-train communication mode,
+the base station suffers interference on the shared
+channel, and its throughput is less than that of the base
+station under the traditional train-to-wayside communication mode.
+
+
+1.6
+
+
+
+1.4
+
+
+1.2
+
+
+1
+
+
+0.8
+
+
+0.6
+
+
+0.4
+
+
+0.2
+
+
+0
+
+
+
+
+|Col1|Col2|Col3|Col4|with D2D<br>with D2D|base station th<br>train CBTC thr|roughput<br>oughput|
+|---|---|---|---|---|---|---|
+||||||||
+||||||||
+|||||without D<br>without D2|D base statio<br> D train CBTC|n throughput<br>    throughput|
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+||||||||
+
+
+
+0.3 0.35 0.4 0.45 0.5 0.55 0.6
+Train-to-wayside communication distance(km)
+
+
+Fig. 9 The comparison of throughput before and after introducing
+train-to-train communication
+
+
+
+5 Conclusion
+
+
+The radio resource management of urban rail transit communication systems under the coexistence of train-to-train
+communication and train-to-wayside communication
+modes is studied in this paper, and a resource scheduling
+scheme based on Stackelberg model games is proposed and
+verified. The simulation and analysis results show that the
+proposed algorithm can improve the reliability of train
+CBTC service without affecting the train-to-wayside
+communication, and provide a reference for the radio
+resource management of the next-generation train control
+systems in the future.
+
+
+Acknowledgements The authors from Beijing Jiaotong University
+would like to thank Li Zhu, Ye Zhu, Yang Li and others for their
+support and encouragement throughout this work.
+
+
+Open Access This article is licensed under a Creative Commons
+Attribution 4.0 International License, which permits use, sharing,
+adaptation, distribution and reproduction in any medium or format, as
+long as you give appropriate credit to the original author(s) and the
+source, provide a link to the Creative Commons licence, and indicate
+if changes were made. The images or other third party material in this
+article are included in the article’s Creative Commons licence, unless
+indicated otherwise in a credit line to the material. If material is not
+included in the article’s Creative Commons licence and your intended
+use is not permitted by statutory regulation or exceeds the permitted
+use, you will need to obtain permission directly from the copyright
+[holder. To view a copy of this licence, visit http://creativecommons.](http://creativecommons.org/licenses/by/4.0/)
+[org/licenses/by/4.0/.](http://creativecommons.org/licenses/by/4.0/)
+
+
+References
+
+
+1. Jing L (2014) Selection of signal system in urban rapid rail
+transit. Urban Mass Transit 17(12):57–61
+2. Jiao C (2018) Modeling and verification of typical operation
+scenarios of train control system based on train-to-train communication. PhD thesis
+3. 3GPP (2014) Technical specification group radio access network
+study on LTE device. Technical Report(TR) 36.843, 3rd Generation Partnership Project (3GPP), [https://www.3gpp.org/ftp/](https://www.3gpp.org/ftp/Specs/archive/36_series/36.843)
+[Specs/archive/36_series/36.843, version 12.0.1](https://www.3gpp.org/ftp/Specs/archive/36_series/36.843)
+4. Jeon J, Niu H, Li Q, Papathanassiou A, Wu G (2015) LTE with
+listen-before-talk in unlicensed spectrum
+5. Wang X, Pei B, Sun J, Liu H, Tang L (2019) C-V2X technologies
+introduction and performance evaluation. Inf Commun Technol
+Policy 2019(5):67–70
+6. Emara M, Filippou MC, Sabella D (2018) MEC-assisted end-toend latency evaluations for C-V2X communications
+7. Chen Q, Jiang H, Yu G (2019) Service oriented resource management in spatial reuse based C-V2X networks. IEEE Wirel
+Commun Lett PP(99):1–1
+8. Lakshminarasimhan V, Knoll A (2020) C-V2X resource
+deployment architecture based on moving network convoys. In:
+2020 IEEE 91st vehicular technology conference (VTC2020Spring)
+9. Azam M, Ahmad M, Naeem M, Iqbal M, Khwaja AS, Anpalagan
+A, Qaisar S (2016) Joint admission control, mode selection, and
+
+## 123
+
+
+138 Urban Rail Transit (2021) 7(2):128–138
+
+
+
+power allocation in D2D communication systems. IEEE Trans
+Veh Technol 65(9):7322–7333
+10. Tang H, Ding Z (2016) Mixed mode transmission and resource
+allocation for D2D communication. IEEE Trans Wirel Commun
+15(1):1–1
+11. Akkarajitsakul K, Phunchongharn P, Hossain E, Bhargava VK
+(2013) Mode selection for energy-efficient D2D communications
+in LTE-advanced networks: a coalitional game approach. In:
+IEEE international conference on communication systems
+12. Oduola WO, Li X, Qian L, Han Z (2014) Power control for
+device-to-device communications as an underlay to cellular system. In: IEEE international conference on communications
+13. Lee N, Lin X, Andrews JG, Heath RW (2015) Power control for
+D2D underlaid cellular networks: modeling, algorithms and
+analysis. IEEE J Sel Areas Commun 33(1):1–13
+14. Song L, Niyato D, Han Z, Hossain E (2014) Game-theoretic
+resource allocation methods for device-to-device communication.
+IEEE Wirel Commun 21(3):136–144
+15. Wang X, Wang F, Han Z, Song L, Zhao Q (2013) Joint
+scheduling and resource allocation for device-to-device underlay
+
+## 123
+
+
+
+communication. In: Wireless communications and networking
+conference
+16. LIN Wei, Hea Z, Song FU (2018) Technical specifications for
+LTE-M system equipment. Technical report(tr), China Urban
+Rail Transit Association. [https://www.renrendoc.com/paper/](https://www.renrendoc.com/paper/89824008.html)
+[89824008.html](https://www.renrendoc.com/paper/89824008.html)
+17. Association CURT (2018) Technical specifications for LTE-M
+system equipment. Standards
+18. Huang WY, Yang NQ, Huang M (2003) Standard of railway train
+emergency braking distance limit in China. China Railway Sci
+24(5):84–90
+19. Wang X, Liu L, Zhu L, Tang T (2019) Train-centric CBTC meets
+age of information in train-to-train communications. IEEE Trans
+Intell Transp Syst PP(99):1–14
+20. Chen Y, Li Z, Yang B, Nai K, Li K (2020) A Stackelberg game
+approach to multiple resources allocation and pricing in mobile
+edge computing. Future Gener Comput Syst 108:273–287
+
+

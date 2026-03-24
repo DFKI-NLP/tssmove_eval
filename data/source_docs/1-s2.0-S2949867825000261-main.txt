@@ -1,0 +1,844 @@
+[High-speed Railway 3 (2025) 185–193](https://doi.org/10.1016/j.hspr.2025.05.004)
+
+
+[Contents lists available at ScienceDirect](http://www.sciencedirect.com/science/journal/29498678)
+## High-speed Railway
+
+
+[journal homepage: www.keaipublishing.com/en/journals/high-speed-railway](https://www.keaipublishing.com/en/journals/high-speed-railway)
+
+
+Research article
+### INS-aided GNSS jamming protection in support of resilient train positioning
+
+Zhuojian Cao [a], Jiang Liu [a][,][b][,][c][,][⁎], Wei Jiang [a][,][b][,][c], Baigen Cai [a][,][b][,][c]
+
+a _School of Automation and Intelligence, Beijing Jiaotong University, Beijing 100044, China_
+b _State Key Laboratory of Advanced Rail Autonomous Operation, Beijing Jiaotong University, Beijing 100044, China_
+c _Frontiers Science Center for Smart High-speed Railway System, Beijing Jiaotong University, Beijing 100044, China_
+
+
+
+
+
+A R T I C L E I N F O
+
+
+_Keywords:_
+GNSS jamming
+Deeply-coupled integration
+GNSS/INS
+
+
+**1. Introduction**
+
+
+
+A B S T R A C T
+
+
+Railway safety and efficiency increasingly rely on precise train positioning. The integration of the Global
+Navigation Satellite System (GNSS) into railway control systems aims to reduce dependence on track-side in­
+frastructure. While GNSS has significantly improved train localization, challenges such as the susceptibility to
+jamming remain. To address this, this paper introduces an Inertial Navigation System (INS)-aided train posi­
+tioning system based on deep integration, exploring its performance through semi-physical experiments and
+simulations. Experimental results demonstrate that the proposed solution is able to reduce the positioning error
+by 63.47 %, and the velocity error by 58.47 % under jamming conditions. The study highlights the potential of
+deep integration for improving the resilience of GNSS-based train control systems, especially in the face of Radio
+Frequency (RF) jamming threats.
+
+
+
+Railway safety and efficiency depend increasingly on knowing every
+train’s position. Traditional train positioning technologies usually in­
+volve track circuit positioning, axle counter positioning, and intersec­
+tion inductive loop positioning. However, these methods are often
+limited by insufficient positioning accuracy and high maintenance
+costs. The application of the Global Navigation Satellite System (GNSS)
+in railway train control systems aims to reduce as much as possible the
+use of track-side infrastructures for train location awareness, including
+track circuits and Balises. GNSS-based train positioning has been ex­
+tensively researched worldwide. Specific projects and initiatives have
+been undertaken to integrate GNSS into the railway systems.
+
+Early in the 1990s, the United States introduces the concept of the
+Positive Train control System (PTS) [1], which relies on Global Posi­
+tioning System (GPS), accelerometers, and fiber-optic gyroscopes for
+the train positioning function. By December 2020, the United States
+achieved 100 % implementation of Positive Train Control (PTC) across
+all required railroads, marking a historic milestone in rail safety and
+interoperability [2]. CLUG 2.0 project [3] launched in 2023 in Europe
+aims to enhance the European Rail Traffic Management System
+(ERTMS) by integrating an on-board GNSS+EGNOS-based multi-sensor
+fusion architecture. In China, the China State Railway Group Co., Ltd.
+introduced a new train control system, the Chinese Train Control
+
+
+
+System-New (CTCS-N) [4], which proposed a “train-borne centric” train
+operation control method. This system incorporates on-board GNSS
+positioning, speed sensors, and electronic railway maps to achieve train
+localization. GNSS has been acknowledged as a pivotal enabler in im­
+proving the cost efficiency and automation level of the train control
+system.
+
+In complex railway operation scenarios, such as urban canyons,
+tunnels, and stations with cover, the limited GNSS signal visibility, and
+weak observation geometry would greatly decrease the positioning
+performance. Thus, the integration solutions are typically proposed for
+the train safety positioning. A typical integration solution for GNSSbased train positioning is based on the data fusion with both GNSS and
+Inertial Navigation System (INS) sensors. The GNSS/INS integrated
+solution is capable of providing full navigation solutions of position,
+velocity, and attitude in high positioning accuracy, high updating rate
+even under the GNSS limited scenario when the visible satellites are less
+than four. Additionally, there is an increasing concern that GNSS is also
+vulnerable to radio frequency jamming, due to the weak signal power of
+the GNSS signal. More and more GNSS disturbance events are reported
+because of jamming, in worldwide, including maritime applications
+
+[5,6], aviation applications [7], and also railway applications [8,9].
+GNSS in-band interferences, for example, intentional jamming shows a
+source of potential threats to the safe, secure, and resilient operation of
+a dense railway system utilizing GNSS as the main positioning method.
+
+
+
+⁎ Corresponding author.
+
+_E-mail address:_ [jiangliu@bjtu.edu.cn (J. Liu).](mailto:jiangliu@bjtu.edu.cn)
+
+
+
+[https://doi.org/10.1016/j.hspr.2025.05.004](https://doi.org/10.1016/j.hspr.2025.05.004)
+Received 12 February 2025; Received in revised form 20 May 2025; Accepted 22 May 2025
+Available online 26 May 2025
+[2949-8678/© 2025 The Authors. Published by Elsevier B.V. on behalf of KeAi Communications Co. Ltd. This is an open access article under the CC BY license (http://](http://creativecommons.org/licenses/by/4.0/)
+[creativecommons.org/licenses/by/4.0/).](http://creativecommons.org/licenses/by/4.0/)
+
+
+_Z. Cao, J. Liu, W. Jiang et al._ _High-speed Railway 3 (2025) 185–193_
+
+
+
+It is of great importance to develop specific countermeasures to protect
+train positioning from jamming-caused GNSS disturbance.
+
+Research institutions and GNSS receiver manufacturers have been
+developing GNSS receivers equipped with anti-jamming capabilities. A
+survey of state-of-art approaches is introduced, based on the functional
+stages of the receiver in which they operate. Typically, they could be
+implemented at the front-end, pre-correction, or post-correlation stages,
+with others functioning at the navigation processing stage. Spatial fil­
+tering [9–11], functioning at the front-end stage, uses antenna arrays to
+point the receiver antenna beam toward the GNSS satellites and away
+from jammers. In the pre-correction stage, time/frequency filtering
+
+[12–14] enables the jamming mitigation before the jamming signal
+enters the receiver. Vector tracking is a typical approach that works on
+the post-correction stage. Instead of tracking in-view satellites sepa­
+rately in the conventional baseband signal processing, vector tracking
+
+[15,16] is achieved through feedback of the receiver states from the
+navigation module to the signal tracking channels as prior information
+and constraints. Additionally, the inertial-aiding-based strategy at the
+navigation processing stage provides a different way. INS is a selfcontained navigation approach in which measurements provided by
+accelerometers and gyroscopes are used to track the states relative to a
+known starting state. A remarkable advantage of an INS is that it is
+inherently immune to Radio Frequency (RF) signals, which makes it
+possible to benefit from the mitigation of GNSS jamming signals. In the
+railway domain, an extensive analysis of interference events based on a
+one-year dataset collected across the Swiss railway network was con­
+ducted in Ref. [8], which revealed widespread occurrences of GNSS
+interference, particularly clustered around larger cities and densely
+populated residential areas. A test and evaluation of GNSS-based
+railway positioning under various jamming conditions was presented in
+Ref. [17], demonstrating the susceptibility of train localization perfor­
+mance to interference. A resilient localization framework operating at
+the measurement level, incorporating jamming discrimination and
+multi-sensor fusion, was proposed in Ref. [18]. Nevertheless, research
+on GNSS anti-jamming solutions for railway environments remains re­
+latively limited, which motivates the focus of the present work.
+
+GNSS/INS integration can be categorized into three primary archi­
+tectures: loosely coupled, tightly coupled, and deeply coupled sys­
+tems [19,20]. In a loosely coupled integration, the GNSS receiver and
+INS operate independently, with integration occurring at the navigation
+solution level by combining the position and velocity outputs from both
+systems. This approach requires a minimum of four visible satellites for
+a positioning solution, which can be a limitation in environments with
+jamming signals. In contrast, tightly-coupled integration integrates raw
+GNSS measurements, such as pseudoranges and Doppler shifts, directly
+with INS solution within a filter. This method allows the system to
+utilize all available satellite signals, even when fewer than four sa­
+tellites are visible, enhancing performance in challenging environ­
+ments. Deeply coupled, or ultra-tight, integration goes a step further by
+
+
+
+incorporating inertial measurements directly into the GNSS signal
+tracking loops. This integration aids in maintaining signal lock under
+high dynamics and interference conditions, as the INS can provide
+predictive information to the GNSS receiver’s tracking algorithms. The
+advantages of deep integration are particularly evident in environments
+with significant interference or high dynamics. In Ref. [21], the antijamming performance of the INS velocity aiding tracking loop is eval­
+uated and compared, using a continuous wave jamming scenario. While
+the superiority of INS-aided deep integration has been preliminarily
+validated in jamming scenarios, current research on anti-jamming
+methods remains constrained by simple jamming models such as con­
+tinuous wave jamming. The mechanisms under different jamming
+modulation schemes remain underexplored. This study expands the
+exploration of jamming types by focusing on sweep-frequency inter­
+ference. Considering the compatibility of the GNSS/INS deeply-coupled
+integration with the current GNSS-based train positioning function in
+the control system conception, this paper proposes an INS-aided train
+determination system (LDS) based on the deep integration. The system
+profile and the GNSS jamming signals are briefly introduced firstly.
+Then, we give a detailed introduction of deeply-coupled integration
+design. Finally, a hardware simulator is used and semi-physical ex­
+periments are conducted to assess the proposed system’s performance
+with a sweep frequency jamming scenario.
+
+
+**2. System design**
+
+
+From Fig. 1, it can be found that multiple information resources are
+involved in the train positioning system, where the inertial data from
+the accelerometers and gyroscopes is taken into the Position, Velocity,
+and Timing (PVT) calculation to enhance the resilience to abnormal
+jamming attacks. By integrating an INS directly into the train onboard
+subsystem, it becomes unnecessary to install or modify the track-side
+subsystem, thereby simplifying system design and maintenance,
+thereby providing a flexible architecture for modern rail train control
+systems.
+
+From a signal processing perspective, jamming signals are collected
+and analyzed together with the authentic GNSS signals by the antenna
+and the subsequent front-end stage in the GNSS receiver simulta­
+neously. The signal contaminated by jamming signals would directly
+affect the subsequent stages of the receiver’s processing chain, in­
+cluding acquisition and tracking stages. In the tracking stage, jamming
+prevents the code and carrier loops from maintaining stable signal
+tracking, ultimately resulting in pronounced errors or even failure in
+the PVT solution. In the proposed system, the Doppler shift information
+derived from INS is fed back to aid the GNSS tracking loop, improving
+the overall resilience of the navigation solution. Inertial mechanization
+is used to infer Inertial Solution at discrete epochs, while the GNSS
+tracking loop operates simultaneously until they meet the integration
+epoch. Then, integrated filter realizes the state estimation based on the
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Fig. 1.** Architecture of the GNSS/INS-integrated train positioning system with anti-jamming capability.
+
+
+186
+
+
+_Z. Cao, J. Liu, W. Jiang et al._ _High-speed Railway 3 (2025) 185–193_
+
+
+
+information from both the INS and GNSS pseudorange/pseudorange
+rate, where a specific estimator (e.g., nonlinear Kalman filter) would be
+adopted. Based on this traditional tightly-coupled GNSS/INS integra­
+tion, the estimated navigation states are used to estimate the Doppler
+shift information, which is fed back to the GNSS tracking loop to aid the
+tracking process. The system operates in a closed-loop way where the
+integrated filter continuously updates the system’s state estimation by
+combining data from both the GNSS and INS, and the feedback of the
+estimated states helps improve the accuracy of both the INS and GNSS
+calculations. The INS-aided deep integration system leverages the in­
+ertial data, effectively narrowing the bandwidth of the tracking loop,
+which helps reduce the noise within the loop and suppress external
+jamming signals. The system’s capability to maintain accurate tracking
+and position estimation in jamming environments is significantly
+strengthened, leading to a more resilient navigation solution.
+
+
+**3. Jamming analysis and protection**
+
+
+_3.1. Jamming analysis_
+
+
+The received signal strength of the GNSS receiver is extremely low
+and falls well below the thermal noise floor. Typically, the received GPS
+signal levels fall within the range of −127 dBm [22]. The weak char­
+acteristics of GNSS signals will lead to an increasing risk of performance
+degradation under jamming conditions. Jamming signals may emanate
+from telecommunication and electronic systems operating in adjacent
+bands or in bands relatively far from the GNSS bands, i.e., Fre­
+quency Modulation (FM)/TV transmitter harmonics, Amplitude Mod­
+ulation (AM) transmitters, and mobile phone networks. The digital re­
+presentation of the received signal in the presence of jamming at the
+Analog-to-Digital Converter (ADC) output is
+
+
+_Ns_
+
+
+
+as chirp jamming), Narrow-Band Gaussian white Noise (NBGN), and
+Wideband Gaussian white Noise (WBGN). It is found in Ref. [25] that
+the majority of the jammers use chirp signals, which vary the
+signal frequency linearly over time . The chirp signal exhibits a constant
+rate of frequency change over time, within a certain frequency range
+and sweep period. This sweep procedure is characterized by the initial
+frequency _fc_ at _t_ _=_ 0, the minimum and maximum frequency _f_ min and
+_f_ max, and the sweep period _T_ . Thus, the instantaneous frequency is
+given by
+
+
+
+_fk_ _=_ _fc_ _+_ _f_ max _T_ _f_ min _t_
+
+
+
+(2)
+
+
+
+The time-domain representation of the chirp signal is modeled as
+
+
+
+(3)
+
+
+
+_j t_ ( ) _=_ _P_
+
+
+
+( ) _=_ _Pc_ e
+
+
+
+_=_
+
+
+
+
+
+
+
+
+
+_+_ _c+_
+
+
+
+
+
+_+_ _c+_
+
+
+
+
+
+_=_
+
+
+
+_Pc_
+
+
+
+
+
+e
+
+
+
+
+
+_r nT_ ( _s_ ) _=_ _s nTi_ ( _s_ ) _+_ _j nT_ ( _s_ ) _+_ ( _nTs_ )
+_i=_ 1
+
+
+
+_=_ _s nTi_ ( _s_ ) _+_ _j nT_ ( _s_ ) _+_
+
+
+
+(1)
+
+
+
+_i_ _s_ _s_ _s_
+1
+
+
+
+The jamming signals will not only disrupt the proper functioning of
+the receiver’s RF front-end components, such as low-noise amplifiers,
+automatic gain control, and analog-to-digital converters, but also ad­
+versely affect the operation of the carrier and code tracking loops. This
+jamming can prevent the receiver from acquiring and maintaining a
+stable lock on the satellite signals, ultimately leading to degraded po­
+sitioning performance.
+
+
+_3.2. INS-aided jamming protection solution_
+
+
+Fig. 2 illustrates the INS-aided GNSS tracking loop. The carrier
+signal measurement enters the tracking loop through the phase dis­
+criminator to generate a phase error estimate. This phase error drives
+the carrier loop filter which outputs an estimate of the signal Doppler to
+drive the carrier controller oscillator (NCO). The NCO duplicates the
+phase of the incoming signal, and this phase estimate is fed back to the
+phase discriminator. The tracking loop is usually said to be “locked” if
+the phase error is less than five degrees.
+
+INS mechanization is used to infer the attitude, velocity, and posi­
+tion of the train at discrete epochs with high-frequency measurements
+
+[26]. At each GNSS epoch, the Kalman filter is triggered to estimate the
+errors in INS-inferred results using the measurement update equations
+established by GNSS, which further allows for compensation of the INSinferred results. A 17-dimensional error state vector is defined to
+
+
+
+where _s nTi_ ( _s_ ) is the GNSS signal of the _i_ -th satellite in line-of-sight,
+_j nT_ ( _s_ ) [is the demodulated version of the jamming signal transmitted. ]
+( _nTs_ ) is a random term due to the additive noise modeled as white
+Gaussian, _Ts_ is the sampling interval, and _n_ is the discrete-time index.
+According to Refs. [23–25], based on the time-frequency behavior,
+jamming signals can be typically divided into several classes, including
+Continuous Wave (CW), AM, FM, Frequency Sweep (FS; also referred to
+
+
+
+**Fig. 2.** INS-aided GNSS tracking loops.
+
+
+187
+
+
+_Z. Cao, J. Liu, W. Jiang et al._ _High-speed Railway 3 (2025) 185–193_
+
+
+
+
+
+(5)
+
+
+
+**Fig. 3.** Block diagram of an INS-aided carrier tracking loop.
+
+
+describe the required states as
+
+
+where **p** [n], **v** [n], and n are the three-dimension position, velocity, and
+attitude error vector expressed in the n-frame, respectively; _[b]_ and b
+
+are the gyro and accelerometer error vector expressed in the b-frame;
+
+d _rt_ is the receiver clock error, while d _rt_ is the receiver clock drift. The
+state-space model is defined using INS error transition equations to
+predict the error of INS mechanization from the gyro and accelerometer
+measurements. After filtering, the positioning result in ECEF frame **p** _[e]_
+
+and the velocity result in ECEF frame **v** [e] can be get from the correction
+of the INS mechanization. Subsequently, given the satellite position
+**p** sat,e _k_ for the _k_ -th satellite, the Line-Of-Sight (LOS) unit vector **l** sat,e _k_ can
+be determined from the user’s position and the satellite’s position. Fi­
+nally, by projecting the velocity difference between the INS velocity
+and the satellite onto the LOS direction, the Doppler frequency shift
+induced by the relative motion can be obtained as
+
+
+
+In the tracking loop, the carrier frequency _f_ carr includes not only the two
+Doppler components mentioned above, but also the receiver’s local clock
+drift _f_ recvcd, the satellite’s clock drift _f_ sat,cd, and noise _k_ _fk_ . The satellite’s clock
+drift can be obtained from the ephemeris at the time when the satellite
+velocity is calculated. The receiver clock drift can be derived from the PVT
+solution. Whether the loop can transition to INS-aided deep integration
+mode depends on the validity of the baseband aiding data. The condition is
+checked once the INS is confirmed to be operating correctly. Then, using
+Eq. (5) to form the carrier frequency, it computes the difference between
+the result based on the external coordinates and the loop’s internal tracking
+result. If this difference remains below a predefined threshold for a certain
+number of consecutive samples, it indicates that the aiding data are valid,
+allowing the system to enter INS-aided deep integration mode.
+
+The tracking loop model is depicted in Fig. 3. The black portion
+corresponds to the closed-loop tracking transfer model, which follows a
+conventional PLL architecture, whereas the red portion indicates the
+signal pathway for the INS-aided information, which directly drives the
+NCO. In this figure, _i_ ( ) _s_ and 0 ( ) _s_ represent the input and output signal
+phases, respectively, and e ( ) _s_ is the phase error from the discriminator.
+The parameters _K_ d and _K_ 0 denote the discriminator gain and the NCO
+gain, respectively, while _F s_ ( ) is the loop filter.
+
+By adding the INS-predicted Doppler shift values to the loop output,
+the loop only needs to track small residual errors, improving resilience
+in jamming conditions. The procedure of the INS-aided integration
+solution in one Kalman filter period is described in Algorithm 1.
+
+
+
+**Algorithm 1.** The INS-aided integration solution in one Kalman filter period.
+
+
+188
+
+
+_Z. Cao, J. Liu, W. Jiang et al._ _High-speed Railway 3 (2025) 185–193_
+
+
+
+
+
+**4. Results and discussion**
+
+
+In order to analyze the effectiveness of the jamming protection method
+under GNSS jamming conditions, further simulations are carried out in a
+signal jamming test environment. The setup of the GNSS jamming test
+platform is shown in Fig. 4, consisting of several key components, each
+connected through specific signal transmission paths, designed to enable
+jamming data collection for analytical processing. The Spirent GSS8000
+GNSS simulator and the sight N5172B jamming signal generator are con­
+trolled from the simulator’s SimGEN host controller, which generates the
+required GPS L1 RF signals and the jamming signals, respectively. The
+jamming signals are defined, along with all the other scenario parameters,
+within the SimGEN. The scenario trajectory collected in the field is input
+into the SimGEN software, driving the simulator to generate the corre­
+sponding dynamic GNSS RF signals. A signal combiner is utilized to in­
+tegrate the clean GPS RF signal and the specific jamming signal. Since the
+down-converted Intermediate Frequency (IF) signal is what we need, the
+HG-softGPS06 GNSS IF signal collector is connected to the simulated signal
+to capture the necessary data, which is then collected and post-processed by
+the PC host. Field test results from a train location system were collected
+and used as the scenario script to drive the controller. A tactical-grade SPAN
+system (a high-precision GNSS/INS integrated system with a tactical grade,
+low noise IMU-FSAS) installed on the train was utilized to collect the tra­
+jectory and the IMU data.
+
+Two practical local trajectories that last for 160 s are adopted as the
+operation script to generate different GNSS jamming tested scenarios
+and drive the GNSS simulator. The key parameters of the trajectory are
+listed as follows.
+
+**Scenario I:** The trajectory starts at GPS week 2034, second of week
+288888, lasting for 160 s. The trajectory replicated a train journey
+
+
+
+
+
+
+
+
+
+**Fig. 5.** The PLL discriminator of PRN 23 and PRN 29 for the normal tracking solution and the INS-aided solution in scenario I.
+
+
+189
+
+
+_Z. Cao, J. Liu, W. Jiang et al._ _High-speed Railway 3 (2025) 185–193_
+
+
+**Fig. 6.** The PLL discriminator of PRN 1and PRN 26 for the normal tracking solution and the INS-aided solution in scenario II.
+
+
+
+along the Qinghai–Xizang Railway from Nagqu to Amdo section.
+Number of in-view satellites is up to 11. The scenario maintained a
+sustained velocity between 30 and 35 m/s throughout the trajectory.
+
+**Scenario II:** The trajectory starts at GPS week 2034, second of week
+289800, lasting for 160 s. The trajectory also replicated a train journey
+along the Qinghai–Xizang Railway from Nagqu to Amdo section. A
+number of in-view satellites is up to 5. The velocity continuously ac­
+celerated from 25 to 27 m/s.
+
+In the simulated test, a GNSS signal at GPS L1 frequency is simulated
+with a reference level of −130 dBm, while the jamming generator
+operates at a center frequency of 1575.42 MHz with a power level of
+−90 dBm. The Jamming-to-Signal Ratio (JSR), i.e., the ratio of the
+jamming signal power to the GNSS signal power, is used to express the
+relationship between GNSS signal power and jamming power. Beyond
+complete signal obstruction scenarios, intermediate jamming power
+levels can induce significant performance degradation in GNSS re­
+ceivers without fully blocking satellite signal acquisition. These inter­
+mediate power levels would be hazardous and difficult to detect and
+mitigate, making it crucial to accurately assess the impact of jamming
+on GNSS signal quality. Previous research [18] has demonstrated sub­
+stantial signal quality degradation under jamming conditions with JSR
+values ranging from 38 to 54 dB. Accordingly, this study focuses on a
+40 dB JSR scenario, corresponding to the specified −130 dBm GPS
+signal and −90 dBm jamming power configuration.
+
+
+
+A 5 Hz ramp waveform is employed, sweeping ± 1 kHz around the
+carrier. The jamming signal for investigating the collected IF signal, and
+the software-defined radio GNSS receiver are used to analyze the data.
+This software receiver is configured with a second-order phase-locked
+loop and a second-order code delay lock loop. The carrier loop band­
+width is set to 3 Hz, while the code loop bandwidth is maintained at
+3 Hz. In the proposed solution, INS mechanization updates every 1 ms,
+while the tracking loop coherent integration time is also set to 1 ms.
+
+Figs. 5 and 6 show the tracking performance of the normal secondorder PLL with an integration time of 1 ms. It can be found that fluc­
+tuations of the PLL discriminator values appear in the blue curve be­
+cause the normal tracking solution relies solely on the GNSS signals to
+determine the receiver’s position and velocity. In the INS-aided tracking
+solution, with INS assistance the PLL discriminator exhibits reduced
+value fluctuations, achieving a smoother output.
+
+Figs. 7 and 8 illustrate the positioning errors and velocity errors in
+three dimensions ( _x_, _y_, _z_ ) for both the normal tracking solution and the
+INS-aided solution over 160 s in two scenarios. It can be found in the
+figure that the INS-aided solution helps to stabilize these errors, with
+the orange curves showing a much smaller variance, which suggests
+that the integration of the inertial navigation system provides better
+consistency and reduces the impact of GNSS signal irregularities. It can
+be seen from the velocity results in Fig. 8, that the proposed solution
+keeps the velocity solution well behaved throughout the entire 160 s
+
+
+
+190
+
+
+_Z. Cao, J. Liu, W. Jiang et al._ _High-speed Railway 3 (2025) 185–193_
+
+
+**Fig. 7.** The positioning errors and the velocity errors for the normal tracking solution and the INS-aided solution in scenario I.
+
+
+
+test, while the normal tracking solution exhibits a pronounced diver­
+gence at about 150 s.
+
+In scenario II, under such jamming conditions, compared to the
+normal tracking solutions, the mean three-direction positioning error
+is reduced by 63.47 %, with the error for the normal tracking solution
+being 6.67 m and the error for the proposed solution being 4.08 m.
+The mean three-direction velocity error is reduced by 58.47 %, with
+
+
+
+the error for the normal tracking solution being 0.28 m/s and the
+error for the proposed solution being 0.12 m/s. Overall, these results
+highlight the effectiveness of INS-aided solution in improving the
+accuracy and stability of both positioning and velocity estimation.
+The integration of inertial sensors helps to minimize errors caused by
+jamming, thereby enhancing the overall performance of the naviga­
+tion system.
+
+
+
+191
+
+
+_Z. Cao, J. Liu, W. Jiang et al._ _High-speed Railway 3 (2025) 185–193_
+
+
+**Fig. 8.** The positioning errors and the velocity errors for the normal tracking solution and the INS-aided solution in scenario II.
+
+
+
+**5. Conclusion**
+
+
+In this paper, a GNSS jamming protection solution is presented
+based on the INS-aided deep integration solution. The solution enables
+a self-contained PVT reference that is immune to RF signals. INS in­
+formation is sent to the receiver’s baseband, realizing the assistance to
+the receiver at the signal processing level. The measured velocity in­
+formation from INS is mapped to the LOS between the satellite and the
+vehicle to obtain the Doppler of relative motion. The Doppler is fed
+back to the NCO in the tracking loop to aid the tracking process. The
+evaluation of the proposed solution demonstrates significant
+
+
+
+improvements in positioning and velocity, enabling resilient train po­
+sitioning for securing next generation GNSS-based train control sys­
+tems. Future work will focus on refining mitigation techniques with
+extended studies for multi-constellation scenarios (e.g., BeiDou and
+Galileo), and exploring field tests in real lines to ensure the resilience of
+GNSS-based train localization systems in railway applications.
+
+
+**CRediT authorship contribution statement**
+
+
+**Baigen Cai:** Funding acquisition. **Zhuojian Cao:** Formal analysis.
+**Jiang Liu:** Writing – review & editing, Project administration,
+
+
+
+192
+
+
+_Z. Cao, J. Liu, W. Jiang et al._ _High-speed Railway 3 (2025) 185–193_
+
+
+
+Investigation, Funding acquisition. **Wei** **Jiang:** Supervision,
+Investigation, Funding acquisition.
+
+
+**Data availability**
+
+
+The data that has been used is confidential.
+
+
+**Declaration of Competing Interest**
+
+Baigen Cai is an editorial board member for High-speed Railway and
+was not involved in the editorial review or the decision to publish this
+article. All authors declare that there are no competing interests.
+
+
+**Acknowledgement**
+
+
+This research was supported by the Beijing Natural Science
+Foundation (4232031), and the National Natural Science Foundation of
+China (T2222015, U2268206).
+
+
+**References**
+
+
+[[1] R. Lindsey, Positive train control in North America, IEEE Veh. Technol. Mag. 4 (4)](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref1)
+[(2009) 22–26.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref1)
+
+[2] Federal Railroad Administration, Positive train control implementation status re­
+
+port (2024).
+
+[3] C. Milner, A. Biale, N.M. Pila, et al., An integrity concept for GNSS/INS/odometry
+rail localisation, Proceedings of the 37th International Technical Meeting of the
+Satellite Division of The Institute of Navigation (ION GNSS+ 2024), Baltimore,
+2024, pp. 1588–1611.
+
+[4] X. Li, K. Li, Y. Liu, CTCS-N system test case generation based on fault injection,
+2023 3rd International Conference on Electrical Engineering and Mechatronics
+Technology (ICEEMT), IEEE, 2023, pp. 327–333.
+
+[[5] E.P. Marcos, S. Caizzone, A. Konovaltsev, et al., Interference awareness and char­](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref2)
+
+[acterization for GNSS maritime applications, 2018 IEEE/ION Position, Location and](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref2)
+[Navigation Symposium (PLANS), IEEE, Monterey, 2018, pp. 908–919.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref2)
+
+[[6] D. Medina, C. Lass, E.P. Marcos, et al., On GNSS jamming threat from the maritime](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref3)
+[navigation perspective, IEEE, Ottawa, 2020.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref3)
+
+[[7] Z. Liu, S. Lo, T. Walter, GNSS interference characterization and localization using](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref4)
+[OpenSky ADS-B data, Proceedings 59 (1) (2020) 10.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref4)
+
+[8] R. Ehrler, A. Wenz, S. Baumann, et al., Jamming and spoofing impact on GNSS
+signals for railway applications, Proceedings of the 36th International Technical
+Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2023),
+Denver, 2023, pp. 4153–4167.
+
+
+
+
+[9] C. Stallo, P. Salvatori, A. Coluccia, et al., GNSS Anti-jam RF-to-RF on board unit for
+ERTMS train control, Proceedings of the 2020 International Technical Meeting of
+The Institute of Navigation, San Diego, 2020, pp. 1045–1058.
+
+[10] C. Stallo, P. Salvatori, A. Coluccia, et al., Intelligent antennas for mitigating GNSS
+jamming & spoofing hazards on the ERTMS train control, Proceedings of the ION
+Pacific PNT Meeting/Proceedings of the Institute of Navigation Pacific PNT (2019),
+Honolulu, 2019, pp. 478–492.
+
+[[11] J. Zhang, X. Cui, H. Xu, et al., A two-stage interference suppression scheme based on](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref5)
+[antenna array for GNSS jamming and spoofing, Sensors 19 (18) (2019) 3870.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref5)
+
+[[12] E. Falletti, M.T. Gamba, M. Pini, Design and analysis of activation strategies for](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref6)
+[adaptive notch filters to suppress GNSS jamming, IEEE Trans. Aerosp. Electron.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref6)
+[Syst. 56 (5) (2020) 3718–3734.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref6)
+
+[[13] S. Savasta, L.L. Presti, M. Rao, Interference mitigation in GNSS receivers by a time-](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref7)
+[frequency approach, IEEE Trans. Aerosp. Electron. Syst. 49 (1) (2013) 415–438.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref7)
+
+[14] L. Musumeci, F. Dovis, Performance assessment of wavelet based techniques in
+mitigating narrow-band interference, 2013 International Conference on
+Localization and GNSS (ICL-GNSS), IEEE, Turin. 2013.
+
+[15] D. Benson, Interference benefits of a vector delay lock loop (VDLL) GPS receiver,
+Proceedings of the 63rd Annual Meeting of The Institute of Navigation, Cambridge,
+2007, pp. 749–756.
+
+[[16] K. Li, J.X. Zhao, X.Y. Wang, et al., Federated ultra-tightly coupled GPS/INS in­](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref8)
+
+
+
+[tegrated navigation system based on vector tracking for severe jamming environ­](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref8)
+[ment, IET Radar Sonar Nav. 10 (6) (2016) 1030–1037.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref8)
+
+[[17] J. Liu, J. Li, B. Cai, et al., Test and evaluation of GNSS-based railway rrain posi­](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref9)
+
+
+
+[tioning under jamming conditions, IEEE, Toronto, 2020, pp. 1459–1464.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref9)
+
+[[18] Z.J. Cao, J. Liu, W. Jiang, et al., Resilient GNSS/INS-based railway train localization](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref10)
+[using odometer/trackmap-enabled jamming discrimination, IEEE Trans. Intell.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref10)
+[Transp. Syst. 25 (12) (2024) 19852–19872.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref10)
+
+[[19] M. Kirkko-Jaakkola, L. Ruotsalainen, M.Z.H. Bhuiyan, et al., Performance of a](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref11)
+[MEMS IMU deeply coupled with a GNSS receiver under jamming, 2014 Ubiquitous](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref11)
+[Positioning Indoor Navigation and Location Based Service (UPINLBS), IEEE, Corpus](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref11)
+[Christi (2014) 64–70.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref11)
+
+[[20] G.X. Gao, M. Sgammini, M. Lu, et al., Protecting GNSS receivers from jamming and](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref12)
+[interference, Proc. IEEE 104 (6) (2016) 1327–1338.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref12)
+
+[21] J.W. Kim, D.H. Hwang, S.J. Lee, Performance evaluation of INS velocity-aided
+tracking loop and deeply coupled GPS/INS integration system in jamming en­
+vironment, Proceedings of the 63rd Annual Meeting of The Institute of Navigation
+(2007), Cambridge, 2007, pp. 742–748.
+
+[[22] E.D. Kaplan, C. Hegarty, Understanding GPS/GNSS: Principles and Applications,](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref13)
+[Artech house, Norwood, 2017.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref13)
+
+[[23] R. Morales Ferre, A. de la Fuente, E.S. Lohan, Jammer classification in GNSS bands](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref14)
+[via machine learning algorithms, Sensors 19 (22) (2019) 4841.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref14)
+
+[[24] X. Chen, D. He, X. Yan, et al., GNSS interference type recognition with fingerprint](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref15)
+[spectrum DNN method, IEEE Trans. Aerosp. Electron. Syst. 58 (5) (2022) 4745–4760.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref15)
+
+[25] R.H. Mitch, R.C. Dougherty, M.L. Psiaki, et al., Signal characteristics of civil GPS jam­
+
+mers, Proceedings of the 24th International Technical Meeting of the Satellite Division of
+The Institute of Navigation (ION GNSS, Portland, 2011, pp. 1907–1919.
+
+[[26] P.D. Groves, Principles of GNSS, inertial, and multisensor integrated navigation](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref16)
+[systems, IEEE Aerosp. Electron. Syst. Mag. 30 (2) (2015) 26–27.](http://refhub.elsevier.com/S2949-8678(25)00026-1/sbref16)
+
+
+
+193
+
+

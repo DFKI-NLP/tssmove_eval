@@ -1,0 +1,568 @@
+# **Sensors and Microsystems of Wayside Monitoring System for Rolling** **Stock in Motion**
+
+Nencho Nenov [1)], Emil Dimitrov [2)], Nikolay Dodev [1)] and Vasil Vasilev [1) ]
+
+1) Department of Transport Equipment, University of Transport, Sofia, Bulgaria
+2) Department of Electronic Technology, Technical University of Sofia, Bulgaria
+nnenov_58@abv.bg
+
+
+_**Abstract**_ _:_ _The paper presented is dedicated to the development and application of sensors and_
+_microsystems for evaluating various parameters of rolling stock in motion. The intended purpose of_
+_such a system, comprising of the described sensors and microsystems and also known as Wayside_
+_Monitoring System for Rolling Stock in Motion, is to identify the current overall condition of the_
+_railway vehicles, including hot boxes (axle bearings) and brakes (wheel brakes and disc brakes),_
+_wheel defects (flat spots, out of roundness, polygonization, etc), dynamic weighing and load_
+_distribution, etc. All of these could compromise the safety of the railroad traffic, leading to accidents_
+_such as vehicle derailment and increased wear and damages of the tracks._
+
+
+
+**1.** **INTRODUCTION**
+
+
+The working condition under which the railway
+vehicles operate could be very severe. This in most
+cases includes innumerable elements and activities
+that have a detrimental effect on its overall condition
+and potentially on the safety of passengers and freight.
+The capacity and speeds of the rolling stock also
+increases. In order to be cost effective, the railway
+traffic should be running smooth and free of accidents
+and unscheduled track maintenance.
+
+In order to evaluate the overall condition of the
+rolling stock without interrupting the railway work,
+the research team is currently developing sensors and
+microsystems of wayside monitoring system for the
+needs of the Bulgarian National Railway
+Infrastructure Company (NRIC). The monitoring
+system will be also used by the railway operators and
+haulers in order to track their vehicles and loads.
+Another intended purpose of the system is the
+economic effect by increasing the collection of freight
+charges of overloaded vehicles.
+
+
+**2.** **BASIC PRINCIPLES AND APPROACHES FOR**
+**MODELLING OF THE SYSTEM**
+
+
+The modelling process and building of a wayside
+monitoring system includes many factors that need to
+
+
+
+be taken into account, such as: basic functions of the
+monitoring system, choosing the location of the
+check-points, selecting the right method for vehicle
+identification, selecting appropriate measuring
+methods and sensors, defining procedures and
+algorithms about each local check-point, processing
+statistical information about alarms, etc.
+
+In order the information obtained through the
+monitoring system to be useful for real-time decision
+making and the vehicles and loads to be tracked, the
+local check-points should be transferring data to
+control centers. Taking into account the local
+conditions and the remoteness of a check-point, there
+are basically two methods for transferring data – by
+the fiber-optic network of NRIC (wired) or by the
+GSM-R technology (wirelessly). The locations of the
+check-points throughout the railway in Bulgaria are
+shown on Fig. 1.
+
+For reasons of economy and efficiency the wayside
+monitoring system in Bulgaria will feature the
+following functions: 1) Identification of a vehicle by
+its individual number; 2) Measuring the load of each
+wheel – detection of overload, unbalanced vehicles
+and uneven load distribution between the wheels and
+axles; 3) Detection of wheel defects – flat spots, out of
+roundness, polygonizaition, etc.; 4) Detection of hot
+boxes, wheels and brakes; 5) Telecommunication
+between the local check-points and control centers.
+
+
+**3.** **SENSORS AND MICROSYSTEMS**
+
+
+Each of the check-points (Fig. 1) has been
+individually equipped with sensors and microsystems,
+depending on its designed features. Basically every
+check-point needs to be featuring vehicle
+identification and telecommunication. But these two
+features alone could not deliver useful information
+about some of the parameters of the passing trains.
+This demands at least one more feature to be added,
+e.g. detection of wheel load, detection of wheel
+defects or detection of hot boxes, wheels and brakes.
+
+_**3.1. Vehicle identification microsystem**_
+
+The vehicle identification microsystem is crucial
+for the wayside monitoring system as all of the
+measured parameters of the passing train are linked to
+each vehicle of it. For that reason, such a microsystem
+should have the ability to work reliably at any
+environment conditions. The microsystem should also
+
+
+
+be able to accurately read the vehicle’s identification
+numbers, plates, signs, etc.
+
+During the decision making about what type of
+identification method should the microsystems is best
+to use, the research team had made several trials of
+different available systems for optical character
+recognition (OCR). The results were unsatisfactory
+for several reason. The major effect on the OCR was
+that the identification numbers, plates, signs, etc. of
+the vehicles are not kept in good condition. Most of
+the freight vehicles were covered with dirt, rust, etc.
+The speed of the passing train was also a problem for
+accurate OCR. Adding the weather conditions, such as
+raining, snowing, sun light, etc., that made the OCR
+method for vehicles identification inapplicable.
+
+Based on the results from the OCR trials, the
+research team has decided to use radio frequency
+devices to transmit data between each other as the
+train passes the check-point – a Rail-TAG and a RailREADER. The Rail-TAG represents an electronic
+
+
+device, mounted on the vehicle, which stores the
+vehicles identification data – Fig. 2 [1]. The
+specifications of the Rail-TAG transponder are listed
+in Table 1 [1].
+
+
+**Fig. 2.** Rail-TAG transponder, mounted on a wagon.
+
+
+**Fig. 3.** Rail-READER, mounted near the track.
+
+The Rail-READER – Fig. 3 [1] – is a wayside
+electronic device, which reads the data, transmitted by
+the Rail-TAG. The Rail-READER is the device,
+connected to the local check-point infrastructure. The
+specifications of the Rail-READER are listed in Table
+2 [1]. Fig. 4 [1] represents the information flow from
+the Rail-TAGs, through the Rail-READER and to the
+wayside infrastructure.
+
+
+**Fig. 4.** RFID information flow.
+
+
+
+**Table 1.** Rail-TAG transponder specifications.
+
+
+**Type** **RAIL-TAG**
+
+Size 130x28x20 mm (LxWxH)
+Weight 50 gr
+Mounting 5 mm screw of gluing
+Location According TSI, right+left
+Frequency 868 MHz (UHF)
+Energy supply Internal
+Lifetime    - 6 years
+Power consumption < 1 mW
+Reading distance Up to 50 m
+
+CE (EN300220-1); ETSI
+Certificates
+
+EN3001489-1
+Reading accuracy Better than 99.9%
+Applicable speeds Up to 230 km/h
+Temperature -30°C to +70°C
+
+
+**Table 2.** Rail-READER specifications.
+
+
+**Type** **RRDR-Gen2**
+
+Size 280x240x130 mm (LxWxH)
+Enclosure SEW95
+Weight Ca. 2000 gr
+Mounting Pole
+Position Beneath the monitored track
+Water resistance IP67
+Temperature -20°C to +50°C
+
+9-20V DC or 220V AC
+Energy supply
+
+Opt. Solar
+Power consumption < 20 W
+Sensors Temperature, Axle counter
+Serviced tracks Up to 2 tracks simultaneously
+
+LAN directly,
+Communication
+GSM(R)/UMTS
+Protocols available Text, XML
+
+3 seconds after the last axle
+Protocol ready
+
+has passed
+
+Web, FTP, TelNet
+Interface
+
+SMTP/POP
+
+
+
+Monitoring
+
+
+
+Remote control, SMSAlarms, OTA Firmware
+
+update
+
+
+_**3.2. Microsystem for wheel load measuring and**_
+_**identification of wheel defects**_
+
+The weight of each passing vehicle, the total
+weight of the train and the load distribution between
+the wheels of a vehicle are measured by means of
+specialized strain-gauge force sensors, developed by a
+research team of TU Sofia and University of
+Transport [2] (Fig. 6). Basically the force sensor
+represents a 1140mm long P49E1 rail section with
+milled surfaces (sensitive areas) on which a total of
+four strain-gauge rosettes are installed. The
+connection of the rosettes is shown on Fig. 5.
+
+
+**Fig. 5.** Full bridge connection of strain-gauge rosettes.
+
+As the output signal of the tensometric bridges is
+of very small amplitude, a differential instrumental
+amplifier was included [2].
+
+The sensor features two power modes – Low
+Power Mode (standby) and Normal Mode
+(measuring). The switching between the two modes is
+achieved by using rail contacts, installed on the track
+before and after the check-point measuring zone. The
+rail contacts also serve as axle counters.
+
+
+**Fig. 6.** Electronics of specialized strain-gauge force
+sensor.
+
+
+
+The electronics of the specialized force sensor is
+contained in a metal box, mounted on the rail section
+(Fig. 6).
+
+Specifications of the specialized force sensor are
+listed in Table 3.
+
+**Table 3.** Specialized force sensor specifications.
+
+
+Type Full bridge strain-gauge
+
+Strain-gauges 4 x XK11K-3/350 rosettes
+Bridge power supply 2V/10V DC
+
+Low Power Mode: <1mA
+Power consumption
+
+Normal Mode: 10mA
+
+
+In order to detect wheel defects, such as flat spots,
+out of roundness, polygonization, etc., accelerometer
+assemblies are used. The accelerometer assemblies
+(Fig. 7) are fixed to the side of the rail and detect peak
+amplitudes of the vertical acceleration, induced in the
+rail by the passing vehicles. The used accelerometers
+are typical 3-axis accelerometers and the vertical
+acceleration is measured in the Z-axis. The assemblies
+feature two power modes – Low Power Mode
+(standby) and Normal Mode (measuring). In Low
+Power Mode the power consumption is under 1mA,
+and in Normal Mode – 10mA. The switching between
+the two modes is also done by the rail contacts, which
+controls the power modes of the specialized force
+sensor.
+
+
+**Fig. 7.** Accelerometer assembly for detection of wheel
+defects.
+
+
+_**3.3. Detection of hot boxes, wheels and brakes**_
+
+The detection of hot boxes, wheels and brakes is
+achieved by using infrared technology [3]. The
+infrared sensors are commercial sensors manufactured
+by “voestalpine SIGNALING Siershahn” GmbH. In
+order to measure the temperature of the boxes, wheels
+and brakes, the microsystem relies on four infrared
+sensors, mounted on specialized sleeper on the track.
+Two for box temperature measuring (HBD) (Fig. 8)
+
+[3] and two for wheels and brakes temperature
+measuring (HWD).
+
+
+**Fig. 8.** Infrared sensor for detection of hot boxes.
+
+Specifications of the commercial infrared sensors
+are listed in Table 4 [3].
+
+**Table 4.** Infrared sensors specifications.
+
+
+**Type** **HBD** **HWD**
+
+Temperature range 0°C to 150°C 80°C to 650°C
+Auto calibration,
+
+Up to 150°C Up to 450°C
+integrated
+
+
+
+Line detector 8 elements
+Spectral range 3 – 5 µm
+Meas. frequency 250 Hz
+Train speed Up to 500 km/h
+Voltage 24V DC ±2V
+Power
+consumption 45W
+
+
+
+Standby: 15W; Measurement:
+
+
+
+consumption 45W
+
+Sensor heater Voltage: 48V AC; Power: 200W
+Ambient temp. -30°C to +50°C
+
+
+
+The activation and deactivation of the infrared
+sensors is controlled by the rail contacts, mounted
+before and after the check-point measuring zone.
+
+
+
+**4.** **INFRASTRUCTURE OF THE WAYSIDE**
+**MONITORING SYSTEM**
+
+
+As Fig. 9 shows, a typical wayside monitoring
+system comprises of on-track equipment and road side
+equipment. The on-track equipment, depending on the
+client request, may include several measurement
+microsystems. All of them provide data to the road
+side equipment, which comprises a computer system
+for data acquisition and data processing. The
+measurement results are then transferred to the
+information user through local networks or Internet by
+using the XML Protocol. The information provided by
+the wayside monitoring system is used by the railway
+operators, haulers, railway signaling system, etc. in
+order to track and evaluate the condition of the
+passing vehicles.
+
+As mentioned above, the initiation of the
+measuring process of all the microsystems is triggered
+by rail contacts. They represent simple strain-gauge
+force sensors, installed on the track before and after
+the check-point zone. Their signal is used by the roadside equipment for triggering the process for the ontrack equipment. The axle counting is crucial for
+identification and linking the measured data to the
+corresponding vehicle and its axles.
+
+After the last axle in the train has passed the rail
+contact, installed after the check-point zone, the data
+measuring process is stopped and the acquired data is
+processed by the road-side equipment. Depending on
+the train length, the processing time may vary, but no
+more than couple of minutes.
+
+After the processing has been completed, the roadside equipment sends the results, along with alarms,
+remarks, etc. to the information users by the local
+network (fiber-optics) or Internet (wirelessly through
+GSM-R technology). In order to minimize the amount
+of data to be transferred, the system uses the XML
+Protocol. Depending on the type of information
+needed by the corresponding user, the data from
+transferred XML file is used to build up service
+databases, protocols, summaries, etc. The alarms
+about identified critical irregularities in a passing train
+are sent with priority to the next train station and the
+signaling systems in order the train to be stopped and
+checked before continuing.
+
+In case of power interruption, the system is backed
+up by alternative power supply (UPS) for couple of
+hours before complete shutdown.
+
+
+ON TRACK EQUIPMENT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**5.** **RESULTS**
+
+
+
+**Fig. 9.** Basic block diagram of a Wayside Monitoring System for rolling stock in motion.
+
+
+**6.** **CONCLUSIONS**
+
+
+
+The following figures show some results obtained
+after trials of the individual measuring microsystems.
+Fig. 10 shows the acceleration induced in a rail by
+wheel with flat spot.
+
+
+**Acceleration,**
+
+2,5
+
+2,0
+
+1,5
+
+1,0
+
+0,5
+
+
+
+0,0
+
+-0,5
+
+-1,0
+
+-1,5
+
+-2,0
+
+-2,5
+
+
+
+|Col1|improves safety. By tracking the veh<br>controlling their weight and load distributi<br>time, great economic effect could be ac<br>better collection of transport fees and taxes.<br>7<br>ACKNOWLEDGEMENT<br>The paper is published with the supp|
+|---|---|
+|||
+|||
+|||
+|||
+|1<br>52<br>53<br>54<br>55<br>56<br>5|1<br>52<br>53<br>54<br>55<br>56<br>5|
+|||
+|||
+|||
+|||
+
+
+**Time, sec.**
+
+
+
+**Fig. 10.** Vertical acceleration of rail by wheel with flat spot.
+
+On Fig. 11 a hot wheel is shown after the system
+has sent an alarm about hot wheels/brakes.
+
+
+**Fig. 11.** Identified hot wheel and brakes.
+
+
+
+The presented results clearly show that the
+implementation of a wayside monitoring system in the
+railway network of Bulgaria could decrease the costs
+for maintenance of rolling stock and infrastructure.
+Preventing accidents by preliminary detection of
+
+
+_monitoring_ _systems_ _and_ _their_ _following_
+_implementation_ _in_ _the_ _Bulgarian_ _railway_
+_infrastructure”_ awarded to the authors by the
+Bulgarian National Railway Infrastructure Company.
+
+
+**REFERENCES**
+
+
+[1] Prosoft SUD Consulting GmbH, RAIL-READER
+RFID-AVI-System.
+
+[2] Nenov, N., Dimitrov, E., Piskulev, P., “Examination
+and Development of Specialized Force Sensor”, 38 [th]
+International Spring Seminar on Electronics
+Technology (ISSE), May 2015.
+
+[3] PHOENIX MB – Intelligent Rolling Stock Monitoring
+Hot Box and Hot Wheel Detection with Multi Beam
+Technology, voestalpine SIGNALING Siershahn
+GmbH
+
+

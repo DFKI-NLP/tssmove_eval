@@ -1,0 +1,1778 @@
+[High-speed Railway 1 (2023) 6–17](https://doi.org/10.1016/j.hspr.2022.12.001)
+
+
+[Contents lists available at ScienceDirect](http://www.sciencedirect.com/science/journal/29498678)
+## High-speed Railway
+
+
+[journal homepage: www.keaipublishing.com/en/journals/high-speed-railway](https://www.keaipublishing.com/en/journals/high-speed-railway)
+
+
+Review Article
+### Security of railway control systems: A survey, research issues and challenges
+
+Zujun Yu, Hongwei Wang [⁎], Feng Chen
+
+_Beijing Jiaotong University, Beijing 100044, China_
+
+
+
+
+
+A R T I C L E I N F O
+
+
+_Keywords:_
+High speed railway
+Railway control system
+Security
+
+
+**1. Introduction**
+
+
+
+A B S T R A C T
+
+
+With the rapid development of railway transportation, higher requirements for capacity are increasing and amount of
+communication, computer and control technologies are applied in train control systems which is the popular method
+for train control. The application of 3 C brings the enhancement of railway transportation performance. However, the
+number of internal and external cyber security threats is rising, which could lead to some railway accidents. On the
+other hand, safety is the core of the design process for railway but security is rarely considered due to the closure of
+traditional railway systems. As cyber security is threatening the normal operation of industrial control systems and the
+critical infrastructure, security issues of train control systems should be paid more attention as railway transportation
+play an important role for society and economy. However, due to the safety-critical characteristics, safety assessment
+and analysis works have been performed for a long time, but cyber security related works are rarely considered. In the
+paper, we demonstrate the security situation of train control systems based on the inherent features and the experience
+of other industrial control systems, where the technical defects and potential threats are summarized. According to the
+practical engineering experience, the current security protection strategies are illustrated, which shows the popular
+security protection methods are limited and cannot realize the defense-in-depth. Finally, some research challenges of
+security issues of train control systems are identified.
+
+
+
+At present, railway is developing rapidly in China, where the length of
+High Speed Railway (HSR) is more than 30,000 km and about two-third of
+the world’s high speed railways [1]. China also has made the considerable
+progress in urban rail transit, where there are 185 lines and the total op­
+eration length is more than 5700 km [2]. Ensuring the punctuality of trains
+traveling is the significant goal of railway, which can promote the sus­
+tainable development and bring the maintenance of social stabilization.
+However, emergency events can largely affect the operation of railways,
+such as equipment failures, heavy weather and geological disaster, which
+could cause trains delays and cancelation of a large area. As a matter of fact,
+human factors are generally becoming an important cause leading to the
+destruction of railway transportation organization, where the typical one is
+cyber security, just the same as the other industrial control systems [3,4]. In
+order to improve the operation continuity of railways and enhance the
+ability to defense the cyber attacks and recovery from the security events, it
+is significant to determine the security state of railways and propose some
+available solutions for the key train control systems of railways.
+
+The US government focused on the security of critical infrastructure
+systems in 1997, which divided the threats into several types: physical
+threats, cyber threats, the Internet threats and the information warfare [5].
+
+
+
+The National Infrastructure Protection Plan (NIPP) [6] has been started
+from 2006, which provides the unifying structure for the integration of
+critical infrastructure and key resources protection into a single national
+program. Therefore, the Department of Homeland Security developed a
+plan to describe a national unity of effort to achieve critical infrastructure
+security and resilience in 2013 [7]. The transportation system sector is one
+of the 16 critical infrastructure sectors, which are considered so vital to the
+United States that their incapacitation or destruction would have a debili­
+tating effect on security, national economic security, national public health
+or safety, or any combination thereof. As a result, the 2015 transportation
+systems sector- specific plan [8] is developed, which identifies the trans­
+portation system’s security and resilience priorities, and describes the ap­
+proach to manage critical infrastructure risks, where the railway system is
+included. Similarly, the European Union have also done much work to
+protect the information security of the critical infrastructure systems. As a
+successful cyber attack could cause casualties or result in the loss of vital
+infrastructure service, EU developed the European Programme for Critical
+Infrastructure Protection (EPCIP) in 2004 [9]. Authors of [10] proposed that
+an infrastructure may be de- composed into three layers: Physical, Cyber
+and Organization layer, where the different meanings of the Critical Infra­
+structure Protection (CIP) and the Critical Information Infrastructure
+Protection (CIIP) were demonstrated.
+
+
+
+⁎ Corresponding author.
+
+_E-mail address:_ [hwwang@bjtu.edu.cn (H. Wang).](mailto:hwwang@bjtu.edu.cn)
+
+
+
+[https://doi.org/10.1016/j.hspr.2022.12.001](https://doi.org/10.1016/j.hspr.2022.12.001)
+Received 2 November 2022; Received in revised form 5 December 2022; Accepted 15 December 2022
+Available online 20 December 2022
+2949-8678/© 2023 The Authors. Published by Elsevier B.V. on behalf of KeAi Communications Co. Ltd. This is an open access article under the CC BY-NC-ND license
+[(http://creativecommons.org/licenses/by-nc-nd/4.0/).](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+
+Wireless communications are widely applied for Chinese railway sys­
+tems, which can provide bi-directional, high capacity and continuous
+method for the information exchange between trains and control centers.
+For high speed railways, the Global System for Mobile Communications for
+Railway (GSM-R) is used while the Wireless Local Area Network (WLAN) is
+employed for the urban rail transit systems. Through the wireless commu­
+nications, the control command for the control center is real-timely trans­
+mitted to the trains and the information of train status is also realtimely
+reported to the control center, which can ensure the safe and efficient op­
+eration of rail vehicles [11]. With the requirements for train- ground com­
+munications being increasing, the LTE (Long-term Revolution) for metro/
+railway (LTE M/LTE R) is going to be adopted in railway systems [12],
+which can provide more se- curity mechanisms and larger capacity to afford
+multi-service. Due to the significant role of wireless communication, the
+train control system with wireless communications for railways is called
+Communication-based Train Control (CBTC).
+
+Generally, the traditional train control system without wire-less com­
+munications is considered to be closed which uses track circuits as the main
+communication method between trains and the control center for it is a
+physical private network. However, the CBTC systems are open with the
+application of wireless communications, which could bring the risks of se­
+curity [13]. In 2004, the signalling system of Australian Railcorp was in­
+fected by a Sasser worm, which prevented drivers from talking to signal
+boxes, and it caused almost 300000 commuters stranded. In 2012, trains of
+Shenzhen Subway line 2 and line 5 in China were forced to stop as trainground communications had been interfered by portable Wi-Fi devices in
+carriages, and the investigation proved that the interference was uninten­
+tional. According to the control principles of CBTC systems, when the in­
+terference exists which could cause the interruption of train-ground communications, if the interruption latency is larger than the preset threshold, the
+train has to trigger the emergency braking mechanism in order to keep safe.
+As a result, the interference will not cause safety related accidents including
+collisions and derailing, but the efficiency is badly affected especially during
+the rush hours1. In addition, through the events, vulnerabilities of CBTC
+systems are shown for the public.
+
+From the perspective of Industry Control Systems (ICS), with the de­
+velopment of information technologies, the ICS is becoming complicated
+with more and more subsystems joining through the wide application of
+standard protocols and operation systems. Therefore, the inherent vulner­
+abilities and risks of attacks are enhanced. In 2011, Stuxnet worm destroyed
+Iran’s nuclear facilities, which is a warning to the security of CBTC systems.
+As CBTC systems play an important role for public transportation, disastrous
+consequences could be lead to if any vulnerability is caught by some mal­
+icious users. Therefore, security issue of ICS have been attracted much at­
+tention of administration. The IEC 62443 standard [14] was identified as a
+starting point to integrate security in their domain specific safety standards
+
+[15]. However, there are not specific details about railway systems, which is
+much different from the other ICS. According to the IEC 62443 standard,
+the German standard DIN VDE V 0831–104 develops a security engineering
+process for secure railway signalling [16].
+
+There are some works considering the security issues of CBTC systems
+from the view of wireless communications. Considering CBTC systems are
+safety-critical, the authors of [17] realized that the application of the Com­
+mercial Off the Shelf (COTS) wireless equipment would bring risks of se­
+curity and some corresponding solutions were proposed which developed
+the Safety Layer (SL) for the existed protocol stack. Korean railway re­
+searchers added the security factors of railway systems into hazard cases and
+developed a tool to measure the safety and security of CBTC systems [18].
+
+J. Smith [19] proposed that the case of security could be treated as
+one type of safety issues for railway systems, where the safety is also
+treated as the context of the more general concept of dependability. In
+order to quantify the safety and security, [20] applied a network si­
+mulation tool to assess the performance of IEEE 802.11.
+
+To the best of our knowledge, the systematic analysis about the security
+issues for CBTC systems has not been well ad- dressed in previous works, as
+the characteristics of railway sig- nalling systems are not generally
+
+
+
+considered. With the detailed understanding of CBTC operation principles,
+the research on security should begin with finding the vulnerabilities and
+bugs of protocols, architectures and control mechanisms. Therefore, the
+available attack methods can be determined. Based on the security assess­
+ment technique, the damage of attacks on the discoverable vulnerabilities
+can be quantified, which could help to design and develop corresponding
+reasonable protection mechanisms. In this paper, we will discuss the new
+trends and characteristics of security in CBTC systems, and provide a
+comprehensive review of the potential vulnerabilities and bugs, possible
+attacking types, available protection mechanism and security assessment.
+
+In the following of this paper, we will elaborate on these aspects and
+discuss the related issues. In Section II, a typical CBTC system is illu­
+strated, where the security situation and some technical defects are
+summarized based on the inherent characteristics. The potential threats
+are shown in Section III, and in Section IV, the popular security pro­
+tection methods are demonstrated according to the engineering ex­
+perience. In Section V, we present some open research challenges in
+CBTC security issues, and finally, we conclude this study in Section VI.
+
+**2. Security of CBTC systems**
+
+
+In the section, the architecture of the typical CBTC system is in­
+troduced, and the characteristics of CBTC systems are summarized
+which are much different from the other ICS. Therefore, the security
+issue of CBTC systems are present.
+
+_2.1. A typical CBTC system_
+
+
+The aim of CBTC is to improve the efficiency of train operation through
+the application of wireless communications, and the level of system safety
+should also be enhanced. Fig. 1 describes a typical CBTC system, which
+consists of on-board subsystems, Data Communication Systems (DCS) and
+trackside subsystems. The trackside subsystems are connected through the
+wired (Ethernet) network, which provide the movement.
+
+The Movement Authority (MA) for on-board systems through the
+wireless network. Similarly, the information of trains including the current
+location and the speed is transmitted to the trackside subsystems which
+helps to calculate the MA. Although the same system architecture is ap­
+plied, the high speed railway systems are much more complicated than the
+urban rail transit systems and some distinctions are shown in Table 1. In
+the view of functions, the VOBC includes Automatic Train Operation
+(ATO) and Automatic Train Protection (ATP), but there is no ATO for high
+speed railways. For trackside subsystems, the RBC and the ZC almost plays
+the same role, which is to generate and transmit the MA information. One
+big difference is the main method of train-ground wireless communica­
+tions, where the high speed railway is using GSM-R and the urban rail
+transit is using WLAN or other COTS technologies.
+
+The railway line is usually divided into areas or regions. Each area is
+under the control of a ZC or RBC and has its own wireless transmission
+
+
+**Fig. 1.** A communication-based train control (CBTC) systems.
+
+
+
+7
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+**Table 1**
+Key devices of cbtc systems for high speed railways and urban rail transit systems.
+
+Subsystem High speed railways Urban rail transit systems
+
+
+On-board Subsystems Vital Computer (VC) Vehicle On-board Computer (VOBC)
+Trackside Subsystems Radio Block Center (RBC) Zone Controller (ZC)
+The wireless network GSM-R WLAN or Other COTS Technologies
+
+
+
+system. Each train transmits its identity (ID), position, direction and ve­
+locity to the ZC (RBC). The continuous wireless link between each train
+and the ZC (RBC) can ensure that the ZC (RBC) knows the status in­
+formation of all train in its area all the time. Each train computes a
+braking curve with the MA which is generated based on the location of
+the train (or some obstacles) in front of it. Therefore, the current train can
+stop before it reaches the front train in order to keep safe. Theoretically,
+as long as each train is traveling at the same speed and have the same
+braking capability, they can travel as close as a few meters between them.
+However, the unreliable wireless communications can lead to commu­
+nication interruptions and long latency in the view of performance which
+is the current key research of the train-ground communications [21]. Due
+to the characteristics of wireless communications, the security issues
+should be one more important point, which could result in safety-related
+accidents. Besides the security vulnerabilities of wireless communications,
+there are more and more potential vulnerabilities from the application
+software, the operation systems, the hardware platforms with the wide
+application of COTS IT technologies.
+
+
+_2.2. The security situation of CBTC systems_
+
+
+Compared with the traditional industrial control systems, the
+characteristics of CBTC systems could be summarized as follows:
+
+ - [The application of wireless communications brings a more efficient ]
+CBTC system. However, it is possible for malicious attackers to il­
+legal access the control network, which could bring unpredictable
+effects that are hard to be assessed.
+
+ - [The railway networks are deployed at the wide area across the ]
+country which means it offers high opportunities for attackers, and
+the probabilities of security attacks on CBTC systems are high,
+especially with the application of open wireless communications.
+
+ - [The COTS technology is widely used in CBTC systems, which is not ]
+originally designed for railways. As a result, the security issues are
+not considered.
+
+ - [The transmission protocols are not verified through security as­]
+
+sessment, which means some potential vulnerabilities could be used
+by malicious attackers, and it can result in catastrophic accidents.
+
+
+As mentioned above, CBTC systems rely on the wireless commu­
+nications between trains and the ground control center [22]. Specifi­
+cally, it shows different features when the CBTC technologies are used
+respectively in high-speed railways and urban rail transit systems. The
+high-speed railway systems apply GSM-R as the primary method of
+train-ground commu- nications while the WLANs are adopted in urban
+rail transit systems. According to the analysis on GSM-R [23], there is
+no end to end encryption in GSM-R protocols, which means the wireless
+link between Mobile Stations (MS) and Base Stations (BS) is encrypted
+while the information between BS and BS is transmitted in clear texts.
+What’s more, the GSM- R uses one-way authentication, which means
+the network (BS) needs to authenticate the MS when it tries to access
+but there is no the same authentication process when the BS tries to
+communication with the MS. As a result, some active attacks can effi­
+ciently steal information transmitted in the GSM-R network in the form
+of false BS and make the network collapse.
+
+As WLANs work at the public frequency band, the urban rail transit
+systems face the same security risks compared with high-speed railway
+
+
+
+systems. Firstly, the interference is unavoidable, which has attracted
+the attention of subway operators and some research has been done
+
+[24–26]. Secondly, as the 802.11 protocols are not originally designed
+for railways, it shows some problems when WLANs are applied as the
+main method of train-ground communications, such as the handoff
+mechanisms [21]. Above all, the working frequency of WLANs is high
+and the coverage of one AP is small, which is 300500 m. As a result, the
+handoff happens frequently when the train travels with the high speed,
+and it provides more opportunities for attackers to access the network
+with the deficiency of WLAN handoff mechanisms. In fact, there are
+various WLAN products of different manufactures in urban rail transit
+systems, including Cisco, Simens, H3C and so on. Because of the im­
+perfection of 802.11 protocols, there is big difference between different
+products and it brings much more security issues for CBTC systems.
+
+However, as the CBTC systems could also be considered as a typical
+cyber physical system [27], the CBTC system could be divided into two
+parts: cyber space and physical space. According to the ANSI/ISA 99
+standards, a reference model for ICS systems is proposed, and we build
+the same one based on the architecture of CBTC systems as shown in
+Fig. 2. For CBTC systems, the Centralized Traffic Control (CTC) of highspeed railway systems and the Automatic Train Supervision (ATS) of
+urban transit rail systems belong to the level 3 which is the operations
+management; the track circuit for high speed railway systems, axle
+counters of urban transit rail systems and Balise belong to the level 2
+which is the supervisory control; The Vital Computer (VC) and Radio
+Block Center (RBC) for high speed railway systems and Vehicle on
+Board Computer (VOBC) and Zone Controller (ZC) for urban transit rail
+systems belong to the level 1 which is the basic or local control. Level 1,
+2 and 3 belong to the cyber space. The level 0 which is the actual
+physical process belongs to the physical space that is the train in CBTC
+systems. From the reference model, the biggest difference between IT
+
+
+**Fig. 2.** The model of CBTC systems based on ISA-99 standards.
+
+
+
+8
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+
+security and ICS security is that ICS could control the physical entity
+and the malicious attacks could cause the physical entity destroyed
+which could lead to casualty and property losses.
+
+As shown in Fig. 2, the train is always running which means the
+requirements for CBTC train-ground communications are high. In the
+view of security, the train-ground communications should be resilient
+when some accidents happen. As a result, in CBTC systems, there are
+some backup designs for train- ground wireless communication. For
+urban rail transit systems, there are two radio channels allocated for
+control command transmission which is dual-net redundant. In addi­
+tion, if both of channels are blocked, the train-ground communications
+are realized through the axel counters and Balise. However, though the
+train is still running, the speed is smaller and the headway is larger
+which could decrease the efficiency and capacity of the overall subway
+line. For high-speed railway systems, the same mechanism is applied.
+When the wireless communication is interrupted, the track circuit and
+Balise are used to transmit the control command and the cost is the
+reduction of running speed from 350 km/h or 300 km/h to 250 km/h.
+
+Therefore, the traditional design of CBTC systems includes some
+safety mechanism which can increase the system resilience. However,
+the security related design is relatively infrequent, such as the appli­
+cation of the Railway Signal Safety Protocol (RSSP) which is based on
+the EN50159 standards [28,29]. However, the existed security protec­
+tion mechanisms are designed for the single packet or network node.
+Therefore, the coordinated attack possibly affect the confidentiality or
+integrity, which has hacked the Ukrainian power grid. In order to
+eliminate the security threats and develop efficient defense strategies,
+we need to find the vulnerabilities of CBTC systems based on the exited
+mechanisms.
+
+
+_2.3. Technical defects_
+
+
+In the section, we analyze the characteristics of train ground com­
+munications and the critical devices, and the corresponding technical
+defects are summarized. Based on the fail-safe mechanisms, some se­
+curity strategies are applied which is designed for safety. However, due
+to being lack of systematic and pertinent security solutions, the CBTC
+systems are facing rigorous security risks.
+
+_Train Ground Communication Systems:_ In CBTC systems, the in­
+formation transmission process could be treated as a triangle as shown
+in Fig. 3, where the communication process is periodic. For each
+communication cycle, every train should report its status including the
+velocity and the location to the RBC/ZC, and the RBC/ZC will generate
+a Movement Authority (MA) to every train, which could tell the train
+where the nearest train or the obstacle (e.g. stations) and the train will
+compute a recommended speed curve in order to guarantee the train
+stop before the end of the nearest train or the obstacle. During the
+transmission process, the train adopts the train-ground wireless com­
+munications to transmit its status to the base station or receive the MA
+
+
+
+from the base station. Meanwhile, the transmission between the base
+station and RBC/ZC is through wire communication. Obviously, the
+wireless communication is easy to be affected as it works at the open
+space. As a matter of facts, the operation environment of train-ground
+communications is complicated, e.g. free space [30,31], leaky wave­
+guide [32,33] and leaky coaxial cable [34] for urban rail transit sys­
+tems, free space, leaky coaxial cable for high speed railway. On the
+other hand, the railway lines is distributed in a large area, e.g. the
+length of Beijing- Guangzhou high speed railway is 2294 km, which
+offers more opportunities for malicious attacks to perform the intrusion
+of the train-ground wireless communication systems.
+
+As mentioned above, there are some redundant mechanisms such as
+the dual-redundant network, where there is overlapping coverage be­
+tween adjacent base stations and there are two working channels and
+equipment for urban rail transit systems. However, the redundant me­
+chanism only avoids the faults of equipment, but it cannot dealt the
+security issues. As a result, the RSSP has been applied as the data
+transmission protocol for train-ground communications in high-speed
+railway systems as shown in Fig. 4, which can deal with the risks of
+repetition, deletion, insertion, re-sequencing, corruption, delay and
+masquerade. As the RSSP protocols are public, it is possible that the
+malicious attackers completely understand the transmission principles
+and set up a false base station to send a bad command which could
+cause accidents. Especially, the WLAN equipment works at the public
+frequency and a rogue AP can be easily built [35,36] which could send
+some false information to the MS on the train in urban rail transit
+systems. Similarly, the rogue base station is also the problem [13] for
+high speed railway systems as the unidirectional authentication [37] is
+applied in GSM-R base train-ground communications.
+
+Based on the fail-safe principles of railway signalling systems, when
+the communication systems are affected so badly that the control com­
+mand cannot be received by the train, the emergency braking happens.
+As a result, the operation efficiency is reduced. Trains are running along
+the tracks, so the train has to brake or stop when the front train stops due
+to some failures. Furthermore, for one railway line, as there are lots of
+trains running at the same time, the emergency braking of one train will
+cause the change of running trajectories of the back trains. Fig. 5 illus­
+trates a timetable of a simulation railway line where there are 16 running
+trains and 14 stations. Train 1 and Train 2 are running according to the
+predefined timetable. However, some failures lead to the emergency
+braking of the train 3. According to the engineering practical experience,
+if the failures can be repaired, the train will be restarted from the
+emergency braking and it costs about 10 s except the repairing time. In
+the simulation, we consider the repairing time as 0 which means train 3
+takes 10 s to restart from the emergency braking. From Fig. 6, train 3
+stays at the station 12 about 10 s, which forces the back trains changing
+the predefined running profile of back trains which should have been the
+same as that of train Obviously, train 4 has to brake to stop due to the
+emergency braking of train 3.
+
+
+
+**Fig. 3.** The information transmission process of CBTC systems.
+
+
+9
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+**Fig. 6.** The running profiles of Train 2, 3 and 4.
+
+
+**Fig. 4.** The application of RSSP.
+
+
+
+**Fig. 5.** The effects of Train No. 3 Emergency Braking.
+
+
+The simulation results show the effects of emergency braking of one
+train on the back trains, which focuses on the operation efficiency.
+However, if the exchange information between trains and the control
+center, e.g. MA, some disasters may happen, such as the collisions. Due
+to the characteristics of wireless communications, the risks of security
+attacks should be considered [38,39].
+
+
+_2.4. Critical devices_
+
+
+The railway signalling system is a integration of computer tech­
+nology, control technology and communication technology. Computers
+play a key role and the critical computer devices are divided into two
+types: dedicated devices and commercial devices. In order to achieve the
+demanded performance of signalling systems including reliability,
+availability, maintainability and safety, some faulttolerant designs are
+applied in CBTC systems [40–42], such as the ’Dual-Computer HotStandby’ architecture, the ’Two Out of Three’ architecture and the
+’Double Two Out of Two’ architecture, shown in Fig. 7. Therefore, the
+railway signalling system can be protected from most risks of harms. In
+fact, the application of fault-tolerant can bring potential helps for the
+security risks, as it provides the crossvalidation and mutual-discipline
+mechanisms which enhance the attacking difficulties for malicious
+
+
+
+**Fig. 7.** (a) the Dual-Computer Hot-Standby architecture, (b) the Two Out of
+Three architecture, (c) the Double Two Out of Two architecture.
+
+
+attackers, although the fault-tolerance traces its origins to the concept of
+reliability [43]. The wide application of computers brings the increase of
+software and operation systems. In order to develop safe software ar­
+chitecture techniques, the European standard EN 50129 “Railway ap­
+plications-Software for railway control and protection systems” [44] is
+proposed which specifies procedures and technical requirements for the
+development of programmable electronic systems which are used in
+railway control and protection application. However, the security issues
+are not completely considered during the development procedure of
+software besides the information exchange process, as the current
+railway signalling systems pay more attentions on the function safety.
+
+On the other hand, the railway signalling systems apply the com­
+mercial Operating Systems (OS) including Linux and Window, which
+are known to have vulnerabilities as the authentication access control,
+fine-grained file system protection, or memory isolation mechanisms
+cannot be provided [45]. For some specific applications, the VxWorks is
+applied where timing constraints are important such as ATP and ZC
+
+[46,47]. The operating systems may not tolerate typical information
+technology security practices as it is difficult to upgrade in an opera­
+tional control system network [48].
+
+
+
+10
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+**Table 2**
+Impacts and difculties of potential attacks.
+
+Attack Type Impact Difficulties of implementation
+
+
+Passive Attack Eavesdropping Attack Confidentiality Easy
+Traffic analysis attacks Confidentiality Relatively hard (The network of CBTC systems is closed)
+Active Attack DoS Availability Easy
+DDoS Availability Hard (There are not enough resource of CBTC systems to perform DDoS Attacks)
+Tampering attacks Integrity Hard (The safety protocol is hard to be duplicated)
+Masquerade attack Integrity Hard (The safety protocol is hard to be duplicated and the cross validation is hard to be bypassed)
+Replay Attack Availability Relatively hard (The time stamp is needed to be validated)
+
+
+
+**3. Types of attacks**
+
+
+In the section, we discuss a variety of attacks on the CBTC systems
+and their attributes. The Information Assurance Technical Framework
+Forum (IATFF) has defined five general classer of information assurance
+attacks including passive, active, close-in, insider and distribution [38].
+As CBTC systems adopt wireless communications as the main method of
+train-ground communications and are distributed in a large area, there
+are lots of opportunities for malicious attackers to perform their attacks.
+Technically, we divide all attacks into two types: passive and active.
+Firstly, we summarize the attacks in terms of their impacts on CBTC
+systems and the difficulties of implementation as show in Table 2.
+
+
+_3.1. Passive attacks_
+
+
+We consider two typical kinds of passive attacks: eavesdropping
+attacks and traffic analysis attacks.
+
+Eavesdropping attacks: Generally, the train-ground wireless com­
+munications are encrypted, but the data transmission of wire commu­
+nications is in plaintext. As a result, the malicious attackers can
+eavesdrop the control information and the status information of trains.
+The data mining could be used to decrypt the data, which can obtain
+the important railway line data and the data formats. For example, the
+Qinghai-Tibet line plays an important strategic role for the Southwest of
+China, which means the line data is related to the national security, and
+the eavesdropping attack can bring the reduction of confidentiality of
+CBTC systems. In the other hand, when the data formats are obtained
+by the attackers, it is easy to perform the active attacks, which could
+send some false control commands and the safety and efficiency of train
+operation could be affected. Therefore, eavesdropping attacks could be
+the preparation for active attacks.
+
+Traffic analysis attacks: As CBTC is a complex system, the volume of
+the transmitted information among sub- systems is huge. The traffic
+analysis attacks can get the characteristics of data transmission of dif­
+ferent nodes, and the behavioral features can be obtained through data
+mining. It helps the malicious attackers to analyze the vulnerabilities of
+systems or networks. As a result, the weakest node can be selected as
+the attacking target, which can minimize the cost of attackers and in­
+crease the probability of the successful attack.
+
+Therefore, passive attacks can affect the confidentiality of CBTC
+systems, where national security data is embedded. In addition, passive
+attacks can obtain the rules of systems through artificial intelligence
+when amounts of data is captured, which could be treated as the pre­
+lude of the active attacks. As passive attacks are hardly to be detected
+and are easy to be performed, there are difficulties to efficiently defense
+passive attacks.
+
+
+_3.2. Active attacks_
+
+
+Different from the passive attacks, active attacks can directly act on
+the communication link, the computer or the node, which may cause the
+interruption of the communication link, the latency of information
+transmission, and the corruption or masquerade of the transmitted
+packets. The availability, integrity and confidentiality of CBTC systems
+
+
+
+could be affected. Generally, the current typical kinds of active attacks are
+derived from IT systems, and there are five steps to perform active attacks
+
+[49,50], where the second step is to perform passive attacks to determine
+the attacking target. Now, we will discuss various active attacks in in­
+formation security system and their properties. Active attacks usually
+include Denial of Service (DoS) attack, Distributed Denial of Service
+(DDoS) attack, tampering attack, camouflage, replay attack and so on.
+
+ - [Denial of Service (DoS) attacks can stop the proper function of the ]
+cyber physical system in order to disable the entire ICS. The com­
+munication links are often selected as the attacking target, and some
+software running on ICS nodes can be disabled by the DoS attack on
+the cyber space. As a result, the control process, data logging and
+communications could be affected [51]. A typical DoS attack can
+bring some important subsystems offline and could trigger the target
+ICS shutdown. Due to the application of fault-safe principles, when
+the DoS attacks are acted on the CBTC system, e.g. the wireless
+train-ground communications, if the interruption time is larger than
+the predefined value, the emergency braking decision will be per­
+formed immediately for urban rail transit systems while the CTCS-3
+mode switches to CTCS-2 and the running speed is lowered for high
+speed railway systems. If the DoS attack is performed by the em­
+ployee of railway operators, some critical devices could be affected,
+such as the Centralized Traffic Control (CTC) and Temporary Speed
+Restriction Server (TSRS). If the congestion is caused by DoS, the
+TSPS cannot send the temporary speed to the RBC on time, some
+accidents could be caused. In fact, DoS attack cannot be efficiently
+solved and it is the preferred technique for attackers. [52] which
+was of enormous significance in the Ukraine power outage events.
+
+ - [Distributed Denial of Service (DDoS) is defined as a ”variant of the ]
+denial-of-service attack that uses a coordinated attack from a dis­
+tributed system of computers rather than from a signal source. It
+often makes use of worms to spread to multiple computers that can
+then attack the target” by the U.S. GAO (2005b) [53]. DDoS attacks
+are the bugbear of Internet in 2011, but require dozens to millions of
+infected devices under coordinated control. DDoS attacks are less of
+a direct threat to ICS compared with DoS attacks unless nodes of the
+ICS use the open Internet for command and control [54]. The main
+objective of DDoS attacks is to destroy the service of system through
+consuming network bandwidth by sending huge amounts of traffic
+or the victim’s memory and computational resources by exploiting
+an inherent protocol or implementation vulnerability [55].
+
+ - [Tampering attacks mean that the legal data is modified, delayed or ]
+reordered by some unauthorized actions. As CBTC is a data-driven
+system, the line data, the running state of trains, the timetable are
+all needed to keep the continuity of operation and the integrity of
+data is critical important. Although the RSSP is applied in railway
+systems, a successful tempering attack is possible, and the RSSP
+specification is public and easy to be understood by the malicious
+attackers. On the other hand, the application of wireless commu­
+nication increases the probability of the success of data tempering.
+As mentioned in [56], there are two kinds of tampering attacks:
+environment tamper and physical tampering. The adversary can
+tamper with the sensor deployment area or compromise the sensor
+
+
+
+11
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+
+nodes and obtain the data and other keying material.
+
+ - [A masquerade attack uses a fake identity to gain unauthorized ac­]
+
+cess to the control computer information through legitimate access
+identification [57]. Masquerade attacks are extremely serious,
+especially in the case of an insider who can cause considerable da­
+mage to an ICS, which means masquerade attacks can be very
+dangerous because adversaries can launch other attacks and can still
+hide and project themselves as legitimate nodes [58]. As the CBTC
+systems uses amount of COTS technologies, e.g. TCP/IP, Ethernet,
+Commercial Operation Systems, the risks of masquerade attacks are
+more obvious, especially the application of WLANs [59] for urban
+rail transit systems.
+
+ - [A replay attack means a malicious user can store the intercepted ]
+legitimate data frames and then constantly plays back the captured
+data to the destination port [60]. Replay attacks do not require a
+good understanding of the communications protocol, which means a
+captured command can be replayed even if it is encrypted. The
+purpose of the replay attacks is to perform a legitimate function in
+abnormal conditions or at an inappropriate time, which could cause
+bad consequences in CBTC systems [61].
+
+
+Although there are few cyber security related mechanisms in the de­
+signs of CBTC system, the fault-safe designs can restrict the propagation of
+cyber security risks. The crossing validation of the critical data will mi­
+tigate the probabilities of successful tampering attacks and masquerade
+attacks. However, in order to guard the safety of train operation, the at­
+tacks leading to the modification and delay of data might force the train
+stop which can bring the reduction of operation efficiency. As a result, a
+single form of attack may not violate the safety principles of CBTC sys­
+tems and accidents could not be caused. However, with the development
+of computer technology and communication technology, the coordinate
+attacks could be developed to disrupt the specific system, which have
+been applied at the Iran Nuclear Power plant and the Ukraine power
+outage events. Therefore, detecting the attacks and responding quickly
+are very important for CBTC systems facing the cyber security risks, and
+the continuity of service could be guarded.
+
+
+**4. Security protection strategies**
+
+
+Communications provide the data transmission channels for CBTC
+systems, which is implemented using straightforward principles such as
+COTS products, open standards, standalone network operation, and
+compliance to relevant network security and communication standards
+
+[62]. As a result, some vulnerabilities of CBTC systems are brought and
+some security protection strategies have been applied. However, as
+there is no deep understanding of CBTC security principles, the popular
+security solutions are generally acted on the transmission systems,
+which means the security protection is limited. In the section, we will
+discuss a few popular engineering security protection strategies, which
+are shown as Table 3.
+
+
+_4.1. Secure communications_
+
+
+As mentioned in [63], the technical threats to security of wireless
+train-ground communications are summarized, wave interference at the
+
+
+**Table 3**
+The popular engineering security protection strategies.
+
+
+
+physical layer, jamming at the physical layer or the network layer,
+sniffing at the network layer, deletion and insertion at the MAC layer or
+network layer, forgery at the MAC layer or network layer, etc. Jamming
+and interference are easily to be performed, as a result, Wyner [64]
+proposed a securing communication method to make the eavesdropper’s channel is worse than the legitimate receiver’s channel. Therefore,
+authors of [65] developed a physical layer secure wireless commu­
+nications scheme under beamforming with artificial noise for high
+speed railway systems, where adding artificial noise to the information
+stream does not degrade the intended receiver’s channel, but generates
+interference at the eavesdropper’s channel.
+
+In order to avoid spoofing which can realize false command injec­
+tion, the encryption technology should be applied. However, the
+wireless communications across the Advanced Train Control Systems
+(ATCS) links are not encrypted and not signed, which shows amounts of
+security risks [13]. The transportation engineering company ARINC
+gave preliminary recommendations to add encryption to the ATCS Spec
+200 on April, 2001 by using a symmetric key encryption system based
+on the Tiny Encryption Algorithm (TEA) with a 128- bit key. Later, they
+suggested using Data Encryption Standard (DES) instead of TEA and
+proposed Project 25, which is a standard for wireless communication
+systems operating at OSI layer 2. Paul et al. [66] introduced a secure
+ATCS (SATCS) to overcome the existing drawback of ARINC’s ATCS
+encryption protocol. SATCS operates at OSI layer 2 and uses 128-bit
+Advanced Encryption Standard (AES). This protocol allows encrypting
+more of the packet, including message type and a wider range of data.
+Other protocols could be used as well. TCP/IP over 802.11 or CDMA
+would reduce engineering expenses, as this protocol is well-known.
+There are many ways of encrypting TCP/IP communications. The
+above-mentioned method would prevent attackers from obtaining de­
+tailed train movement information and sending commands that would
+made an unsafe state of train transportation. As the security mechanism
+provide by the original 802.11 standard through the Wired Equivalent
+Privacy (WEP) encryption algorithm proved relatively easy to crack, the
+802.11 is developed to add stronger encryption, authentication and key
+management methods to guarantee data and system security [67]. Due
+to the characteristics of wireless communications, handoff procedure is
+the bottlenet of the performance of train-ground communications. In
+addition, it is also the key part of securing communications. For WLANbased CBTC train-ground communications, the Extensible Authentica­
+tion Protocol over LANs (EAPOL) mechanism is applied to enhance the
+reliability of handoffs, which is comprised of four-way and the group
+key handshakes (IEEE std 802.1X. 2004).
+
+
+_4.2. Firewall_
+
+
+The information technology is widely applied in railway systems in
+order to improve the operation efficiency, where there is a large net­
+work covering the whole railway lines and stations such as the Train
+Operation Dispatching Command System/Centralized Traffic Control
+System (TDCS/CTC) of the high speed railway systems and the ATS for
+urban rail transit systems. TDCS/CTC adopts amount of traditional IT
+products including general-purpose computers, protocols and operation
+systems. Therefore, the TDCS/CTC or ATS network cannot absolutely
+isolate from the outside world. For mitigating the security risks, the
+
+
+
+Security protection strategies Effects Location
+
+
+Securing Communications The physical layer securing channel Generate interference at the eavesdropper’s channel wireless communication
+Encryption Improve the integrity and confidentiality of communication wireless communication
+Authentication Protocol Enhance the reliability of handoffs wireless communication
+Safety Protocol (RSSP) Increase the safety of information exchange Communication
+Firewall Mitigate the security risks from the outside of CBTC systems TDCS/CTC/ATS
+Intrusion Detection/Prevention Monitor the security risks Communication
+
+
+12
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+
+firewall is generally used to secure network access control and prevent
+the intrusion into the internal network. As mentioned in [68], there are
+several commercial and open-source firewalls can be successfully used
+in the industrial control systems. Firewalls in ICS can provide condition
+monitoring and analysis functions, support some general control pro­
+tocols and satisfy high real-time requirements. As a matter of facts, the
+application of firewalls in CBTC systems is the same as that of tradi­
+tional IT systems, which means the firewall can only protect the
+transmission and communication subsystems. Generally, with the
+complete configuration, the firewalls can realize packet filtering, net­
+work intrusion detection, address translation, web filtering, worms
+protection and DOS/DDOS protection. The network intrusion detection
+of firewalls are oriented from the traditional IT system, which can bring
+real-time detection alarms and network scanning prevention. The
+worms protection can block the virus and fake packets from the worms.
+Therefore, the application of firewalls can keep the normal operation of
+ICS networks.
+
+
+_4.3. Intrusion detection/prevention_
+
+
+Some intrusion detection/prevention methods are developed as
+complementary to firewalls to monitor the security risks, e.g. the Deep
+Packet Inspection (DPI) technology [69]. However, the general intru­
+sion detection methods are designed for transmission or communication
+networks. As there are many ICT COTS devices and technology applied
+in CBTC systems, the general intrusion detection method are adopted in
+the transmission channel to prevent some typical IT attacks.
+
+[70,71], which is the same as the strategy of electricity Grid at the
+early stage of the cyber security research. In the recent ten years,
+electricity grid has been attacked many times and some accidents
+caused serious consequences such as the SQL Slammer worm attack on
+the nuclear plant in January 2003 [72]. According to [73], the existing
+studies on the security of the smart grid are categorized into three ca­
+tegories: dealing with the wired/wireless network security among cyber
+components, investigating the early detection of anomalies in the smart
+grid system and applying the control theories in the security process
+using various state estimation and detection techniques. The security
+strategy can learn the experience from Smart Grid. Generally, the in­
+trusion detection methods belong to the first category of the smart grid
+research.
+
+
+**5. Challenges of CBTC cyber security**
+
+
+The cyber security of CBTC systems has caused broad attention from
+the government, colleges and equipment firms. Due to the special fea­
+tures of CBTC systems, there are some challenges considering the se­
+curity issues.
+
+
+_5.1. The relationship between safety and security_
+
+
+CBTC systems are safety-critical, which has the high requirements
+for Reliability, Availability, Maintainability and Safety (RAMS). As the
+goal of CBTC systems is to carry passengers to their destinations, the
+priority of safety is higher than other attributes. Therefore, the fail-safe
+designs are broadly applied in CBTC systems. When some events af­
+fecting the normal operation of trains with minor probability, the train
+has to stop in order to keep safe and the operation service is terminated
+immediately. However, ‘Safety’ often considers the normal failure of
+devices, equipment or subsystems, which can be described by prob­
+abilities or other stochastic processes.
+
+‘Security’ considers the human factors which means there are some
+malicious attacks affecting the system in order to achieve their political,
+economic or other goals. When the train stops, they succeed, as the
+operation service of the whole lines could be suspended which cause
+the reduction of trusts on the railway system and the waste of railway
+capacity. As a result, determining the relationship between safety and
+
+
+
+security is the core to keep the operation service continuity of CBTC
+systems because security may not affect the safety but the efficiency.
+For example, the DoS attacks on train- ground communications cannot
+cause the safety issues, but the emergency braking of the train happens
+due to the fail- safe designs when the interruption time of commu­
+nications is beyond the threshold. Nevertheless, if the attack is quickly
+detected and the system can determine the attack cannot affect safety,
+the emergency braking is not necessary and the train can switch into
+backup mode which does not use the wireless communication. As a
+result, the operation service continues which will not bring passengers
+to be exhausted and the train orderliness can be guarded. More im­
+portantly, the attacks cannot achieve their goals which means the
+prevention is effective. Therefore, analyzing the relationship between
+safety and security is the pre-condition to do the other security mon­
+itoring and prevention works.
+
+Generally, safety and security share many similarities and the main
+difference between safety and security is origin of risk [74]. System
+failures are often considered by safety analysis while the threats are
+involved by security analysis where the threats are basically involved
+with human factors. The security issues are not originally considered in
+CBTC systems and the corresponding security analysis is not performed
+by railway employees and operators. However, the safety analysis of
+CBTC systems is always a point of CBTC due to its safety-critical
+properties, and there are many valuable works which can help us to
+determine the hazards and safety risks propagation principles of CBTC
+systems. As there are being lack of valuable security research results of
+CBTC systems, the research on CBTC security issues should learn from
+the successful experience of CBTC safety issues based on the simila­
+rities. There are four categories of methods: the event chain based
+method, the failure logic based method, the state- based method and
+the system theory method. The event chain based method is easy to be
+performed and still a popular approach for safety analysis. The basis of
+event chain based method is the linear causality to determine its con­
+stitution of the chain and the typical tools include Fault Tree (FT)
+
+[75,76] and Failure Mode and Effects Analysis (FMEA) [77–79]. The
+failure logic based method is to deal with the high complexity and large
+scale computer systems, which uses the layering failure logic modules
+to model the large scale system, and the typical tools include Hier­
+archically Performed Hazard and Origin and Propagation Studies (HiPHOPS) [80,81] and Failure Propagation and Transformation Notation
+(FPTN) [82,83]. The state based method applies the set theory and logic
+symbols to describe the system state, where the formal verification is
+also used to test the system model. As the formal model illustrates the
+state evolution process with or without system failures, it is an efficient
+method to perform automated safety assessment and the popular tools
+include NuSMV [84,85] and UPPAAL [86]. A typical system theory
+method is Systems-Theoretic Accident Model and Process (STAMP) [87]
+proposed by Nancy Leveson, which treats the whole system as a hier­
+archical architecture. Based on STAMP, the Causal Analysis based on
+STAMP (CAST) [88] and the System-Theoretic Process Analysis (STPA)
+
+[89] are derived and applied in many safety-critical systems including
+aerospace, transportation, chemistry and medicine. Based on the
+methods above, the safety analysis researches on CBTC systems are
+performed. The fault tree is adopted to build a safety risk model for
+railway systems, which provides an understanding of the nature and
+distribution of the current risk on signalling systems [90]. Niu [91] uses
+FPTN to perform the automatic safety analysis of computer-based
+railway signalling system, which describes the failure propagation of
+the CBTC system used in Beijing Subway Yizhuang Line. NuSMV is
+chosen to check the bounded model of safety rules for a subway control
+software and it is present as a feasible tool for model checking [92].
+Nowadays, STAMP is widely applied in safety analysis of railway sig­
+nalling systems. The China-Jiaoji railway accident is taken as an ex­
+ample to be analyzed using STAMP, which is more effective to under­
+stand the accident reason than the other methods [93]. In addition, the
+same work has been done about the China-Yongwen accident [94].
+
+
+
+13
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+
+All the work mentioned above focuses on the effects of equipment
+failures on the railway safety. As the human factor is the main differ­
+ence between safety and security, it is hard to model the human factor
+including the motivation, attack cost, probability of success of a given
+attack and the likelihood that an attacker will try a given attack. Due to
+the importance of security for railway systems, the comprehensive as­
+sessment of security with safety is necessary, which is also an effective
+method to determine the relationship between safety and security.
+There are some hybrid approaches proposed to perform the combina­
+tion of safety and security analysis [95] using component fault trees and
+attack trees, where both the qualitative and quantitative analysis have
+been done. The same method is also proposed for the European Railway
+Traffic Management System (ERTMS) [96], where the authentication
+protocol of the Eurobalise subsystem is taken as the research object and
+the security hazards from attackers are converted as the hazards of
+Security Module. However, the cases of [95] and [96] do not consider
+the whole system but focus on the subsystem or equipment, which
+means there are difficulties to describe the effects of security on the
+safety from the view of the system. As a result, the systems- theoretic
+approach e.g. STPA is more effective to assess the safety and security
+
+[97,98], which can describe the goal of security efforts on controlling
+system vulnerabilities. As the system is modeled as a hierarchical
+structure with constraints on the component behavior from the higher
+level at the lower level in system theory, the detailed control me­
+chanisms and operation principle can be included. Therefore, the re­
+lationship between safety and security can be built, which is still a
+complicated work. However, there are not valuable works on the
+comprehensive assessment of safety and security for CBTC systems. As
+the systems-theoretic approach can deal with the state space explosion
+which is the limitation of the event chain method, it could be an ap­
+propriate way to model the relationship between safety and security
+which can efficiently perform the comprehensive assessment of safety
+and security.
+
+
+_5.2. Resilience as the assessment indicator_
+
+
+As there are not enough research about the cyber security of CBTC
+systems, it is a question to measure the security level. In the traditional
+assessment of CBTC systems, the Reliability, Availability,
+Maintainability and Safety (RAMS) are the four significant indicators,
+where the statistics is applied as the qualitative measure, such as the
+failure probabilities, Mean Time to Failure (MTTF), Mean Time be­
+tween Failures (MTBF), two-dimension risk matrices (risk probabilities
+and risk consequences). Therefore, the traditional function assessment
+focuses on the large time scale, which cannot evaluate the effects
+caused by the temporal or sudden disruption. However, security events
+are often unexpected based on fully preparation. As a result, the sta­
+tistics indicators are not appropriate to describe the security con­
+sequences. Facing the new requirements for the assessment of CBTC
+systems especially the security issues, some new concepts, indicators or
+metrics should be proposed. Cybersecurity events can be treated as the
+disruption on the normal operation. Hence, resilience is proposed to
+perform the risk assessment to improve safety, security, and quality of
+service [99].
+
+Resilience is a popular concept which has been defined in many
+different ways. In ecological systems, resilience is defined as the per­
+sistence of systems and of their ability to absorb change and disturbance
+which could help the system maintain the same relationships between
+population or state variables [100]. For economics, the resilience is also
+proposed to be the ability under normal circumstances and in crisis
+situations due to ingenuity or extra effort [101]. From the view of
+engineering [102], resilience is the ability to recognize and handle
+unanticipated perturbations that could lead to a shift of processes,
+strategies and coordination. There are difficulties to describe the resi­
+lience and it cannot be measured by a single metric, but depend on the
+multi-dimension ones which are the ultimate multidimensional outputs
+
+
+
+(the consequences) of the system for any specific inputs (threats) [103].
+Considering the security issues, the state of system could be changed.
+However, the goal of attackers is to cause trains stops (emergency
+braking), economical losses, the loss of trust on railways and human
+casualties. As a result, based on the definition of resilience and the
+objective of attackers, we should use the state of physical space to de­
+scribe the resilience of CBTC systems, as it is a typical cyber-physical
+system [104]. Because the operation goal of railway systems is to meet
+the travel requirements of passengers, the state of physical space is
+directly related with the operation Quality of Service (QoS) of CBTC
+systems, which may be defined by a wide range of attributes influenced
+by planning authorities and transport operators [105]. Obviously, the
+CBTC QoS concerns about time which is a direct measure to assess the
+transport service of railway systems, which could be determined by
+several attributes of the system including dwell time, travelling time,
+the headway and access time. Therefore, resilience of CBTC systems
+adopts the state of physical space to measure the system QoS when
+security events happen. According to some research about the QoS of
+railway systems, the seat comfort and bed services are considered
+
+[106]. However, the security issues of CBTC systems basically affect the
+physical state which is also the ultimate goal of adversaries.
+
+Compared with the traditional RAMS indicators, resilience is ap­
+propriate to describe the effects of security, which can reflect on CBTC
+QoS. In addition, resilience is a multi- dimension variable which is
+varying with the change of the security process. As a result, the resi­
+lience can illustrate the security situation of CBTC system before se­
+curity attacks, during the security process and after the security stra­
+tegies applied. As mentioned in ENSIA (European Union’s Network and
+Information Security Agency) report about the cyber security of IPT
+(Intelligent Public Transportation) [107], degraded modes of operation
+contributes to enhancing the resilience of the IPT system by ensuring a
+minimum level of service, which also uses the QoS to define resilience.
+In addition, the resilience is defined as the combination of four prop­
+erties: robustness, redundancy, resourcefulness and rapidity [108].
+Therefore, using resilience as the security indicator is efficient to assess
+the level of the CBTC security protection strategies, the robustness of
+the CBTC system under the attack, the response capability facing the
+security issues and the recovery capability of CBTC systems under the
+attacks. Hence, the indicator can give guidance for the enhancement of
+the security prevention of CBTC systems, which provides the overall
+security situational awareness of CBTC systems.
+
+
+_5.3. Security risk management_
+
+
+Security risk management is proposed to consist of threat analysis,
+risk assessment, loss expectancy, potential safeguards, and risk miti­
+gation analysis [109]. In fact, the security prevention strategies should
+be applied during the life-cycle of an industrial control system, which
+means the corresponding protection mechanism should be triggered as
+soon as possible when the security attacks are perceived. Therefore, the
+vulnerabilities should be analyzed and summarized, the security risks
+should be monitored accurately and timely, and the suitable protection
+method should be selected and immediately applied. Therefore, the
+National Institution of Standards and Technology (NIST) developed a
+guidance for applying the risk management framework focusing on the
+life cycle for information systems [110] and industrial control systems
+
+[48] respectively, where [48] proposed the same idea as [109]. Hence,
+the security risk management process of CBTC systems has three com­
+ponents: assessing, responding and monitoring. Assessing can give the
+vulnerabilities and threats, where the corresponding priority and con­
+sequence should be evaluated with the determination of attacking
+paths. Based on the assessment results, the monitoring objects and at­
+tributes can be determined which can assure the accuracy and time­
+liness of monitoring. The monitoring should provide the real-time se­
+curity situation, the features of attacks and the devices or subsystems
+under attacks for responding, which can help to perform the best
+
+
+
+14
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+
+response mechanisms. The performance of response strategies on the
+system should be assessed, and the response strategies can be amended
+according to the assessment results in order to achieve the best security
+risk management effects.
+
+Generally, the assessment should be performed based on the design
+details of CBTC systems including the hardware and software platforms,
+the operation systems, the application software developed by the sig­
+naling engineers, the database, the network architecture, the commu­
+nication protocols and the management mechanisms, which means the
+key secret information should be got by the assessment engineers.
+Therefore, it is a huge challenge for a third party assessment as most of
+the needed information cannot be public. As a result, a successful se­
+curity assessment of CBTC system requires the cooperation of the sig­
+naling firms and the assessment agency. However, the execution of
+assessment should depend on the index system, and the resilience
+mentioned above can be considered, which can give more reasonable
+and practical conclusions.
+
+The security risk monitoring is the key step to deal with the attacks
+which may be launched with a long time preparation. As a result, the
+critical equipment of CBTC systems could be affected and the final re­
+sults can be demonstrated on the states of trains. Therefore, designing
+the monitoring mechanisms for the whole CBTC system is a challenge,
+which should provide the detail information of attacks as much as
+possible including the type of attacks, the vulnerabilities being utilized
+and the possible consequences. However, the security risk monitoring
+depends on the performance of intrusion detection algorithms. As
+mentioned above, the CBTC system is hybrid and of great complexity.
+In order to achieve the best monitoring performance, the monitoring
+objects should be determined which could be also of high complexity.
+Traditionally, the monitoring mechanism is acted on the transmission
+network and the communication system. Nevertheless, from the view of
+operators and signaling firms, the deployment of monitoring equipment
+will increase the complexity of the CBTC system, which could cause
+some unpredictable event including the interruption of message trans­
+mission and the decrease of timeliness performance due to the limita­
+tion of dedicated railway protocols and inadequate installation strate­
+gies. As a result, selecting the key monitoring objects and designing an
+appropriate deployment method are significant to enhancement the
+security level of CBTC systems with the operation efficiency guaran­
+teed.
+
+The security risk responding is to execute the specific solutions ac­
+cording to the results of assessing and monitoring. Generally, there are
+candidate solutions which need to be selected based on the character­
+istics of CBTC systems. The goal of security risk responding is to block
+the propagation of security risks which could lead to the reduction of
+operation efficiency and accidents. As mentioned above, the objective
+of adversaries is to disrupt (stop) the service of CBTC systems or pro­
+duce some accidents which can bring the economic, social or political
+effects. Therefore, taking resilience as the criterion is proper to de­
+termine the risk responding strategy. In order to achieve the best per­
+formance, the dynamic security risk responding is necessary which
+means the response strategy can be changed with the variance of attack.
+Hence, the behavior of attackers should be predicted according to some
+models. For network security, the attacker-defender game model is
+proposed to be an efficient way realizing active defence [111,112],
+which can generate protection strategies according to the QoS of CBTC
+and the prediction of attacks.
+
+
+_5.4. CBTC security testbed_
+
+
+New security technologies should be verified as it is unclear and
+unproven that these methods can scale to realistic CBTC systems, which
+are developed in a lab environment. In addition, it is unknown that
+whether the application of new technologies may cause the interruption
+or other effects on the service of rail transportation systems and there is
+not a typical security testbed for CBTC systems. However, testbeds are
+
+
+
+widely developed in Smart Grid, such as CPSG, SGPS, USF, INEL and
+NREL which are listed in [113]. A proper testbed can help to find cyber
+security vulnerabilities, perform evaluations and execute verifications.
+As a result, designing a CBTC security testbed is significant to enhance
+the security level of train control systems and an efficient way to verify
+the availability of security technologies. According to the experiences of
+industrial control systems, there are three testbed constructing plans
+
+[114]: pure duplication, pure emulation and the hybrid way with du­
+plication and emulation. Obviously, the pure duplication way can
+provide the most comprehensive information of the targeting system
+and give the most real parameters of the targeting system under the
+security attacks. However, the best performance is achieved with the
+high costs as the equipment of the testbed is the same as that used in the
+real filed. Besides, the testbed built in the pure duplication way gen­
+erally covers a large area. For CBTC systems, a pure duplication testbed
+is hard to be built up as the train is running at the high speed and the
+operation environment is too large. On the other hand, the pure emu­
+lation way cannot describe the entire characteristics of CBTC systems as
+the fault-tolerance architecture, the safe logics and the fail-safe me­
+chanism are hard to be modeled. Therefore, the hybrid way with du­
+plication and emulation is more proper to develop the CBTC security
+testbed.
+
+As mentioned above, CBTC system is data-driven which means in­
+formation flow is the most important to the system. Therefore, ob­
+taining the detailed data generation principles, the transmission me­
+chanisms and the data processing logics are significant to determine the
+threats and the vulnerabilities of the system. As a result, according to
+the data evolution process, the critical devices or subsystems should be
+duplicated with the same ones as the practical operation lines. As CBTC
+is a typical cyber-physical system, it contains two major components, a
+physical process and a cyber system [115]. Based on the features and
+architecture of CBTC systems, except the rolling stock, almost all the
+other train control equipment belongs to the cyber system. From Fig. 2,
+the TDCS, ATS/CTC, VC/VOBC, RBC/ZC, CI are the critical parts, which
+means the CBTC security testbed should adopt the real signalling
+equipment. However, the train can use an emulation product, which
+can generate the kinetic model and provide the comprehensive para­
+meters of the train for the control equipment.
+
+
+**6. Conclusions and future work**
+
+
+CBTC is the most popular technology for railway transportations
+and facing the more and more serious security situation. As one typical
+industrial control system and the critical infrastructure, the security
+risks of CBTC systems should be controlled and mitigated. Hence,
+finding the security risk propagation principles, identifying the treats
+and vulnerabilities, monitoring the security situation of CBTC systems,
+responding the risks and performing the proper corresponding strate­
+gies should be all realized. However, due to the closure and other
+features, the security protection works acted on the CBTC systems are
+limited. As there are few valuable researches about the railway security,
+based on the research results of traditional IT systems and industrial
+control systems, we summarized the significant security issues of CBTC
+systems. We began our discussion with an overview of the CBTC se­
+curity characteristics. In particular, the effects of security risks on the
+CBTC system are analyzed including the safety and the operation effi­
+ciency. We then discussed the possible potential attack and summarized
+the current popular security protection strategies including the securing
+communication, firewalls and intrusion detection/prevention. Finally,
+we exploited some challenges of CBTC security research, where the
+relationship between safety and security, resilience, security manage­
+ment and testbed were discussed.
+
+In summary, the research on CBTC security needs much more work
+and there is still a long way ahead to enhance the security level of CBTC
+systems due to some challenging issues. In the article, the state-of-theart in CBTC security is reviewed from both the engineering and the
+
+
+
+15
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+
+research results as there is lack of enough theoretical supports for se­
+curity issues of railway systems. The challenges proposed in the paper
+can be beneficial for the future research of CBTC security.
+
+**References**
+
+
+
+
+[[1] X. Yang, H. Yin, J. Wu, et al., Recognizing the critical stations in urban rail net­](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref1)
+
+
+
+[works: An analysis method based on the smart-card data, IEEE Intell. Trans. Sys.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref1)
+[Mag. 11 (1) (2019) 29–35.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref1)
+
+[[2] S. Peng, X. Yang, H. Wang, et al., Dispatching high-speed rail trains via utilizing](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref2)
+[the reverse direction track: adaptive rescheduling strategies and application,](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref2)
+[Sustainability 11 (2019) 2351.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref2)
+
+[[3] O.A. Alimi, K. Ouahada, Abu-Mahfouz, Real time security assessment of the power](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref3)
+[system using a hybrid support vector machine and multilayer perceptron neural](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref3)
+[network algorithms, Sustainability 11 (2019) 3586.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref3)
+
+[[4] S.M. Wu, D. Guo, Y.J. Wu, et al., Future development of taiwan smart cities from](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref4)
+[an information security perspective, Sustainability 10 (2018) 4520.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref4)
+
+[5] R.T. Marsh et al., Critical foundations: Protecting Americas´ infrastructure,
+Presidents´ Commission on Critical Infrastructure Protection, 1997.
+
+[6] M. Chertoff, National infrastructure protection plan, tech. rep., Department of
+Homeland Security, Washington, DC, 2009.
+
+[7] NIPP 2013: Partnering for Critical Infrastructure Security and Resilience, tech.
+rep., Department of Homeland Security, Washington, DC, 2013.
+
+[8] Transportation Systems Sector-Specific Plan - 2015, tech. rep., Department of
+Homeland Security, Washington, DC, 2015.
+
+[9] E. Commission et al., Critical infrastructure protection in the fight against ter­
+
+
+
+
+[[33] M. Heddebaut, Leaky waveguide for train-to-wayside communication- based train](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref10)
+[control, IEEE Trans. Veh. Tech. 58 (2009) 1068–1076.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref10)
+
+[34] H. Wang, B. Ning, H. Jiang, An experimental study of 2.4GHz frequency band
+leaky coaxial cable in cbtc train ground communication, in Proc. IEEE VTC 2011/
+fall, (2011) 1–5.
+
+[35] R.S. Gill, J. Smith, M.H. Looi, et al., Passive techniques for detecting session hijacking
+attacks in ieee 802.11 wireless networks, in AusCERT Asia Pacific Information
+Technology Security Conference, (Gold Coast, Australia), (2005) 26–38.
+
+[[36] J.S. Park, D. Dicoi, Wlan security: current and future, IEEE Int. Comput. 7 (2003)](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref11)
+[60–65.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref11)
+
+[[37] S.X.W.U. Hao, G. Yonghao, Research and improvement on security of gsm-r](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref12)
+[system, J. Beijing Jiaotong Univ. 2 (2009) 127–130.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref12)
+
+[[38] M.W. Hartong, Secure communications based train control (CBTC) operations](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref13)
+[(PhD thesis), George Mason University, 2009.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref13)
+
+[[39] C. Bantin, J. Siu, Designing a secure data communications system for automatic](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref14)
+[train control, Proc. Inst. Mech. Eng. Part F J. Rail Rapid Transit 225 (4) (2011)](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref14)
+[395–402.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref14)
+
+[[40] J. Smith, S. Russell, M. Looi, Security as a safety issue in rail communications, in](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref15)
+_Proc. SCS ’03_ [, (Darlinghurst, Australia) (2003) 79–88.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref15)
+
+[[41] Y. Cao, H.K. Lu, T. Wen, A safety computer system based on multi-sensor data](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref16)
+[processing, Sensors 19 (4) (2019).](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref16)
+
+[[42] Y. Cao, Y.Z. Zhang, T. Wen, et al., Research on dynamic nonlinear input prediction](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref17)
+[of fault diagnosis based on fractional differ- ential operator equation in high-speed](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref17)
+[train control system, Chaos Interdiscip. J. Nonlinear Sci. 29 (1) (2019).](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref17)
+
+[[43] M. Al-Kuwaiti, N. Kyriakopoulos, S. Hussein, A comparative analysis of network](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref18)
+[dependability, fault-tolerance, reliability, security, and survivability (Second),](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref18)
+[IEEE Commun. Surv. Tutor. 11 (2009) 106–124.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref18)
+
+[[44] E. Cenelec, 50128: Railway applications-communication, signalling and proces­](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref19)
+
+[sing systems-software for railway control and protection systems, Book EN 50128](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref19)
+[(2012).](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref19)
+
+[[45] D. Dzung, M. Naedele, T.P.V. Hoff, et al., Security for industrial communication](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref20)
+[systems, Proc. IEEE 93 (2005) 1152–1177.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref20)
+
+[46] F. Yan, Studying formal methods applications in cbtc, in Proc. 2011 International
+Conference on Management and Service Science, (2011) 1–3.
+
+[47] Y. Xie, T. Tang, Performance analysis of communication network for the cbtc
+system, in Proc. 2009 IEEE Intelligent Vehicles Symposium, (2009)1072-1077.
+
+[[48] K. Stouffer, J. Falco, K. Scarfone, Guide to industrial control systems (ICS) security,](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref21)
+[pp. 16–16, NIST Special Publ. 800 (82) (2011) 16.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref21)
+
+[49] T. Tidwell, R. Larson, K. Fitch, et al., Modeling internet attacks, in Proceedings of
+the 2001 IEEE Workshop on Information Assurance and security, 59 (2001).
+
+[50] D. Icove, K. Seger, W. VonStorch, Computer crime: a crime- fighter’s handbook.
+O’Reilly & Associates Sebastopol, CA, 1995.
+
+[51] T.H. Morris, W. Gao, Industrial control system cyber attacks, in Proc. ICS-CSR
+2013, (Leicester, UK), (2013) 22–29.
+
+[52] S. Xin, X. Chen, H. Tang, et al., Research on dos atomic attack oriented to attack
+resistance test, in Proc. ICNSC 08′, (2008) 1747–1752.
+
+[[53] B. Newsome, A Practical Introduction to Security and Risk Management, SAGE](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref22)
+[Publications, 2013.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref22)
+
+[[54] T. Macaulay, B.L. Singer, Cybersecurity for industrial control systems: SCADA,](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref23)
+[DCS, PLC, HMI, and SIS, CRC Press, 2011.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref23)
+
+[[55] V.A. Siris, I. Stavrakis, Provider-based deterministic packet marking against dis­](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref24)
+
+[tributed dos attacks, J. Netw. Comp. Appl. 30 (3) (2007) 858–876.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref24)
+
+[[56] A.A. Cardenas, T. Roosta, S. Sastry, Rethinking security properties, threat models,](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref25)
+[and the design space in sensor networks: a case study in SCADA systems, Ad Hoc](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref25)
+[Netw. 7 (8) (2009) 1434–1447.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref25)
+
+[[57] M.B. Salem, S. Stolfo, Masquerade attack detection using a search-behavior](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref26)
+[modeling approach, tech. rep, Department of Computer Science, Columbia](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref26)
+[University, New York, NY, USA, 2009.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref26)
+
+[[58] S. Kumar, A. Anand, Saving wireless networks by detecting, and designing efficient](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref27)
+[from masquerade attacks, Int. J. Sci. Technol. Res. 3 (2014).](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref27)
+
+[[59] I. Aldasouqi, W. Salameh, Detecting and localizing wireless network attacks](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref28)
+[techniques, Intern. J. Comp. Sci. Security ((IJCSS)) 4 (1) (2010) 82.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref28)
+
+[60] T. Bartman, K. Carson, A. Fair, Securing communications for scada and critical
+industrial systems, in proceedings of the Power and Energy Automation
+Conference, Spokane, WA, 2015.
+
+[[61] A.S.K. Pathan, The state of the art in intrusion prevention and detection, CRC](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref29)
+[press, 2014.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref29)
+
+[[62] C.C. Bantin, J. Siu, Designing a secure data communications system for automatic train](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref30)
+[control, Proc. Inst. Mech. Eng. Part F J. Rail Rapid Transit 225 (4) (2011) 395–402.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref30)
+
+[63] H. Jo, J. Baek, K. Lee, et al., Wireless security method for on-board centered train
+control system, in Proc. ICCCT 12′, (2012) 88–93.
+
+[[64] A.D. Wyner, The wire-tap channel, The Bell System Tech. J. 54 (8) (1975)](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref31)
+[1355–1387.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref31)
+
+[65] C. Yaping, X. Fang, A physical layer secure wireless communication scheme for
+high speed railway, in The Sixth International Workshop on Signal Design and Its
+Applications in Communications, (2013) 114–117.
+
+[66] P.V. Craven, S. Craven, Security of atcs wireless railway communications, in Proc.
+ASME/IEEE Joint Rail Conference 05′, (2005) 227–238.
+
+[67] C. Yap, E. Qi, K. Sood, et al., Issues with real-time streaming applications roaming in
+qos-based secure IEEE 802.11 wlans, in Proc. Asia Pacific Conference on Mobile
+Technology, Applications and Systems 05′, (2005) 1–7.
+
+[68] E. Byres, B. Chauvin, J. Karsch, et al., The special needs of SCADA/PCN firewalls:
+Architectures and test results, in Proc. ETFA 05′.
+
+[69] A. Bremler-Barr, Y. Harchol, D. Hay, Space-time tradeoffs in software-based deep
+packet inspection, in Proc. HPSR 11′, (2011) 1–8.
+
+
+
+rorism, 2004.
+
+[10] S. Bologna and R. Setola, The need to improve local self-awareness in CIP/CIIP in First
+IEEE International Workshop on Critical Infrastructure Protection, (2005) 1–6.
+
+[[11] R. Pascoe, T. Eichorn, What is communication-based train control? IEEE Veh.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref5)
+[Tech. Mag. (2009) 16–21.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref5)
+
+[12] H. Zhao, L. Zhu, H. Jiang, et al., Design and performance tests in an integrated TDLTE based train ground communication system, in Proc. ITSC ’14, (2014)
+747–750.
+
+[13] P. Craven, A brief look at railroad communication vulnerabilities, in The 7th
+International IEEE Conference on Intelligent Transportation Systems, (2004)
+245–249.
+
+[14] IEC, Industrial communication networks-network and system security-security for
+industrial automation and control systems, IEC 62443, 2009.
+
+[15] J. Braband, Towards an IT security framework for railway automation, in ERTS
+2014, (Toulouse), 2014.
+
+[16] DKE, Electric signalling systems for railways-part 104: IT Security Guideline based
+on IEC 62443, 2015.
+
+[17] J. Gronbaek, T. Madsen, H. Schwefel, Safe wireless communication solution for
+driver machine interface for train control systems, in ICONS 08, (2008) 208–213.
+
+[18] H.J. Jo, J.G. Hwang, S.K. Shin, et al., Safety guaranteeing method & tool devel­
+
+opment in railway communication system, in INTELEC 09′, (2009) 1–5.
+
+[19] J. Smith, S. Russell, M. Looi, Security as a safety issue in rail communications, in
+SCS ’03, (Darlinghurst, Australia), (2003) 79–88.
+
+[20] B. Malinowsky, H.P. Schwefel, O. Jung, Quantitative safety and security analysis
+from a communication perspective, in The 8th International Conference on
+Performance Evaluation Methodologies and Tools, (2014) 9–16.
+
+[[21] L. Zhu, F. Yu, B. Ning, et al., Cross-layer handoff design in MIMO-enabled WLANs](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref6)
+[for communication-based train control (CBTC) systems, IEEE J. Sel. Areas](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref6)
+[Commun. 30 (2012) 719–728.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref6)
+
+[22] IEEE, Standard for communications-based train control (CBTC) performance and
+functional requirements, IEEE Std 1474.1–2004 (Revision of IEEE Std
+1474.1–1999), (2004) 1–45.
+
+[[23] W. Hao, S. Xiaohua, G. Yonghao, Research and improvement on security of GSM-R](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref7)
+[system, J. Beijing Jiaotong Univ. 33 (2009) 127–130.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref7)
+
+[24] X. Li, Q. Song, H. Tao, et al., Evaluation on anti-interference to WLAN equipments
+for spatial deployment of CBTC systems in tunnels, in Proc ICCC’14, (2014) 47–52.
+
+[25] Y. Hai, C. Yuetan, W. Hongyu, et al., Coexistence studies on the interference
+performance between subway CBTC system and portable Wi-Fi devices, in ICNIDC’14, (2014) 191–195.
+
+[26] C. Song, B. Han, H. Yu, et al., Study on coexistence and anti- interference solution
+for subway CBTC system and MiFi devices, in IC-BNMT’13, (2013) 174–180.
+
+[27] L. Bu, D. Xie, X. Chen, et al., Demo abstract: Bachol - modeling and verification of
+cyber-physical systems online, in ICCPS ’12, (Washington, DC, USA), (2012) 222–222.
+
+[28] E. 50159–1, Railway applications-communication, signaling and processing sys­
+
+
+
+tems part 1: Safety-related communication in closed transmission systems,
+CENELEC, 2001.
+
+[29] E. 50159–2, Railway applications-communication, signaling and processing sys­
+
+
+
+tems part 2: Safety-related communication in open transmission systems,
+CENELEC, 2001.
+
+[[30] H. Wang, F. Yu, L. Zhu, et al., Finite-state markov modeling for wireless channels](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref8)
+[in tunnel communication-based train control systems, IEEE Trans. Intell. Transp.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref8)
+[Syst. 15 (2014) 1083–1090.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref8)
+
+[31] S. Lin, Z. Zhong, L. Cai, et al., Finite state Markov modelling for high speed railway
+wireless communication channel, in Proc. IEEE Globecom’12, (Anaheim, CA,
+USA), Dec. 2012.
+
+[[32] H. Wang, F. Yu, L. Zhu, et al., Modeling of communication-based train control](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref9)
+[(cbtc) radio channel with leaky waveguide, Antennas and Wireless Propagation](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref9)
+[Letters, IEEE 12 (2013) 1061–1064.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref9)
+
+
+
+16
+
+
+_Z. Yu, H. Wang and F. Chen_ _High-speed Railway 1 (2023) 6–17_
+
+
+
+
+[70] R. Bloomfield, M. Bendele, P. Bishop, et al., The risk assessment of ertms-based
+railway systems from a cyber security perspective: Methodology and lessons
+learned, in International Conference on Reliability, Safety and Security of Railway
+Systems, Springer, (2016) 3–19.
+
+[71] A. Carlson, D. Frincke, M. Laude, Railway security issues: A survey of developing
+railway technology, in Proceedings of the International Conference on Computer,
+Communications and Control Technologies, 1 (2003) 1–6.
+
+[[72] F. Pasqualetti, F. Dorfler, F. Bullo, Attack detection and identification in cyber-](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref32)
+[physical systems, IEEE Trans. Autom. Control 58 (2013) 2715–2729.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref32)
+
+[[73] K. Manandhar, X. Cao, F. Hu, et al., Detection of faults and attacks including false](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref33)
+[data injection attack in smart grid using kalman filter, IEEE Trans. Control Net.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref33)
+[Syst. 1 (2014) 370–379.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref33)
+
+[[74] S. Kriaa, L. Pietre-Cambacedes, M. Bouissou, et al., A survey of approaches com­](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref34)
+
+[bining safety and security for industrial control systems, Reliability Eng. & Syst.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref34)
+[Saf. 139 (2015) 156–178.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref34)
+
+[[75] A.N. Gharahasanlou, A. Mokhtarei, A. Khodayarei, et al., Fault tree analysis of](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref35)
+[failure cause of crushing plant and mixing bed hall at khoy cement factory in iran,](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref35)
+[Case Stud. Eng. Fail. Anal. 2 (1) (2014) 33–38.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref35)
+
+[[76] F.A. Rahman, A. Varuttamaseni, M. Kintner-Meyer, et al., Application of fault tree](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref36)
+[analysis for customer reliability assessment of a distribution power system,](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref36)
+[Reliability Eng. Syst. Saf. 111 (2013) 76–85.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref36)
+
+[[77] J. Trafialek, W. Kolanowski, Application of failure mode and effect analysis](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref37)
+[(FMEA) for audit of haccp system, Food Control 44 (2014) 35–44.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref37)
+
+[[78] G.Y. Park, D.H. Kim, D.Y. Lee, Software fmea analysis for safety-related applica­](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref38)
+
+[tion software, Ann. Nucl. Energy 70 (2014) 96–102.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref38)
+
+[[79] H.R. Feili, N. Akar, H. Lotfizadeh, et al., Risk analysis of geothermal power plants](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref39)
+[using failure modes and effects analysis (FMEA) technique, Energy Convers.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref39)
+[Manag. 72 (2013) 69–76.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref39)
+
+[80] Y. Papadopoulos, J. McDermid, A new method for safety analysis and the mechanical
+synthesis of fault trees in complex systems, in Proc. ICSSEA 99′, 4 (1999) 1–9.
+
+[81] Y. Papadopoulos, J.A. McDermid, Hierarchically performed hazard origin and
+propagation studies, in International Conference on Computer Safety, Reliability,
+and Security, Springer, (1999) 139–152.
+
+[82] P. Fenelon, J.A. McDermid, Integrated techniques for software safety analysis, in
+IEE Colloquium on Hazard Analysis, IET, (1992) 2–1.
+
+[[83] P. Fenelon, J.A. McDermid, An integrated tool set for software safety analysis, J.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref40)
+[Syst. Softw. 21 (3) (1993) 279–290.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref40)
+
+[[84] K.Y. Koh, P.H. Seong, Smv model-based safety analysis of software requirements,](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref41)
+[Reliab. Eng. Syst. Saf. 94 (2) (2009) 320–331.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref41)
+
+[[85] C. Eisner, Model checking the garbage collection mechanism of smv, Electron.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref42)
+[Notes Theor. Comput. Sci. 55 (3) (2001) 289–303.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref42)
+
+[[86] D. Soliman, K. Thramboulidis, G. Frey, Transformation of function block diagrams](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref43)
+[to uppaal timed automata for the verification of safety applications, Ann. Rev.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref43)
+[Control 36 (2) (2012) 338–345.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref43)
+
+[[87] N. Leveson, A new accident model for engineering safer systems, Saf. Sci. 42 (4)](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref44)
+[(2004) 237–270.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref44)
+
+[[88] N. Leveson, Engineering a safer world: Systems thinking applied to safety, Mit](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref45)
+[Press, 2011.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref45)
+
+[89] N.G. Leveson, A new approach to hazard analysis for complex systems, in
+International Conference of the System Safety Society, 2003.
+
+[[90] R. Muttram, Railway safety’s safety risk model, Proc. Inst. Mech. Eng. Part F J. Rail](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref46)
+[Rapid Transit 216 (2) (2002) 71–79.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref46)
+
+[91] R. Niu, T. Tang, O. Lisagor, et al., Automatic safety analysis of of computer-based
+railway signalling system, in Proc. SOLI 11′, (2011) 484–490.
+
+[[92] N.G. Ferreira, P.S.M. Silva, Automatic verification of safety rules for a subway](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref47)
+[control software, Electron. Notes Theor. Comput. Sci. 130 (2005) 323–343.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref47)
+
+[[93] M. Ouyang, L. Hong, M.H. Yu, et al., Stamp-based analysis on the railway accident](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref48)
+[and accident spreading: Taking the China Jiaoji railway accident for example,](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref48)
+[Safety Sci. 48 (5) (2010) 544–555.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref48)
+
+
+
+
+[94] T. Song, D. Zhong, H. Zhong, A stamp analysis on the China- yongwen railway
+accident, in International Conference on Computer Safety, Reliability, and
+Security, Springer, (2012) 376–387.
+
+[95] M. Steiner, P. Liggesmeyer, Combination of safety and security analysis - finding
+security problems that threaten the safety of a system, in SAFECOMP 13′ (M. ROY,
+ed.), (France), p. NA, 2013.
+
+[96] S. Bezzateev, N. Voloshina, P. Sankin, Joint safety and security analysis for com­
+
+plex systems, in Proceedings of the 13th conference of FRUCT association,
+Petrozavodsk, Russia, 2013.
+
+[[97] W. Young, N.G. Leveson, An integrated approach to safety and security based on](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref49)
+[systems theory, Commun. ACM 57 (2014) 31–35.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref49)
+
+[98] W. Young, N. Leveson, Systems thinking for safety and security, in Proc. ACSAC
+’13, (New York, NY, USA), ACM, (2013) 1–8.
+
+[[99] S.O. Johnsen, M. Veen, Risk assessment and resilience of critical commu­](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref50)
+
+[nication infrastructure in railways, Cognition, Technol. Work 15 (1) (2013)](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref50)
+[95–107.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref50)
+
+[[100] C.S. Holling, Resilience and stability of ecological systems, Annual Rev. Ecol.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref51)
+[Systematics 4 (1973) 1–23.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref51)
+
+[[101] A. Rose, S.Y. Liao, Modeling regional economic resilience to disasters: a compu­](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref52)
+
+[table general equilibrium analysis of water service disruptions, J. Regional Sci. 45](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref52)
+[(1) (2005) 75–112.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref52)
+
+[[102] D.D. Woods, M. Branlat, Essential characteristics of resilience, Resil. Eng. Conc.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref53)
+[Precepts (2012) 127–143.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref53)
+
+[[103] Y.Y. Haimes, On the definition of resilience in systems, Risk Analysis 29 (4 2009)](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref54)
+[498–501.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref54)
+
+[[104] L. Bu, Q. Wang, X. Chen, et al., Toward online hybrid systems model checking of](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref55)
+[cyber-physical systems’ time-bounded short-run behavior, ACM SIGBED Rev. 8](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref55)
+[(2011) 7–10.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref55)
+
+[[105] N. Paulley, R. Balcombe, R. Mackett, et al., The demand for public transport: The](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref56)
+[effects of fares, quality of service, income and car ownership, Trans. Policy 13 (4)](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref56)
+[(2006) 295–306.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref56)
+
+[[106] E. Nathanail, Measuring the quality of service for passengers on the hellenic](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref57)
+[railways, Trans. Res. Part A Policy Pract. 42 (1) (2008) 48–66.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref57)
+
+[107] C. Levy-Bencheton, E. Darra, Cyber security and resilience of intelligent public
+transport: good practices and recommendations, tech. rep., European Union
+Agency For Network And Information Security (ENISA), 2015.
+
+[[108] M. Bruneau, S.E. Chang, R.T. Eguchi, et al., A Framework to Quantitatively Assess](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref58)
+[and Enhance the Seismic Resilience of Communities, Earthquake Spectra 19](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref58)
+[(2003) 733–752.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref58)
+
+[[109] N. Poolsappasit, R. Dewri, I. Ray, Dynamic security risk management using](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref59)
+[bayesian attack graphs, IEEE Trans. Dependable and Secure Computing 9 (2012)](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref59)
+[61–74.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref59)
+
+[110] Joint Task Force Transformation Initiative, Guide for applying the risk manage­
+
+ment framework to federal information systems: a security life cycle approach,
+Tech. Rep. NIST SP 800–37r1, National Institute of Standards and Technology,
+2014.
+
+[111] W. Jiang, B. Fang, H. Zhang, et al., Optimal network security strengthening using
+attack-defense game model, in the Sixth International Conference on Information
+Technology: New Generations, (2009) 475–480.
+
+[[112] M.H. Manshaei, Q. Zhu, T. Alpcan, et al., Game theory meets network security and](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref60)
+[privacy, ACM Comput. Surv. 45 (2013) 25–125.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref60)
+
+[[113] M.H. Cintuglu, O.A. Mohammed, K. Akkaya, et al., A survey on smart grid cyber-](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref61)
+[physical system testbeds, IEEE Commun. Surveys Tuts (2016).](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref61)
+
+[[114] J.C. Peng Yong, X. Feng, D. Zhonghua, X. Qi, G. Yang, Study on the research](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref62)
+[progress of industrial control system cybersecurity, J. Tsinghua Univ. (Sci.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref62)
+[Technol.) (2012) 1396–1408.](http://refhub.elsevier.com/S2949-8678(22)00007-1/sbref62)
+
+[115] E.K. Wang, Y. Ye, X. Xu, et al., Security issues and challenges for cyber physical
+system, in Proc. GREENCOM-CPSCOM ’10, IEEE, (2010) 733–738.
+
+
+
+17
+
+

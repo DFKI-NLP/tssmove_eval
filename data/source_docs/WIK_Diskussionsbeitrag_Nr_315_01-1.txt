@@ -1,0 +1,3900 @@
+#### Nr. 315
+
+# Strategien zur Realisierung von Quality of Service in IP-Netzen
+
+Stephan Jay
+Thomas Plückebaum
+
+
+Bad Honnef, Dezember 2008
+
+
+**WIK Wissenschaftliches Institut für**
+**Infrastruktur und Kommunikationsdienste GmbH**
+
+Rhöndorfer Str. 68, 53604 Bad Honnef
+
+Postfach 20 00, 53588 Bad Honnef
+
+Tel 02224-9225-0
+Fax 02224-9225-63
+Internet: http://www.wik.org
+
+[eMail info@wik.org](mailto:info@wik.org)
+
+**Impressum**
+
+
+In den vom WIK herausgegebenen Diskussionsbeiträgen erscheinen in loser Folge Aufsätze und Vorträge von Mitarbeitern des Instituts sowie ausgewählte Zwischen- und Abschlussberichte von durchgeführten Forschungsprojekten. Mit der Herausgabe dieser
+Reihe bezweckt das WIK, über seine Tätigkeit zu informieren, Diskussionsanstöße zu
+geben, aber auch Anregungen von außen zu empfangen. Kritik und Kommentare sind
+deshalb jederzeit willkommen. Die in den verschiedenen Beiträgen zum Ausdruck kommenden Ansichten geben ausschließlich die Meinung der jeweiligen Autoren wieder.
+WIK behält sich alle Rechte vor. Ohne ausdrückliche schriftliche Genehmigung des WIK
+ist es auch nicht gestattet, das Werk oder Teile daraus in irgendeiner Form (Fotokopie,
+Mikrofilm oder einem anderen Verfahren) zu vervielfältigen oder unter Verwendung
+elektronischer Systeme zu verarbeiten oder zu verbreiten.
+ISSN 1865-8997
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen I
+
+##### **Inhaltsverzeichnis**
+
+
+**Abbildungsverzeichnis** **II**
+
+
+**Tabellenverzeichnis** **III**
+
+
+**Abkürzungsverzeichnis** **IV**
+
+
+**Zusammenfassung** **VII**
+
+
+**Summary** **VIII**
+
+
+**1** **Einleitung** **1**
+
+
+1.1 Kontext, Zielsetzung und Aufbau der Arbeit 1
+
+
+1.2 Was ist “Quality of Service”? 3
+
+
+1.3 In welchen Netzabschnitten bedarf es Quality of Service? 5
+
+
+**2** **Verfahren der Qualitätsrealisierung in IP-Netzen** **7**
+
+
+2.1 Beschreibung 7
+
+
+2.2 Stärken und Schwächen 15
+
+
+2.3 Ergänzende Maßnahmen auf tieferen OSI-Schichten 19
+
+
+2.4 Quality of Service über Netzgrenzen 24
+
+
+**3** **Modellgestützter Kostenvergleich** **26**
+
+
+3.1 Identifikation der Kostentreiber 26
+
+
+3.2 Modellrechnung 27
+
+
+3.3 Interpretation der Ergebnisse und weiterer Forschungsbedarf 39
+
+
+**4** **Preismodelle für Quality of Service** **45**
+
+
+4.1 Entwicklung und Bewertung von Preismodellen 45
+
+
+4.2 Barrieren der Anwendung dynamischer Preismodelle 49
+
+
+**5** **Fazit** **53**
+
+
+**Anhang: Berechnung der durchschnittlichen Bandbreite pro Kunde** **56**
+
+
+**Literaturverzeichnis** **57**
+
+
+II Diskussionsbeitrag Nr. 315
+
+##### **Abbildungsverzeichnis**
+
+
+Abbildung 1-1: Anforderungen an Bandbreite und Echtzeit ausgewählter Dienste 1
+
+
+Abbildung 1-2: Netzstruktur des Breitbandnetzes 5
+
+
+Abbildung 2-1: Drei wesentliche Verfahren zur Realisierung von Dienstgüte 8
+
+
+Abbildung 2-2: Systematisierung der QoS-Strategien anhand des ISO/OSI bzw. TCP/IP
+
+Schichtenmodells 8
+
+
+Abbildung 2-3: DiffServ-Domäne 12
+
+
+Abbildung 2-4: Priority Queuing 13
+
+
+Abbildung 2-5: Weighted Fair Queuing 14
+
+
+Abbildung 2-6: Teufelskreis der Bandbreitenerhöhungen 16
+
+
+Abbildung 2-7: MPLS Weiterleitung 23
+
+
+Abbildung 3-1: Breitbandnetzhierarchie und Grundlage der Modellrechnung 29
+
+
+Abbildung 3-2: Einfluss der QoS-Strategie auf die maximale Anzahl von Nutzern
+
+(am Beispiel eines 100Mbps Backhauls) 32
+
+
+Abbildung 3-3: Exemplarische Kostenfunktion mit Exponent 0,5 33
+
+
+Abbildung 3-4: Einfluss der QoS-Strategie auf die Stückkosten nach Nutzergruppe
+
+(100Mbps Backhaul) 34
+
+
+Abbildung 3-5: Einfluss der QoS-Strategie auf die Stückkosten am Beispiel des Standard
+
+Privatkunden bei unterschiedlichen Backhaul-Bandbreiten 35
+
+
+Abbildung 3-6: Relation der Stückkosten bei unterschiedlichen Backhaul-Bandbreiten
+
+(am Beispiel des Standard Privatkunden) 36
+
+
+Abbildung 3-7: Vergleich der Stückkosten bei Überdimensionierung mit und ohne Berück
+sichtigung der sensitiven Laufzeitanforderungen (Standard-Privatkunde) 39
+
+
+Abbildung 3-8: Verkehrszusammensetzung beeinflusst Vorteilhaftigkeit der Priorisierung 42
+
+
+Abbildung 4-1: Entwicklung der Abrechnungsarten Onlineverbindungen in Deutschland 50
+
+
+Abbildung 5-1: Anlaufproblem von innovativen Diensten mit QoS-Anforderungen 54
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen III
+
+##### **Tabellenverzeichnis**
+
+
+Tabelle 1-1: QoS Anforderungen unterschiedlicher Anwendungen 4
+
+
+Tabelle 2-1: Technische Vor- und Nachteile von Überdimensionierung, Kapazitäts
+reservierung und Verkehrspriorisierung zur Gewährleistung von Qualität 18
+
+
+Tabelle 2-2: Verkehrstypen nach IEEE 802.1q 21
+
+
+Tabelle 2-3: Zuordnung von Verkehren zu einer beschränkten Anzahl von
+
+Verkehrsklassen 22
+
+
+Tabelle 3-1: Modellierte Verkehrsklassen und ihre Sensibilität hinsichtlich
+
+QoS Parametern 28
+
+
+Tabelle 3-2: Parameter der Kundengruppen 30
+
+
+Tabelle 3-3: Parameter der Verkehrsklassen 31
+
+
+Tabelle 3-4: Effizienz der QoS-Strategien hinsichtlich der Nutzdatenrate im zugrunde
+
+liegenden Modell 33
+
+
+Tabelle 3-5: Veränderung der maximal bedienbaren Nutzerzahl bei Reduktion der
+
+Backhaulbandbreite 35
+
+
+Tabelle 3-6: Relation der Stückkosten bei unterschiedlichen Backhaul-Bandbreiten
+
+(am Beispiel des Standard Privatkunden) 36
+
+
+Tabelle 4-1: Bewertung der Preismodelle 48
+
+
+IV Diskussionsbeitrag Nr. 315
+
+##### **Abkürzungsverzeichnis**
+
+
+ABR Available Bit Rate
+
+
+ADSL Asymmetric Digital Subscriber Line
+
+
+ATM Asynchronous Transfer Mode
+
+
+CBR Constant Bit Rate
+
+
+DiffServ Differentiated Services
+
+
+DSL Digital Subscriber Line
+
+
+DSLAM Digital Subscriber Line Access Multiplexer
+
+
+FEC Forward Equivalence Class
+
+
+FTTH Fibre to the Home
+
+
+FTTx Fibre to the x
+
+
+IEEE Institute of Electrical and Electronics Engineers
+
+
+IETF Internet Engineering Task Force
+
+
+IMS IP Multimedia Subsystem
+
+
+IntServ Integrated Services
+
+
+IP Internet Protocol
+
+
+IPTV Internet Protocol Television
+
+
+IRC Internet Relay Chat
+
+
+ISIS-TE Intermediate System to Intermediate System-Traffic Engineering
+
+
+ISO International Organization for Standardization
+
+
+ITU International Telecommunications Union
+
+
+LSP Label Switched Path
+
+
+LSR Label Switching Router
+
+
+MIT Massachusetts Institute of Technology
+
+
+MPLS Multiprotocol Label Switching
+
+
+NGN Next Generation Network
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen V
+
+
+OSI Open Systems Interconnection
+
+
+OSPF-TE Open Shortest Path First Traffic Engineering
+
+
+PSTN Public Switched Telephone Network
+
+
+QoS Quality of Service
+
+
+RSVP Resource Reservation Protocol
+
+
+TAL Teilnehmeranschlussleitung
+
+
+TCP Transmission Control Protocol
+
+
+TELRIC Total Element based Long Run Incremental Cost
+
+
+ToS Type of Service
+
+
+UBR Unspecified Bit Rate
+
+
+VATM Verband der Anbieter von Telekommunikations- und Mehrwertdiensten
+
+
+VBRrt Variable Bit Rate real-time
+
+
+VBRnrt Variable Bit Rate non real-time
+
+
+VLAN Virtual Local Area Network
+
+
+VoD Video on Demand
+
+
+VoIP Voice over IP
+
+
+VPN Virtual Private Network
+
+
+WDM Wavelength Division Multiplexing
+
+
+WFQ Weighted Fair Queuing
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen VII
+
+##### **Zusammenfassung**
+
+
+In IP-Netzen werden unterschiedlichste Dienste auf einer gemeinsamen Plattform
+transportiert. Diese Dienste haben ebenfalls sehr heterogene Anforderungen an Bandbreite und Echtzeit. Dabei stellen sich unter anderem die Fragen, wie eine angemessene Dienstgüte (Quality of Service – QoS) für die einzelnen Dienste gewährleistet werden kann, welche Kosten dies nach sich zieht und was für Implikationen sich aus der
+Implementierung von Quality of Service für Regulierung und Wettbewerb ergeben.
+
+
+Diese Studie analysiert zunächst auf qualitative Weise die Vorteilhaftigkeit der drei wesentlichen QoS-Strategien Überdimensionierung, Kapazitätsreservierung (Integrated
+Services & Resource ReserVation Protocol) und Verkehrspriorisierung (Differentiated
+Services). Dabei wird deutlich, dass QoS einfach dadurch gewährt werden kann, dass
+stets ausreichend Kapazität im Netz vorgehalten wird, sodass kein Stau entsteht. Allerdings ist das besonders im Anschlussnetz und im Aggregationsnetz nicht immer der
+kostenminimierende Ansatz. Die Vorteile der differenzierenden QoS-Verfahren Reservierung und Priorisierung liegen darin, dass sie Qualität deterministisch bzw. statistisch
+auch bei Überlast zusichern können. Aufgrund der schlechten Skalierbarkeit kommt die
+Reservierung allerdings nur in ausgewählten Fällen zum Einsatz.
+
+
+In einem zweiten Schritt wird ein modellgestützter Vergleich der Kosten der drei Verfahren für eine Aggregationsverbindung vom DSLAM zum nächsten Aggregationsknoten
+vorgenommen. Die Modellrechnung fokussiert dabei auf die Kosten, die durch die
+Bandbreite getrieben werden und nicht auf Zusatzkosten des Equipments oder des Managements bei den differenzierenden Verfahren. Die Analyse zeigt die Skalenabhängigkeit der Stückkosten von QoS und zeigt auch rechnerisch, dass die Priorisierung das
+effizienteste Verfahren hinsichtich der Netzdimensionierung ist. Durch die Skaleneffekte
+und die Größe des marktmächtigen Unternehmens sind QoS-Kosten auch in den Entgeltentscheidungen zu berücksichtigen, um Preis-Kosten- und Kosten-Kosten-Scheren
+in Netzen mit differenzierter QoS zu verhindern.
+
+
+In einem dritten Schritt werden Preismodelle für differenzierte QoS analysiert. Es existieren eine Reihe von Gründen (Gefahr des Crowding Out von hochwertigen Diensten,
+Wohlfahrtsgewinne/-verluste), die gegen die Nutzung von Flat Rate Pricing und für die
+Nutzung von dynamischen Staupreisen sprechen. Die Analyse zeigt jedoch, dass es
+erhebliche Barrieren für die Implementierung solcher Preismodelle gibt. Daher haben
+auch die mit Staupreisen verbundenen regulierungspolitischen Probleme (künstliches
+Verknappen der Kapazität auf monopolistischen Verbindungen) zurzeit wenig praktische Relevanz.
+
+
+VIII Diskussionsbeitrag Nr. 315
+
+##### **Summary**
+
+
+IP-networks carry a multitude of different services on a single platform. These services
+express heterogeneous requirements regarding data rate and real-time transport. Accordingly it needs to be determined how an appropriate Quality of Service (QoS) for
+each of these services can be realized, what costs such an implementation incurs and
+what the incorporation of QoS implies for regulation and competition policy.
+
+
+First, this study analyses the strengths and weaknesses of the three major QoSstrategies over-engineering, reservation (Integrated Services & Resource ReserVation
+Protocol) and prioritisation (Differentiated Services). It is shown that QoS can be realized by simply ensuring enough spare capacity within the network in order to avoid congestion. However, this is not always the most cost-effective approach, especially considering the limits to capacity expansion in last mile and (to a lesser extent) in aggregation networks. The advantages of differentiating QoS-architectures (reservation and
+prioritisation) are their ability to provide deterministic or statistic guarantees for QoS
+even during High Load Periods. Reason to reservation’s weak scalability it is only
+sparely implemented.
+
+
+In a second step a model-based cost-comparison of the three strategies is conducted
+for the link between the DSLAM and the next aggregation node. The calculation focuses
+on the bandwidth-driven cost and does not consider any potential add-on cost of
+equipment and management that might be specific to the differentiating QoS strategies.
+Analysis shows the dependency of scale effects and confirms the efficiency of the prioritisation strategy that was already found in the qualitative analysis of the first step. Because of the scale effects in broadband networks and QoS provisioning regulatory authorities need to take the cost of QoS into account when considering price decisions in
+order to foreclose margin squeezing in QoS-enabled networks.
+
+
+In a third step the study analyzes pricing models for QoS services. There are a number
+of reasons (danger of crowding out, welfare) that stand against applying Flat Rate pricing and support dynamic congestion pricing in QoS-enabled networks. However, analysis shows that there are significant barriers to the implementation of such pricing models. Accordingly the associated potentially problematic regulatory issues are not as relevant at present.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 1
+
+##### **1 Einleitung**
+
+
+**1.1 Kontext, Zielsetzung und Aufbau der Arbeit**
+
+
+Die Vielfalt der Dienste, die über Breitbandnetze realisiert werden, nimmt stetig zu. Zu
+den wesentlichen Trends zählen dabei Telefonie (Voice over IP – VoIP), IPTV, Videoon-Demand, Online Gaming sowie Anwendungen aus dem Geschäftskundenbereich. **[1]**
+Diese Anwendungen stellen sehr heterogene Anforderungen an die Dienstgüte (Quality
+of Service – QoS), die u.a. durch die benötigte Bandbreite und den Echtzeitcharakter
+gekennzeichnet sind.
+
+
+Die Anforderungen an Datenrate und Echtzeitübertragungen von ausgewählten Diensten sind in der folgenden Abbildung dargestellt. Im Hinblick auf die Echtzeitanforderungen spielen die Ende-zu-Ende Laufzeit und deren Schwankung („Jitter“) sowie die
+Wahrscheinlichkeit eines Paketverlusts die wichtigste Rolle zur Beurteilung der vom
+Netz bereitgestellten QoS. **[2]**
+
+
+Abbildung 1-1: Anforderungen an Bandbreite und Echtzeit ausgewählter Dienste
+
+
+
+
+
+
+
+
+
+
+
+|Video<br>Conferencing<br>VoIP Video<br>Telephony<br>IPTV<br>IRC<br>Audio<br>Streaming Video<br>Streaming<br>Browsing,<br>Shopping,<br>Banking<br>Email Daten-<br>Download|Col2|
+|---|---|
+|VoIP|Video<br>Telephony<br>IPTV<br>Video<br>Conferencing|
+|Email<br>Audio<br>Streamin<br>IRC<br>Browsing,<br>Shopping,<br>Banking|Daten-<br>Download<br>Video<br>Streaming<br>g|
+|||
+
+
+niedrig hoch
+
+Datenrate
+
+
+Quelle: WIK
+
+
+Das Internet Protokoll (IP) ist bereits heute die Ende-zu-Ende Technologie auf der
+Netzwerk-Schicht des OSI-Modells (siehe Kapitel 2), welche von der absoluten Mehrzahl aller Anwendungen eingesetzt wird. Auf dem darunter liegende Data-Link Layer
+
+
+**1** Brenner/ Dous / Zarnekow / Kruse (2007): S.15f.
+**2** Vgl. Marcus / Elixmann / Carter et. al. (2008) : S. 77f.
+
+
+2 Diskussionsbeitrag Nr. 315
+
+
+kommen hingegen unterschiedliche Technologien zum Einsatz. Es ist daher sinnvoll
+QoS-Mechanismen auf IP-Ebene als kleinstem gemeinsamen Nenner zu implementieren. **[3]** In IP Netzen gibt es jedoch bislang keine _einheitlichen_ Industriestandards wie bei
+ATM **[4]**, auf deren Basis differenzierte Verkehrsklassen, besonders auch über Netzgrenzen, umgesetzt werden können. Die Realisierung der nötigen Übertragungsqualität
+kann entweder durch eine Differenzierung von Verkehrsklassen oder durch eine solche
+„Über“-dimensionierung der Netzkapazitäten erfolgen, dass die Wahrscheinlichkeit eines Überlastfalls statistisch ausreichend klein wird.
+
+
+Die betrachteten Realisierungsstrategien für QoS in IP Netzen sind die Überdimensionierung (keine Differenzierung von Verkehrsklassen), Kapazitätsreservierung und die
+Verkehrspriorisierung (beide mit Differenzierung von Verkehrsklassen). Bislang setzten
+die Netzbetreiber zwar weitflächig QoS Strategien innerhalb ihrer Netze **[5]**, nicht jedoch
+über Netzgrenzen hinweg ein.
+
+
+Das Ziel dieser Studie ist die Analyse der wesentlichen Strategien zur Realisierung von
+QoS in IP-Netzen im Hinblick auf technisch-ökonomische Vor- und Nachteile, sowie ihre
+Implikationen für Kosten, Preismodelle und Regulierung. Die Studie geht dabei wie folgt
+vor:
+
+
+1. Definition von Quality of Service und Bestimmung der Relevanz für unterschiedliche Netzebenen (im Rahmen dieser Einleitung).
+
+
+2. Beschreibung und qualitative Analyse der gängigen drei Strategien sowie Charakterisierung komplementärer Instrumente (MPLS und QoS auf Ethernetebene)
+sowie Einordnung der ATM-Technik.
+
+
+3. Analyse der Kostentreiber und Kostenvergleich der drei Verfahren mit Hilfe eines Kostenmodells.
+
+
+4. Analyse von Preismodellen für Netze mit Quality of Service
+
+
+5. Fazit
+
+
+**3** Vgl. Evans / Filsfils (2007): 91.
+**4** Die Verwendung von ATM als Transportprotokoll im Zugangsnetz erlaubt eine Differenzierung von
+Anschlüssen nach Verkehrsklassen, die sich hinsichtlich ihrer QoS Parameterwerte (Latenz, Jitter
+sowie Cell Loss Ratio = Verlustrate) unterscheiden. Diese Verkehrsklassen können aufgrund der
+Standardisierung auch problemlos über Netzgrenzen hinweg aufrechterhalten werden. Das ATM Protokoll verliert jedoch im Rahmen der Migration zu Next Generation Networks in Konzentrationsnetzen
+an Bedeutung und wird durch Ethernet ersetzt.
+**5** Vgl. QoS Working Group of the MIT Communications Futures Program (2006): S.4.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 3
+
+
+**1.2 Was ist “Quality of Service”?**
+
+
+Der Begriff “Quality of Service” umfasst zwei Aspekte: **[6]** „Service“ kann als die Behandlung des Verkehrs eines Kunden in einem IP-Netz betrachtet werden. Ein Service ist
+nur dann nutzenstiftend, wenn er die Anforderungen der Endkundenanwendung einhält,
+die er ermöglichen soll. Das Ziel ist also die Maximierung der Kundenzufriedenheit mit
+den durch den „Service“ ermöglichten Anwendungen. Mit anderen Worten: Das Voice
+over IP-Telefonat, die Geschäftskundenanwendung, die Videokonferenz oder das Online-Spiel müssen angemessen funktionieren.
+
+
+Der Begriff der Qualität („Quality“) kann daher im Rahmen der Anforderungen einer
+Anwendung, d.h. ihren kritischen Verkehrs-Parametern definiert werden. Diese sind im
+Wesentlichen: **[7]**
+
+
+  - Paketlaufzeit (Delay, gemessen in ms) und Laufzeitvarianz („Jitter“, gemessen
+in ms). Laufzeit und Laufzeitvarianz sind besonders für echtzeitkritische Anwendungen von großer Bedeutung.
+
+
+  - Paketverlustrate (angegeben in Prozent der gesendeten Pakete). Paketverlust
+wird vor allem durch Netzwerküberlastung hervorgerufen, bei welcher Router
+Datenpakete verwerfen müssen.
+
+
+  - Bandbreite (Übertragungsrate gemessen in bit/s). Dabei ist zunächst von Bedeutung, wie viel Bandbreite durchschnittlich benötigt wird. Videoanwendungen
+brauchen bspw. höhere Übertragungsraten als reine Audioanwendungen. Bei
+der Definition von Verkehrsklassen sind ggf. maximale, durchschnittliche und
+minimale Übertragungsraten festzulegen (siehe Kapitel 3.2).
+
+
+Die QoS Anforderungen unterschiedlicher Dienste hinsichtlich dieser vier Parameter
+sind qualitativ in Tabelle 1-1 beschrieben. Vielfach wird den Videoanwendungen eine
+besondere Bedeutung hinsichtlich der Abhängigkeit von QoS beigemessen, da Videoanwendungen gesteigerte Bandbreiten voraussetzen. Wenn nun für Videoanwendungen viel Verkehr generiert wird, der hohe Anforderungen an die QoS stellt, so wirkt sich
+dies ungünstig auf die Netzdimensionierung aus (siehe Kapitel 3). Allerdings stellt
+streng genommen nur Videokonferenzen / Videotelefonie gleichzeitig sehr hohe Ansprüche an Bandbreite und Echtzeitcharakter. Bei Video-on-Demand ist es auch Nutzerperspektive sicher eine kurze Wartezeit von wenigen Sekunden zu akzeptieren, sodass zunächst ein Puffer aufgebaut werden kann, der die harte Einhaltung von Echzeitparametern dann überflüssig macht. Bei IPTV bestimmen sich die Echtzeitanforderungen aus den Anforderungen der Endkunden an das Umschalten zwischen verschiede
+
+**6** Vgl. im Folgenden Evans / Filsfils (2007): 87f.
+**7** Zusätzlich kann für die Qualität von IP Diensten u.a. auch noch die Verfügbarkeit des Netzes und des
+Dienstes als Kriterium herangezogen werden. Vgl. Evans / Filsfils (2007): 2.
+
+
+4 Diskussionsbeitrag Nr. 315
+
+
+nen TV-Kanälen **[8]**, bei Videokonferenzen aus den harten Anforderungen des Dialogs mit
+mehreren Teilnehmern.
+
+
+Die Implementierung von differenzierter QoS ist also besonders dann wichtig, wenn
+Echtzeitanforderungen kritisch einzuhalten sind. Dies ist besonders bei symmetrischer
+Kommunikation wie Telefonie, Gaming und Videotelefonie/ Videokonferenzen der Fall.
+Bei letzterer kommt für die Netzplanung erschwerend hinzu, dass dann große Verkehrsmengen prioritär zu behandeln sind. Differenzierte QoS ist aufgrund der potenziellen Probleme bei Paketlaufzeiten besonders wichtig, wenn Leitungen bereits ausgelastet sind oder wenn Netzknoten ausfallen.
+
+
+Tabelle 1-1: QoS Anforderungen unterschiedlicher Anwendungen
+
+|Application|Delay|Jitter|Paketverlust|Garantierte<br>Bandbreite|
+|---|---|---|---|---|
+|Einfacher breitbandiger Zugang<br>zum Internet|unkritisch|unkritisch|unkritisch|unkritisch|
+|Heimarbeit / Datendienste|wichtig|wichtig|wichtig|wichtig|
+|Video-on-Demand|wichtig|wichtig|kritisch|**kritisch**|
+|IPTV|**kritisch**|**kritisch**|**kritisch**|**kritisch**|
+|VoIP|**sehr kritisch**|**sehr kritisch**|**sehr kritisch**|**kritisch**|
+|Videokonferenzen|**sehr kritisch**|**sehr kritisch**|**sehr kritisch**|**kritisch**|
+|Gaming|**sehr kritisch**|**sehr kritisch**|**sehr kritisch**|**kritisch**|
+
+
+
+Quelle: Jay / Anell / Plückebaum / Kulenkampff / Marcus (2007).
+
+
+Das Gewährleisten der Verkehrsparameter einer bestimmten Anwendung im IP-Netz ist
+grundsätzlich ein Problem des Managements von verfügbarer Kapazität im Verhältnis
+zur Last, also ein Problem der Behandlung von Stau und Überlast. Sofern stets ausreichend höhere Kapazitäten als Netzlast verfügbar sind, ist die Einhaltung der Verkehrsparameter unproblematisch. Kritisch wird die Situation stets, wenn einzelne Komponenten in einem Netzwerk ausfallen und Verkehr in dem prinzipiell fehlertoleranten IP Netz
+umgeleitet werden muss. Eine „Überdimensionierung“ – insbesondere, wenn sie Ausfälle berücksichtigen soll - ist allerdings nicht immer effizient. Das zweite Ziel der Bereitstellung von QoS ist somit die Minimierung von Kosten. Das kann erfordern, Verkehrsklassen zu differenzieren, um diejenigen Pakete zu verzögern oder gar verfallen zu lassen, die am wenigsten kritisch für die Maximierung der Nutzerqualität sind.
+
+
+Eine kritische Frage ist daher, ob die Komplexität und die Investition in Strategien zur
+differenzierenden Behandlung von Verkehr und Gewährleistung von Quality of Service
+
+
+**8** Vgl. Marcus / Elixmann / Carter et al (2008): S. 83f.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 5
+
+
+einen ökonomischen Vorteil gegenüber einer reinen Überdimensionierung gestatten.
+Dieser Frage wird in Kapitel 3 nachgegangen.
+
+
+Es ist wichtig, sich stets vor Augen zu führen, dass jede Netzdimensionierung aufgrund
+der dynamischen Lastveränderung mit Reservekapazitäten ausgelegt werden muss.
+„Überdimensionierung“ als QoS-Strategie setzt im Gegensatz zu den anderen Architekturen aber ausschließlich auf Kapazitätserweiterung und wird somit regelmäßig eine
+höhere Gesamtkapazität im Netz vorhalten müssen als die anderen beiden Ansätze.
+
+
+**1.3 In welchen Netzabschnitten bedarf es Quality of Service?**
+
+
+Grundsätzlich können mit Anschlussnetz, Aggregations- oder Konzentratornetz und
+Kernnetz drei Netzebenen in Breitbandnetzen unterschieden werden (vgl. Abbildung
+1-2). **[9]** Diese Abschnitte sind in unterschiedlichem Maße flexibel bei der Erweiterung
+ihrer Kapazität. Dies ist insbesondere beim Anschlussnetz offensichtlich, bei dem die
+Aufrüstung der Millionen von Teilnehmeranschlussleitungen auf breitbandigere Technologien wie Fiber to the Home (FTTH) mit einem hohen Investitionsvolumen verbunden
+sind. Je höher das Aggregationsniveau der Verkehrs, umso leichter lassen sich die
+Kosten einer Kapazitätserweiterung schultern, da sie von mehr Kunden getragen werden können. In den vermaschten Kernnetzen kann eine Kapazitätserweiterung daher
+technisch und ökonomisch weniger aufwändig erfolgen als in den weit verzweigten Aggregations- und Anschlussnetzen.
+
+
+Abbildung 1-2: Netzstruktur des Breitbandnetzes
+
+
+
+**Netzebene:**
+
+
+
+**Anschlussnetz** **Aggregationsnetz** **Kernnetz**
+
+
+Corerouter
+
+
+
+Endkunde
+
+
+
+DSLAM 1 oder mehrstufige BRAS Edgerouter Edgerouter
+MSAN Konzentration
+
+
+DSLAM: Digitals Subscriber Line Access Multiplexer
+MSAN: Multi Service Access Node
+BRAS: Broadband Remote Access Server
+
+
+
+**9** WIK-Consult (2005): S.17-30.
+
+
+6 Diskussionsbeitrag Nr. 315
+
+
+Die Möglichkeit, Kapazitäten zu erweitern, beeinflusst direkt die Entscheidung, ob und
+wie QoS zu implementieren ist. Bereits an dieser Stelle kann daher grundsätzlich festgestellt werden, dass im Kernnetzbereich eine akzeptable Dienstgüte leichter ohne
+Rückgriff auf besondere Managementtechniken und mit bloßer Überdimensionierung
+abbildbar ist als in Anschluss- und Konzentrationsnetzen. Im Umkehrschluss steht in
+den Anschlussnetzen nur ein sehr begrenztes Bandbreitenbudget zur Verfügung, sodass eine reine Überdimensionierung schwieriger umzusetzen ist. Grundsätzlich könnte
+der Einsatz von QoS-Strategien wie der Priorisierung hier eher in Betracht zu ziehen
+sein. Die Entscheidung zur Implementierung von QoS-Strategien kann also im Hinblick
+auf die einzelnen Netzebenen durchaus getrennt erfolgen. Insgesamt muss ein Netz
+allerdings die an es gestellten Anforderungen erfüllen können.
+
+
+Die einfache Möglichkeit der Kapazitätserhöhung in Kernnetzen zur Einhaltung der nötigen Verkehrsparameter hat aber auch Grenzen. Zwar kann argumentiert werden, dass
+die Preise bzw. Kosten für Bandbreite immer weiter sinken, allerdings stellt sich die
+Frage, ab welchem Punkt die Kosten der hochskalierten Kapazitäten die Investition in
+differenzierende QoS-Strategien übertreffen. Außerdem ist fraglich ob die Kernnetzplanung präzise erfolgt ist und/oder agil genug auf neue Bandbreitennachfrage oder Fehlerfälle reagieren kann. Es kann daher auch netzinterne Argumente für den Einsatz von
+QoS im Kernnetz geben. Gleichwohl erscheint die Problematik aufgrund der weniger
+knappen Ressourcen im Vergleich zu Aggregations- und Anschlussnetzen im Kernnetz
+deutlich weniger dringlich.
+
+
+Allerdings stellt sich mit der Aufrechterhaltung von QoS über Netzgrenzen noch eine
+andere Problematik. Dies kann in zwei Fällen von Bedeutung sein, einmal beim Wholesale Access in Form von Bitstromzugang und zum anderen bei der Zusammenschaltung zweier Netze (IP-Interconnection). **[10]** Die Netzübergänge sind vorwiegend im Kernnetz bzw. am Ende des Konzentrationsnetzes (z.B. für IP-Bitstrom in Deutschland) angesiedelt, wo dann eine entsprechende Identifizierung, Markierung und Weiterleitung
+der Pakete anhand ihrer QoS-Charakteristik erforderlich ist. Die Schwierigkeit besteht
+nun darin, die Einhaltung der QoS-Anforderungen auf der gesamten Ende-zu-Ende
+Verbindung sicherzustellen. Dafür müssten die beteiligten Netzbetreiber z.B. die Paketmarkierungen beim Einsatz von Priorisierung übersetzen können. Auf diese Problematik wird kurz in Kapitel 2.4 eingegangen. Für die Modellierung werden die netzübergreifenden Problemfelder eher ausgeblendet.
+
+
+Festzuhalten ist, dass differenzierende QoS auf allen Netzebenen zum Einsatz kommen kann, in Kernnetzen allerdings prinzipiell die Überdimensionierung eine leicht(er)
+umzusetzende Alternative darstellt.
+
+
+**10** „ _[Wholesale]_ _**Access**_ enables an operator to utilize the facilities of another operator in the furtherance
+of its own business and in the service of its own customers. _**Interconnection**_ enables an operator to
+establish and maintain communications with the customers of another operator. “ Marcus / Elixmann /
+Carter et al (2008): S.4.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 7
+
+##### **2 Verfahren der Qualitätsrealisierung in IP-Netzen**
+
+
+**2.1 Beschreibung**
+
+
+Die Gewährleistung von QoS erfordert die Anwendung einer Reihe von Funktionen wie
+Classification, Scheduling, Shaping oder Policing **[11]**, die im Kontext einer netzweiten
+QoS-Architektur zum Einsatz kommen. Diese Architekturen oder Konzepte werden im
+Rahmen dieser Studie auch als QoS-Strategie bezeichnet.
+
+
+Wie in der Einleitung beschrieben unterscheiden sich die Strategien zur Realisierung
+von adäquater Quality of Service grundsätzlich darin, ob Verkehr abhängig von der Anwendung bzw. der Zuordnung zu einer Verkehrsklasse unterschiedlich, oder ob alle
+Pakete gleich behandelt werden. Letzteres ist bei der Überdimensionierung der Fall,
+welche als ein Extrempol der Qualitätsrealisierung betrachtet werden kann.
+
+
+Das andere Extrem stellt die vollständige Verkehrstrennung dar, bei der Verkehre in
+getrennten Klassen über virtuelle Tunnel mit definierten und reservierten Bandbreiten
+geführt werden. Zwischen diesen Polen sind Techniken anzusiedeln, welche die existierende Netzkapazität grundsätzlich allen Verkehrsklassen zugänglich machen, aber die
+Verkehre über Warteschlangensysteme mit unterschiedlichen Prioritäten verarbeiten.
+
+
+Die folgenden netzweiten QoS-Strategien werden in dieser Studie berücksichtigt (siehe
+auch Abbildung 2-1):
+
+
+- Überdimensionierung
+
+
+- Kapazitätsreservierung (IntServ - Integrated Services Konzept / RSVP - Resource
+Reservation Protocol)
+
+
+- Verkehrspriorisierung (DiffServ - Differentiated Services)
+
+
+**11** „Classification“ bezeichnet die Kategorisierung eines Verkehrsstroms in verschiedene Klassen.
+„Scheduling“ bezeichnet den Abarbeitungsmechanismus von Warteschlangen.
+„Shaping“ bezeichnet einen Mechanismus zur Sicherstellung, dass ein Verkehrsstrom eine definierte
+maximale Rate nicht überschreitet. Dabei werden Pakete entsprechend eines definierten Algorhythmus verzögert und in Warteschlangen geparkt.
+„Policing“ bezeichnet ebenfalls einen Mechanismus zur Sicherstellung, dass ein Verkehrsstrom eine
+definierte maximale Rate nicht überschreitet. Dabei werden die Pakete jedoch einfach verworfen. Ein
+„Policer“ ist somit ein Spezialfall eines „Shapers“ ohne Warteschlange.
+Vgl. Evans / Filsfils (2007).
+
+
+8 Diskussionsbeitrag Nr. 315
+
+
+Abbildung 2-1: Drei wesentliche Verfahren zur Realisierung von Dienstgüte
+
+
+
+
+
+
+
+
+
+Die beiden differenzierenden QoS-Strategien mit Einsatz von DiffServ und IntServ/RSVP setzen auf OSI-Schicht 3 an, auf der das Internet Protokoll (IP) angesiedelt
+ist (DiffServ) bzw. nutzen IP als Routingprotokoll (IntServ/RSVP). Dies ist schon deshalb sinnvoll, weil das IP das einheitliche Bindeglied heutiger und zukünftiger Netze
+darstellt, während der darunter liegende Data Link Layer (OSI-Schicht 2) z.B. ATM-,
+Ethernet-, oder WDM-basiert sein kann. QoS kann komplementär zu den drei Strategien auch auf tieferen OSI-Schichten unterstützt werden. In dieser Studie werden daher
+QoS bei Ethernet und Multi Protocol Label Switching (MPLS) sowie in kürzerer Form
+ATM berücksichtigt. Abbildung 2-2 ordnet alle Verfahren in das OSI-Schichtenmodell
+ein.
+
+
+Abbildung 2-2: Systematisierung der QoS-Strategien anhand des ISO/OSI bzw.
+TCP/IP Schichtenmodells
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MPLS
+
+
+
+|OSI Schicht|TCP/IP Schicht|Col3|Protokoll|Instrumente/<br>Strategien|Col6|
+|---|---|---|---|---|---|
+|7<br>Application<br>_(Anwendungsschicht)_|Anwendungsorientiert|Anwendung|HTTP<br>FTP<br>HTTPS<br>NCP|||
+|6<br>Presentation<br>_(Darstellungsschicht)_|6<br>Presentation<br>_(Darstellungsschicht)_|6<br>Presentation<br>_(Darstellungsschicht)_|6<br>Presentation<br>_(Darstellungsschicht)_|6<br>Presentation<br>_(Darstellungsschicht)_|6<br>Presentation<br>_(Darstellungsschicht)_|
+|5<br>Session<br>_(Sitzungs- bzw._<br>_Kommunikationsschicht)_|5<br>Session<br>_(Sitzungs- bzw._<br>_Kommunikationsschicht)_|5<br>Session<br>_(Sitzungs- bzw._<br>_Kommunikationsschicht)_|5<br>Session<br>_(Sitzungs- bzw._<br>_Kommunikationsschicht)_|5<br>Session<br>_(Sitzungs- bzw._<br>_Kommunikationsschicht)_|5<br>Session<br>_(Sitzungs- bzw._<br>_Kommunikationsschicht)_|
+|4<br>Transport<br>_(Transportschicht)_|Transportorientiert|Transport|TCP<br>UDP<br>SPX<br>RSVP|**IntServ**<br>über RSVP|**IntServ**<br>über RSVP|
+|3<br>Network<br>_(Netzwerk- bzw._<br>_Vermittlungsschicht)_|3<br>Network<br>_(Netzwerk- bzw._<br>_Vermittlungsschicht)_|Internet|ICMP<br>IGMP<br>IP<br>IPX|**DiffServ**<br>Kennzeichnung im<br>IP-Header|**DiffServ**<br>Kennzeichnung im<br>IP-Header|
+|2<br>Data Link<br>_(Sicherungsschicht)_|2<br>Data Link<br>_(Sicherungsschicht)_|Netzzugang|Ethernet<br>ATM<br>Frame Relay<br>SDH<br>WDM|**IEEE 802.1q**<br>Implementierung<br>im Ethernet-Frame|**IEEE 802.1q**<br>Implementierung<br>im Ethernet-Frame|
+|1<br>Physical<br>_(Bitübertragungsschicht)_|1<br>Physical<br>_(Bitübertragungsschicht)_|1<br>Physical<br>_(Bitübertragungsschicht)_|1<br>Physical<br>_(Bitübertragungsschicht)_|1<br>Physical<br>_(Bitübertragungsschicht)_|1<br>Physical<br>_(Bitübertragungsschicht)_|
+
+
+Quelle: WIK
+
+
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 9
+
+
+Im Anschluss werden die drei wesentlichen Realisierungsstrategien für QoS in IP Netzen beschrieben (Kapitel 2.1.1 - 2.1.2) und danach hinsichtlich ihrer Stärken und
+Schwächen verglichen (Kapitel 2.2). Anschließend werden die komplementären Ansätze zu QoS mit Ethernet und MPLS in Kapitel 2.3 sowie die bisher zur QoS Implementierung vorherrschende ATM-Technik beschrieben.
+
+
+Zu beachten ist, dass die hier thematisierten Verfahren zwar einen wesentlichen Teil
+der Einflussfaktoren auf die Quality of Service darstellen (nämlich den netzwerkbedingten), aber eben nicht den gesamten Bereich. Für eine vollständige Erfassung der Einflussfaktoren müssten noch Codec-bedingte Wechselwirkungen berücksichtigt werden,
+denn die Komprimierung z.B. von digitalen Audio/Videosignalen braucht Zeit, die zur
+gesamten Paketlaufzeit hinzugerechnet werden muss, verkürzen aber ggf. die Paketlängen. Außerdem können umweltbedingte (z.B. Hintergrundgeräusche) oder equipmentbedingte Einflüsse (z.B. Echounterdrückung in Endgeräten) sich auf die empfundene QoS auswirken. **[12]** In dieser Studie wenden wir uns jedoch nur den netzwerkbedingten Verfahren zu, die eine angemessene Dienstgüte über die Beeinflussung der
+Parameter Laufzeit, Jitter, Paketverlust und Bandbreite sicherstellen sollen.
+
+
+Weiterhin wurde bereits in der Einleitung dargelegt, dass ausschlaggebend für die
+Dienstgüte die Ende-zu-Ende Qualität ist, welche durch das schwächste Glied definiert
+wird. Dabei spielt also insbesondere die netzübergreifende QoS-Bereitstellung eine
+Rolle. Bei dieser sind die QoS-Strategien in gleichem Maße dem Problem ausgesetzt,
+die Einhaltung definierter QoS auch über Netzgrenzen hinweg sicherzustellen. Im folgenden analysieren wir zunächst grundsätzlich die Stärken und Schwächen der drei
+Strategien. Auf die Problematik der netzübergreifenden QoS-Bereitstellung wird dann
+kurz in Kapitel 2.4 eingegangen.
+
+
+2.1.1 Überdimensionierung
+
+
+Die Strategie der Überdimensionierung kann präziser als Netzplanung ohne Rückgriff
+auf netzweite QoS-Managementfunktionen beschrieben werden. Da nicht zwischen
+Paketen, die zu unterschiedlichen Anwendungen gehören, unterschieden wird, muss
+sich die Planung von Kapazitäten an den Anforderungen der hochwertigsten bzw. sensibelsten Anwendung orientieren. Soll also z.B. ein VoIP-Dienst in adäquater Qualität
+umgesetzt werden, muss sichergestellt sein, dass alle Pakete mit einer sehr hohen
+Wahrscheinlichkeit eine sehr niedrige Laufzeitverzögerung erfahren. Dies betrifft also
+auch die Pakete anderer Dienste, da auf Paketebene keine QoS-Identifikation /
+-markierung stattfindet.
+
+
+Die Umsetzung erfolgt somit durch die Bereitstellung von soviel Kapazität auf Übertragungswegen und Routern, dass die kritischen Verkehre auch zu Zeiten hoher Netzaus
+
+**12** Vgl. Unterarbeitskreis NGN Expertengruppe QoS im NGN (2007): S.8; Hein (2006): 2-6.
+
+
+10 Diskussionsbeitrag Nr. 315
+
+
+lastung nicht bzgl. ihrer Laufzeit beeinträchtigt werden (und Paketverluste folgerichtig
+auch nicht auftreten können).
+
+
+Die adäquate Dimensionierung in Form der Bereitstellung zusätzlicher Kapazität ist
+sicher als Grundlage aller Netzplanung anzusehen. Auch beim Einsatz von Kapazitätsreservierung und Priorisierung werden mehr Netzkapazitäten vorgehalten als durchschnittlich benötigt. Im Gegensatz zu diesen beiden Strategien ist aber beim alleinigen
+Einsatz von Überdimensionierung die Kapazitätsausweitung das einzige Instrument zur
+Gewährleistung von (undifferenzierter) QoS. Dadurch ist regelmäßig davon auszugehen, dass bei diesem Ansatz höhere Gesamtkapazitäten aufgebaut werden als bei Reservierung und Priorisierung.
+
+
+Zwar erfolgt keine paketindividuelle Differenzierung, doch genau wie bei den anderen
+Verfahren ist auch bei der Überdimensionierung eine Verkehrsplanung, die Überwachung der Netzauslastung (typischerweise über Messung der Auslastung einzelner
+Komponenten) sowie Simulationen des Einfluss von Knotenausfällen auf das Netzverhalten erforderlich.
+
+
+2.1.2 Kapazitätsreservierung mit IntServ und RSVP
+
+
+Kapazitätsreservierung beinhaltet die Führung von Verkehr in fest definierten Tunneln
+oder den fallweisen Aufbau von virtuellen Tunneln über den IntServ Standard in Kombination mit RSVP (resource ReSerVation Protocol). Letztere Variante wird hier thematisiert. IntServ / RSVP stellen Anwendungen garantierte Kapazitäten bereit, indem Bandbreite und Warteschlangenabarbeitung kontrolliert und angefragte Verbindungen reserviert werden.
+
+
+Der Mechanismus der Ressourcenreservierung von IntServ und RSVP erfordert es,
+dass ein Nutzer bzw. eine Anwendung eine bestimmte Dienstgüte und die relevanten
+Parameter (vor allem Bandbreite und maximale Verzögerung) vorab im Netz anfordert.
+Alle beteiligten Netzelemente (Router) müssen IntServ / RSVP unterstützen. Wenn die
+Überprüfung der Berechtigung des Nutzers und der verfügbaren Ressourcen des Netzwerks positiv verläuft, werden die Kapazitäten reserviert und Pakete entsprechend markiert. **[13]** Das bedeutet, dass jeder Router die Zustände der reservierten Verbindungen
+auf individueller Flussebene (also für jede von einer Anwendung angefragte Verbindung
+separat) verwalten muss, was zu einer sehr schlechten Skalierbarkeit der Architektur
+führt. **[14]** Die Reservierungen müssen in bestimmten Intervallen erneuert werden, ansonsten werden sie aufgehoben („Soft state“ Protokoll). Das bedeutet, dass keine
+Bandbreite verschwendet wird, weil die Verbindungen nur auf Anfrage aufgebaut und
+aufrechterhalten werden (im Gegensatz zu fest definierten Tunneln). Wichtig festzuhal
+
+**13** Vgl. Hein (2006): S. 22.
+**14** Vgl. Bless / Doll / Wehrle / Zitterbart (2002).
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 11
+
+
+ten ist auch, dass RSVP selbst kein Routingprotokoll ist, sondern für die Wegfindung
+auf IP Routing aufsetzt. **[15]**
+
+
+IntServ/RSVP stellt neben nicht qualifiziertem Best Effort Verkehr zwei Verkehrsklassen
+bereit und zwar „Controlled-Load Service“ und “Guaranteed Quality of Service“. Controlled-Load Service stellt eine Dienstgüte bereit, die einem nicht ausgelasteten Best Effort
+Netz entspricht, bei der ein sehr großer Anteil der Pakete erfolgreich zugestellt wird und
+die Latenz eines sehr hohen Anteils der Pakete die minimale Laufzeit höchstens nur
+geringfügig übertrifft. **[16]** Der Nutzer teilt dafür vorab den beteiligten Netzelementen mit,
+wie viel Verkehr generiert wird („Traffic Specification“) **[17]** . Das Netz stellt dann die beschriebenen Kapazitäten zur Verfügung. Wenn der Verkehr jedoch die Traffic Specifications überschreitet, kann die bereitgestellte QoS nur noch der eines Best-Effort Netzes
+zur Hochlast entsprechen.
+
+
+Guaranteed Quality of Service stellt eine höhere Dienstgüte für Echtzeitanwendungen
+bereit. Zusätzlich zu den „Traffic Specifications“ muss der Nutzer / die Anwendung vorab die Reservierungscharakteristik („Request Specification“ **[18]** ) festlegen, welche es in
+der Kombination mit den Traffic Specifications erlaubt, eine niedrige Laufzeitverzögerung sicherzustellen. Auch bei dieser Klasse wird Verkehr, der die vorab bestellten Parameter nicht einhält, als Best Effort Verkehr behandelt.
+
+
+2.1.3 Verkehrspriorisierung mit DiffServ
+
+
+2.1.3.1 Grundlegende Funktionsweise
+
+
+Der DiffServ Standard **[19]** der IETF erlaubt die klassenweise differenzierte Zuordnung
+von Netzressourcen. Im Gegensatz zu IntServ werden nicht einzelne Datenströme,
+sondern nur Dienstklassen anhand von Kennzeichnungen der Pakete unterschieden,
+was zu einer wesentlich höheren Skalierbarkeit der Strategie führt. Dazu müssen die
+Pakete am Eingang ins Netz entsprechend markiert werden, was über das Type-ofService (ToS) Feld des IP-Headers **[20]** geschieht. **[21]** Jeder Router entscheidet dann an
+
+**15** Vgl. Evans / Filsfils (2007): S. 304-307.
+**16** Siehe RFC 2211.
+**17** Die in den Traffic Specifications definierten Elemente sind die Spitzendatenrate, die Tiefe und Token
+Bucket Rate des zugrunde liegenden Token Bucket Modells, die minimale unterstützte Paketgröße
+und die Maximale Paketgröße. Für eine detaillierte Erläuterung des Modells siehe RFC 2211 oder
+McDysan (2000): S. 47-51.
+**18** Der in den Request Specifications wesentliche definierte Parameter ist die tatsächlich genutzte Bandbreite. Die Laufzeitverzögerung entsteht durch Warteschlangenverzögerung und eine feste Verzögerung, die durch die Übertragung selbst bedingt ist (z.B. die Beschränkungen der Lichtgeschwindigkeit). Die Warteschlangenverzögerung lässt sich bestimmen durch die Parameter des Token Bucket
+Modells auf der einen Seite (festgelegt in den Traffic Specifications) und die Datenrate, welche in den
+Request Specifications festgelegt wird. Siehe RFC 2212.
+**19** RFC 2474.
+**20** Ein IP-Paket besteht aus Kopfdaten (dem Header) wie Quelle und Ziel, und den eigentlichen Nutzdaten.
+
+
+12 Diskussionsbeitrag Nr. 315
+
+
+hand dieser Markierung über die weitere Verarbeitung der Pakete. Für einen netzweiten
+Einsatz von DiffServ müssen daher alle Router diese Markierung lesen und verarbeiten
+können. Eine vorhergehende Reservierung der benötigten Kapazitäten oder auch nur
+eine Prüfung, inwieweit die benötigte Kapazität zur Verfügung steht, erfolgt nicht. Die
+Router entscheiden unabhängig voneinander entsprechend der Regeln über die Bedienung der Warteschlangen. Abbildung 2-3 zeigt Eingangs- und Ausgangsknoten einer
+DiffServ-Domäne **[22]** .
+
+
+Abbildung 2-3: DiffServ-Domäne
+
+
+Quelle: Bless / Doll / Wehrle / Zitterbart (2002)
+
+
+Es werden neben Best-Effort zwei Gruppen von Dienstklassen unterschieden, die unterschiedliche Weiterleitungsregeln („Per-Hop-Behaviour“) besitzen: **[23]**
+
+
+  - Assured-Forwarding: **[24]** Assured Forwarding stellt vier unterschiedliche Klassen
+bereit, für die jeweils drei verschiedene Verlustraten (Drop Precedence) festgelegt werden können.
+
+
+  - Expedited-Forwarding: **[25]** Expedited Forwarding garantiert eine definierte minimale Datenrate und geringe Verzögerungszeiten für sensible Anwendungen wie
+VoIP.
+
+
+**21** Das ToS Feld bezieht sich auf das heute verwandte IPv4. Bei IPv6 wird das „Traffic-Class“ Feld benutzt. Übergreifend wird auch vom Differentiated Services Code Point (DSCP) gesprochen.
+**22** Eine DiffServ-Domäne ist „ein administrativen Bereich, der DiffServ-konforme Knoten (Router oder
+auch Endsysteme) enthält“. Bless / Doll / Wehrle / Zitterbart (2002).
+**23** Der Standard unterscheidet mit Default und Class Selector Per-Hop-Behaviour noch zwei weitere
+Klassen. Beide können durch die beschriebenen Klassen substituiert werden und haben nachrangige
+Bedeutung. Vgl. Evans / Filsfils (2007): 158f.
+**24** RFC 2597.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 13
+
+
+Bei der Verkehrspriorisierung werden Warteschlangensysteme benutzt, um höherwertigem Verkehr an den Netzknoten, also den Routern, Vorrang zu geben, während anderer Verkehr warten muss. Dabei kann einfaches Priority Queuing (Strict und Rate
+Controlled) von gewichteten (Fair) Queuing Ansätzen unterschieden werden.
+
+
+Die durch den Standard beschriebenen Klassen können in einer strikten Prioritätenreihenfolge abgearbeitet werden. Ein solches Priority Queuing ist in Abbildung 2-4 dargestellt. Dabei werden die Pakete entsprechend Ihrer Markierungen in unterschiedliche
+Klassen eingeteilt. Die Warteschlangen werden dann strikt nach ihrer Priorität abgearbeitet. Sofern stetig Verkehr in höherwertige Warteschlangen fließt, kann dies zur Folge
+haben, dass niederwertiger Verkehr nicht weitergeleitet wird.
+
+
+Abbildung 2-4: Priority Queuing
+
+
+Quelle: in Anlehnung an Hein (2006): S.33
+
+
+Rate-Controlled Priority Queuing erweitert das strikte Priority Queuing um eine maximale Datenrate, bis zu der ein striktes Priority Queuing durchgeführt wird. Nach dem Überschreiten dieser maximalen Datenrate werden dann zunächst niedrige Prioritäten bedient.
+
+
+Alternativ können auch gewichtete Warteschlangensysteme eingesetzt werden, welche
+die Prioritäten der unterschiedlichen Klassen berücksichtigen, gleichzeitig aber auch
+sicherstellen, dass alle Klassen abgearbeitet werden und dabei deren Anteil an der Gesamtlast berücksichtigen. Beispielhaft wird die Variante des Weighted Fair Queuing
+vorgestellt. **[26]**
+
+
+**25** RFC 2598.
+**26** Andere Varianten sind z.B. (Weighted) Round Robin. Für eine Beschreibung von weiteren Queuing
+Disziplinen und deren Vor- und Nachteilen siehe Evans / Filsfils (2007), Hein (2006).
+
+
+14 Diskussionsbeitrag Nr. 315
+
+
+2.1.3.2 Weighted Fair Queuing als Zwitter zwischen Priorisierung und Kapazitätsreservierung
+
+
+Der Weighted Fair Queuing (WFQ) Ansatz kann auch als Zwitter zwischen Priorisierung
+und Kapazitätsreservierung betrachtet werden. Er vereint die Ansätze der Prioritätsorientierung aus dem Priority Queuing mit einer Fairnesskomponente, die sicherstellt,
+dass alle Klassen bearbeitet werden. Im Fall von WFQ wird jeder Klasse auf den Verbindungen eine definierte Kapazität zur Verfügung gestellt (wie bei der Kapazitätsreservierung). Die Warteschlangenabarbeitung erfolgt insofern „fair“, als dass das Warteschlangensystem mit diesen Bandbreiten gewichtet wird und die Abarbeitung nicht ausschließlich anhand der Priorität erfolgt. **[27]** Bei der Abarbeitung wird die Eingangsreihenfolge, die Zugehörigkeit zu priorisierten Warteschlangen und deren Gewichtung sowie
+die Paketlänge berücksichtigt (daraus wird die in der Abbildung dargestellte „Finish
+Time“ jedes Pakets berechnet, welche die Ausgangsreihenfolge definiert). **[28]**
+
+
+Eine weitere Besonderheit, die den Zwittercharakter ausmacht, ist, dass die reservierte
+Kapazität nicht exklusiv einer Klasse zugeordnet sein muss. Sofern kein Verkehr in einer Klasse vorliegt, können die Kapazitäten auch von anderen Klassen in Anspruch
+genommen werden. Dies gleicht daher die Ineffizienzen des Freibleibens von reservierter Kapazität aus, welche im Fall von fest definierten Tunneln aufkommen.
+
+
+Abbildung 2-5: Weighted Fair Queuing
+
+
+Quelle: Hein (2006): S. 37
+
+
+**27** Angenommen, die Bandbreitenaufteilung bei drei Klassen beträgt ¼ Klasse 1, ¼ Klasse 2 und ½
+Klasse 3. Klasse 1 sei die höchste Priorität. Die Bearbeitung der Warteschlangen würde dann im
+Rhythmus Schlange 1, Schlange 2, Schlange 3, Schlange 3 erfolgen und wieder von vorn beginnen.
+Dieses Prinzip liegt auch dem Weighted Round Robin Prinzip zu Grunde.
+**28** Vgl. Evans / Filsfils (2007): S. 118-121. Hein (2006): S. 36-38.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 15
+
+
+**2.2 Stärken und Schwächen**
+
+
+Im folgenden stellen wir kurz die Vor- und Nachteile der Verfahren vor. **[29]** Abschließend
+werden Stärken und Schwächen tabellarisch zusammengefasst.
+
+
+2.2.1 Vor- und Nachteile der Überdimensionierung
+
+
+Vorteile:
+
+
+  - Das Verfahren ist sehr einfach, weil keine Gewichtung, Service Level Agreements oder komplexe Protokolle berücksichtigt werden müssen. Alle anderen
+Ansätze erfordern ein wesentlich höheres Maß an Konfiguration und Monitoring.
+
+
+  - Überdimensionierung ist grundsätzlich leicht zu erweitern, indem weitere Kapazitäten bzw. schnellere Komponenten hinzugefügt werden. Dies kann zu relativ
+moderaten Kosten geschehen, wenn angenommen wird, dass in der nahen Zukunft besonders im Backbonebereich keine Knappheit besteht. Um die entsprechenden Zeitpunkte für die Aufrüstung zu bestimmen, sind jedoch ebenso wie
+bei den anderen Verfahren umfangreiche Verkehrsplanungen und Simulationen
+durchzuführen.
+
+
+Nachteile:
+
+
+  - Heutzutage dominiert Flat Rate Pricing im Breitbandgeschäft. Da in diesem Fall
+zusätzlicher Konsum für den Nutzer nicht zu weiteren Kosten führt, bestehen
+hohe Anreize zur gesteigerten Nutzung des Netzes (siehe Kapitel 4). Das ruft
+die Gefahr eines „Teufelskreis der Bandbreitenerhöhungen“ **[30]**, bei dem es zu
+stetigen Erweiterungen kommt, hervor (siehe Abbildung 2-6).
+
+
+  - Die anderen Modelle können für sensitive Dienste eine akzeptable QoS garantieren (statistisch bei Priorisierung, deterministisch bei Reservierung).
+
+
+  - Sobald spürbares Delay oder Jitter auftreten, betrifft dies im Fall der Überdimensionierung sehr wahrscheinlich auch den sensiblen Verkehr, da im Gegensatz zu den anderen Verfahren nicht differenziert werden kann. Wenn beispielsweise im Fehlerfall der gesamte Verkehr umgeroutet werden muss, kann
+dem hochwertigen Verkehr keinerlei Vorrang auf der vermutlich dann überlasteten Ausweichroute gewährt werden.
+
+
+**29** Dabei beziehen wir uns vorwiegend auf Burgstahler et al (2002): S. 60-64.
+**30** „Das unkontrollierte Verbessern der Performance sämtlicher Anwendungen kann dazu führen, dass
+die Endkunden noch mehr Freizeitapplikationen [Best Effort-Dienste] benutzen. Mit der Folge steigenden Ressourcenbedarfs, der schneller wächst als jener Verkehr, der durch die kritischen Anwendungen erzeugt wird. Deren Performance wird erheblich beeinträchtigt, was wieder zu einem nochmals
+höheren Bandbreitenbedarf führt […]“, Sellin (2008): S.35f.
+
+
+16 Diskussionsbeitrag Nr. 315
+
+
+  - Eine Kosten-Nutzen Rechnung im Vergleich mit den anderen Verfahren ist
+schwierig, weil sie vom Grad der Überdimensionierung abhängt und der Vorteil
+der geringeren Kosten der simplen Bandbreitenerhöhung durch die Skalierung
+der günstigen Bandbreite möglicherweise aufgewogen wird. In 3 wird ein quantitativer Kostenvergleich modellhaft durchgeführt.
+
+
+Abbildung 2-6: Teufelskreis der Bandbreitenerhöhungen
+
+
+
+Beschleunigung
+aller Applikationen
+
+
+Erhöhung der
+Bandbreite
+
+
+Alternative:
+
+
+Intelligente Nutzung
+von WANOptimierungstools
+
+
+
+Unkritischer
+Verkehr wächst
+schneller als
+kritischer Verkehr
+
+
+Performance
+kritischer
+Applikationen
+verschlechtert sich
+
+
+
+Quelle: Sellin (2008)
+
+
+2.2.2 Vor- und Nachteile der Kapazitätsreservierung
+
+
+Vorteile:
+
+
+  - Kein anderes Verfahren kann deterministische QoS zusichern.
+
+
+  - Die Kapazitätsreservierung erfolgt individuell nach Bedarf.
+
+
+  - Es werden Konferenzverbindungen (Multicast) unterstützt.
+
+
+Nachteile:
+
+
+  - Das IntServ Modell ist nur sehr schlecht skalierbar, weil die Reservierung an jedem Router des Pfades für jede einzelne Verbindung festgehalten werden
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 17
+
+
+muss. In großen Netzen wird der Bearbeitungsaufwand der Reservierung daher
+schnell sehr hoch und stößt hardwareseitig an Grenzen. **[31]**
+
+
+  - Weil für jede Verbindung erst eine Reservierung erfolgen muss, ergibt sich ein
+zusätzliches Delay für die Signalisierung beim Aufbau der Reservierung. Bei den
+anderen Strategien fällt dies nicht an. **[32]**
+
+
+  - Die Verbindungen werden zwar nach Bedarf auf- und danach wieder abgebaut.
+Dennoch führt der verbindungsorientierte Charakter zu ineffizienten Kapazitätszuweisungen, wenn die Verbindung nicht gleichmäßig ausgelastet wird, was
+beispielsweise in einem Telefongespräch typischerweise geschieht. Denn in diesem Fall wird stets die maximal benötigte Kapazität vorgehalten, obgleich diese
+nicht über die gesamte Verbindungsdauer bereitgestellt werden muss. Die Effizienzvorteile von VoIP gegenüber einem PSTN-Kanal werden dadurch gewissermaßen teilweise zurückgenommen.
+
+
+2.2.3 Vor- und Nachteile der Priorisierung
+
+
+Vorteile:
+
+
+    - Das Verfahren ist leicht skalierbar, weil im Gegensatz zur Reservierung keine Statusinformationen zu jeder einzelnen Verbindung in den Routern gespeichert werden müssen. Sämtliche Klassifizierung geschieht an den Eingangsroutern der DiffServ Domäne.
+
+
+    - Da keine Signalisierung anfällt, entsteht auch kein dadurch bedingtes zusätzliches Delay.
+
+
+    - Im Vergleich zur Überdimensionierung muss weniger Kapazität vorgehalten
+werden.
+
+
+Nachteile:
+
+
+    - Der DiffServ Standard kann Qualität nur statistisch zusichern, aber nicht deterministisch garantieren.
+
+
+    - Die Eingangsrouter der DiffServ Domäne müssen dafür Sorge tragen, dass
+die Markierung der Pakete korrekt ist und dass sich Nutzer bzw. Services
+nicht zu Unrecht einer privilegierten Klasse zuordnen.
+
+
+**31** Der Protokoll-Overhead für die flussbasierte Kapazitätsreservierung und die Aufrechterhaltung des
+Flussstatus an jedem Router für jeden Fluss ist erheblich und zwar besonders bei großen Netzen.
+Daher ergibt sich daher ein bedeutendes Skalierungsproblem. Vgl. Yang / Huang / Kim et al (2002):
+S. 2.
+**32** Dies fällt auch bei MPLS (siehe Kapitel 2.3.3) nicht an, da die Pfade dort im Vorhinein, und nicht für
+jede Verbindung einzeln aufgebaut werden.
+
+
+18 Diskussionsbeitrag Nr. 315
+
+
+2.2.4 Zusammenfassung
+
+
+Grundsätzlich sind alle drei Verfahren mit ihren jeweiligen Vor- und Nachteilen in der
+Lage, QoS zu gewähren, sofern die Netzdimensionierung ausreichend ausgelegt wurde. Dabei unterscheiden sie sich jedoch zum einen darin, inwieweit eine tatsächliche
+QoS-Garantie abgegeben werden kann (dies erlaubt nur die Reservierung) und zum
+anderen, wie effizient sie mit der zur Verfügung stehenden Kapazität umgehen (Priorisierung ist am effizientesten, siehe auch Kapitel 3.2.1).
+
+
+Die Netzdimensionierung hängt entscheidend von den relativen Verkehrsanteilen der
+unterschiedlichen Verkehrsarten ab. Je größer die Volumina von höherwertigen Verkehren sind, umso mehr Kapazität muss insgesamt bereitgestellt werden, um Überlastfällen
+vorzubeugen. VoIP verbraucht nur geringe Kapazitäten (je nach Codec z.B. nur 9 kbps)
+und stellt somit geringe Anforderungen an die Bandbreite, aber hohe Anforderungen an
+die Paketlaufzeit (siehe Abbildung 1-1).
+
+
+Wenn jedoch Videokonferenzen als hochwertiger Dienst einen hohen Anteil am gesamten Verkehrsvolumen haben, so müssen auch deutlich mehr Gesamtkapazitäten vorgehalten werden. Die geringere Effizienz in der Bereitstellung von Kapazitäten wirkt
+sich dann besonders nachteilig auf Überdimensionierungs- und Reservierungsstrategien aus und führt zu vergleichsweise hoher vorzuhaltender Gesamtkapazität im Netz.
+Der Einfluss auf die Kosten der Gewährung von hinreichender QoS, der aus der Effizienz der Verfahren herrührt, wird in Kapitel 3 im Modell untersucht.
+
+
+Die Vor- und Nachteile der technischen Umsetzung sind zusammenfassend in Tabelle
+2-1 abgebildet.
+
+
+Tabelle 2-1: Technische Vor- und Nachteile von Überdimensionierung, Kapazitätsreservierung und Verkehrspriorisierung zur Gewährleistung von Qualität
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+|Col1|Überdimensionierung|Kapazitätsreservierung|Verkehrspriorisierung|
+|---|---|---|---|
+|**Dimensionierung**<br>**des Netzes / Band-**<br>**breiteneffizienz**|--<br>erfordert am meisten Ka-<br>pazität|+|++<br>erfordert am wenigsten<br>Kapazität|
+|**Flexibilität / Skalier-**<br>**barkeit**|++ / -- <br>Weiterausbau einfach,<br>aber Teufelskreisproblem|--<br>Aufgrund der Komplexität<br>schwierig|+|
+|**Sicherstellung der**<br>**Qualität für höher-**<br>**wertige Dienste**|--<br>Nicht gewährleistet|++<br>mit RSVP deterministisch<br>gewährleistet|+ <br>Statistisch gewährleistet|
+
+
+
+++ starker Vorteil, + Vorteil, -- starker Nachteil. RSVP – Resource Reservation Protocol
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 19
+
+
+**2.3 Ergänzende Maßnahmen auf tieferen OSI-Schichten**
+
+
+Bislang wurden mit Überdimensionierung, Reservierung (IntServ) und Priorisierung
+(DiffServ) die drei Hauptansätze zur Gewährleistung von angemessener Quality of Service vorgestellt. Dabei wurde deutlich, dass nur bei der Reservierung und der Priorisierung eine paketindividuelle Differenzierung vorgenommen wird, um Qualität anwendungsabhängig zu unterscheiden und zu gewähren. Mit QoS-Tagging in EthernetFrames und Multi Protocol Label Switching (MPLS) werden in diesem Kapitel zwei zu
+diesen Strategien komplementäre Instrumente vorgestellt, die auf tieferen OSISchichten ansetzen. Vorab wird kurz die in Ablösung begriffene ATM-Technik vorgestellt.
+
+
+2.3.1 Quality of Service in ATM-Netzen
+
+
+Die Übertragung auf Ebene 2 der OSI-Schicht basierte in den Netzen der Netzbetreiber
+zu einem Großteil auf ATM-Technik (Asynchronous Transfer Mode). ATM-Netze (Asynchronus Transfer Mode) arbeiten in der Regel verbindungsorientiert, analog zu klassischen Telefonnetzen. Während einer Verbindung werden Nachrichten in Form von
+Paketen konstanter Länge übermittelt, den so genannten „Zellen“ **[33]** . Bei der Kommunikation über ATM werden dedizierte virtuelle Kanäle aufgebaut, deren Qualität im vorhinein sichergestellt wird. Ist keine Kapazität hinreichender Qualität mehr vorhanden,
+können keine weiteren Verbindungen mehr aufgebaut werden. Das verhindert aber
+nicht, Kanäle unspezifizierter Kapazität zu überbuchen.
+
+
+Eine der zentralen Eigenschaften des ATM ist, dass unterschiedlichste Verkehrscharakteristiken übermittelt werden können. Die standardisierten Verkehrsklassen des ATM
+Forums beinhalten Spezifikationen hinsichtlich wesentlicher Verkehrsparameter (darunter Maximal-, Durchschnitts-, Minimal- und Burstbandbreite, Verzögerung und Verzögerungsschwankung sowie Verlustrate). Aus den unterschiedlichen Spezifikationen dieser
+Parameter bzw. deren Nichtspezifikation ergeben sich die folgenden Verkehrsklassen
+(in abnehmender Güte):
+
+
+  - Constant Bit Rate (CBR)
+
+
+  - Variable Bit Rate real-time oder non real-time (VBRrt, VBRnrt)
+
+
+  - Available Bit Rate (ABR)
+
+
+  - Unspecified Bit Rate (UBR)
+
+
+Auf der Grundlage dieser standardisierten Klassen lassen sich dann die nötigen Merkmalsausprägungen definieren, die für den Transport notwendig ist. So wird Best Effort
+Verkehr regelmäßig in der UBR Klasse geführt, in welcher nur die maximale Bandbreite
+
+
+**33** Vgl. Jung/Warnecke (2002): S. 1-112.
+
+
+20 Diskussionsbeitrag Nr. 315
+
+
+festgelegt ist, alle anderen Parameter jedoch schwanken können. Für einen anspruchsvollen Echtzeitdienst kann stattdessen eine entsprechend konfektionierte CBR oder
+VBR Klasse herangezogen werden, welche entweder eine konstante Bandbreite garantiert (CBR) oder neben Maximal- und Minimalgrenzen auch ein durchschnittliche Bandbreite festlegt (VBR) und dabei entsprechende Grenzwerte für Delay, Jitter und Packet
+Loss festlegt. Durch die standardisierte Protokollstruktur können Qualitäten innerhalb
+eines Netzes aber auch netzübergreifend definiert und eingehalten werden.
+
+
+ATM wurde überwiegend in Kombination mit anderen Protokollen eingesetzt und zwar
+vorwiegend in DSL-basierten Zugangsnetzen unterhalb des PPP-Protokolls, als
+Schicht-2 Protokoll in IP-Kernnetzen, um eine QoS Differenzierung vorzunehmen oder
+als eigenständiges Breitbandkernnetz zur Bereitstellung von virtuellen Verbindungen für
+Großkunden. **[34]**
+
+
+Es gibt viele Anzeichen dafür, dass ATM durch Ethernet als OSI-Schicht-2 Technik ersetzt wird. **[35]** Die Gründe dafür sind vielfältig: Zunächst einmal ist Ethernet Technik einfach und kostengünstig. Ethernet bietet darüber hinaus gegenüber ATM eine Reihe von
+Vorteilen, z.B. bessere Multicasting-Unterstützung oder Virtual Private Lans (VLANs),
+höhere Bandbreiten und geringeren Protokoll-Overhead. ATM wird in dieser Studie daher nicht weiter betrachtet.
+
+
+2.3.2 Quality of Service auf Ethernet-Ebene
+
+
+Der Ethernetstandard selbst (IEEE 802.3) sieht keine QoS-Mechanismen vor und ermöglicht nur eine einzige Verkehrsklasse. Erst die Erweiterung um zusätzliche Standards erlaubt zumindest die Markierung von Ethernet-Frames, indem ein zusätzliches
+Feld zu diesem Zweck eingefügt wird. Diese relevanten Erweiterungen sind in den
+Standards IEEE 802.1q und IEEE 802.1d **[36]** beschrieben.
+
+
+IEEE 802.1q erlaubt „VLAN-tagging“, also die Markierung von Ethernet-Frames mit einer VLAN-Zuordnung und/oder einer Prioritätenklasse. Der „Bridging“-Standard IEEE
+802.1d erlaubt die netzseitige Unterscheidung verschiedener Verkehrsklassen unter
+Verwendung dieses Prioritätenfelds. Einem Ethernet Frame können mittels dieser
+Standards bis zu 8 verschiedene Prioritäten zugeordnet werden.
+
+
+Der Vorteil einer QoS-differenzierten Verkehrsbehandlung auf Ethernetebene (Schicht
+2) liegt darin, dass bereits ohne die Interpretation der IP-Pakete nach Prioritäten weitergeleitet werden kann. Solche Netze brauchen dann für das „Switching“ auf Schicht 2
+
+
+**34** WIK-Consult (2005): S. 23.
+**35** Vgl. z.B. WIK-Consult (2005): S. 24 und Keymile (2007).
+**36** In letzterem ist die für diesen Kontext relevante Priorisierungsmöglichkeit aus dem ursprünglich als
+802.16p aufgesetzten Standard aufgegangen.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 21
+
+
+weniger Equipment und die Abarbeitung kann schneller erfolgen als beim „Routing“ auf
+Schicht 3.
+
+
+Im Zusammenhang mit diesen Standards muss zwischen folgenden Begriffen unterschieden werden:
+
+
+  - Verkehrstypen: Der Standard IEEE 802.1q unterscheidet 8 Verkehrstypen, die
+von einer Trennung von anderem Verkehr profitieren würden. Diese sind in
+Tabelle 2-2 dargestellt. Dabei sind 6 verschiedene nutzerspezifische Verkehrstypen aufgeführt und 2 netzspezifische Verkehrstypen (BK und NC). Es handelt
+sich dabei nicht um Verkehrsklassen selbst und die Verkehrstypen sind nur rudimentär beschrieben.
+
+
+Tabelle 2-2: Verkehrstypen nach IEEE 802.1q
+
+|Priorität|Abkürzung|Beschreibung|
+|---|---|---|
+|1|BK|**Background** – Massenverkehre und andere Aktivitäten, die auf dem Netz er-<br>laubt sind, aber die die Nutzung des Netzes durch andere Nutzer und Anwen-<br>dungen nicht einschränken dürfen.|
+|0 <br>(Default)|BE|**Best Effort** – Standardklasse für nicht-priorisierte Anwendungen, wobei Fair-<br>ness im Netzzugriff rein durch das TCP (Transmission Control Protocol) regu-<br>liert wird.|
+|2|EE|**Excellent Effort** – der Best-Effort Service, den man seinen wichtigsten Kunden<br>zugestehen würde.|
+|3|CA|**Critical Applications** – charakterisiert durch eine garantierte minimale Band-<br>breite als primäre QoS-Anforderung und abgesichert durch eine Zugangskon-<br>trolle, damit eine Anwendung nicht Kapazitäten auf Kosten anderer konsumiert.<br>Diese Zugangskontrolle kann auf der einen Seite eine Vorausplanung der Netz-<br>anforderungen sein und bis zu einer Bandbreitenreservierung auf Flussbasis<br>reichen.|
+|4|VI|**Video**, < 100 ms delay – oder anderen Anwendungen, die eine niedrige Laufzeit<br>als Hauptvorrausetzung haben|
+|5|VO|**Voice**, < 10 ms delay und maximale Laufzeitschwankung – ( entspricht 1-weg<br>Übertragung durch eine LAN Infrastruktur oder ein Campus-Netz)|
+|6|IC|**Internetwork Control** – eingesetzt in großen Netzen mit mehreren Domänen<br>um den Inter- vom Intra-Netzsteuerungsverkehr abzugrenzen.|
+|7|NC|**Network Control** – charakterisiert durch eine garantierte Auslieferungsanforde-<br>rung um Konfiguration und Wartung der Netzinfrastruktur zu ermöglichen.|
+
+
+
+Quelle: IEEE 802.1q-2005
+
+
+  - Verkehrsklassen: Die tatsächliche Behandlung unterschiedlicher Verkehre erfordert die Einteilung in Verkehrsklassen, die an den Netzknoten in unterschiedlicher Weise behandelt werden. Der Standard schlägt Varianten vor, wie man
+die 8 Verkehrstypen auf eine geringere Anzahl von zur Verfügung stehenden
+Verkehrsklassen ( =Warteschlangen) aufteilt, wenn die entsprechende Netzkomponente nicht die vollen 8 Typen verwalten kann. Dies ist in Tabelle 2-3
+dargestellt.
+
+
+22 Diskussionsbeitrag Nr. 315
+
+
+Tabelle 2-3: Zuordnung von Verkehren zu einer beschränkten Anzahl von Verkehrsklassen
+
+|Anzahl der War-<br>teschlangen|Bestimmender Verkehrstyp|Col3|Col4|Col5|Col6|Col7|Col8|Col9|
+|---|---|---|---|---|---|---|---|---|
+|1|BE|BE|BE|BE|BE|BE|BE|BE|
+|2|VO|VO|VO|VO|BE|BE|BE|BE|
+|3|NC|NC|VO|VO|BE|BE|BE|BE|
+|4|NC|NC|VO|VO|CA|CA|BE|BE|
+|5|NC|IC|VO|VO|CA|CA|BE|BE|
+|6|NC|IC|VO|VO|CA|CA|BE|BK|
+|7|NC|IC|VO|VO|CA|EE|BE|BK|
+|8|NC|IC|VO|VI|CA|EE|BE|BK|
+
+
+
+Quelle: IEEE 802.1q, Version 2005
+
+
+Die Logik für die Zuordnung von Verkehrstypen zu Verkehrsklassen in Abhängigkeit
+von der Anzahl der differenzierbaren Klassen ist ausführlich in den Standards beschrieben. **[37]**
+
+
+2.3.3 Einsatz von MPLS
+
+
+Multi Protocol Label Switching (MPLS) ist eine von der Internet Engineering Task Force
+(IETF) definierte Technik bzw. ein Protokoll, das zur Implementierung von differenzierter Quality of Service eingesetzt werden kann. Die Technik ermöglicht neue Weiterleitungsregeln, die nicht auf der IP-Adresse, sondern auf neuen Markierungen („Labels“)
+basieren. Sie ist sowohl mit DiffServ als auch mit IntServ/RSVP als übergeordneter
+QoS-Strategie anwendbar und ist im OSI Referenzmodell zwischen Schicht 2 und 3
+einzuordnen. **[38]**
+
+
+MPLS diente zunächst vornehmlich der Komplexitätsreduktion der Aufgaben von Backbone-Routern und somit deren Leistungssteigerung, indem anstelle des store and forwards der einzelnen Pakete mit Nachschlagen in den Routingtabelle, wohin sie weitergeleitet werden soll, diese Wege vorher festgelegt und über Label gekennzeichnet werden, so dass die Pakete entsprechend des Labels sofort und ohne Zwischenspeicherung für das Routing durchgereicht werden. Heutige Router sind jedoch so schnell,
+dass praktisch keine Leistungssteigerung bei der Paketverarbeitung durch MPLS erzielt
+werden kann und dieser Aspekt für die Implementierung bedeutungslos ist. Stattdessen
+bietet der Einsatz von MPLS den Netzbetreibern noch die weiteren Vorteile wie z.B. den
+Aufbau von VPNs und die Möglichkeit, Verkehre mittels Traffic Engineering bewusst zu
+lenken. **[39]**
+
+
+**37** IEEE 802.1q-2005 S.281f. und IEEE 802.1d S.243.
+**38** Hein (2006): S. 17.
+**39** Vgl, Kunze (2007): S.11.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 23
+
+
+Traffic Engineering beschreibt die bewusste Beeinflussung der Verkehrsverteilung in
+einem IP-Netz. Beim herkömmlichen IP-Routing analysiert jeder Router die Adressinformationen und entscheidet unabhängig über die Weiterleitung eines Paketes. Dadurch können Routen im Netz deutlich verschiedene Auslastungsgrade erreichen, da
+der i.d.R. gewählte kürzeste Pfad (d.h. die geringste Anzahl Hops bzw. Router) zum
+Ziel nicht unbedingt die Route mit der meisten freien Kapazität oder mit der geringsten
+Verzögerungszeit sein muss. Über Traffic Engineering kann man ausgewählte Verkehre
+auf definierten Pfaden führen, um so Kapazitäten ausgewogener auszulasten.
+
+
+MPLS leitet Pakete weiter (Forwarding), indem Label Switched Paths (LSPs) aufgebaut
+werden. Diese Pfade können sowohl der kürzeste Weg, als auch der Weg mit dem geringsten Verkehrsaufkommen oder der geringsten Verzögerungszeit sein. Die eingehenden Pakete erhalten eine Zuteilung zu einer Forward Equivalence Class (FEC),
+welche den Pfad bestimmt, auf dem sie zu führen sind. Die Weiterleitung von Paketen
+ist beispielhaft in Abbildung 2-7 dargestellt. **[40]**
+
+
+Abbildung 2-7: MPLS Weiterleitung
+
+
+LSP – Label Switched Path, LSR – Label Switching Router
+Quelle: Kunze (2007): S. 12
+
+
+Bei MPLS erfolgt der Weiterleitungsprozess (Forwarding) in zwei Schritten, zunächst (1)
+der FEC-Einteilung und nachfolgend (2) der FEC-Next-Hop-Verknüpfung. Ein eingehendes Paket wird am Edge Router (hier auch als Ingress Label Switched Router bezeichnet) anhand seiner Header-Informationen zu einer FEC zugeordnet und bekommt
+ein entsprechendes Label. Anhand dieses Labels werden die Pakete dann auf einem
+fest eingestellten Pfad (dem Label Switched Path) weitergeleitet. Alle folgenden Label
+Switched Router müssen die Adressinformationen im Paketkopf nicht mehr überprüfen,
+
+
+**40** vgl. dazu im folgenden Kunze (2007): S.11f.
+
+
+24 Diskussionsbeitrag Nr. 315
+
+
+sondern leiten Pakete allein anhand des Labels weiter. Am Ausgang des MPLS-Netzes
+entfernt der Egress-Router dann das Label und leitet das Paket anhand der IPAdressinformationen weiter.
+
+
+Die MPLS Technik wurde kontinuierlich erweitert, um Traffic Engineering zu ermöglichen. Ein Schlüsselelement dabei ist der Einbezug von Traffic Engineering in die Routing Protokolle **[41]** . Weiterhin wurde MPLS angepasst, um auch direkt auf Glasfasernetzen eingesetzt werden zu können („optical switching“). Dazu kann die Erweiterung _G_ MPLS einen optischen Pfad durch das Netz zuweisen, den Verkehrsfluss bereitstellen,
+Cross-Connects einrichten und Bandbreite von diesen Pfaden auf die vom Anwender
+angefragten Dienste zuweisen. Auch hierbei gilt, dass der Pfad des Verkehrs vom
+Netzbetreiber und nicht vom Anwender festgelegt wird.
+
+
+Zurzeit wird MPLS auch vor allem für den Aufbau Virtual Private Networks (VPN) im
+Netz eines einzelnen Netzbetreibers verwendet. Diese VPNs auf MPLS-Basis werden
+aber in der Regel nicht zwischen unterschiedlichen Betreibern aufgebaut. Somit fehlt
+auch bei MPLS trotz des weitflächigen Einsatzes innerhalb von Netzen die netzübergreifende Implementierung, ähnlich wie dies bei den beiden QoS-Strategien Priorisierung und Reservierung aussteht. Mit Blick auf einen solchen netzübergreifenden Einsatz von MPLS zwischen zwei Netzbetreibern arbeiten die ITU-T und IETF beide an
+entsprechenden Technologien und Architekturen zur MPLS-Zusammenschaltung.
+
+
+**2.4 Quality of Service über Netzgrenzen**
+
+
+In vielen Fällen erfordert die Abwicklung von IP-Diensten eine netzübergreifende Kommunikation. Unabhängig von der bereits erfolgten breiten netzinternen Implementierung
+von QoS - beispielsweise von DiffServ innerhalb einzelner DiffServ-Domänen - stellt
+sich das Problem der fehlenden Standards für einen Austausch von qualitätsdifferenzierten Verkehr. Doch es fehlt nicht nur an Standards sondern auch an etablierten Prozeduren für Management, Fehlerbehandlung und Monitoring. Daher gestaltet sich das
+Zusammenschalten zweier Netze unter Berücksichtigung von QoS arbeits- und zeitintensiv.
+
+
+Die QoS-Arbeitsgruppe am MIT **[42]** hat dieses Thema bearbeitet und Schlüsselanforderungen identifiziert, die an den Einsatz von netzübergreifender QoS zwischen zwei
+Netzbetreibern zu stellen sind. Dabei geht es zum Einen darum, Standards zu generieren und zum Anderen, „best practice“ zu definieren, die in der Abwesenheit von Standards den Aufbau von Inter-Provider QoS erleichtern könnten.
+
+
+**41** OSPF-TE und ISIS-TE.
+**42** Vgl. QoS Working Group of the MIT Communications Futures Program (2006).
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 25
+
+
+Das MIT identifiziert folgende fünf kritischen Aspekte und macht Vorschläge für deren
+Ausgestaltung, die an dieser Stelle stellvertretend für Lösungsansätze des Problems
+stehen:
+
+
+  - Konsistente Definition der Kennzahlen: Das MIT schlägt eine einheitliche und
+klare Definition der relevanten Parameter wie Paketlaufzeit, Laufzeitvarianz und
+Paketverlust vor. **[43]**
+
+
+  - Definition der Verkehrsklassen: Das MIT beschreibt, was kundenseitig beim
+Dienstabruf nötig ist (z.B. Paketmarkierung) und was netzseitig erfolgen muss
+(z.B. die Abgabe einer statistischen Garantie für Paketverlust, Paketlaufzeit und
+–Laufzeitvarianz).
+
+
+  - Messung, Überwachung und Berichtswesen: Weil mehrere Parteien beteiligt
+sind, definiert das MIT Methoden zur Messung von QoS, zur Überwachung der
+Leistung in verschiedenen Netzsegmenten und zur konsistenten Berichtserstattung definiert.
+
+
+  - Routing: Das MIT definiert Mechanismen, mit denen man im Bedarfsfall QoSsensiblen Verkehr zu einem anderen Provider oder auf anderen Routen führt.
+
+
+  - Verantwortlichkeiten: Das MIT schlägt definierte Zuständigkeiten und „Best
+Common Practices“ vor, mit denen der Einsatz von QoS zwischen vielen unterschiedlichen Netzen vereinfacht werden soll.
+
+
+Wesentlich für das Erreichen einer netzüberschreitenden Ende – Ende Qualität ist, dass
+sich alle beteiligten Netzbetreiber auf einheitliche Verfahren zur Kennzeichnung der IPPakete und deren Interpretation sowie auf unterschiedliche, dem jeweiligen Netz und
+seiner Aufgabe (Access, Durchleitung (national, kontinental, interkontinental), Terminierung) angepasste Qualitätsbudgets einigen, Diese Aufgabe ist noch ungelöst.
+
+
+**43** Diese Anforderung stellten die Autoren ebenfalls in Jay / Anell / Plückebaum / Kulenkampff / Marcus
+(2007): S. 87 heraus.
+
+
+26 Diskussionsbeitrag Nr. 315
+
+##### **3 Modellgestützter Kostenvergleich**
+
+
+**3.1 Identifikation der Kostentreiber**
+
+
+Grundsätzlich lassen sich Kostentreiber in Telekommunikationsnetzen in zwei Arten
+einteilen: Auf der einen Seite ist das die Anzahl der Nutzer und auf der anderen Seite
+die Nachfrage nach Diensten. Generell kann gesagt werden, dass a) die Kosten der
+Elemente des Anschlussnetzes durch die Anzahl der Nutzer getrieben werden und b)
+die Kosten der Netzelemente nach dem ersten Aggregationspunkt durch die Bandbreite
+oder Kapazität. In IP-Netzen mit Qualitätsdifferenzierung muss aber nicht nur auf die
+reine Bandbreite, sondern auch auf die QoS-Anforderungen abgestellt werden. **[44]**
+
+
+Um adäquate QoS-Parameter zu gewährleisten, sind daher ausreichende Kapazitäten
+(sowohl im Sinne von Bandbreiten der Verbindungen als auch Rechenkapazitäten der
+Switches/Router **[45]** ) vorzusehen. Die Gesamtdimensionierung des Netzes ist auch entscheidend von den Zeiten und der Höhe der Nutzungsspitzen abhängig. Wie in einer
+vorherigen Studie dargelegt **[46]**, können diese zum Einen bei unterschiedlichen Diensten
+zu anderen Zeiträumen im Tagesablauf liegen und sich zum anderen dynamisch im
+Wochen- und Monatsrhythmus verändern.
+
+
+Bei den differenzierenden QoS Strategien (Priorisierung und Reservierung) und dem
+Einsatz von Ethernet-Tagging und MPLS ist zur Umsetzung der Managementtechniken
+darüber hinaus eine entsprechende Softwarefunktionalität und ggf. höhere Rechenkapazität auf den Routern notwendig. Manche Hersteller verlangen für erweiterte QoSbezogene Funktionalitäten (z.B. MPLS oder fortgeschrittene Warteschlangenabarbeitung wie Class-Based Weighted Fair Queuing), die das Gerät prinzipiell beherrscht
+eine kostenpflichtige Lizenzierung. Bei anderen Herstellern sind die Router direkt in
+vollem Umfang nutzbar. Je nach Preispolitik des Lieferanten könnten neben der Skalierung der generischen Rechenleistung daher auch Softwarelizenzen ein Kostenelement
+darstellen.
+
+
+Zusätzlich stellt sich die Frage nach der Quantifizierung von zusätzlichem Managementaufwand für die Planung und das Monitoring der differenzierten Verkehrsbehandlung im Vergleich zur Überdimensionierung. In den Gesprächen mit Herstellern und
+Systemintegratoren wurde dies als sehr schwer einzuschätzen geschildert. Wie in Kapi
+
+**44** Vgl. Rodriguez de Lope / Hackbarth / Garcia / Plückebaum / Ilic (2008).
+**45** Ein Switch wird zur Weiterleitung (Bridging) von Daten auf OSI-Schicht 2 eingesetzt. Auf OSI-Schicht
+3 wird von Routing gesprochen. Folglich werden diese Geräte als Router bezeichnet. Prinzipiell kann
+das gleiche technische Gerät dem Zweck auf OSI-Schicht 2 oder OSI-Schicht 3 eingesetzt werden
+und würde dann entweder als Switch oder Router bezeichnet. Die Kapazitäten eines Switches / Routers werden maßgeblich durch die Prozessoren, den Speicher, sowie die Anzahl der Ports definiert.
+Siehe dazu Jung / Warnecke (2002): S. 3-241 – 3-248.
+**46** Vgl. Anell / Jay / Plückebaum (2008): S. 75f. sowie Anell / Jay / Plückebaum (2007).
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 27
+
+
+tel 2 beschrieben, sind aber Netzplanung und Monitoring ebenso essentielle Bestandteile einer Überdimensionierungsstrategie.
+
+
+Die wesentlichen Einflussfaktoren auf die Netzdimensionierung und die Kosten sind
+also
+
+
+  - die Anzahl der Kunden,
+
+
+  - die Bandbreitenanforderungen der Dienste,
+
+
+  - die QoS-Anforderungen der Dienste,
+
+
+  - das Nachfrageverhalten (wann wird welcher Dienst wie intensiv genutzt) sowie
+
+
+  - ggf. zusätzliche Equipment- und Managementkosten zur Implementierung von
+erweiterten QoS-Funktionalitäten.
+
+
+Um die Verfahren hinsichtlich ihrer Kostenseite auch quantitativ einschätzen zu können,
+werden im folgenden Abschnitt die Modellierungsergebnisse einer kürzlich unter Beteiligung des WIK durchgeführten Studie **[47]** dargelegt. Die Studie legt ein TELRICKostenmodell (Total Element based Long Run Incremental Cost) zugrunde und untersucht die Kosten von Netzelementen, indem diese nutzungsabhängig auf die Dienste
+verteilt werden, welche das Element in Anspruch nehmen. Dieses Modell berücksichtigt
+die ersten vier oben gelisteten Aspekte und fokussiert dann auf die Kosten in Abhängigkeit der Bandbreite. Unterschiede in den Investitionen für Funktionalitäten der Netzelemente (z.B. Zusatzkosten für die Aktivierung von MPLS-Funktionen, sofern sie denn
+anfallen) werden nicht berücksichtigt. Genauso werden etwaige im Vergleich zur Überdimensionierung zusätzlich anfallende Managementkosten ausgeblendet.
+
+
+**3.2 Modellrechnung**
+
+
+In dem zugrunde gelegten bottom-up Kostenmodell **[47]** werden die drei Strategien Überdimensionierung (Overdimensioning), Reservierung (Virtual Tunnels) und Priorisierung
+(Priority Queuing) angewandt, um vier unterschiedliche Dienst-/ Verkehrsklassen abzubilden. Die qualitativen Anforderungen dieser Klassen an Bandbreite, Paketlauftzeit
+(Delay) und Laufzeitschwankung (Jitter) sind in Tabelle 3-1 dargestellt. Die Einhaltung
+dieser QoS Parameter wird von den Klassen jeweils stark (++), normal (+) oder gar
+nicht (--) berücksichtigt.
+
+
+**47** Rodriguez de Lope / Hackbarth / Garcia / Plückebaum / Ilic (2008).
+
+
+28 Diskussionsbeitrag Nr. 315
+
+
+Tabelle 3-1: Modellierte Verkehrsklassen und ihre Sensibilität hinsichtlich QoS
+Parametern
+
+|Verkehrsklasse|Durchschnittliche<br>Bandbreite|Maximale<br>Bandbreite|Durchschnittliches<br>Delay|Jitter|
+|---|---|---|---|---|
+|Echtzeit|++|++|++|++|
+|Streaming|++|+|+|++|
+|Garantierte Daten|++|--|+|--|
+|Best Effort|+|--|--|--|
+
+
+
+Quelle: Rodriguez de Lope / Hackbarth / Garcia / Plückebaum / Ilic (2008): S.3
+
+
+Im Rahmen der TELRIC Modellierung wird die Kapazität bestimmt, die ein Nutzer zum
+Abruf eines Dienstes benötigt und die anteilig je Nutzer sowie aggregiert über alle Nutzer bei den Netzelementen benötigt werden. Dabei wird zwischen vier Nutzergruppen
+unterschieden: Standard- und Premium-Privatkunden sowie Standard- und PremiumGeschäftskunden. Die Optimierung der Netzauslastung erfolgt dann über eine Maximierung der Anzahl von Nutzern bei gegebener Gesamtbandbreite. **[48]** Bei der Optimierung
+werden die klassenspezifischen Anforderungen an QoS Parameter berücksichtigt und
+eine einfache Verteilung hinsichtlich der Paketankunftsrate unterstellt. **[49]** Rodriguez de
+Lope / Hackbarth / Garcia / Plückebaum / Ilic (im Rahmen von Kapitel 3.2 „die Autoren“)
+geben dann die gesamten Kosten des Netzelementes als einfache Funktion der Bandbreite wie folgt an:
+
+
+_Ctot_ = _Cu_ ⋅ _Vtot_ α + _C_ _f_
+
+
+Gesamtkosten des Netzelements = Kosten pro Bandbreiteneinheit des Netzelements • gesamte
+
+genutzte Bandbreite [α] + Fixkosten des Netzelements.
+
+
+Stückkosten pro Nutzer ergeben sich als:
+
+_Cut_ = _Ctot_ ⋅ _VuVtott_
+
+
+Stückkosten eines Nutzers _t_ = Gesamtkosten • Bandbreite eines Nutzers des Typs _t_ /
+
+Gesamtbandbreite
+
+
+In der Arbeit werden konkrete Szenarien entwickelt, die auf die Verbindung vom
+DSLAM zum ersten Konzentratorknoten angewandt werden. Dieses Netzelement wurde
+ausgewählt, weil es aus verschiedenen Gründen eine Schlüsselkomponente darstellt,
+
+
+**48** Alternativ könnte auch eine Minimierung der Gesamtbandbreite bei gegebener Anzahl von Nutzern
+durchgeführt werden.
+**49** Es wird eine G/G/1 Verteilung angenommen. Siehe Rodriguez de Lope / Hackbarth / Garcia /
+Plückebaum / Ilic (2008): S. 3. Siehe dazu auch Bertsekas (2002): S.51-64.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 29
+
+
+die den Nutzer mit dem (NGN) Kernnetz verbindet. Die Szenarienbildung wird im folgenden Abschnitt beschrieben.
+
+
+Abbildung 3-1: Breitbandnetzhierarchie und Grundlage der Modellrechnung
+
+
+
+**Netzebene:**
+
+
+
+**Anschlussnetz** **Aggregationsnetz** **Kernnetz**
+
+
+
+
+
+Endkunde
+
+
+
+Corerouter
+
+DSLAM 1 oder mehrstufige BRAS Edgerouter Edgerouter
+MSAN Konzentration
+
+
+DSLAM: Digitals Subscriber Line Access Multiplexer
+MSAN: Multi Service Access Node
+BRAS: Broadband Remote Access Server
+
+
+
+Für die Szenarienbildung werden zum einen die Kundenseite und zum anderen die
+Dienstseite betrachtet. **[50]** Die Bestimmungsgrößen auf der Kundenseite sind (siehe
+auch Tabelle 3-2):
+
+
+  - Die Verteilung der Nutzer auf die vier Nutzergruppen
+
+
+  - Die unterschiedlichen Gleichzeitigkeitsfaktoren **[51]** der vier Nutzergruppen zur
+High Load Period. Damit wird angegeben, mit welchem Anteil seiner Last ein
+Kunde zur Lastspitze des Netzes beiträgt.
+
+
+  - Die anteilige Nutzung der vier Dienstearten zur High Load Period
+
+
+Die Bestimmungsgrößen auf der Diensteseite sind die Ausprägungen der QoSParameter. Die Autoren definieren die Verkehrsklassen dabei jeweils anhand der folgenden Parameter (siehe auch Tabelle 3-3):
+
+
+  - Die durchschnittliche Bandbreite
+
+
+  - Das durchschnittliches Delay
+
+
+  - Statistische Parameter des Verkehrsflusses (Varianzkoeffizient der Paketankunftsrate, durchschnittliche Paketlänge, etc…)
+
+
+**50** Vgl. Rodriguez de Lope / Hackbarth / Garcia / Plückebaum / Ilic (2008): S. 5f. Diese Parametrisierung
+ist ähnlich der Parametrisierung in WIK-Consult (2005) “Ein analytisches Kostenmodell für das Breitbandnetz – Referenzdokument“ S. 107.
+**51** Wieviel Prozent der Anwender rufen den Dienst gleichzeitig ab?
+
+
+30 Diskussionsbeitrag Nr. 315
+
+
+  - sowie die abgeleitete, für die Dimensionierung relevante Paketankunftsrate,
+welche für die vier verschiedenen Nutzergruppen unterschiedlich ausfällt.
+
+
+Die Autoren bestimmten die Parameter auf Basis von Verkehrsmessungen anderer
+Quellen und Expertenwissen. **[52]**
+
+
+Tabelle 3-2: Parameter der Kundengruppen
+
+|Col1|Standard<br>Privatkunden|Premium<br>Privatkunden|Standard<br>Geschäftskunden|Premium<br>Geschäftskunden|
+|---|---|---|---|---|
+|**Anteil der Kunden**|50%|20%|20%|10%|
+|**Gleichzeitigkeitsfaktor**|0.3|0.5|0.9|1|
+|**Nutzungsanteil zur HLP:**<br>**Echtzeit**|<br>0.2|0.2|0.3|0.2|
+|**Nutzungsanteil zur HLP:**<br>**Streaming**|<br>0.05|0.1|0.025|0.04|
+|**Nutzungsanteil zur HLP:**<br>**Guaranteed data**|<br>0|0.1|0.675|0.76|
+|**Nutzungsanteil zur HLP:**<br>**Best effort**|<br>0.75|0.6|0|0|
+
+
+
+HLP – High Load Period
+
+
+Quelle: Rodriguez de Lope / Hackbarth / Garcia / Plückebaum / Ilic (2008): S. 5f
+
+
+**52** Claffy / Braun / Polyzos (1995), Thompson / Miller / Wilder (1997), Tutschku (2004).
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 31
+
+
+Tabelle 3-3: Parameter der Verkehrsklassen
+
+
+|Verkehrsklasse|Dienstparameter|Stand.<br>PK|Prem.<br>PK|Stand.<br>GK|Prem.<br>GK|
+|---|---|---|---|---|---|
+|<br> <br> <br>Real time<br> <br> <br>|Bandbreite [KB/s]|8.00|8.00|8.00|8.00|
+|<br> <br> <br>Real time<br> <br> <br>|Varianzkoeffizient der Paketankunftsrate<br>[C(Ta)]|1.50|1.50|1.50|1.50|
+|<br> <br> <br>Real time<br> <br> <br>|Durchschnittliche Paketlänge [L(Bytes)]|384.00|384.00|384.00|384.00|
+|<br> <br> <br>Real time<br> <br> <br>|Varianzkoeffizient der Paketlänge [C(L)]|0.00|0.00|0.00|0.00|
+|<br> <br> <br>Real time<br> <br> <br>|Erforderliche Verzögerungszeit [τ req (ms)]|1.00|1.00|1.00|1.00|
+|<br> <br> <br>Real time<br> <br> <br>|Paketankunftsrate [λ (p/s)]|6.40|10.67|19.20|21.33|
+
+
+|Streaming|Bandbreite [KB/s]|150.00|Col4|Col5|Col6|
+|---|---|---|---|---|---|
+|<br> <br> <br>Streaming<br> <br>|Varianzkoeffizient der Paketankunftsrate<br>[C(Ta)]|2.00|2.00|2.00|2.00|
+|<br> <br> <br>Streaming<br> <br>|Durchschnittliche Paketlänge [L(Bytes)]|512.00|512.00|512.00|512.00|
+|<br> <br> <br>Streaming<br> <br>|Varianzkoeffizient der Paketlänge [C(L)]|2.00|2.00|2.00|2.00|
+|<br> <br> <br>Streaming<br> <br>|Erforderliche Verzögerungszeit [τ req (ms)]|3.00|3.00|3.00|3.00|
+|<br> <br> <br>Streaming<br> <br>|Paketankunftsrate [λ (p/s)]|90.00|150.00|270.00|300.00|
+
+
+|Guaranteed<br>data|Bandbreite [KB/s]|10.00|Col4|Col5|Col6|
+|---|---|---|---|---|---|
+|<br> <br> <br>Guaranteed<br>data<br> <br>|Varianzkoeffizient der Paketankunftsrate<br>[C(Ta)]|2.50|2.50|2.50|2.50|
+|<br> <br> <br>Guaranteed<br>data<br> <br>|Durchschnittliche Paketlänge [L(Bytes)]|512.00|512.00|512.00|512.00|
+|<br> <br> <br>Guaranteed<br>data<br> <br>|Varianzkoeffizient der Paketlänge [C(L)]|1.50|1.50|1.50|1.50|
+|<br> <br> <br>Guaranteed<br>data<br> <br>|Erforderliche Verzögerungszeit [τ req (ms)]|10.00|10.00|10.00|10.00|
+|<br> <br> <br>Guaranteed<br>data<br> <br>|Paketankunftsrate [λ (p/s)]|6.00|10.00|18.00|20.00|
+
+
+
+
+
+
+|Best effort|Bandbreite [KB/s]|10.00|Col4|Col5|Col6|
+|---|---|---|---|---|---|
+|<br> <br> <br>Best effort<br>|Varianzkoeffizient der Paketankunftsrate<br>[C(Ta)]|3.00|3.00|3.00|3.00|
+|<br> <br> <br>Best effort<br>|Durchschnittliche Paketlänge [L(Bytes)]|512.00|512.00|512.00|512.00|
+|<br> <br> <br>Best effort<br>|Varianzkoeffizient der Paketlänge [C(L)]|3.00|3.00|3.00|3.00|
+|<br> <br> <br>Best effort<br>|Erforderliche Verzögerungszeit [τ req (ms)]|50.00|50.00|50.00|50.00|
+|<br> <br> <br>Best effort<br>|Paketankunftsrate [λ (p/s)]|6.00|10.00|18.00|20.00|
+
+
+
+PK – Privatkunden, GK - Geschäftskunden
+
+
+Quelle: Rodriguez de Lope / Hackbarth / Garcia / Plückebaum / Ilic (2008): S. 5f
+
+
+3.2.1 Vergleich der Kosten der drei QoS-Strategien
+
+
+Unter den getroffenen Annahmen bei der Szenarienbildung und unter Einsatz des Kostenmodells zeigen die Autoren zunächst für eine exemplarische 100Mbps Verbindung
+zwischen DSLAM und dem ersten Konzentratorknoten, dass die Anzahl der maximal
+bedienbaren Nutzer vom Einsatz der QoS-Strategien abhängt (siehe Abbildung 3-2; PK
+
+- Privatkunde, GK – Geschäftskunde). Über die maximal bedienbare Anzahl von Nutzern können dann – bei angenommenen gleichen Investitionen des Netzelements Stückkosten bestimmt werden.
+
+
+32 Diskussionsbeitrag Nr. 315
+
+
+Abbildung 3-2: Einfluss der QoS-Strategie auf die maximale Anzahl von Nutzern
+(am Beispiel eines 100Mbps Backhauls)
+
+
+1600
+
+
+1400
+
+
+1200
+
+
+
+1000
+
+
+800
+
+
+600
+
+
+400
+
+
+200
+
+
+0
+
+
+
+Überdimensionierung
+Reservierung
+Priorisierung
+
+
+
+Standard Premium Standard Premium Total
+PK PK GK GK
+
+
+Quelle: Aufbereitung der Ergebnisse von Rodriguez de Lope/Hackbarth/Garcia/Plückebaum/Ilic (2008)
+
+
+Bei diesem ersten Vergleich besteht kaum ein Unterschied zwischen den maximal bedienbaren Nutzern beim Einsatz der drei verschiedenen QoS-Strategien, besonders
+wenn nur Überdimensionierung und Reservierung betrachtet werden. Im Vergleich dazu
+können beim Einsatz von Priorisierung rund 10% mehr Nutzer versorgt werden. Insofern hat die Priorisierung hier einen leichten ökonomischen Vorteil, der aus der ineffizienteren Bereitstellung der Bandbreiten der anderen beiden Strategien herrührt (siehe
+Kapitel 2.2).
+
+
+Um dies auch kostenseitig quantifizieren zu können werden folgenden Annahmen für
+eine typische 20km-Verbindung zwischen DSLAM und dem ersten Konzentrator getroffen: **[53]**
+
+
+  - Die Kosten pro Bandbreiteneinheit (1Mbps) betragen 100 Geldeinheiten.
+
+
+  - Die Fixkosten des DSLAMs betragen 5.000 Geldeinheiten.
+
+
+  - Der Exponent der Kostenfunktion beträgt 0,5, d.h. sie steigt stetig, aber abnehmend (beispielhaft Abbildung 3-3). Dies trägt den Skaleneffekten wachsenden
+Verkehrsaufkommens Rechnung, die zu sinkenden Stückkosten pro übertragener Verkehrseinheit führen. Diese Steigung der Kostenfunktion erscheint uns
+plausibel.
+
+
+**53** Vgl. Rodriguez de Lope / Hackbarth / Garcia / Plückebaum / Ilic (2008): S. 6.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 33
+
+
+Abbildung 3-3: Exemplarische Kostenfunktion mit Exponent 0,5
+
+
+Damit kann die in Abschnitt 3.2 vorgestellte Formel angewendet werden, um die Gesamtkosten des betrachteten Netzelementes zu bestimmen. Die Autoren bestimmen
+weiterhin je nach QoS-Strategie und Nutzergruppe eine unterschiedliche prozentuale
+Nutzdatenraten. Damit ist gemeint, dass die Strategien unterschiedlich effizient darin
+sind, den Endkunden Bandbreite bereitzustellen. Beispielhaft ist in Tabelle 3-4 dargestellt, wie hoch die relative Nettobandbreite der 3 Strategien bei Privatkunden ist. Ein
+Wert von 0,995 ist so zu interpretieren, dass aus einer Brutto-Datenrate von 1Mbps
+eine nutzbare Netto-Datenrate von 995kbps für den Kunden bereitgestellt werden kann.
+Die Priorisierung ist daher effizienter als die anderen Strategien. Dies kann auch als
+maximale Auslastung interpretiert werden, bei der noch kein Stau auftritt und gibt den
+Grad der nötigen Überdimensionierung an. Die Autoren wählen hier relativ hohe Auslastungswerte, mit zukunftsgerichtetem Blick auf Zugangskontrolle, die durch das IMS
+möglich wird.
+
+
+Tabelle 3-4: Effizienz der QoS-Strategien hinsichtlich der Nutzdatenrate im
+zugrunde liegenden Modell
+
+|QoS-Strategie Ü|berdimensionierung|Reservierung|Priorisierung|
+|---|---|---|---|
+|Standard-Privatkunden|0,894|0,904|0,995|
+|Premium-Privatkunden|0,887|0,897|0,987|
+
+
+
+Quelle: Rodriguez de Lope/Hackbarth/Garcia/Plückebaum/Ilic (2008): S. 6
+
+
+Wendet man die Kostenfunktion des Modells der Autoren an, ergeben sich unter Berücksichtigung der unterschiedlichen Effizienzen und maximalen Nutzerzahlen die
+Stückkosten des Netzelements (Darstellung in Abhängigkeit der Nutzergruppe in
+Abbildung 3-4). Der bereits durch die ersten Ergebnisse angedeutete ökonomische Vor
+
+34 Diskussionsbeitrag Nr. 315
+
+
+teil der Priorisierung zeigt sich hier in niedrigeren Stückkosten (pro Kunde). Die Unterschiede zwischen Überdimensionierung und Reservierung sind jeweils nur gering.
+
+
+Abbildung 3-4: Einfluss der QoS-Strategie auf die Stückkosten nach Nutzergruppe
+(100Mbps Backhaul)
+
+
+9
+
+
+8
+
+
+7
+
+
+
+6
+
+
+5
+
+
+4
+
+
+3
+
+
+2
+
+
+1
+
+
+0
+
+
+
+Überdimensionierung
+
+Reservierung
+
+Priorisierung
+
+
+
+Standard PK Premium PK Standard GK Premium GK
+
+
+Quelle: Aufbereitung der Ergebnisse von Rodriguez de Lope/Hackbarth/Garcia/Plückebaum/Ilic (2008)
+
+
+Die Autoren skalieren die Aggregationsbandbreite stufenweise bis auf 10Mbps herab.
+Dadurch soll dem geringeren Marktanteil der Wettbewerber **[54]**, der Abhängigkeit von der
+Breitbandpenetration sowie von der Einwohnerdichte Rechnung getragen werden und
+dadurch auch Hauptverteiler berücksichtigen, die nicht in mittleren/größeren Städten
+liegen. Bei der Reduktion der Backhaulbandbreite um den Faktor 2 (auf 50Mbps) und 3
+(auf 34Mbps) treten näherungsweise proportionale Verringerungen der maximal bedienbaren Kunden auf. Bei einer Reduktion um den Faktor 10 (auf 10Mbps) können
+jedoch überproportional weniger Kunden bedient werden. Dies ist in Tabelle 3-5 dargestellt.
+
+
+**54** Z.B. im deutschen Breitbandmarkt Ende 2007: T-Com 45,4%, United Internet 13,4%, Arcor 13,1%,
+Hansenet 11,7%, Freenet 6,4%, Versatel 3,3%, EWE 2%, Netcologne 1,7%, weitere 3%. Quelle Dialog Consult / VATM (2008): S. 17.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 35
+
+
+Tabelle 3-5: Veränderung der maximal bedienbaren Nutzerzahl bei Reduktion der
+Backhaulbandbreite
+
+|Col1|max. bedienbaren Nutzer|Col3|Col4|
+|---|---|---|---|
+|**Backhaulbandbreite (Reduktionsfaktor)**|**Überdimensionierung**|**Reservierung**|**Priorisierung**|
+|100Mbps|1240 Nutzer|1253 Nutzer|1379 Nutzer|
+|50Mbps ( durch 2)|550 Nutzer<br>(2,2 x weniger Nutzer)|559 Nutzer<br>(2,2 x weniger)|678 Nutzer<br>(2,0 x weniger)|
+|34Mbps (durch 3)|335 Nutzer<br>(3,6 x weniger)|341<br>(3,7 x weniger )|455 Nutzer<br>(3,0 x weniger)|
+|10Mbps (durch 10)|45 Nutzer<br>(26,2 x weniger )|39 Nutzer<br>( 32,1 x weniger )|48 Nutzer<br>(23,1 x weniger)|
+
+
+
+Quelle: Aufbereitung der Ergebnisse von Rodriguez de Lope/Hackbarth/Garcia/Plückebaum/Ilic (2008)
+
+
+Betrachtet man die Stückkosten über die vier hier angelegten Backhaul-Bandbreiten, ist
+folgerichtig festzustellen, dass diese bei 10Mbps um ein Vielfaches über denen der höheren Bandbreiten liegen (siehe Abbildung 3-5).
+
+
+Abbildung 3-5: Einfluss der QoS-Strategie auf die Stückkosten am Beispiel des
+Standard Privatkunden bei unterschiedlichen BackhaulBandbreiten
+
+
+80
+
+
+70
+
+
+60
+
+
+
+50
+
+
+40
+
+
+30
+
+
+20
+
+
+10
+
+
+0
+
+
+
+Überdimensionierung
+Reservierung
+Priorisierung
+
+
+
+10 Mbps 34 Mbps 50 Mbps 100 Mbps
+
+
+**Backhaul-Bandbreite**
+
+
+Quelle: Aufbereitung der Ergebnisse von Rodriguez de Lope/Hackbarth/Garcia/Plückebaum/Ilic (2008)
+
+
+Nimmt man die Stückkosten der Überdimensionierung als Grundlage (=100%) je Aggregationsbandbreite, so ergeben sich die folgenden relativen Kosten der anderen beiden Strategien (Tabelle 3-6).
+
+
+36 Diskussionsbeitrag Nr. 315
+
+
+Tabelle 3-6: Relation der Stückkosten bei unterschiedlichen BackhaulBandbreiten (am Beispiel des Standard Privatkunden)
+
+|Bandbreite|Überdimensionierung|Reservierung|Priorisierung|
+|---|---|---|---|
+|10 Mbps|100%|115%|94%|
+|34 Mbps|100%|98%|74%|
+|50 Mbps|100%|98%|81%|
+|100 Mbps|100%|99%|90%|
+
+
+
+Quelle: Aufbereitung der Ergebnisse von Rodriguez de Lope/Hackbarth/Garcia/Plückebaum/Ilic (2008)
+
+
+Abbildung 3-6: Relation der Stückkosten bei unterschiedlichen BackhaulBandbreiten (am Beispiel des Standard Privatkunden)
+
+
+140%
+
+
+120%
+
+
+
+100%
+
+
+80%
+
+
+60%
+
+
+40%
+
+
+20%
+
+
+0%
+
+
+
+Überdimensionierung
+Reservierung
+Priorisierung
+
+
+
+10 Mbps 34 Mbps 50 Mbps 100 Mbps
+
+
+**Backhaul-Bandbreite**
+
+
+Quelle: Aufbereitung der Ergebnisse von Rodriguez de Lope/Hackbarth/Garcia/Plückebaum/Ilic (2008)
+
+
+Die Ergebnisse zeigen, dass die Stückkosten bei niedrigen Aggregationsbandbreiten
+eine Spannbreite von 21 Prozentpunkten **[55]** zwischen günstigster und teuerster QoSStrategie aufweisen. Mit zunehmenden Aggregationsbandbreiten nähern sich die
+Stückkosten einander an. Es kann vermutet werden, dass die Stückkosten sich bei höheren Bandbreiten im Kernnetz weiter angleichen und keine signifikanten Unterschiede
+zwischen den drei Verfahren mehr vorliegen.
+
+
+**55** Bezogen auf das Verhältnis zu den als 100% angenommenen Kosten der Überdimensionierung.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 37
+
+
+Die Autoren führen dieses Ergebnis auf verschiedene Effekte zurück:
+
+
+  - Die Paketbearbeitungsdauer an einem Netzelement nimmt mit steigender
+Bandbreite ab.
+
+
+  - Weil bei der Reservierung Kapazitäten geblockt werden, ist die relevante Bandbreite im Tunnel kleiner und die Paketbearbeitungsdauer damit länger. Dadurch
+kann weniger Verkehr innerhalb der QoS-Anforderungen transportiert werden,
+was sich im Modell in einer geringeren Kundenzahl und höheren Stückkosten
+niederschlägt. Dieser Effekt erhöht die Stückkosten der Reservierung bei
+10Mbps Backhaulbandbreite im Vergleich zur Überdimensionierung relativ stark.
+
+
+  - Bei der Priorisierung besteht hingegen nur die Einschränkung, dass niederwertiger Verkehr bei der Verarbeitung auf höherwertigen Verkehr warten muss, sodass dessen Paketlaufzeit zunimmt. Ansonsten steht die komplette Bandbreite
+allen Verkehrsklassen zur Verfügung. Dieser Effekt bewirkt im hier parametrisierten Szenario den höchsten komparativen Vorteil gegenüber den Stückkosten
+der Überdimensionierung einer Aggregationsbandbreite von 34Mbps.
+
+
+Die Tatsache, dass sich die Kosten aller drei Strategien bei höheren Bandbreiten angleichen, könnte darauf zurückzuführen sein, dass mit der höheren Kundenzahl die
+nötige Netzdimensionierung aufgrund der statischen Nutzung bei allen Verfahren immer
+mehr ähneln. In diesem Fall führt die hohe Nutzerzahl zu einer Glättung der Spitzen,
+was plausibel erscheint. Dieser Hypothese könnte in späteren Studien bestätigt oder
+verworfen werden. Dabei wären Sensitivitätsrechnungen anzustellen, um den Einfluss
+unterschiedlicher Parameter zu identifizieren.
+
+
+Trotz der hohen Nutzungsraten, die nach den Autoren durch die Zugangskontrolle eines
+NGN gerechtfertigt wird (vgl. Tabelle 3-4), lässt die Wahl der modellierten BackhaulBandbreiten im Aggregationsnetz darauf schließen, dass die Autoren vornehmlich
+ADSL Anschlüsse mit DSLAM auf Hauptverteilerebene adressieren und weniger auf
+Next Generation Access mit allgemein höheren Bandbreiten und einer bandbreitenintensiveren Nutzung neuer Dienste abstellen. Berücksichtigt man IPTV Multicast wird
+eine stetige Grundlast von ca. 500Mbps Downstream **[56]** im Aggregationsnetz erzeugt.
+Im Anschlussnetz selbst sind die Bandbreiten für IPTV geringer anzusetzen, da nur
+noch ausgewählte IPTV Programme vom DSLAM an den Endkunden weitergegeben
+werden. **[57]** Wichtig zu betonen ist, dass IPTV keinen Individualverkehr darstellt. Im Gegensatz dazu skalieren die Bandbreitenanforderungen im Aggregationsnetz bei anderen Dienste wie VoD (nur downstream) oder Videotelefonie (symmetrisch) mit der Nutzerzahl.
+
+
+**56** Z.B. 100 TV-Kanäle mit je 5 Mbit/s.
+**57** Siehe Anell / Jay / Plückebaum (2007): S. 46.
+
+
+38 Diskussionsbeitrag Nr. 315
+
+
+Auch die im Modell unterstellten durchschnittlichen Bandbreiten pro Kunde in der busy
+hour (71,2kbps) liegen etwa auf dem Niveau, das sich aus dem für 2007 vom VATM
+ermittelten monatlichen Bandbreitenbedarf ableiten lässt (umgerechnet etwa
+73,3kbps). **[58]** Das Modell orientiert sich daher eher an der aktuellen Situation, in der in
+Deutschland immer noch rund 80% der Breitbandanschlüsse bei Geschwindigkeiten
+unter 6Mbps liegen **[59]** und die flächige Bereitstellung und Nachfrage von Mehrwertdiensten wie IPTV noch nicht wahrnehmbar ist.
+
+
+Bei der Bandbreitenbestimmung und bei der Implementierung der Verbindung auf Glasfaserbasis wird sich die tatsächliche Skalierung wohl an Standardkapazitäten der STM(155Mbps, 622Mbps etc.) bzw. der Ethernet-Standards (100Mbps, 1Gbps) ausrichten.
+Das bedeutet, dass effektiv ein Bandbreitenbudget bestimmt wird, und die Verbindung
+mit den Schnittstellen der nächstgrößeren Standardbandbreite versehen wird. Die Grabungs- und Verlegekosten dürften den größten Teil der Kosten darstellen und sind somit unabhängig von der beschalteten Kapazität auf der Glasfaser. Gleichwohl fallen
+Kosten für die entsprechenden Schnittstellen an, die mit wachsender Kapazität steigen.
+Insgesamt ist die Modellierung der Kosten von Bandbreiten unter 100Mbps wohl eher
+als theoretisch im Rahmen der Kostenmodellanalyse zu betrachten.
+
+
+3.2.2 Vergleich der Kosten einer Überdimensionierungsstrategie mit QoS und
+der Kosten der Dimensionierung für ein reines Best-Effort Netz
+
+
+Alle drei Strategien gewährleisten (vorwiegend statistisch) die Einhaltung der vier unterschiedlichen QoS-Klassen. Von Interesse ist es auch zu verstehen, zu welchen Zusatzkosten die Bereitstellung von QoS führt. **[60]** Zu diesem Zweck vergleichen die Autoren
+die ermittelten Kosten der Überdimensionierungsstrategie mit einem Netz, bei dem keine differenzierte QoS für unterschiedlichen Klassen bereitgestellt wird. Dies wird im
+Modell simuliert, indem allen vier Klassen die gleiche (schlechte) Verzögerungszeit der
+Best-Effort Verkehrsklasse zugewiesen wird. Die Ergebnisse sind in Abbildung 3-7 dargestellt.
+
+
+Es zeigt sich, dass die Mehrkosten der Dimensionierung für QoS mit zunehmender Aggregationsbandbreite geringer werden. Sind bei 10Mbps Backhaul-Bandbreite noch
+deutlich erhöhte Kosten für die Gewährleistung von differenzierten QoS-Klassen mit
+abgestuften Verzögerungszeiten sichtbar, so ist Differenz bei 100Mbps bereits sehr
+
+
+**58** Im Modell wird eine durchschnittliche Bandbreite über alle vier Kundensegmente hinweg von rund
+71kbps zur Busy Hour angenommen. Dialog Consult / VATM (2008) schätzen das durchschnittliche
+Datenvolumen pro Nutzer pro Monat für das Jahr 2007 auf 8,6GB. Dies kann in die durchschnittliche
+Bandbreite pro Nutzer in der Busy Hour umgerechnet werden. Die Annahmen zur Umrechnung sind
+im Anhang dargestellt.
+**59** Dialog Consult / VATM (2008): S. 18.
+**60** Siehe auch Anell / Jay / Plückebaum (2008): S. 71-78.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 39
+
+
+gering Es kann daher vermutet werden, dass Kostenunterschiede bei höheren Bandbreiten im Bereich von mehreren Gbps vernachlässigbar sind.
+
+
+Abbildung 3-7: Vergleich der Stückkosten bei Überdimensionierung mit und ohne
+Berücksichtigung der sensitiven Laufzeitanforderungen (StandardPrivatkunde)
+
+
+70
+
+
+60
+
+
+50
+
+
+
+40
+
+
+30
+
+
+20
+
+
+10
+
+
+0
+
+
+
+"mit QoS"
+"ohne QoS"
+
+
+
+10 Mbps 34 Mbps 50 Mbps 100 Mbps
+
+
+**Backhaul-Bandbreite**
+
+
+Quelle: Aufbereitung der Ergebnisse von Rodriguez de Lope/Hackbarth/Garcia /Plückebaum/Ilic (2008)
+
+
+**3.3 Interpretation der Ergebnisse und weiterer Forschungsbedarf**
+
+
+Unter Berücksichtigung der Modellierungsergebnisse der Autoren können die folgenden
+wesentlichen Schlüsse gezogen werden:
+
+
+  - **Die Priorisierung ist das effizienteste Verfahren:** Bei Einsatz der drei Strategien zur Gewährleistung von QoS sind die Stückkosten der Strategien relativ
+ähnlich. Die Stückkosten der Priorisierung liegen dabei aber leicht unter denen
+der anderen Ansätze (z.B. ~10% im Vergleich zur Überdimensionierung bei
+100Mbps Backhaul). Die Priorisierung ist somit das kosteneffizienteste QoSVerfahren.
+
+
+  - **Die Stückkosten der QoS-Realisierung hängen von der Verkehrszusam-**
+**mensetzung und der aggregierten Bandbreite ab:** Die Stückkosten der QoS
+Realisierung sind – bei gegebenen Rahmenbedingungen für Nutzerklassen und
+Verkehrsanteile der Verkehrsklassen - in hohem Maße von der Höhe der Aggregationsbandbreite bzw. der Anzahl der bedienten Nutzer abhängig. Bei hohen Aggregationsbandbreiten sind die Stückkosten geringer als bei niedrigen
+
+
+40 Diskussionsbeitrag Nr. 315
+
+
+Bandbreiten. Bei niedrigen Bandbreiten sind die Stückkosten im Verhältnis zu
+den höheren Aggregationsbandbreiten überproportional höher. Die Verkehrszusammensetzung selbst hat erheblichen Einfluss auf die Vorteilhaftigkeit bspw.
+einer Wahl zwischen Überdimensionierung und Priorisierung.
+
+
+  - **QoS-Realisierung über differenzierende Verfahren ist in Anschlussnetzen**
+**kritischer als in Kernnetzen:** Somit ist es leichter / günstiger, QoS in Kernnetzen als Anschlussnetzen zu realisieren. Besonders in den Anschlussnetzen
+wirkt sich dies kritisch aus, weil es dort umso schwieriger / teurer ist, die Bandbreite zu erhöhen (Notwendigkeit eines FTTx Ausbaus). Weil die Priorisierung
+das effizienteste Verfahren darstellt, ist ihre Anwendung in diesem Netzsegment
+von höheren Bedeutung / Dringlichkeit als in Netzen mit höherer Aggregation.
+Glasfaserbasierte Konzentrationsnetze könnten hingegen einfacher auf höhere
+Kapazitäten aufgerüstet werden. Dies könnte auf der ersten Konzentratorebene
+sogar dazu führen, dass faktisch immer überdimensioniert wird, sodass Priorisierung/Reservierung dort ebenfalls nicht erforderlich sind.
+
+
+  - **Bei hohen Bandbreiten sind die Kostenunterschiede zwischen QoS durch**
+**Überdimensionierung und einem Netz ohne QoS gering:** Vergleicht man eine Überdimensionierungsstrategie, welche sich nach den Erfordernissen höherwertiger Dienste richtet, mit der Dimensionierung eines Netzes, das sich nur
+an den Echtzeitanforderungen der Best-Effort Klasse ausrichtet, so zeigt sich
+folgendes: Bei niedrigen Aggregationsbandbreiten ist die Gewährleistung von
+QoS durch Überdimensionierung im Vergleich zum reinen Best-Effort Netz erheblich teurer. Bei Bandbreiten über 34Mbps ist der Unterschied kleiner. Es ist
+zu vermuten, dass der Kostenunterschied bei Bandbreiten im Gbps-Bereich
+vernachlässigbar ist.
+
+
+Die Frage, die sich hier anschließt, ist aber, wie oft die Netzdimensionierung bei Überdimensionierung als QoS-Strategie **[61]** nicht ausreicht, um den Verkehr entsprechend
+seiner Parameter auszuliefern und wie oft dies dann beispielsweise Vertragsstrafen und
+somit zusätzliche Kosten zur Folge hat. Während Vertragsstrafen vorrangig im Geschäftskundenbereich vereinbart werden, sind im Privatkundenbereich geringe Kundenzufriedenheit, Kundenverlust und erschwerte Kundenakquisition als Opportunitätskosten aufzuführen.
+
+
+Ein Vergleich des Investitionsvolumens in höhere Kapazitäten zur Vermeidung von Überlast mit den Kosten der Vertragsstrafen bei Nichterfüllung kann daher ein Kalkül bei
+der Netzplanung darstellen: Ist die Summe der zu erwartenden Vertragsstrafen kleiner
+als die Höhe der Investitionen zur Implementierung von Überdimensionierung anhand
+
+
+**61** Die Frage lässt sich auch auf den Fall der Dimensionierung ohne Berücksichtigung der Echtzeitanforderungen wie im letzten Spiegelstrich beschrieben anwenden.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 41
+
+
+der vier Parameter der vier Verkehrsklassen, so mag es eine Rationalität geben, nur ein
+Best-Effort Netz zu betreiben.
+
+
+Andererseits mag es für den Netzbetreiber von so hoher Wichtigkeit sein, die gegenüber dem Kunden zugesicherten Verkehrsparameter zu erfüllen, dass nur die Anwendung von differenzierenden QoS-Strategien (z.B. Priorisierung) ihm überhaupt die Möglichkeit geben, Kontrolle über den Verkehrsfluss auszuüben. Dies hängt wahrscheinlich
+auch vom bedienten Kundensegment ab, denn Vertragsstrafen sind eher im Geschäftskunden oder Inter-Carrier Geschäft zu erwarten. Gleichwohl wird die Einhaltung von
+QoS auch im Massenmarkt in dem Maße an Relevanz gewinnen, wie anspruchsvollere
+Dienste dort Bestandteil von Standardproduktbündeln werden und eine entsprechende
+Qualität dieser Dienste dann wesentlichen Einfluss auf die Kundenzufriedenheit hat. Es
+wäre ebenso vorstellbar, dass Vertragsstrafen im Massenmarkt Einzug halten, wenn
+dies regulatorisch vorgegeben würde.
+
+
+Evans / Filsfils (2007) stellen wie in Kapitel 1 angedeutet die Frage, ob die Kosten des
+Einsatzes von DiffServ (Priorisierung) die Vorteile rechtfertigen. **[62]** Die Vorteile einer
+DiffServ Implementierung können entweder daraus bestehen, dass weniger Kapazität
+nötig ist, um die gleiche Verkehrsqualität zu erreichen, oder dass über die gleiche Kapazität mehr aggregierter Verkehr transportiert werden kann. Dies hängt vom konkreten
+Ausbau und den relativen Verkehrsanteilen ab. Dabei kann gezeigt werden, dass die
+relativen Vorteile dann besonders hoch sind, wenn a) das Verhältnis von anspruchsvollem zu weniger anspruchsvollem Verkehr klein ist (vgl. Abbildung 3-8), und wenn b) der
+Überdimensionierungsfaktor des anspruchsvollen Verkehrs im Verhältnis zum weniger
+anspruchsvollen Verkehr groß ist. **[63]**
+
+
+Im linken Fall von Abbildung 3-8 hat ein sehr hoher Teil des Gesamtverkehrs sensible
+Anforderungen an Echtzeit. In diesem Fall können durch eine Priorisierung kaum Vorteile erzeugt werden, weil es nur wenig Best-Effort Verkehr gibt, auf dessen Kosten
+Echtzeitverkehr priorisiert behandelt werden könnte. In diesem Fall wird die Netzdimensionierung erheblich höher ausfallen als im rechten Fall, wo durch Priorisierung leichter
+die QoS der Echtzeitdienste gewährleistet werden kann und folglich weniger Netzkapazität insgesamt vorgehalten werden muss.
+
+
+Ob DiffServ gegenüber Überdimensionierung aus kostenrechnerischer Sicht ökonomische Vorteile bietet, hängt also jeweils von der konkreten Implementierung und vom
+Nutzerverhalten ab. Die im Kostenmodell gewählten Parameter der Szenarien für Kunden und Verkehrseigenschaften erscheinen uns zweckmäßig.
+
+
+**62** Vgl. Evans / Filsfils (2007): S. 251f.
+**63** Vgl. Evans / Filsfils (2007): S. 251f; Siehe auch Hackbarth / Kulenkampff (2006): 68f.
+
+
+42 Diskussionsbeitrag Nr. 315
+
+
+Abbildung 3-8: Verkehrszusammensetzung beeinflusst Vorteilhaftigkeit der
+Priorisierung
+
+
+Echtzeit
+
+
+Best-Effort
+
+
+Überdimensionierung Priorisierung
+vorteilhafter vorteilhafter
+
+
+Vor dem Hintergrund der Migration zu Next Generation Access mit deutlich höheren
+Bandbreiten sind die im Modell angelegten Aggregationsbandbreiten eher gering. Insofern wird modelltechnisch eher eine aktuelle ADSL-Welt mit DSLAM am Hauptverteiler
+abgebildet. Legt man die Ergebnisse der Modellierung zugrunde, so scheinen mit den
+höheren Aggregationsbandbreiten auch weniger Zusatzkosten der QoS-Bereitstellung
+verbunden zu sein. Allerdings muss berücksichtigt werden, dass die durchschnittliche
+Bandbreite pro Nutzer durch die neuen Dienste ebenfalls steigt **[64]** . Insofern wäre es bei
+der Weiterentwicklung des Modells interessant, eine NGN-Welt abzubilden, in der hohe
+Anschlussbandbreiten vorliegen, aus der implizit eine höhere Nutzungsrate z.B. der
+Echtzeit und Streaming-Klassen bei den Privatkunden aufgrund von erhöhter TriplePlay Penetration abgeleitet werden.
+
+
+Aus aktueller regulatorischer Perspektive sind diese Ergebnisse wertvoll, weil sie deutlich machen, dass es in den Kernnetzen, wo durchweg nur sehr hohe Bandbreiten genutzt werden, keine signifikanten Kostenunterschiede gibt, gleich ob oder welche QoSStrategie eingesetzt wird. Stattdessen sind es ausgewählte Strecken in Aggregationsnetzen, auf denen Wettbewerber bei der Implementierung von QoS durch ihre geringere Größe strukturell benachteiligt sind.
+
+
+Sofern der Incumbent also QoS in seinem Netz bereitstellt ist daraus zunächst die Notwendigkeit eines Bitstrom Vorleistungsproduktes mit QoS abzuleiten. Bei der Bestimmung von Vorleistungsentgelten muss beachtet werden, dass der Incumbent die Bereitstellung von QoS zu günstigeren Stückkosten als die Wettbewerber realisieren kann,
+weil er bedingt durch die größere Anzahl Kunden und sein Wholesalegeschäft stets
+mehr Kapazitäten aufbauen kann. Dies führt wie beschrieben zu niedrigeren Stückkos
+
+**64** IPTV Multicasting steigert aber nur mittelbar die durchschnittliche Bandbreite der Kunden, da die
+Kanäle als Grundlast im Netz ausgestrahlt werden und nicht an die individuelle Nutzung eines spezifischen Kunden geknüpft sind. Siehe dazu Anell / Jay / Plückebaum (2007): S. 45f.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 43
+
+
+ten und stellt die Regulierung bei Entgeltentscheidungen vor das Problem, Vorleistungspreise für Bitstrom und die Entbündelung der Teilnehmeranschlussleitung (in
+Deutschland beide kostenbasiert) so zu wählen, dass keine Kosten-Kosten-Schere auftritt, welche das TAL-Geschäftsmodell benachteiligt. **[65]** Prinzipiell würden die infrastrukturbasierten Anbieter ihre selbst betriebenen Aggregationsnetze im Vergleich zum Incumbent mit geringerer Bandbreite und damit zu höheren Kosten betreiben, als die auf
+Kostenbasis ermittelten Aggregationskomponenten einer Bitstromvorleistung. Die im
+Rahmen eines Kosten-Kosten-Scheren Tests ermittelten Kosten der Replikation der
+Bitstromwertschöpfung durch einen effizienten, bundesweit agierenden Wettbewerber,
+der auf der entbündelten TAL aufsetzt, fungieren daher als Minimalgrenze der Bitstromvorleistungsentgelte.
+
+
+Grundsätzlich kann die Problematik der Vorleistungspreissetzung durch die Skaleneffekte bei der Implementierung von QoS verschärft werden. Dass der Incumbent Integrationsgewinne durch das Angebot von Best-Effort Bitstrom in Kombination mit eigener
+QoS auf Retailseite erzielt, wurde bereits zuvor herausgestellt. **[66]** Dass die Implementierung von QoS auch von der Aggregationsbandbreite bzw. der Anzahl der bedienten
+Kunden abhängt, konnte nun auch im Modell von Rodriguez / Hackbarth / Garcia / Plückebaum / Ilic gezeigt werden.
+
+
+Theoretisch wäre vorstellbar, dass die Profitabilität des Unbundling-Geschäftsmodells
+an (kleinen) Hauptverteilern durch die Bereitstellung von QoS geringer wird. Schließlich
+wurde bereits gezeigt, dass niedrige Aggregationsbandbreiten zu hohen Stückkosten
+führen und dass der Incumbent stets mehr Kunden hat, dadurch höhere Aggregationsbandbreiten betreiben kann und somit geringere Stückkosten aufweist. Ob der Einbezug von QoS aber tatsächlich zu einer höheren Minimalzahl an Kunden (die unrealistisch hohe Marktanteile impliziert) für Profitabilität von Unbundling an einem Hauptverteiler führt, müsste in weiteren Studien überprüft werden.
+
+
+Die Problematik kann aber auch noch auf eine andere Ebene transferiert werden. Wenn
+die Skalenvorteile des Incumbent so bedeutsam sind, stellt sich die Frage, ob alternative Anbieter von IP-Netzen mit QoS überhaupt effizient in den Wettbewerb mit dem Incumbent treten können. Dafür wäre von Interesse zu modellieren, wie die Stückkosten
+von QoS bei Aggregationsbandbreiten von 1Gb, 10Gb Ethernet oder gar mehr im Vergleich zu den bereits modellierten 100Mbps stehen.
+
+
+Zu Beginn dieses Kapitels wurde ausgeführt, dass die Equipmentkosten bei einigen
+Herstellern von erweiterten QoS-Funktionalitäten abhängen und bei anderen nicht. Dies
+ist sehr wahrscheinlich auf herstellerseitige Preisdiskriminierung und weniger auf fundamental andere Technologie zurückzuführen. Dennoch stellt sich die Frage, ob unter
+Kostenmodellierungsaspekten nun wie hier geschehen angenommen wird, dass beim
+
+
+**65** Vgl. Henseler-Unger (2008): S.13.
+**66** Hackbarth / Kulenkampff (2006): S.68f.
+
+
+44 Diskussionsbeitrag Nr. 315
+
+
+Kauf des Equipments keine Zusatzkosten durch QoS-Funktionen anfallen oder eben
+doch. Dies muss vor dem Hintergrund des Anspruchs der Modellierung eines effizienten
+Netzes geschehen. Diese sollte aber anderseits nicht auf einen bestimmten Hersteller
+abstellen. Das Verständnis des Effizienzkriteriums beeinflusst dann die Handhabung,
+z.B. könnte man geneigt sein, separate Kosten für QoS-Features anzusetzen, um diese
+Kosten noch deutlicher den Diensten zuzurechnen, die QoS benötigen. Die Kenntnis
+der Höhe dieser Lizenzierungskosten wird die Bewertung der Handhabungsalternativen
+ebenfalls beeinflussen.
+
+
+Weiterhin stellt sich die Frage, inwieweit sich Managementaufwand bei den drei Strategien unterscheidet. Es ist zu vermuten, dass bei Einsatz von Priorisierung und Reservierung zusätzlicher Aufwand für das Management der Mechanismen notwendig ist. **[67]**
+Das ist bereits der Fall, wenn nur auf die QoS-Bereitstellung im eigenen Netz abgestellt
+wird (was im Modell geschah). Sobald man die Betrachtung auf netzübergreifende
+QoS-Implementierung erweitert, ergeben sich jedoch sofort signifikante Transaktionskosten bei den differenzierenden QoS-Strategien, denn die Netzbetreiber müssen für
+eine einheitliche Markierung und Behandlung der Pakete Sorge tragen und dass ggf.
+über mehrere Netze hinweg. Die Höhe dieser Kosten ist schwer quantifizierbar, aber sie
+dürfte eine erhebliche Hürde darstellen und eine der Hauptursachen dafür sein, dass
+bis heute nur in wenigen Fällen QoS über Netzgrenzen implementiert wurde.
+
+
+In diesem Zusammenhang kann auch die Frage nach grundsätzlichen Preismodellen
+für die Zusammenschaltung von Netzen aufgeworfen werden. Unter Berücksichtigung
+von QoS könnte „Calling/Sending Party’s Network Pays“ als adäquates Verrechnungsprinzip zwischen den Akteuren angesehen werden. **[68]** Andere Autoren sehen besonders
+bezogen auf VoIP im NGN vor allem die Notwendigkeit sehr niedriger Terminierungsentgelte, ohne das Regime dafür festschreiben zu wollen. **[69]** Fragestellungen der IPZusammenschaltung wurden jedoch intensiv in vorherigen Studien analysiert und hier
+weitgehend ausgeblendet.
+
+
+**67** Wie in Kapitel 2 dargelegt, erfordert auch die Überdimensionierung eine adäquate Netzdimensionierung und eine rollierende Planung mit ständigem Monitoring der Lasten.
+**68** Vgl. Kruse (2008a): S. 11f.
+**69** Vgl. Marcus / Elixmann / Carter et al (2008): S.142f.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 45
+
+##### **4 Preismodelle für Quality of Service**
+
+
+Das Internet ist durch eine zu Überlastzeiten vorübergehend auftretende partielle Rivalität im Konsum gekennzeichnet. Eine solche partielle Rivalität tritt dann auf, wenn die
+Bedienung eines weiteren Nutzers andere zwar nicht vom Konsum ausschließt, aber
+die Nutzungsqualität anderer mindert. Dies kann bei egoistisch rational handelnden
+Nutzern zu einem Allmende-Problem führen, bei dem die geteilte Ressource „Internet„
+überbeansprucht wird, weil negative Externalitäten nicht beachtet werden. **[70]**
+
+
+Kruse (2007) beschreibt die Gefahren eines „Crowding-Out“ von höherwertigen Diensten in Netzen ohne QoS und ohne adäquate Preissignale. Ein solches Crowding-Out
+tritt auf, wenn die Datenmenge niederwertiger Dienste immer weiter zunimmt, was
+dann öfter zu Überlastsituationen führt. Dadurch wird die Qualität hochwertiger Dienste
+immer stärker beeinträchtigt. In der Folge wird er weniger stark nachgefragt und durch
+geringwertigere Dienste wohlmöglich vollständig verdrängt.
+
+
+In diesem Kapitel werden Preismodelle zur Bereitstellung von QoS systematisiert. Die
+Anwendung ökonomischer Preismodelle auf Telekommunikationsmärkte strebt unter
+anderem danach, Netzressourcen effizienter auszulasten, die Renten von Konsumenten und Produzenten zu maximieren und dabei die Probleme der partiellen Rivalität zu
+berücksichtigen.
+
+
+Einige Preismodelle sind so konzipiert, dass sie von sich aus eine gestaffelte Quality of
+Service im Netz gestatten, ohne dass eine der drei in dieser Studie thematisierten QoSStrategien zum Einsatz kommen muss (Paris Metro Pricing mit zwei getrennten BestEffort Netzen). Andere Modelle wie Congestion Pricing („Staupreise“) könnten die DiffServ Architektur um eine dynamische Zugangskontrollkomponente erweitern. Grundsätzlich könnte die Anwendung von dynamischen Preismodellen die Netzeffizienz und
+Wohlfahrt steigern, jedoch gibt es bedeutende Barrieren für deren Implementierung, die
+im folgenden auch dargelegt werden.
+
+
+**4.1 Entwicklung und Bewertung von Preismodellen**
+
+
+Pauschalpreise haben jedoch zur Folge, dass die Grenzkosten des Konsums zusätzlicher Bandbreite gleich null sind, während die tatsächlichen Grenzkosten der Bereitstellung größer als null sind. Dem Nutzer werden durch einen Flatrate-Tarif daher nicht die
+Opportunitätskosten des Konsums (Überlast, Qualitätsreduktion) signalisiert. Flatrate
+Preise in einem Netz mit mehreren QoS Klassen führen dazu, dass alle Kunden die
+höchste Klasse wählen, sodass hier Überlast unvermeidlich ist und die Qualität herabgesetzt wird (vgl. „Teufelskreis“ in Kapitel 2.2). Nutzungsabhängige Entgelte sind
+
+
+**70** Vgl. Henderson / Crowcroft / Bhatti (2001): S.77. Kruse (2007): S.4f.
+
+
+46 Diskussionsbeitrag Nr. 315
+
+
+grundsätzlich besser geeignet, um Staukosten, QoS Differenzierung etc. in heutigen
+und zukünftigen IP-Netzen zu berücksichtigen. **[71]**
+
+
+Aus diesem Grund wurden verschiedenste theoretische Preismodelle entwickelt, die in
+unterschiedlicher Komplexität darauf ausgelegt sind, mit differenzierten Preissignalen
+Überlast zu vermeiden und insgesamt zu einer besseren Netzauslastung und höherer
+Wohlfahrt zu führen. Ein zentraler Aspekt ist dabei vielfach, dass die Nutzer durch das
+Preismodell Anreize haben, ihre Bedürfnisse möglichst genau offen zu legen. Falkner /
+Devetsikiotis / Lambardis (1999) geben einen detaillierten Überblick über die folgenden
+ausgewählten Verfahren: **[72]**
+
+
+  - Flat Pricing: Der Nutzer zahlt einen Festpreis pro Zeiteinheit (z.B. Monat) unabhängig von der Nutzung. Es erfolgt keine Differenzierung nach Qualität.
+
+
+  - Paris-Metro Pricing: Es werden getrennte Best-Effort Netze betrieben, die unterschiedlich hohe Pauschalpreise für die Nutzung aufweisen. Die Preise sollen
+dazu führen, dass die Premium Netze weniger stark ausgelastet sind und daher
+eine höhere Qualität gewähren, auch wenn dies nicht garantiert wird. Dies ist ein
+sehr simples Modell, bei dem QoS nur durch Preissignale gesteuert wird und
+stellt gewissermaßen eine Variante des Flat Pricing dar. **[73]**
+
+
+  - Priority Pricing: Nutzer wählen für ihren Verkehr zwischen unterschiedlichen Prioritäten aus, wobei hoch-prioritärer Verkehr teurer ist als niedrig-prioritäterer.
+Bei Überlast wird dem Verkehr mit hoher Priorität Vorrang bei der Abarbeitung
+gewährt. **[74]**
+
+
+  - Smart-Market Pricing: Die Nutzer zahlen zunächst eine Pauschale und ein nutzungsabhängiges Entgelt pro Paket. Zusätzlich ist ein nutzungsabhängiges Entgelt für die Zeit der Überlast zu zahlen. Die Höhe dieses Entgelts wird durch ein
+Auktionsverfahren bestimmt. **[75]** Dieses Verfahren wird in jedem Hop, d.h. in jedem zu durchlaufenden Router für den nächsten Streckenabschnitt erneut angewendet.
+
+
+  - Edge Pricing: Dieser Ansatz konzentriert sich auf strukturelle Aspekte der Netzarchitektur, bei der die erwartete Netzauslastung der erwarteten Route bei Sen
+
+**71** Vgl. Bouras / Sevasti (2004), Falkner / Devetsikiotis / Lambadaris (2000), DaSilva / Petr / Akar (2000).
+**72** Auf die Darstellung von Effective Bandwidth Pricing wurde verzichtet, da dies ausschließlich auf ATMNetze bezogen ist.
+**73** Der PMP Ansatz ist durch das Pariser U-Bahnsystem inspiriert. Dort war bis in die siebziger/achtziger
+Jahre ein einfaches System von 1. und 2. Klasse Wagen, die in Qualität und Sitzanzahl identisch waren. Der Unterschied lag darin, dass die 1. Klasse Fahrkarten doppelt so teuer waren wie die der 2.
+Klasse. Im Ergebnis waren die 1. Klasse Wagen weniger überfüllt. Das System war sogar selbstregulierend: Wenn die 1. Klasse einmal doch zu voll wurde, entschlossen sich einige Kunden, dass der
+Mehrpreis nicht gerechtfertigt sei und wechselten wieder in die 2. Klasse. Dadurch wurde der Qualitätsunterschied in den Wagen wieder hergestellt. Vgl. Odlyzko (1999).
+**74** Vgl. auch Gupta _et al_ . (1997).
+**75** Vgl. auch MacKie-Mason / Varian (1995).
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 47
+
+
+der oder Quelle berücksichtigt wird. Eine einfache Form des Preises ist dann ein
+Preis, der von der Tageszeit abhängt. **[76]**
+
+
+  - Expected Capacity Pricing: Preise werden nur auf die von den Nutzern spezifizierten _erwarteten_ Kapazitäten angewandt. Weil nicht auf die _tatsächlich_ genutzten Kapazitäten abgestellt wird, müssen keinerlei Verfahren zur Messung angewandt werden. **[77]**
+
+
+  - Proportional Fairness Pricing: In diesem Konzept wird eine Fairnesskomponente
+hinzugefügt, die eine Ressourcenallokation dann fair bewertet, wenn sie den
+Nutzern Kapazität proportional zu ihrer Zahlungsbereitschaft zuordnet. Im Überlastfall erhält somit jeder Kunde mit signalisierter Zahlungsbereitschaft eine Zuteilung, auch wenn die nutzbare Kapazität gering sein mag.
+
+
+Die meisten Preismodelle versuchen den Preis als Instrument zur Vermeidung von Überlast einzusetzen, indem sie auf die Preissensibilität der Nutzer abstellen. **[78]** In einigen Fällen (Paris Metro Pricing, Priority Pricing, Smart-Market Pricing) geschieht dies,
+indem die Nutzer aufgefordert werden, ihren Verkehr zu bewerten, sodass eine relative
+Rangreihung nach Prioritäten erfolgen kann. Bei diesen Verfahren kann der Nutzer generell unbegrenzt viel Verkehr generieren/nachfragen, aber es gibt keine Garantie für
+die Einhaltung der QoS. In anderen Fällen (Edge Pricing oder Expected Capacity Pricing) sind die Verfahren direkt mit der Zugangskontrolle (Admission Control) verknüpft.
+Bei diesen Preismodellen kann dem Nutzer der Zugang verweigert werden, um das
+Netz vor Überlast zu schützen. Einige Modelle (z.B. Smart-Market) integrieren eine
+Komponente für lastabhängige Preise („congestion pricing“), die im Überlastfall dynamisch zusätzliche / andere Preise setzt. Der Smart-Market Ansatz lässt sich jedoch
+kaum auf große Netze anwenden. **[79]**
+
+
+In den meisten Fällen kann keine individuelle QoS gewährt werden, weil die Preismodelle reine Best-Effort Netze zugrunde legen. Die Mehrheit der Preismodelle arbeitet mit
+kurzen Zeitspannen (im Minutenrahmen), sodass sie flexibel genug auf kurzfristige Überlastsituationen reagieren zu können. Dies ist eine grundlegende Vorraussetzung, um
+der „Burstiness“ des Verkehrs in IP-Netzen und den z.B. durch technische Störungen
+kurzfristig hervorgerufenen Überlastsituationen Rechnung zu tragen.
+
+
+Eine grundlegende Systematisierung von Preismodellen kann u.a. anhand der Einordnung in Zeitbezug (statisch oder dynamisch) und Gegenstand der Bepreisung (paket
+
+**76** Vgl. auch Shenker _et al._ (1996).
+**77** Vgl. auch Clark (1997).
+**78** Vgl. im folgenden zur Bewertung der Preismodelle Falkner / Devetsikiotis / Lambardis (1999): S. 3,
+11f.
+**79** Das Problem des Smart Market Ansatzes ist, dass ein Paket auf seinem Weg an mehreren Routern
+an Auktionen teilnehmen kann. Es ist durchaus möglich, dass bei einem der späteren Router die Auktion nicht mehr gewonnen, und das Paket verworfen wird, obwohl bereits vorher ein Premiumpreis
+bezahlt wurde. Vgl. Henderson / Crowcroft / Bhatti (2001): S. 78.
+
+
+48 Diskussionsbeitrag Nr. 315
+
+
+bezogen oder vertragsbezogen) erfolgen. Nach unserer Interpretation ist ein Preismodell dann dynamisch, wenn es die tatsächliche Netzauslastung zum Nutzungszeitpunkt
+berücksichtigt. Aus diesem Grunde betrachten wir bspw. das Priority Pricing als statisches Verfahren, weil die Preise bereits im Vorhinein und unabhängig von der tatsächlichen Netzlast festgelegt werden. Andere Autoren ordnen das Priority Pricing zu den
+dynamischen Verfahren. **[80]**
+
+
+Eine zusammenfassende Bewertung der Preismodelle erfolgt in Tabelle 4-1. Hervorgehoben sind dort die jeweils positiven Merkmale.
+
+
+Tabelle 4-1: Bewertung der Preismodelle
+
+
+
+
+
+
+
+
+
+
+
+
+
+|Preismodell|Flat|Paris<br>Metro|Priority|Smart<br>Market|Edge /<br>expected<br>capacity|Proportional<br>Fairness|
+|---|---|---|---|---|---|---|
+|**Anwendbarkeit auf**<br>**existierende Tech-**<br>**nologien**|IP|IP, VN|IP|keine|ATM, RSVP|ATM, IP|
+|**Notwendigkeit von**<br>**Messungen für**<br>**Abrechnung***|Nein|Nein|Ja|Ja|Ja|Nein|
+|**Beitrag zur Vermei-**<br>**dung von Überlast /**<br>**Verkehrs-**<br>**management**|Nein|Ja|Ja|Ja|Ja|Ja|
+|**Bereitstellung indi-**<br>**vidueller QoS**|Nein|Nein|Nein|Nein|Ja|Nein|
+|**Grad der Netzeffi-**<br>**zienz (erwartete**<br>**Netzauslastung)**|Niedrig|Variabel|Hoch|Hoch|Hoch|Hoch|
+|**Grad der ökonomi-**<br>**schen Effizienz**<br>(Wohlfahrt)** ****|Niedrig|Variabel|Hoch|Hoch|Variabel|Hoch|
+|**Wahrung „sozialer**<br>**Fairness“ *****|Ja|Ja|Nein|Nein|Ja|Ja|
+|**Zeitrahmen der**<br>**Preissetzung**|Lang|Lang|Kurz|Kurz|Mittel/lang|Kurz|
+
+
+
+- Wenn keine Messungen notwendig sind, wird die Rechnungslegung wesentlich vereinfacht.
+
+
+** Ein Netz ist ökonomisch effizient, wenn die Nutzer, die Zugang zu einem bestimmten QoS-Niveau erhalten haben, ihre Dienste wertvoller bewerten, als die Nutzer, die keinen Zugang zu diesem QoSNiveau erhalten haben.
+
+
+*** Ein System ist „sozial unfair“, wenn es Nutzer im Überlastfall von der Nutzung ausschließt, weil diese
+nicht vermögend genug sind, um den (erhöhten) Preis zu bezahlen.
+
+
+Quelle: Falkner / Devetsikiotis / Lambardis (1999): S. 10.
+
+
+**80** Vgl. Yuksel / Kalyanaraman / Goel (2003).
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 49
+
+
+Wenn Preismodelle dynamisch auf die aktuelle Netzlast reagieren und durch „Staupreise“ (Congestion Pricing) die jeweilige Netzauslastung in der Preissetzung berücksichtigen sollen, dann müssen die Reaktionszeiträume im Sekunden bzw. Minutenbereich
+liegen (idealerweise wohl im Bereich der Zwei-Wege-Paketlaufzeit / des Round Trip
+Delays). **[81]** Andererseits sind die Zeiträume, in denen Preismodelle operieren normalerweise durch die Reaktionszeit der Menschen begrenzt. Schließlich müssen Preissignale
+erst durch den Menschen empfangen und verstanden werden, bevor sich das Verhalten
+ändern kann.
+
+
+Die Implementierung von differenzierten und dynamischen Staupreisen für QoS erfordert also eine zeitkritische Bereitstellung von Netzlast- und Preisinformation. Ein adäquates Preismodell müsste daher das Bestellen der QoS-Klasse für eine bestimmte
+Anwendung auf Grundlage eines automatisierten Verhandlungsmodells durchführen,
+bei dem die Interaktion zwischen Netz und Anwendung statt zwischen Netz und Anwender abläuft.
+
+
+Preismodelle, die die jeweilige Lastsituation dynamisch bei der Preisbildung berücksichtigen, führen theoretisch zur höchsten Netzeffizienz. Gerade diese Varianten erfordern
+aber ein hohes Maß an Netzmonitoring und Kommunikation der Preise nahezu in Echtzeit. Außerdem ist die Maximierung der Netzeffizienz nicht automatisch gleichbedeutend mit der Maximierung der gesamten Wohlfahrt., Priority Pricing und Smart Market
+Pricing beinhalten bspw. keine Fairnesskomponente bei der Bevorzugung des priorisierten Verkehrs.
+
+
+Kruse (2007) folgert, dass bereits das Ersetzen von Flatrates durch verkehrsabhängige
+Preise die Effizienz verbessert, dies jedoch wegen des sehr kurzfristigen Auftretens von
+Überlastsituationen und der Verzögerungstoleranz von elastischen Diensten suboptimal
+bleibt. Stattdessen ist laut Kruse ein Priority Pricing Konzept mit unterschiedlichen Verkehrsklassen zu bevorzugen, die z.B. durch DiffServ netzseitig abgebildet werden. In
+diesem Fall wäre auch ein Fortbestehen von Flatrates für die Best-Effort Verkehrsklasse akzeptabel, weil sie ökonomisch weit weniger nachteilig ist. Eine Flat-Rate für den
+QoS-Verkehr ist laut Kruse hingegen ungeeignet und ineffizient.
+
+
+**4.2 Barrieren der Anwendung dynamischer Preismodelle**
+
+
+Grundsätzlich können also auf Basis ökonomischer Preistheorien eine Reihe von Argumenten (Internalisierung von Externalitäten, Verhinderung von Crowding Out höherwertiger Dienste, effizientere Netzauslastung, höhere Wohlfahrt) für differenzierte
+Preismodelle angebracht werden. Allerdings gibt es drei Faktoren die der Implementierung entgegenstehen.
+
+
+**81** Yuksel / Kalyanaraman / Sidkar (2002) zeigen im Modell, dass die Vermeidung von Überlast durch
+Preissignale nur dann funktioniert, wenn Preise im Sekundenzyklus (2-3 Sekunden) erneuert und bekannt gemacht werden.
+
+
+50 Diskussionsbeitrag Nr. 315
+
+
+Erstens zeigt die empirische Betrachtung, dass die Nutzer simple Preismodelle bevorzugen und ein deutlicher **Trend zu Flat Pricing** existiert. In Deutschland ist seit dem
+Jahr 2006 das Flatratemodell mit einem pauschalen, nutzungsunabhängigen Entgelt
+dominant (zur Veränderung im Bereich der Abrechnungsarten siehe Abbildung 4-1).
+
+
+Abbildung 4-1: Entwicklung der Abrechnungsarten Onlineverbindungen in
+Deutschland
+
+
+100%
+
+
+90%
+
+
+80%
+
+
+70%
+
+
+
+60%
+
+
+50%
+
+
+40%
+
+
+30%
+
+
+20%
+
+
+10%
+
+
+0%
+
+
+
+Weiß nicht
+Internet by Call
+Volumentarif
+Zeittarif
+Flatrate
+
+
+
+2005 2006 2007 2008
+
+
+Quelle: ARD/ZDF-Onlinestudie 2008, Media Perspektiven 7/2008, S. 347
+
+
+Diese Entwicklung ist laut Odlyzko (1999/2001) typisch für Kommunikationstechnologien wie Post, Telegraphie, Telefon und das Internet, denn in der Regel wird ein Zyklus
+durchlaufen, bei dem die Qualität steigt, Preise sinken und die Nutzung steigt, sodass
+insgesamt erhöhte Umsätze generiert werden. Charakteristisch ist auch, dass die
+Preisstruktur einfacher wird. Zwar gibt es auch laut Odlyzko gute Argumente für Preisund Qualitätsdifferenzierung (höhere Auslastung, Abschöpfen von Zahlungsbereitschaften in unterschiedlichen Segmenten, Erhöhung der Gesamtwohlfahrt). Diese
+haben jedoch weniger Gewicht als der Kundenwunsch nach Einfachheit. Weil nutzungsbasierte Entgelte – und seien sie noch so klein – zu einem drastischen Rückgang
+der Nutzung führen, sei es auch im Interesse der Netzbetreiber, in wachsenden Märkten das Preissystem möglichst einfach zu halten. **[82]** Die geschilderte Entwicklung konnte
+auch in deutschen Festnetz-, Mobilfunk- und Breitbandmärkten beobachtet werden. **[83]**
+
+
+**82** Vgl. Odlyzko (2001).
+**83** Vgl. für Breitband, TNS Infratest (2008): S. 11 für Mobilfunk.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 51
+
+
+Es dürfte also auf Widerstand der Konsumenten stoßen, komplizierte Preismodelle einzuführen, auch wenn es Nachrichten über einzelne Breitbandanbietern gibt, die dies
+testen. **[84]** Im Hinblick auf die Entwicklung in Deutschland (Abbildung 4-1) müsste der
+auch von Odlyzko aufgezeigte Trend zur Flatrate durch geeignetes Marketing umgekehrt werden. Dies ist dann sehr schwierig, wenn den Nutzern keine Vorzüge einer höheren Qualität kommuniziert werden kann. **[85]** Mit manchen Arten dynamischer Staupreise wäre für die Konsumenten auch ein bedeutendes Risiko verbunden, schließlich können Sie die Entgelthöhe im Vorhinein nicht scharf abschätzen. Dies gilt selbst dann,
+wenn sie ihr eigenes Verkehrsvolumen identifizieren können, denn ihnen ist die Netzauslastung zu den Zeiten ihrer eigenen Nutzung in einer mittelfristigen Planungsperspektive ja nicht bekannt.
+
+
+Zweitens erfordern nutzungsabhängige Preismodelle auch erheblich **aufwändigere**
+**Abrechnungssysteme** . Die für die Datenerhebung, Speicherung und zur Rechnungslegung notwendige Infrastruktur (ggf. müssen den Kunden Rechnungen oder
+Verbrauchskosten viel zeitnäher als im typischen Monatszyklus signalisiert werden)
+stellt einen signifikanten Kostenfaktor dar. Dieser muss bei den Kalkülen ebenfalls berücksichtigt werden.
+
+
+Drittens muss sichergestellt sein, dass Breitbandanbieter in einem wettbewerblichen
+Umfeld agieren, damit in Preismodellen mit überlastabhängigen Preisen nicht **strategi-**
+**sche Marktmacht** zur künstlichen Verknappung eingesetzt wird. In diesem Fall würde
+der Netzbetreiber dann die Nutzer zur Zahlung von „congestion prices“ zwingen und
+zusätzliche Einnahmen erwirtschaften. **[86]** Im Gegensatz zu Call-by-Call Optionen der
+Festnetztelefonie überwiegen im Breitbandmarkt langfristige Vertragsdauern, die einen
+Wechsel des Anbieters innerhalb der Vertragslaufzeit verhindern. Der Wettbewerb um
+den Kunden muss also ausgeprägt genug sein, was eine gewisse Transparenz der Anbieter voraussetzt.
+
+
+Die letzte Problematik lässt sich auch auf die Wholesale-Seite übertragen. Dort, wo es
+für wettbewerbliche Anbieter unökonomisch ist, auf infrastrukturbasierte Geschäftsmodellen aufzusetzen und sie nur Bitstrom oder Resale einkaufen, muss ebenfalls sichergestellt sein, dass der Incumbent keine künstliche Verknappung von Kapazität herbeiführt, um zusätzliche Einnahmen zu generieren. Die Bestimmung der adäquaten Netzdimensionierung dieser Netzabschnitte und das notwendige Monitoring dürfte Wettbewerber und Regulierungsbehörde jedoch vor erhebliche Schwierigkeiten stellen. Die
+Notwendigkeit des Monitorings der Einhaltung von QoS ist sicher ganz generell auch
+einer der Gründe, warum QoS über Netzgrenzen bislang nicht zur Anwendung gelangt.
+
+
+**84** Vgl. z.B. http://www.billingworld.com/articles/usage-based-billing-back-on-agenda.html
+**85** Vgl. Anell / Jay / Plückebaum (2008): S. 80.
+**86** Vgl. Henderson / Crowcroft / Bhatti (2001): S. 80.
+
+
+52 Diskussionsbeitrag Nr. 315
+
+
+Zurzeit scheinen die ersten beiden Gründe die Implementierung von dynamischen
+Staupreisen zu verhindern. Aus diesem Grund sind die regulierungspolitischen Problemfelder, die im dritten Aspekt aufgezeigt wurden im Moment eher theoretischer Natur.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 53
+
+##### **5 Fazit**
+
+
+Mit dem Aufkommen von Echtzeitanwendungen in IP-Netzen stieg das Interesse an der
+Gewährung von Dienstgüte. Die Instrumente zur Gewährung von Quality of Service
+stehen bereits seit vielen Jahren zur Verfügung und die drei wesentlichen Ansätze Überdimensionierung, Reservierung (IntServ/RSVP) und Priorisierung (DiffServ) wurden
+in dieser Studie beschrieben und bewertet. Grundsätzlich ließe sich eine hinreichende
+Quality of Service stets durch eine angemessene Dimensionierung der Netzkapazitäten
+erreichen. Wird dies als einziges Instrument eingesetzt („Überdimensionierung“) müssen jedoch hohe Kapazitäten vorgehalten werden und die Netzauslastung ist regelmäßig weniger effizient. Im Hinblick auf technische Merkmale und qualitative Stärken und
+Schwächen wird die Verkehrspriorisierung (DiffServ) als effizientestes und vorteilhafteres Verfahren angesehen. Grundsätzlich hängt die Netzdimensionierung und die Vorteilhaftigkeit eines Einsatzes von Priorisierung aber stets vom Nutzerverhalten und den
+Verkehrscharakteristika ab.
+
+
+Die Analyse der Kostentreiber lässt darauf schließen, dass mit zunehmender Aggregation die Kostenunterschiede zwischen den Verfahren und die zusätzlichen Kosten der
+Bereitstellung von QoS gegenüber einem reinen Best Effort Netz immer weiter abnehmen. Daraus kann gefolgert werden, dass die kritischen Engpassstellen vor allem im
+Aggregations- und Anschlussnetz und weniger im Kernnetz liegen.
+
+
+Bereits in reinen Best-Effort Netzen besteht die Notwendigkeit Preis-Kosten- und Kosten-Kosten-Scheren zu vermeiden. Die Vorleistungspreissetzung unter differenzierter
+QoS erfordert umso mehr adäquate Kostenallokation, welche jedoch mit einer Reihe
+von Schwierigkeiten verbunden ist. **[87]** Die Skalenvorteile des Incumbents führen auch
+bei differenzierter QoS zu Kostenvorteilen, die bei der Vorleistungspreissetzung berücksichtigt werden müssen. So konnte im Modell gezeigt werden, dass die Stückkosten eines Netzelements ganz erheblich von der Höhe der Aggregationsbandbreite abhängen. Der Skaleneffekt wird also durch die Berücksichtigung von differenzierter QoS
+mit Blick auf die Kosten noch verstärkt. Der Berücksichtigung der Kosten von QoS z.B.
+im Rahmen von Entgeltentscheidungen für Bitstrom und Teilnehmeranschlussleitung
+(Preis-Kosten-Scheren / Kosten-Kosten-Scheren) sowie ggf. im Zusammenhang mit
+anderen IP-Interconnectionleistungen wird eine zunehmend wichtigere Bedeutung zukommen. Daher werden sich zukünftige Aktivitäten des WIK auch auf die Entwicklung
+von Kostenmodellen mit differenzierter Quality of Service ausrichten.
+
+
+Die Berücksichtigung der Kosten von QoS wird in dem Maße wichtiger, wie sensible
+Dienst im Markt akzeptiert werden. Für deren Transport sind QoS-fähige Netze notwendig. Die Investition wiederum lohnen sich erst dann, wenn eine relevante Nutzerzahl die Dienste nachfragt und dafür im Idealfall auch bereit ist eine Premiumgebühr zu
+
+
+**87** Anell / Jay / Plückebaum (2008): S. 71-78.
+
+
+54 Diskussionsbeitrag Nr. 315
+
+
+zahlen. Wie bei vielen innovativen Telekommunikations-Diensten existiert hier also ein
+Anlaufproblem. Ohne einen anbieterseitigen „Push“ und den Schritt ins Risiko dürfte es
+schwerlich zu einer breiten Adoption von QoS-sensiblen Diensten kommen..
+
+
+Abbildung 5-1: Anlaufproblem von innovativen Diensten mit QoS-Anforderungen
+
+
+Dienste brauchen QoS
+
+
+
+QoS-fähiges
+Netz
+
+
+
+Neue Dienste
+mit sensiblen
+Anforderungen
+
+
+Netzupgrade nur bei
+relevanter Nutzung
+
+
+
+1
+
+
+Netzbetreiber haben QoS innerhalb ihrer eigenen Netze z.B. über DiffServ regelmäßig
+implementiert. **[ 88]** Im Gegensatz dazu wird QoS über Netzgrenzen hinweg nur sehr selten eingesetzt. Dafür sind im Wesentlichen drei Gründe verantwortlich **[89]** : Zum Einen
+erschließen sich dem Konsumenten in der Regel keine Vorteile einer höheren Qualität
+und zwar auch im Hinblick auf zeitkritische Anwendungen wie VoIP. **[90]** Daran schließt
+sich ebenfalls an, dass zumindest bislang keine hohe Zahlungsbereitschaft für höhere
+Qualität auf Kundenseite existiert. Drittens verursacht eine netzübergreifende Implementierung von QoS hohe Transaktionskosten, da zum Einen u.U. mit einer großen
+Zahl von Interconnection/ Peering Partnern verhandelt und zum Anderen die Einhaltung
+der ausgehandelten Konditionen sichergestellt/ überwacht werden muss.
+
+
+Aus regulierungsökonomischer Sicht ist besonders von Interesse, inwieweit die aufgezeigten Problemfelder sich durch die Migration zu Next Generation Networks verändern. Für die Netzbetreiber steigt grundsätzlich der Anreiz, differenzierte QoS zu implementieren, mit der wachsenden Zahl unterschiedlicher Dienste mit anspruchsvolleren Anforderungen, die sie auf einer Plattform führen. Die Herausforderungen bezüglich
+netzübergreifender QoS bleiben auch im NGN-Umfeld weiter bestehen, insofern sind
+die Zukunftsaussichten einer netzübergreifenden Implementierung schwer zu beurteilen.
+
+
+**88** Vgl. QoS Working Group of the MIT Communications Futures Program (2006): S.4.
+**89** Vgl. Marcus / Elixmann / Carter et. Al (2008): S. 91f.
+**90** Vgl. Bundesnetzagentur (2008): S.6-8.
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 55
+
+
+Im Zusammenhang mit der paketweise differenzierten Behandlung von Kundenverkehr
+werden auch Themenfelder der Netzneutralitätsdebatte **[91]** angestoßen, die besonders
+vor dem Hintergrund der Migration zum NGN geführt wird. Die Einführung von differenzierender Quality of Service widerspricht aus unserer Perspektive jedoch nicht dem
+Netzneutralitätsgedanken. Erst die selektive diskriminierende Behandlung von Paketen
+innerhalb der gleichen Verkehrsklasse (etwa das bewusste Herabsetzen der Qualität in
+der Echtzeitverkehrsklasse für die Pakete eines konkurrierenden VoIP Anbieters) verstößt gegen die Idee der Netzneutralität. **[92]**
+
+
+Werden unterschiedliche Verkehrsklassen angeboten, so stellt sich die Frage, wie diese
+mit Preisen versehen werden. Dabei stehen zwei Aspekte im Konflikt miteinander: Auf
+der einen Seite, wären dynamische Preise für abgestufte QoS aus technischer und ökonomischer Sicht zu befürworten. Auf der anderen Seite hat sich gezeigt, dass der
+Wunsch nach Flat Pricing auf Kundenseite bislang langfristig der entscheidendere Faktor war. Es scheint fraglich, ob eine Rückkehr zu verbrauchsabhängigen Tarifen einfach
+umzusetzen wäre. Im Hinblick auf differenzierte Preismodelle mit „Congestion Pricing“
+besteht zumindest theoretisch die Gefahr der Abschöpfung von Monopolrenten auf monopolistischen Strecken des Aggregationsnetzes. Allerdings stehen der Implementierung erhebliche marktliche Barrieren gegenüber, sodass die regulierungspolitischen
+Aspekt von dynamischen Staupreisen zurzeit eher theoretischer Natur sind.
+
+
+**91** Siehe dazu z.B. WIK Konferenz Dezember 2007 „Network Neutrality –Implications for Europe“
+(http://www.wik.org/content/nnc/Homepage_2007_12_19_notes_dt.pdf).
+**92** Andere Autoren sehen einen Widerspruch zwischen Netzneutralität und differenzierter QoS. Vgl.
+Kruse (2008b): S. 5.
+
+
+56 Diskussionsbeitrag Nr. 315
+
+##### **Anhang: Berechnung der durchschnittlichen Bandbreite pro Kunde**
+
+
+**Berechnung der durchschnittlichen Bandbreite**
+**pro Kunde in der Busy Hour**
+
+
+  - Durchschnittliches monatliches Datenvolumen
+eines Breitbandnutzers in Deutschland für das
+Jahr 2007: **8,6 GByte**
+
+
+  - Quelle: Dialog Consult / VATM (2008)
+
+
+
+
+
+
+
+
+
+8,6 GByte  *  8  *  1.000.000 * 12 * 0,08
+
+
+250  *  3600
+
+
+
+
+
+
+
+
+|Col1|Col2|
+|---|---|
+|Umrechnung<br>in Sekunden|Umrechnung<br>in Sekunden|
+
+
+
+
+
+5
+
+
+
+Quellen: eigene Darstellung. Verkehrsanteil in der Busy Hour und Online Tage pro Jahre basierend auf
+Analysys (2006)
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 57
+
+##### **Literaturverzeichnis**
+
+
+Analysys (2006): Mobile BULRIC model for OPTA.
+
+
+Anell, Patrick / Jay, Stephan / Plückebaum, Thomas (2007): Nachfrage nach Internetdiensten –
+Dienstarten, Verkehrseigenschaften und Quality of Service. WIK Diskussionsbeitrag Nr.
+302, Bad Honnef.
+
+
+Anell, Patrick / Jay, Stephan / Plückebaum, Thomas (2008): Netzzugang im NGN-Core. WIK
+Diskussionsbeitrag Nr. 310, Bad Honnef.
+
+
+ARD/ZDF-Onlinestudie 2008, Technische Ausstattung der Onliner in Deutschland, Media Perspektiven 7/2008, S. 345-349.
+
+
+Bertsekas, Dimitri P. (2002): Traffic Behavior and Queuing in a QoS Environment; Networking
+Tutorials. URL: www.mit.edu/people/dimitrib/OPNET_Full_Presentation.ppt, 12.11.2008.
+
+
+Bless, Roland / Doll, Mark / Wehrle, Klaus / Zitterbart, Martina (2002): DiffServ-basierte Dienstgüte im Internet der nächsten Generation. URL: http://doc.tm.uka.de/2002/zit-pik-200202-diffserv.pdf, Abruf am 15.11.2008.
+
+
+Bouras, Christos / Sevasti, Afrodite (2002): Pricing priority services over DiffServ-enabled transport networks. URL: http://ru6.cti.gr/ru6/publications/5758893.pdf, Abruf am 12.11.2008.
+
+
+Bouras, Christos / Sevasti, Afrodite (2004): Pricing QoS over transport networks. In Internet Research, Vol. 14, Nr. 2, S. 167-174
+
+
+Brenner, Walter / Kruse, Jörn / Zarnekow, Rüdiger / Sidler, Andreas (2008): Qualität im Internet.
+In e&i Elektrotechnik und Informationstechnik, Spezialausgabe „Dynamik der Kommunikationsnetze“, Heft 7/8, 2008
+
+
+Brenner, Walter / Dous, Malte / Zarnekow, Rüdiger / Kruse, Jörn (2007): Qualität im Internet –
+Technische und wirtschaftliche Entwicklungsperspektiven, St. Gallen.
+
+
+Bundesnetzagentur (2008): Eckpunkte der Zusammenschaltung IP-basierter Netze. URL:
+http://www.bundesnetzagentur.de/media/archive/12699.pdf, Abruf am 02.05.2008.
+
+
+Burgstahler, Lars et al (2002): Quality of Service Architectures – Quasar – Meilenstein 3: Preliminary Quasar QoS Architecture. URL: http://www.ikr.unistuttgart.de/Content/Quasar/publications/M3.pdf, Abruf am 10.09.2008.
+
+
+Capaccio, Valentino (2002): IP Quality of Service Architectures Issues and Proposals; DataTAG
+Meeting, Amsterdam - June 20, 2002. URL: http://icfamon.dl.ac.uk/papers/DataTAGWP2/reports/task3/200206-QoS.pdf, Abruf am 18.08.2008.
+
+
+Claffy, K.C. / Braun, H.-W. / Polyzos, G.C. (1995): Parametrizable Methodology for Internet Traffic Flow Profiling. In IEEE JSAC Special Issue on the Global Internet, vol.13, S. 14811494, 1995.
+
+
+Clark, David (1997): “Internet Cost Allocation and Pricing,” In _Internet Economics_, McKnight, Lee
+/ Bailey, Joseph Eds., Cambridge, Massachusetts, 1997, MIT Press, S. 216–52
+
+
+DaSilva, Luiz A.,/ Petr, David W. / Akar, Nail (2000): “Static pricing and quality of service in multiple service networks”, Proceedings 5th International Conference on Computer Science
+and Informatics, Atlantic City, NJ, Vol. 1, S. 355-358.
+
+
+Dialog Consult / VATM (2008): Zehnte gemeinsame Marktanalyse 2008. URL:
+http://www.vatm.de/content/studien/inhalt/16-10-2008.pdf, Abruf am 22.10.2008.
+
+
+Evans, John / Filsfils, Clarence (2007): Deploying IP and MPLS QoS for multiservice networks.
+Morgan Kaufmann, San Francisco.
+
+
+58 Diskussionsbeitrag Nr. 315
+
+
+Falkner, Matthias / Devetsikiotis, Michael / Lambadaris, Ioannis (2000): “An overview of pricing
+concepts for broadband IP networks”, IEEE Communications Surveys & Tutorials, Vol. 3
+No. 2, S. 2-13.
+
+
+Gupta, Alok / Stahl, Dale O. / Whinston, Andrew B. (1997): Priority pricing of Integrated Services
+networks. In _Internet Economics_, McKnight, Lee / Bailey, Joseph Eds., Cambridge, Massachusetts, 1997, MIT Press, S. 323-352
+
+
+Hackbarth, Klaus / Kulenkampff, Gabriele (2006): Technische Aspekte der Zusammenschaltung
+in IP-basierten Netzen unter besonderer Berücksichtigung von VoIP, URL:
+http://www.bundesnetzagentur.de/media/archive/7106.pdf
+Abruf am 16.05.2008.
+
+
+Hein, Matthias (2006): Mechanismen zur Sicherung der Dienstgüte (QoS). URL:
+http://www.voipango.de/download/QoS.pdf, Abruf am 03.06.2008.
+
+
+Henderson, Tristan / Crowcroft, Jon / Bhatti, Saleem (2001): Congestion pricing – Paying your
+way in communication networks, in: IEEE Internet Computing, Vol. 5, Nr. 5, S.77-81.
+
+
+Henseler-Unger, Iris (2008): Welches Wettbewerbsmodell verfolgt die BNetzA beim Breitbandzugang? WIK-Consult Workshop „Infrastrukturwettbewerb vs. Dienstewettbewerb beim
+Breitbandzugang“ am 11.9.2008, Bonn. URL, http://www.wik.org/content/infrstrdienstewettbewerb/1_Henseler%20Unger.pdf, Abruf am 23.10.2008
+
+
+Jay, Stephan / Anell, Patrick / Plückebaum, Thomas / Kulenkampf, Gabriele / Marcus, Scott
+(2007): Next Generation bitstream access: WIK Consult Studie für ComReg, Irland.
+URL: http://www.comreg.ie/_fileupload/publications/ComReg0795a.pdf Abruf am
+16.05.2008.
+
+
+Jung, Volker / Warnecke, Hans- Jürgen (2002): Handbuch für die Telekommunikation, 2. Auflage, Kapitel 3: Netze und Netzelemente, S. 3-241—3-248.
+
+
+Keymile (2007): Evolution der Zugangsnetze hin zu Ethernet-IP. URL:
+http://www.keymile.com/media/de/internet/press_events/Evolution_of_the_access_netw
+orks.pdf, Abruf am 10.11.2008.
+
+
+Kruse, Jörn (2008a): Internet-Überlast, Netzneutralität und Service-Qualität. URL:
+http://www.hsu-hh.de/download-1.4.1.php?brick_id=GCEsdvXjjMdp1U30, Abruf am
+17.11.2008.
+
+
+Kruse, Jörn (2008b): Network neutrality and quality of service. URL: http://www.hsuhh.de/download-1.4.1.php?brick_id=xwWpTOpGUxsjXaDA, Abruf am 12.11.2008.
+
+
+Kruse, Jörn (2007): Crowding-Out bei Überlast im Internet. URL: http://opus.zbwkiel.de/volltexte/2008/6942/pdf/paper_72.pdf
+
+
+Kunze, Rüdiger (2007): GMPLS- die gemeinsame Control Plane für IP- und Transportnetze, Teil
+1, in : Wissen heute, vol.60, Heft 6, S.4-17.
+
+
+Odlyzko, Andrew (1999): Paris Metro Pricing: The minimalist differentiated services solution.
+URL: http://www.dtc.umn.edu/~odlyzko/doc/paris.metro.minimal.txt, Abruf am
+28.10.2008.
+
+
+Odlyzko, Andrew (2001): Internet pricing and the history of communications, URL:
+http://www.dtc.umn.edu/~odlyzko/doc/history.communications1b.pdf, Abruf am
+27.10.2008.
+
+
+QoS Working Group of the MIT Communications Futures Program (2006): Inter-provider Quality
+of Service, White paper draft 1.1. November 17, 2006. URL:
+http://cfp.mit.edu/docs/interprovider-qos-nov2006.pdf, Abruf am 3.12.2008
+
+
+Strategien zur Realisierung von Quality of Service in IP-Netzen 59
+
+
+Marcus, Scott / Elixmann, Dieter / Carter, Kenneth et al (2008): The Future of IP Interconnection:
+Technical, Economic and Public Policy Aspects. WIK Consult Study for the European
+Commission, URL:
+http://ec.europa.eu/information_society/policy/ecomm/doc/library/ext_studies/future_ip_i
+ntercon/ip_intercon_study_exec_sum.pdf
+Abruf am 16.05.2008.
+
+
+MacKie-Mason, Jeffrey K. / Varian, Hal R. (1995): “Pricing the Internet”, in Kahin, Brian / Keller,
+James (Eds), Public Access to the Internet, Prentice-Hall, Englewood Cliffs, NJ, S. 269314.
+
+
+McDysan, David (2000): QoS & Traffic Management in IP & ATM Networks, McGraw-Hill, New
+York.
+
+
+Murphy, Liam / Murphy, John / MacKie-Mason, Jeffrey K. (1995): “Feedback and Efficiency in
+ATM Networks,” _Proc. IEEE ICC_, Ilkley, England, 1995, S. 378–93
+
+
+Rodriguez de Lope, Laura / Hackbarth, Klaus / Garcia, A.E. / Plückebaum, Thomas / Ilic, Dragan
+(2008): Cost models for Next Generation Networks with Quality of Service parameters,
+Proceedings Networks 2008, Budapest, November 2008. ISBN 978-963-8111-68-5.
+
+
+Sellin, Rüdiger (2008): Prioritäten setzen – Intelligentes Application Management in IP-Netzen,
+in [NET], 3/2008.
+
+
+Shenker, Scott _et al._ (1996): “Pricing in Computer Networks: Reshaping the Research Agenda,”
+_ACM Computer Communication_ _Review_, 1996, S. 19–43
+
+
+Thompson, K. / Miller, G.J. / Wilder, R. (1997): Wide- Area Internet Traffic Patterns and Characteristics. In IEEE Networks Magazine, vol. 11, pp. 10- 23, 1997
+
+
+TNS Infratest (2008): Mobilfunk-Nutzungsverhalten in Deutschland 2008. TNS Infratest – Repräsentative Umfrage im Auftrag von E-Plus. URL: http://www.eplusgruppe.de/download/pdf/Mobilfunknutzung_2008.pdf
+
+
+Tutschku, K. (2004): A Measurement- based Traffic Profile on the eDonkey Filesharing Service.
+Presented at Passive and Active Network Measurement, 5 [th] International Workshop,
+PAM 2004, Antibes, France, 2004
+
+
+Unterarbeitskreis NGN Expertengruppe QoS im NGN (2007): Ende-zu-Ende-Qualität von
+Sprachdiensten über die Zusammenschaltung von Next Generation Networks
+
+
+WIK-Consult (2005): Ein analytisches Kostenmodell für das Breitbandnetz - Referenzdokument.
+URL: http://www.bundesnetzagentur.de/media/archive/886.pdf, Abruf am 22.10.2008.
+
+
+Yang, Mei / Huang, Yan / Kim, Jaime et al (2002): An End-to-End QoS Framework with OnDemand Bandwidth Reconfiguration. URL: http://www.ieeeinfocom.org/2004/Papers/42_4.PDF, Abruf am 15.12.2008.
+
+
+Yuksel, Murat / Kalyanaraman, Shivkumar / Sikdar, Biplab (2002): Effect of pricing intervals on
+congestion-sensitivity of network service prices, Rensselaer Polytechnic Institute, ECSE
+Nets Lab, Tech. Rep. ECSE-NET-2002-1, 2002.
+
+
+Yuksel, Murat / Kalyanaraman, Shivkumar / Goel, Anuj (2003): Congestion Pricing Overlaid on
+Edge-to-Edge Congestion Control. URL:
+http://www.ecse.rpi.edu/Homepages/shivkuma/research/papers/icc03-murat.pdf, Abruf
+am 19.11.2008.
+
+
+Sonstige Diskussionsbeiträge 61
+
+
+Als "Diskussionsbeiträge" des Wissenschaftlichen Instituts für Infrastruktur und Kommunikationsdienste sind zuletzt erschienen:
+
+
+
+Nr. 237: Hilke Smit:
+
+
+Auswirkungen des e-Commerce auf
+den Postmarkt, Juni 2002
+
+
+Nr. 238: Hilke Smit:
+
+
+Reform des UPU-Endvergütungssystems in sich wandelnden Postmärkten,
+Juni 2002
+
+
+Nr. 239: Peter Stamm, Franz Büllingen:
+
+
+Kabelfernsehen im Wettbewerb der
+Plattformen für Rundfunkübertragung Eine Abschätzung der Substitutionspotenziale, November 2002
+
+
+Nr. 240: Dieter Elixmann, Cornelia Stappen
+unter Mitarbeit von Anette Metzler:
+
+
+Regulierungs- und wettbewerbspolitische Aspekte von Billing- und Abrechnungsprozessen im Festnetz, Januar
+2003
+
+
+Nr. 241: Lorenz Nett, Ulrich Stumpf
+unter Mitarbeit von Ulrich Ellinghaus,
+Joachim Scherer, Sonia Strube Martins, Ingo Vogelsang:
+
+
+Eckpunkte zur Ausgestaltung eines
+möglichen Handels mit Frequenzen,
+Februar 2003
+
+
+Nr. 242: Christin-Isabel Gries:
+
+
+Die Entwicklung der Nachfrage nach
+breitbandigem Internet-Zugang, April
+2003
+
+
+Nr. 243: Wolfgang Briglauer:
+
+
+Generisches Referenzmodell für die
+Analyse relevanter Kommunikationsmärkte     - Wettbewerbsökonomische
+Grundfragen, Mai 2003
+
+
+Nr. 244: Peter Stamm, Martin Wörter:
+
+
+Mobile Portale – Merkmale, Marktstruktur und Unternehmensstrategien, Juli
+2003
+
+
+Nr. 245: Franz Büllingen, Annette Hillebrand:
+
+
+Sicherstellung der Überwachbarkeit der
+Telekommunikation: Ein Vergleich der
+Regelungen in den G7-Staaten, Juli
+2003
+
+
+
+Nr. 246: Franz Büllingen, Annette Hillebrand:
+
+
+Gesundheitliche und ökologische Aspekte mobiler Telekommunikation –
+Wissenschaftlicher Diskurs, Regulierung und öffentliche Debatte, Juli 2003
+
+
+Nr. 247: Anette Metzler, Cornelia Stappen
+unter Mitarbeit von Dieter Elixmann:
+
+
+Aktuelle Marktstruktur der Anbieter von
+TK-Diensten im Festnetz sowie Faktoren für den Erfolg von Geschäftsmodellen, September 2003
+
+
+Nr. 248: Dieter Elixmann, Ulrike Schimmel
+with contributions of Anette Metzler:
+
+
+"Next Generation Networks" and Challenges for Future Regulatory Policy,
+November 2003
+
+
+Nr. 249: Martin O. Wengler, Ralf G. Schäfer:
+
+
+Substitutionsbeziehungen zwischen
+Festnetz und Mobilfunk: Empirische
+Evidenz für Deutschland und ein Survey internationaler Studien, Dezember
+2003
+
+
+Nr. 250: Ralf G. Schäfer:
+
+
+Das Verhalten der Nachfrager im deutschen Telekommunikationsmarkt unter
+wettbewerblichen Aspekten, Dezember
+2003
+
+
+Nr. 251: Dieter Elixmann, Anette Metzler, Ralf
+G. Schäfer:
+
+
+Kapitalmarktinduzierte Veränderungen
+von Unternehmensstrategien und
+Marktstrukturen im TK-Markt, März
+2004
+
+
+Nr. 252: Franz Büllingen, Christin-Isabel Gries,
+Peter Stamm:
+
+
+Der Markt für Public Wireless LAN in
+Deutschland, Mai 2004
+
+
+Nr. 253: Dieter Elixmann, Annette Hillebrand,
+Ralf G. Schäfer, Martin O. Wengler:
+
+
+Zusammenwachsen von Telefonie und
+Internet – Marktentwicklungen und
+Herausforderungen der Implementierung von ENUM, Juni 2004
+
+
+Nr. 254: Andreas Hense, Daniel Schäffner:
+
+
+Regulatorische Aufgaben im Energiebereich – ein europäischer Vergleich,
+Juni 2004
+
+
+62 Sonstige Diskussionsbeiträge
+
+
+
+Nr. 255: Andreas Hense:
+
+
+Qualitätsregulierung und wettbewerbspolitische Implikationen auf Postmärkten, September 2004
+
+
+Nr. 256: Peter Stamm:
+
+
+Hybridnetze im Mobilfunk – technische
+Konzepte, Pilotprojekte und regulatorische Fragestellungen, Oktober 2004
+
+
+Nr. 257: Christin-Isabel Gries:
+
+
+Entwicklung der DSL-Märkte im internationalen Vergleich, Oktober 2004
+
+
+Nr. 258: Franz Büllingen, Annette Hillebrand,
+Diana Rätz:
+
+
+Alternative Streitbeilegung in der aktuellen EMVU-Debatte, November 2004
+
+
+Nr. 259: Daniel Schäffner:
+
+
+Regulierungsökonomische Aspekte des
+informatorischen Unbundling im Energiebereich, Dezember 2004
+
+
+Nr. 260: Sonja Schölermann:
+
+
+Das Produktangebot von Universaldienstleistern und deren Vergleichbarkeit, Dezember 2004
+
+
+Nr. 261: Franz Büllingen, Aurélia Gillet, ChristinIsabel Gries, Annette Hillebrand, Peter
+Stamm:
+
+
+Stand und Perspektiven der Vorratsdatenspeicherung im internationalen Vergleich, Februar 2005
+
+
+Nr. 262: Oliver Franz, Marcus Stronzik:
+
+
+Benchmarking-Ansätze zum Vergleich
+der Effizienz von Energieunternehmen,
+Februar 2005
+
+
+Nr. 263: Andreas Hense:
+
+
+Gasmarktregulierung in Europa: Ansätze, Erfahrungen und mögliche Implikationen für das deutsche Regulierungsmodell, März 2005
+
+
+Nr. 264: Franz Büllingen, Diana Rätz:
+
+
+VoIP – Marktentwicklungen und regulatorische Herausforderungen, Mai 2005
+
+
+Nr. 265: Ralf G. Schäfer, Andrej Schöbel:
+
+
+Stand der Backbone-Infrastruktur in
+Deutschland – Eine Markt- und Wettbewerbsanalyse, Juli 2005
+
+
+
+Nr. 266: Annette Hillebrand, Alexander
+Kohlstedt, Sonia Strube Martins:
+
+
+Selbstregulierung bei Standardisierungsprozessen am Beispiel von
+Mobile Number Portability, Juli 2005
+
+
+Nr. 267: Oliver Franz, Daniel Schäffner, Bastian
+Trage:
+
+
+Grundformen der Entgeltregulierung:
+Vor- und Nachteile von Price-Cap,
+Revenue-Cap und hybriden Ansätzen,
+August 2005
+
+
+Nr. 268: Andreas Hense, Marcus Stronzik:
+
+
+Produktivitätsentwicklung der deutschen Strom- und Gasnetzbetreiber –
+Untersuchungsmethodik und empirische Ergebnisse, September 2005
+
+
+Nr. 269: Ingo Vogelsang:
+
+
+Resale und konsistente Entgeltregulierung, Oktober 2005
+
+
+Nr. 270: Nicole Angenendt, Daniel Schäffner:
+
+
+Regulierungsökonomische Aspekte des
+Unbundling bei Versorgungsunternehmen unter besonderer Berücksichtigung von Pacht- und Dienstleistungsmodellen, November 2005
+
+
+Nr. 271: Sonja Schölermann:
+
+
+Vertikale Integration bei Postnetzbetreibern – Geschäftsstrategien und
+Wettbewerbsrisiken, Dezember 2005
+
+
+Nr. 272: Franz Büllingen, Annette Hillebrand,
+Peter Stamm:
+
+
+Transaktionskosten der Nutzung des
+Internet durch Missbrauch (Spamming)
+und Regulierungsmöglichkeiten, Januar
+2006
+
+
+Nr. 273: Gernot Müller, Daniel Schäffner,
+Marcus Stronzik, Matthias Wissner:
+
+
+Indikatoren zur Messung von Qualität
+und Zuverlässigkeit in Strom- und Gasversorgungsnetzen, April 2006
+
+
+Nr. 274: J. Scott Marcus:
+
+
+Interconnection in an NGN Environment, Mai 2006
+
+
+Nr. 275: Ralf G. Schäfer, Andrej Schöbel:
+
+
+Incumbents und ihre Preisstrategien im
+Telefondienst – ein internationaler Vergleich, Juni 2006
+
+
+Sonstige Diskussionsbeiträge 63
+
+
+
+Nr. 276: Alex Kalevi Dieke, Sonja Schölermann:
+
+
+Wettbewerbspolitische Bedeutung des
+Postleitzahlensystems, Juni 2006
+
+
+Nr. 277: Marcus Stronzik, Oliver Franz:
+
+
+Berechnungen zum generellen XFaktor für deutsche Strom- und Gasnetze: Produktivitäts- und Inputpreisdifferential, Juli 2006
+
+
+Nr. 278: Alexander Kohlstedt:
+
+
+Neuere Theoriebeiträge zur Netzökonomie: Zweiseitige Märkte und On-net/
+Off-net-Tariffdifferenzierung, August
+2006
+
+
+Nr. 279: Gernot Müller:
+
+
+Zur Ökonomie von Trassenpreissystemen, August 2006
+
+
+Nr. 280: Franz Büllingen, Peter Stamm in Kooperation mit Prof. Dr.-Ing. Peter Vary,
+Helge E. Lüders und Marc Werner
+(RWTH Aachen):
+
+
+Potenziale alternativer Techniken zur
+bedarfsgerechten Versorgung mit
+Breitbandzugängen, September 2006
+
+
+Nr. 281: Michael Brinkmann, Dragan Ilic:
+
+
+Technische und ökonomische Aspekte
+des VDSL-Ausbaus, Glasfaser als Alternative auf der (vor-) letzten Meile,
+Oktober 2006
+
+
+Nr. 282: Franz Büllingen:
+
+
+Mobile Enterprise-Solutions –- Stand
+und Perspektiven mobiler Kommunikationslösungen in kleinen und mittleren Unternehmen, November 2006
+
+
+Nr. 283: Franz Büllingen, Peter Stamm:
+
+
+Triple Play im Mobilfunk: Mobiles Fernsehen über konvergente Hybridnetze,
+Dezember 2006
+
+
+Nr. 284: Mark Oelmann, Sonja Schölermann:
+
+
+Die Anwendbarkeit von Vergleichsmarktanalysen bei Regulierungsentscheidungen im Postsektor, Dezember
+2006
+
+
+Nr. 285: Iris Böschen:
+
+
+VoIP im Privatkundenmarkt – Marktstrukturen und Geschäftsmodelle,
+Dezember 2006
+
+
+
+Nr. 286: Franz Büllingen, Christin-Isabel Gries,
+Peter Stamm:
+
+
+Stand und Perspektiven der Telekommunikationsnutzung in den Breitbandkabelnetzen, Januar 2007
+
+
+Nr. 287: Konrad Zoz:
+
+
+Modellgestützte Evaluierung von Geschäftsmodellen alternativer Teilnehmernetzbetreiber in Deutschland, Januar 2007
+
+
+Nr. 288: Wolfgang Kiesewetter:
+
+
+Marktanalyse und Abhilfemaßnahmen
+nach dem EU-Regulierungsrahmen im
+Ländervergleich, Februar 2007
+
+
+Nr. 289: Dieter Elixmann, Ralf G. Schäfer,
+Andrej Schöbel:
+
+
+Internationaler Vergleich der Sektorperformance in der Telekommunikation
+und ihrer Bestimmungsgründe, Februar
+2007
+
+
+Nr. 290: Ulrich Stumpf:
+
+
+Regulatory Approach to Fixed-Mobile
+Substitution, Bundling and Integration,
+März 2007
+
+
+Nr. 291: Mark Oelmann:
+
+
+Regulatorische Marktzutrittsbedingungen und ihre Auswirkungen auf den
+Wettbewerb: Erfahrungen aus ausgewählten Briefmärkten Europas, März
+2007
+
+
+Nr. 292: Patrick Anell, Dieter Elixmann:
+
+
+"Triple Play"-Angebote von Festnetzbetreibern: Implikationen für Unternehmensstrategien, Wettbewerb(s)politik und Regulierung, März 2007
+
+
+Nr. 293: Daniel Schäffner:
+
+
+Bestimmung des Ausgangsniveaus der
+Kosten und des kalkulatorischen Eigenkapitalzinssatzes für eine Anreizregulierung des Energiesektors, April
+2007
+
+
+Nr. 294: Alex Kalevi Dieke, Sonja Schölermann:
+
+
+Ex-ante-Preisregulierung nach vollständiger Marktöffnung der Briefmärkte, April 2007
+
+
+Nr. 295: Alex Kalevi Dieke, Martin Zauner:
+
+
+Arbeitsbedingungen im Briefmarkt, Mai
+2007
+
+
+64 Sonstige Diskussionsbeiträge
+
+
+
+Nr. 296: Antonia Niederprüm:
+
+
+Geschäftsstrategien von Postunternehmen in Europa, Juli 2007
+
+
+Nr. 297: Nicole Angenendt, Gernot Müller, Marcus Stronzik, Matthias Wissner:
+
+
+Stromerzeugung und Stromvertrieb –
+eine wettbewerbsökonomische Analyse, August 2007
+
+
+Nr. 298: Christian Growitsch, Matthias Wissner:
+
+
+Die Liberalisierung des Zähl- und
+Messwesens, September 2007
+
+
+Nr. 299: Stephan Jay:
+
+
+Bedeutung von Bitstrom in europäischen Breitbandvorleistungsmärkten, September 2007
+
+
+Nr. 300: Christian Growitsch, Gernot Müller,
+Margarethe Rammerstorfer, Prof. Dr.
+Christoph Weber (Lehrstuhl für Energiewirtschaft, Universität DuisburgEssen):
+
+
+Determinanten der Preisentwicklung
+auf dem deutschen Minutenreservemarkt, Oktober 2007
+
+
+Nr. 301: Gernot Müller::
+
+
+Zur kostenbasierten Regulierung von
+Eisenbahninfrastrukturentgelten – Eine
+ökonomische Analyse von Kostenkonzepten und Kostentreibern, Dezember
+2007
+
+
+Nr. 302: Patrick Anell, Stephan Jay, Thomas
+Plückebaum:
+
+
+Nachfrage nach Internetdiensten –
+Dienstearten, Verkehrseigenschaften
+und Quality of Service, Dezember 2007
+
+
+Nr. 303: Christian Growitsch, Margarethe Rammerstorfer:
+
+
+Zur wettbewerblichen Wirkung des
+Zweivertragsmodells im deutschen
+Gasmarkt, Februar 2008
+
+
+Nr. 304: Patrick Anell, Konrad Zoz:
+
+
+Die Auswirkungen der Festnetzmobilfunksubstitution auf die Kosten des leitungsvermittelten Festnetzes, Februar
+2008
+
+
+Nr. 305: Marcus Stronzik, Margarethe Rammerstorfer, Anne Neumann:
+
+
+Wettbewerb im Markt für Erdgasspeicher, März 2008
+
+
+
+Nr. 306: Martin Zauner:
+
+
+Wettbewerbspolitische Beurteilung von
+Rabattsystemen im Postmarkt, März
+2008
+
+
+Nr. 307: Franz Büllingen, Christin-Isabel Gries,
+Peter Stamm:
+
+
+Geschäftsmodelle und aktuelle Entwicklungen im Markt für Broadband
+Wireless Access-Dienste, März 2008
+
+
+Nr. 308: Christian Growitsch, Gernot Müller,
+Marcus Stronzik:
+
+
+Ownership Unbundling in der Gaswirtschaft – Theoretische Grundlagen und
+empirische Evidenz, Mai 2008
+
+
+Nr. 309: Matthias Wissner:
+
+
+Messung und Bewertung von Versorgungsqualität, Mai 2008
+
+
+Nr. 310: Patrick Anell, Stephan Jay, Thomas
+Plückebaum:
+
+
+Netzzugang im NGN-Core, August
+2008
+
+
+Nr. 311: Martin Zauner, Alex Kalevi Dieke, Torsten Marner, Antonia Niederprüm:
+
+
+Ausschreibung von Post-Universaldiensten. Ausschreibungsgegenstände,
+Ausschreibungsverfahren und begleitender Regulierungsbedarf, September
+2008
+
+
+Nr. 312: Patrick Anell, Dieter Elixmann:
+
+
+Die Zukunft der Festnetzbetreiber,
+Dezember 2008
+
+
+Nr. 313: Patrick Anell, Dieter Elixmann, Ralf
+Schäfer:
+
+
+Marktstruktur und Wettbewerb im deutschen Festnetz-Markt: Stand und Entwicklungstendenzen, Dezember 2008
+
+
+Nr. 314: Kenneth R. Carter, J. Scott Marcus,
+Christian Wernick:
+
+
+Network Neutrality: Implications for Europe, Dezember 2008
+
+
+Nr. 315: Stephan Jay, Thomas Plückebaum:
+
+
+Strategien zur Realisierung von Quality
+of Service in IP-Netzen, Dezember
+2008
+
+
+### **ISSN 1865-8997**
+
+

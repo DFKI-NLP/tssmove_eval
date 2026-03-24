@@ -1,0 +1,226 @@
+Synthesebericht: Techniken der Datenübertragung für Intelligente Verkehrssysteme EintragsID: 339652
+
+
+**Techniken der Datenübertragung für Intelligente Verkehrssysteme**
+
+
+Erstellt am: 16.01.2011 | Stand des Wissens: 16.04.2025
+Ansprechperson:
+[Bauhaus-Universität Weimar, Professur Verkehrssystemplanung, Prof. Dr.-Ing. Plank-Wiedenbeck](https://www.forschungsinformationssystem.de/servlet/is/454680/)
+
+
+Für moderne Verkehrstelematiksysteme ist zunehmend die Vernetzung und die damit einhergehende schnelle
+Datenübertragung von zentraler Bedeutung. Daten und die darin enthaltenen Informationen sollen möglichst ohne
+Zeitverzug vom
+
+
+ **Erfassungsort** (Sensorik, fest installiert oder mobil) zur (Verkehrs-)Zentrale,
+
+
+ von der **Zentrale** zum **Verkehrsteilnehmenden** oder
+
+
+ von **Verkehrsteilnehmenden** zu **Verkehrsteilnehmenden** (beispielweise bei der Fahrzeug-zu-FahrzeugKommunikation (Car-to-Car-Communication, C2C)
+
+
+übertragen werden.
+
+Systeme, die diese Informationen als Eingangsdaten nutzen, können so zeitnah Aussagen, beispielsweise über
+den aktuellen Zustand eines Verkehrssystems, liefern.
+Im Folgenden ist eine Übersicht der **gebräuchlichsten Übertragungstechnologien** zusammengestellt,
+[aufgeschlüsselt nach maximal zu erreichender Datenrate und den entstehenden Kosten [Los18]:](http://forschungsinformationssystem.de:443/servlet/is/508300/)
+
+
+[Auszug aus http://www.forschungsinformationssystem.de vom 12.02.2026](http://www.forschungsinformationssystem.de) Seite 1
+
+
+Synthesebericht: Techniken der Datenübertragung für Intelligente Verkehrssysteme EintragsID: 339652
+
+
+Die **leitungsgebundene Übertragung** bietet insbesondere durch die Verwendung von Glasfasertechnologie hohe
+Datenübertragungsraten. Allerdings ist der Aufwand für das Verlegen von Leitungen und die damit verbundenen
+Kosten hoch. Werden bereits bestehende Infrastrukturkomponenten benutzt, beispielsweise öffentliche Internetbasierte Netze, so fallen die Kosten deutlich geringer aus. Ein besonderer Fokus muss hier jedoch auf das
+Sicherheitsmanagement gelegt werden. Dies kann durch Einrichtung eines Virtuellen Privaten Netzwerks (VPN)
+erfolgen.
+
+Die **drahtlose Übertragung** bietet sich für mobile, sogenannte "Floating Car Data" (FCD), oder temporär
+installierte Sensorik sowie zur drahtlosen Anbindung von Sensoren an Streckenstationen an und lässt sich
+meist kostengünstiger installieren, da keine Leitungen verlegt oder gemietet werden müssen. Nachteile sind
+die freie Zugänglichkeit des Netzes, die Einschränkung der Reichweite der Funkübertragung sowie deren
+Beeinflussung durch vorherrschende Umfeldbedingungen. Prinzipiell kann jeder, der ein entsprechendes
+Empfangsgerät besitzt "mithören", was auf der Leitung passiert. Ein funktionierendes Sicherheitsmanagement ist
+
+
+[Auszug aus http://www.forschungsinformationssystem.de vom 12.02.2026](http://www.forschungsinformationssystem.de) Seite 2
+
+
+Synthesebericht: Techniken der Datenübertragung für Intelligente Verkehrssysteme EintragsID: 339652
+
+
+daher Grundvoraussetzung für den sicheren Betrieb sowie ein umfangreicheres Fehlermanagement, um mögliche
+Störungen erkennen und beheben zu können.
+
+Bei den bisher aufgeführten Übertragungstechnologien handelt es sich meist um Technologien zur Punkt-zuPunkt-Verbindung zweier Kommunikationspartner. Es ist aber möglich nach weiteren Kommunikationsformen und
+Verbindungsarten zu unterscheiden. Als **Kommunikationsformen** bieten sich an:
+
+
+ Unicast - ein Kommunikationspartner kommuniziert mit genau einem anderen
+
+
+ Broadcast - ein Kommunikationspartner kommuniziert mit beliebig vielen Kommunikationspartnern
+
+
+ Geocast - ein Kommunikationspartner kommuniziert mit allen Kommunikationspartnern innerhalb einer
+[festgelegten geografischen Region [StCo22]](http://forschungsinformationssystem.de:443/servlet/is/503888/)
+
+
+Weiterhin unterscheidet man die folgende **Verbindungsarten:**
+
+
+ unidirektionale Verbindung - genau ein Sender und genau ein Empfänger; der Kommunikationspartner ist
+entweder Sender oder Empfänger
+
+
+ bidirektionale Verbindung - ein Sender, ein Empfänger; jeder Kommunikationspartner kann gleichzeitig sowohl
+[Sender als auch Empfänger sein [JuWa02]](http://forschungsinformationssystem.de:443/servlet/is/503889/)
+
+
+"Das **Vehicular Ad-Hoc Network** (VANet) stellt ein besonderes Ad-hoc-Netzwerk zur Fahrzeug-zu-Fahrzeug(C2C) und Fahrzeug-zu-Infrastruktur-Kommunikation (C2I) mittels "Wireless Local Area Network" (WLAN) dar. Es
+ist speziell auf die Anforderungen der sicheren Kommunikation bei hoher Geschwindigkeit und die Kommunikation
+in hoch dynamischen Umgebungen ausgelegt; hohe Datenankunftsraten und geringe Verzögerungszeiten sind ein
+[herausragendes Merkmal [Hart10]."](http://forschungsinformationssystem.de:443/servlet/is/339658/)
+Die Kommunikation zwischen Kommunikationspartnern kann direkt (One-Hop) oder indem ein oder mehrere
+Fahrzeuge als Zwischenstation dienen (Multi-Hop) stattfinden. Um die Kommunikationsreichweite eines Fahrzeugs
+zu vergrößern, können an festgelegten Punkten sogenannte "Intelligent Transport System (ITS) Road Side
+Stations (IRS)" aufgestellt werden.
+
+Unabhängig von der verwendeten Hardware werden (auf den oberen Schichten des ISO/OSI-Referenzmodells,
+
+[[ISO7489]) bestimmte](http://forschungsinformationssystem.de:443/servlet/is/339656/) **Schnittstellen beziehungsweise Protokolle** zur Datenübertragung auf den
+
+
+[Auszug aus http://www.forschungsinformationssystem.de vom 12.02.2026](http://www.forschungsinformationssystem.de) Seite 3
+
+
+Synthesebericht: Techniken der Datenübertragung für Intelligente Verkehrssysteme EintragsID: 339652
+
+
+Übertragungsmedien eingesetzt. Als Beispiele sind hier "Open Communication Interface for Road Traffic Control
+Systems" (OCIT) für den Innerortsbereich, die Technische Lieferbedingungen für Streckenstationen (TLS) für den
+Außerortsbereich sowie Datex (Data Exchange), "Open Traffic Systems" (OTS) oder für den Öffentlichen Verkehr
+die Standardschnittstelle 453/454 des Verbands Deutscher Verkehrsunternehmen (VDV) zu nennen.
+
+Als beispielhaftes die Datenübertragung behandelndes Projekt kann **V2X-DuRail** genannt werden. In diesem
+werden die gegenseitigen Störungen zwischen Vehicle-to-Everything-Funk (V2X-Funk) im Straßenverkehr und
+[drahtlosen Zugbeeinflussungssystemen untersucht (beide im 5,9 GHz Band) [BMDV20m]](http://forschungsinformationssystem.de:443/servlet/is/508227/)
+
+
+**Zugehörige Wissenslandkarte(n)**
+
+Verkehrstelematik (Stand des Wissens: 16.04.2025)
+[https://www.forschungsinformationssystem.de/?340318](https://www.forschungsinformationssystem.de/?340318)
+
+
+**Literatur**
+
+[[BMDV20m] Bundesministerium für Verkehr (Hrsg.): Vehicle-to-Everything-Funk für digitale, urbane](http://forschungsinformationssystem.de:443/servlet/is/3150)
+[Zugkommunikation - V2X-DuRail, 2020/02/25](https://www.forschungsinformationssystem.de/?508227)
+
+[[Hart10] Hartenstein, H., Laberteaux, K.P.: VANET - Vehicular Applications and Inter-Networking Technologies,](https://www.forschungsinformationssystem.de/?339658)
+Wiley, 2010
+
+[[ISO7489] International Standards Organisation: ISO 7489 - OSI Reference Model, Genf, 1984](http://forschungsinformationssystem.de:443/servlet/is/339655)
+
+[[JuWa02] Jung, Volker, Warnecke, Hans-Jürgen (Hrsg.): Handbuch für die Telekommunikation, Ausgabe/Auflage](https://www.forschungsinformationssystem.de/?503889)
+2. Auflage, Springer, 2002/08/07, ISBN/ISSN 3540427953
+
+[[Los18] Norbert Lossau: Jetzt wird das Internet 100 Mal schneller, 2018/05/08](https://www.forschungsinformationssystem.de/?508300)
+
+[[StCo22] Steve Cope: Understanding IP Multicasting, 2022](https://www.forschungsinformationssystem.de/?503888)
+
+
+**Weiterführende Literatur**
+
+[[BMDV18d] Bundesministerium für Verkehr: Digitalisierung und Künstliche Intelligenz in der Mobilität Aktionsplan,](http://forschungsinformationssystem.de:443/servlet/is/3150)
+2018/11
+
+[[Proe02] Proebster, W.: Rechnernetze - Technik, Protokolle, Systeme, Anwendungen., München, Wien, Oldenburg,](https://www.forschungsinformationssystem.de/?339659)
+2002
+
+
+**Glossar**
+
+
+**Ad-hoc-Netz** Kommunikationsnetze oder -netzwerke, die sich nur für die Dauer der
+Kommunikation aufbauen. Zwei oder mehr Endgeräte verbinden sich zu einem
+vermaschten Telekommunikationsnetz. Diese Netze bauen sich selbständig auf
+und konfigurieren sich selbständig.
+
+**Floating Car Data**
+Bei Floating Car Data (FCD) geht es um das Messen und Auswerten
+der Fahrzeugbewegungen anhand von Daten, die direkt aus dem
+Fahrzeug kommen. Grundlage ist Global Positioning System (GPS) für
+die Positionsbestimmung im Fahrzeug und Global System for Mobile
+Communication (GSM)-Kommunikation für die Übertragung von Informationen
+zwischen Fahrzeug und Zentrale. Damit entsteht im Fahrzeug eine
+mitschwimmende Messstation für Verkehrsdaten.
+
+In der Zentrale werden die eingehenden anonymisierten Meldungen temporär
+zwischengespeichert und deren Integrität geprüft. Mit Hilfe von digitalen
+Karten kann damit der Fahrweg und das Fahrprofil rekonstruiert werden. Die
+aufbereiteten Daten fließen in ein Rechnersystem zur Zustandsmodellierung
+der Verkehrslage. Daraus lassen sich aktuelle Verkehrsmeldungen,
+Verkehrsprognosen und Umfahrungsempfehlungen ableiten.
+
+**WLAN**
+Als **Wireless Local Area Network** (WLAN, deutsch: drahtloses lokales
+Netzwerk) wird ein lokales Funknetz und dessen verschiedene Techniken und
+Standards bezeichnet.
+
+
+[Auszug aus http://www.forschungsinformationssystem.de vom 12.02.2026](http://www.forschungsinformationssystem.de) Seite 4
+
+
+Synthesebericht: Techniken der Datenübertragung für Intelligente Verkehrssysteme EintragsID: 339652
+
+
+
+**Car-to-Infrastructure-**
+**Kommunikation**
+
+
+
+Kommunikation zwischen Fahrzeugen und Infrastruktureinrichtungen wie
+Funkbaken oder Lichtsignalanlagen auf Basis von Funknetzen
+
+
+
+**C2I** Car to Infrastrucure Communication: Austausch von Informationen und
+Daten zwischen Kraftfahrzeugen und der Verkehrsinfrastruktur (z.B.
+Lichtsignalanlagen)
+
+**Car-to-Car-Kommunikation** direkter Informationsaustausch zwischen fahrenden Fahrzeugen auf Basis von
+Funknetzen
+
+
+**Ansprechperson**
+
+[Bauhaus-Universität Weimar, Professur Verkehrssystemplanung, Prof. Dr.-Ing. Plank-Wiedenbeck](https://www.forschungsinformationssystem.de/servlet/is/454680/)
+
+**Dipl.-Ing. Raimo Harder**
+03643 / 58-4827
+raimo.harder@uni-weimar.de
+
+
+Quelle: Forschungs-Informations-System des Bundesministeriums für Verkehr und digitale Infrastruktur
+
+[Internet: https://www.forschungsinformationssystem.de/](https://www.forschungsinformationssystem.de/)
+
+Dieser Auszug aus dem FIS wurde am 12.02.2026 erzeugt.
+
+[Allgemeine Nutzungsbedingungen: https://www.forschungsinformationssystem.de/nutzungsbedingungen/](https://www.forschungsinformationssystem.de/nutzungsbedingungen/)
+
+
+[Auszug aus http://www.forschungsinformationssystem.de vom 12.02.2026](http://www.forschungsinformationssystem.de) Seite 5
+
+

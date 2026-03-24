@@ -1,0 +1,852 @@
+[High-speed Railway 3 (2025) 155–162](https://doi.org/10.1016/j.hspr.2025.04.003)
+
+
+[Contents lists available at ScienceDirect](http://www.sciencedirect.com/science/journal/29498678)
+## High-speed Railway
+
+
+[journal homepage: www.keaipublishing.com/en/journals/high-speed-railway](https://www.keaipublishing.com/en/journals/high-speed-railway)
+
+
+Research article
+### 5G network planning in connecting urban areas for trains service using a genetic algorithm
+
+Evangelos D. Spyrou [⁎], Vassilios Kappatos
+
+_Centre for Research and Technology Hellas, Hellenic Institute of Transport, Thessaloniki 57001, Greece_
+
+
+
+
+
+A R T I C L E I N F O
+
+
+_Keywords:_
+High speed train
+5G
+Network planning
+Genetic algorithm
+
+
+**1. Introduction**
+
+
+
+A B S T R A C T
+
+
+The adoption of 5G for Railways (5G-R) is expanding, particularly in high-speed trains, due to the benefits
+offered by 5G technology. High-speed trains must provide seamless connectivity and Quality of Service (QoS) to
+ensure passengers have a satisfactory experience throughout their journey. Installing base stations along urban
+environments can improve coverage but can dramatically reduce the experience of users due to interference. In
+particular, when a user with a mobile phone is a passenger in a high speed train traversing between urban
+centres, the coverage and the 5G resources in general need to be adequate not to diminish her experience of the
+service. The utilization of macro, pico, and femto cells may optimize the utilization of 5G resources. In this
+paper, a Genetic Algorithm (GA)-based approach to address the challenges of 5G network planning for 5G-R
+services is presented. The network is divided into three cell types, macro, pico, and femto cells—and the opti­
+mization process is designed to achieve a balance between key objectives: providing comprehensive coverage,
+minimizing interference, and maximizing energy efficiency. The study focuses on environments with high user
+density, such as high-speed trains, where reliable and high-quality connectivity is critical. Through simulations,
+the effectiveness of the GA-driven framework in optimizing coverage and performance in such scenarios is
+demonstrated. The algorithm is compared with the Particle Swarm Optimisation (PSO) and the Simulated
+Annealing (SA) methods and interesting insights emerged. The GA offers a strong balance between coverage and
+efficiency, achieving significantly higher coverage than PSO while maintaining competitive energy efficiency
+and interference levels. Its steady fitness improvement and adaptability make it well-suited for scenarios where
+wide coverage is a priority alongside acceptable performance trade-offs.
+
+
+
+High speed trains need to offer seamless connectivity and Quality
+of Service (QoS) to the passengers in order to have a satisfactory ex­
+perience during their journey. The necessity for optimal capacity and
+increased data rates is evident since there is a large number of users that
+are connected to the telecommunications network that is in operation.
+The growth in mobile data traffic is primarily driven by the global rise
+in mobile broadband subscriptions, alongside an increase in average
+data consumption per user. This surge is largely attributed to the
+streaming and sharing of high-definition videos and the growing
+adoption of immersive video content, which is often the case with
+passengers in high speed and long journey trains. A recent report pre­
+dicts that global mobile data traffic will quadruple between 2019 and
+2025, reaching 160 exabytes per month, with an additional 53 exabytes
+
+
+
+per month expected from fixed wireless access traffic [1]. These pro­
+jections, combined with the diverse requirements of emerging servi­
+ces—such as low latency and high reliability.
+In particular, in rail communications 5G emerges [2] as a new
+communication paradigm dedicated to railways. From Global System
+for Mobile Communications-Railway (GSM-R) to Long Term EvolutionRailway (LTE-R) [3] rail communications are continuously advancing
+reaching 5G-R [4]. In such a way, bottlenecks of the communications in
+trains are addressed by introducing the advantages of 5G communica­
+tion to the passengers such as increased capacity, low latency, and
+higher throughput.
+Industry players such as mobile operators and equipment vendors
+are already aggressively trialing and deploying 5G-R technologies to
+meet evolving connectivity demands. The rapid changes in mobile
+traffic patterns and speed of high speed trains highlight the need for
+
+
+
+⁎ Corresponding author.
+
+_E-mail address:_ [espyrou@certh.gr (E.D. Spyrou).](mailto:espyrou@certh.gr)
+
+
+[https://doi.org/10.1016/j.hspr.2025.04.003](https://doi.org/10.1016/j.hspr.2025.04.003)
+Received 4 November 2024; Received in revised form 24 April 2025; Accepted 27 April 2025
+Available online 12 May 2025
+[2949-8678/© 2025 The Authors. Published by Elsevier B.V. on behalf of KeAi Communications Co. Ltd. This is an open access article under the CC BY license (http://](http://creativecommons.org/licenses/by/4.0/)
+[creativecommons.org/licenses/by/4.0/).](http://creativecommons.org/licenses/by/4.0/)
+
+
+_E.D. Spyrou and V. Kappatos_ _High-speed Railway 3 (2025) 155–162_
+
+
+
+networks that can scale for both expected and unforeseen scenarios. 5GR is envisioned as a unified connectivity solution capable of handling
+growing data traffic and supporting diverse rail-based use cases. In
+general, 5G requires both advancements in core networks (e.g., network
+slicing, virtualization) and the development of the 5G New Radio (NR)
+air interface. This includes improvements in spectral efficiency, support
+for higher-order modulation, massive MIMO, and the use of millimeter
+wave frequencies. Additionally, 5G enhances network capacity through
+spectrum reuse and network densification, which involves increasing
+the number of cell sites, often small cells, to supplement existing
+macrocellular networks [5].
+The deployment of 5G services requires the installation of new 5G
+infrastructure, known as next-generation Node-B (gNB), across the
+target area. Something similar is necessary for 5G-R installations. The
+process of selecting and configuring the locations where this 5G
+equipment will be installed is commonly referred to as 5G cellular
+planning [6]. This is a complex task that involves balancing factors such
+as costs, coverage area, and Electro-Magnetic Field (EMF) regulations.
+In high speed train scenarios, the installations should take place taking
+into consideration the speed and coverage while ensuring QoS. 5G-R
+which should be a standard at a European level as well, is a dedicated
+version of the 5G network that addresses the specific requirements of
+railway operations. It emphasizes ultra-reliable, low-latency commu­
+nication, which is essential for real-time train control, monitoring, and
+ensuring safety. Additionally, it supports applications like predictive
+maintenance, trackside surveillance, and passenger information sys­
+tems. While 5G-R is primarily optimized for railway use, its feature­
+s—such as high reliability, low latency, and large data capacity—can
+also cater to certain User Equipment (UE) needs, including real-time
+streaming, Internet of Things (IoT) connectivity, and remote control
+applications. However, these capabilities are generally designed with
+the operational demands of the railway industry in mind, rather than
+for general consumer UE use.
+Effective planning is essential, as it has a significant impact on the
+QoS experienced by users [7]. From the operator’s standpoint, the goal
+is to minimize the expenses associated with deploying new 5G sites
+while maximizing the performance metrics, such as throughput and
+latency, delivered to 5G UE. It is clear that 5G-R deployment is essential
+for the aforementioned reasons.
+5G networks are primarily built using large macro base stations,
+which are supplemented by smaller pico and femto base stations to
+enhance coverage and capacity. A key approach to reducing energy
+consumption in these deployments involves strategically connecting
+mobile users to either a macro, pico, or femto base station. This choice
+is crucial, as it directly influences the energy demands of each type of
+base station. Careful management of which base station serves a given
+user can significantly optimize the energy efficiency of the overall
+network.
+Genetic Algorithms (GAs) are widely used in a variety of applica­
+tions [8]. GAs offer significant benefits in solving real-world problems,
+particularly those involving complex, nonlinear, and multi-dimensional
+search spaces. Inspired by the principles of natural selection, GAs excel
+at finding optimal or near-optimal solutions by exploring vast solution
+spaces efficiently. One of the key advantages is their ability to handle
+problems where traditional optimization methods struggle, such as
+those with multiple local optima, discontinuous spaces, or no clear
+gradient to follow. By evolving candidate solutions through mutation,
+crossover, and selection, GAs can adapt to changing environments,
+making them especially useful for dynamic or real-time problem-sol­
+ving. Their stochastic nature ensures diversity in solutions, often
+leading to more robust and innovative outcomes that traditional algo­
+rithms may overlook.
+In this paper, we utilize a basic GA to tackle the challenges of 5G
+network planning to target high speed train user experience. The
+
+
+
+network is divided into three cell types: macro, pico, and femto cells.
+Our optimization process aims to balance multiple key objective­
+s—ensuring widespread coverage, minimizing interference, and max­
+imizing energy efficiency. The focus is on servicing environments where
+numerous users coexist, particularly in high-speed trains that demand
+reliable, high-quality connectivity. Through a series of simulations, we
+uncover valuable insights into the effectiveness of our approach in
+addressing these complex network planning challenges. These findings
+demonstrate the potential of using a GA-based framework to adapt to
+dynamic, high-demand environments like high-speed transit systems.
+
+
+**2. Related work**
+
+
+The is a number of research works that address the 5G network
+planning using numerous different techniques.
+In Ref. [9], the authors explore the use of Machine Learning (ML) to
+approximate a complex 5G path loss model, significantly reducing
+calculation time, and making it suitable for integration into a GA-based
+network planning tool. The ML model is trained using data from two
+buildings and validated on three additional buildings, achieving a mean
+absolute error of less than 3 dB. The new approach demonstrates the
+ability to determine a wireless network deployment solution with the
+same or fewer access points while maintaining the required coverage
+for at least 99.4 % of receiver locations—15 times faster than tradi­
+tional methods. Unlike heuristic approaches, this method also accom­
+modates additional design considerations, such as maximizing average
+received power across the building or minimizing radio frequency ex­
+posure in specific rooms.
+Ref. [10] distinguishes between existing research that emphasizes to
+the use of deterministic algorithms or meta-heuristic algorithms tar­
+geting a single objective and GAs. In particular, this paper harnesses the
+power of GAs, specifically a Multi-Objective Genetic Algorithm
+(MOGA), to address multiple objectives simultaneously. The key ob­
+jectives include minimizing cost and interference while maximizing
+user coverage in network deployment scenarios. The experimental re­
+sults demonstrate that the use of a GA, particularly with stochastic
+universal selection, is highly effective in balancing these competing
+goals. The approach not only meets the objectives but also converges to
+a near-optimal solution efficiently within a relatively short time frame.
+This showcases the ability of MOGAs to handle complex, multi-faceted
+optimization problems that involve trade-offs between multiple criteria,
+offering a flexible and robust solution for real-world network planning
+challenges. The Particle Swarm Optimisation (PSO) and the Simulated
+Annealing (SA) have been employed as methods that can compete with
+the proposed GA solution.
+The work in Ref. [11] examines the planning process for a 5G radio
+access network utilizing mmWave Micro Remote Radio Units (mRRUs)
+in conjunction with sub-6 GHz Macro Remote Radio Units (MRRUs).
+Their approach leverages accurate channel models, link budgets, and
+the specific characteristics of Urban Macro-cells (UMas) and Urban
+Micro-cells (UMis) to carefully formulate an optimization problem for
+5G network planning. The goal is to determine the minimum number
+and optimal locations of MRRUs and mRRUs required to meet coverage
+and user traffic demand constraints within a defined geographical area.
+To address this, we propose a two-step process: first, a low-complexity
+meta-heuristic algorithm is used to optimize RRU locations, followed by
+an iterative elimination method to remove redundant cells. To assess
+the effectiveness of this approach, we perform a comparative analysis
+using accelerated particle swarm optimization and SA techniques.
+The research in Ref. [12] addresses the problem of determining the
+optimal set of cells to turn off in a network, which is NP-hard. In this
+study, the authors utilize a heuristic algorithm which focuses on
+switching off underutilized base station components while ensuring
+user demands are met. We introduce a new Energy-Saving (ES)
+
+
+
+156
+
+
+_E.D. Spyrou and V. Kappatos_ _High-speed Railway 3 (2025) 155–162_
+
+
+
+mechanism for 5G networks, called ESGA-5G, which is based on a GA.
+This bio-inspired GA, along with PSO, serves as an AI-driven solution to
+efficiently manage the self-organizing network mechanisms of 5G
+HetNets. Performance analysis of ESGA-5G demonstrates its effective­
+ness in lowering energy consumption.
+The research done in Ref. [13] investigates 5G-R intelligent wireless
+network planning using the Beijing–Shenyang passenger line as a case
+study, leveraging high-performance ray tracing in the 2.1 GHz band.
+Through detailed simulations, it accurately characterizes channel be­
+havior and path loss, enabling precise estimation of Reference Signal
+Received Power (RSRP) and downlink transmission rates. The planning
+process is formulated as a multi-objective optimization problem, with a
+GA employed to configure base station parameters. The objective is to
+ensure adequate RSRP coverage while maximizing the downlink rate.
+Simulation results confirm that the approach successfully meets cov­
+erage targets and enhances transmission performance, offering valuable
+insights for precise and efficient 5G-R network planning.
+In Ref. [14], even though not directed to 5G-R, there are similarities
+between the research and of the proposed work of this paper. The au­
+thors calibrate the UMa signal propagation model using the least
+squares method, drawing from road test data across three distinct set­
+tings: dense urban, general urban, and suburban areas. Using this ca­
+librated model, it performs a link budget analysis to determine the
+optimal maximum coverage radius for a base station, estimating the
+number required to meet communication needs. To further refine net­
+work planning, the study introduces an Adaptive Mutation Genetic
+Algorithm (AMGA) and formulates a mathematical model to optimize
+5G base station coverage. Simulation results across three scenarios
+demonstrate that AMGA significantly improves coverage efficiency and
+reduces infrastructure costs, validating its practical value in optimizing
+base station layouts.
+The research in Ref. [15], proposes a prediction model based on a
+Multi-Module Neural Network (MMNN) to efficiently optimize the in­
+stallation position of the roof antenna in the 5G-R communication
+system, enhancing its anti-interference capabilities. A simulation model
+was first developed to calculate the coupling coefficient between pan­
+tograph arcing and a 2 GHz monopole antenna, which formed the da­
+taset. The study demonstrates that by predicting the optimal installa­
+tion position with the minimum coupling coefficient, Electromagnetic
+Interference (EMI) from pantograph arcing can be significantly re­
+duced, achieving the desired antenna positioning. Additionally, the
+Mind Evolutionary Algorithm for Back Propagation Neural Network
+(MEA-BP) and the Particle Swarm Optimization-Extreme Learning
+Machine (PSO-ELM) algorithms were used to construct various pre­
+diction models. A piecewise prediction strategy was employed to en­
+hance the accuracy of the MMNN-based model. The results show that
+this prediction model can effectively replace complex electromagnetic
+simulations, providing an efficient method for optimizing the roof an­
+tenna’s installation position.
+There exist more research works that aim towards network planning
+with respect to increasing and optimizing coverage [16]. Artificial In­
+telligence network planning [17], network planning for efficient net­
+work models, and optimization of power allocation in the 5G network
+
+[18], clustering assisted by real data [19]. Moreover, there are other
+works that involve learning approaches to Self-Organised Networks
+(SONs) as seen in Ref. [20], whereby a framework is proposed that
+utilizes input data from various sources to extract relevant knowledge
+through learning-based classification, prediction, and clustering
+models. This knowledge is then used to inform decisions in 5G SON
+functionalities. Further to that, in Ref. [21] an unsupervised learningbased network planning framework is designed to quickly and auton­
+omously identify optimal antenna placement solutions that consider
+environmental factors, service quality, and regulatory restrictions. The
+is also a nice book that addresses 5G network planning as well as op­
+timisation which is given in Ref. [22].
+
+
+157
+
+
+
+**3. Our methodology and system**
+
+
+The planning process for a 5G network involves the deployment of
+macro, pico, and femto cells to achieve optimal coverage, minimize
+costs, and reduce interference in connection between urban environ­
+ments high speed trains operate. The objective is to ensure that all user
+locations receive adequate signal strength while meeting varying traffic
+demands. This requires a careful balance between the number of cells
+deployed and their respective locations. This will ensure the Quality of
+Experience (QoE) of the train passengers in their activities with their
+mobile phones. The reader can see a schematic of the approach in
+Fig. 1. In Fig. 1, the reader can observe high speed trains going in
+different directions with passengers using the 5G services. The different
+types of cells are evident that aim to maximize the user experience by
+performing appropriate planning. Note that the blue arrow denotes the
+fact that the train operates within the cell it points to. The decision
+variables in this optimization problem include the number of macro
+cells ( _N_ macro), pico cells ( _N_ pico), and femto cells ( _N_ femto) to be deployed,
+as well as their locations ( _L_ macro, _L_ pico, _L_ femto) and transmission power
+levels ( _P_ macro, _P_ pico, _P_ femto). The goal is to jointly determine these
+variables in a way that satisfies coverage and user traffic demand
+constraints.
+The optimization problem is formulated as a multi-objective func­
+tion, which aims to minimize deployment costs, total power con­
+sumption, and overall interference while maximizing user coverage and
+network capacity. Mathematically, this can be expressed as
+
+min ( 1 _C_ deploy _+_ 2 total _P_ _+_ 3 total _I_ 4 _Cov_ total 5 _Cap_ total) (1)
+
+where _C_ deploy represents the deployment cost, _P_ total signifies the total
+power consumption, _I_ total denotes the total interference, _Cov_ total in­
+dicates the total coverage provided, and _Cap_ total reflects the total ca­
+pacity. The parameters _α_ 1, _α_ 2, _α_ 3, _α_ 4, and _α_ 5 are weighting factors that
+capture the relative importance of each term.
+The planning process must also adhere to several constraints, in­
+cluding coverage constraints, which require that the coverage at each
+user location _u_ meets a minimum threshold
+
+_Cov u_ ( ) _Cov_ min, _u_ _U_ (2)
+
+Similarly, capacity constraints ensure that the total capacity meets
+user demands
+
+_Cap u_ ( ) _T u_ ( ), _u_ _U_ (3)
+
+Interference constraints are also critical, restricting the total inter­
+ference experienced by users
+
+_I u_ ( ) _I_ max, _u_ _U_ (4)
+
+Finally, energy efficiency must be considered, expressed as the total
+power consumption of all deployed cells
+
+
+
+_N_
+
+
+
+_N_
+
+
+
+_N_
+
+
+
+macro pico _N_ femto
+
+
+
+_P_ total _=_ _P_ macro _i_ _+_ _P_ pico _j_ _+_ _P_
+
+_i=_ 1 _j=_ 1 _k=_ 1
+
+
+
+_=_ _P_ macro _+_ _P_ pico _+_
+
+
+
+total macro _i_ pico _j_ femto _k_
+
+_i=_ 1 _j=_ 1 _k=_ 1
+
+
+
+(5)
+
+
+
+_i_
+
+
+
+_j_
+
+
+
+_k_
+
+
+
+The GA is an evolutionary optimization method used to solve the 5G
+network planning problem. The detailed steps are described as follows.
+**Initialization:** The GA begins by randomly initializing a population
+of chromosomes. Each chromosome represents a potential solution to
+the problem. A chromosome is defined as
+
+_C_ _=_ ( _N_ macro, _L_ macro, _P_ macro, _N_ pico, _L_ pico, _P_ pico, _N_ femto, _L_ femto, _P_ femto) (6)
+
+Each chromosome provides a unique configuration for the deploy­
+ment and operation of the network infrastructure.
+**Fitness evaluation:** To assess the quality of each chromosome, a
+fitness function is defined. This function evaluates how well a given
+chromosome meets the objectives of the network planning problem.
+The fitness function is expressed as
+
+
+_E.D. Spyrou and V. Kappatos_ _High-speed Railway 3 (2025) 155–162_
+
+
+**Fig. 1.** 5G with different types of cells, UEs, and trains.
+
+
+
+1
+Fitness( ) _C_ _=_
+
+1 _C_ deploy _+_ 2 total _P_ _+_ 3 total _I_ 4 _Cov_ total 5 _Cap_ total (7)
+
+**Parent selection:** Selection involves choosing parent chromosomes
+from the population to create offspring for the next generation. The
+Stochastic Universal Sampling (SUS) method is employed, where the
+probability of selecting a chromosome _Ci_ is proportional to its fitness
+
+
+
+Fitness( _C_
+
+_P C_ ( _i_ ) _=_ ~~_N_~~ population
+
+_j=_ 1
+
+
+
+( _i_ ) _=_ ~~_N_~~ populationFitness(Fitness( _Ci_ ) _C_
+
+
+
+_i_ ) _=_ ~~_N_~~ population Fitness( _i_ _Cj_ )
+
+
+
+_=_
+
+
+
+~~_N_~~ _j=_ population1 Fitness( _Cj_ ) (8)
+
+
+
+where _N_ population denotes the total number of chromosomes. SUS en­
+sures that high-fitness chromosomes are more likely to be selected,
+while maintaining diversity.
+**Crossover:** The crossover operation combines two parent chromo­
+somes to produce offspring. Single-point crossover is used, where a
+random crossover point _k_ is selected, and genes are exchanged between
+the parents:
+
+Offspring1 _=_ ( _C_ 1 [1], _C_ 1 [2], _…_, _C k_ 1 [ ], _C_ 2 [ _k_ _+_ 1], _…_, _C_ 2 [ ]) _n_ (9)
+
+
+Offspring2 _=_ ( _C_ 2 [1], _C_ 2 [2], _…_, _C_ 2 [ ], _k_ _C k_ 1 [ _+_ 1], _…_, _C n_ 1 [ ]) (10)
+
+
+158
+
+
+
+This operation creates new solutions by combining features from the
+parents.
+**Mutation:** Mutation introduces variability by randomly altering the
+genes in offspring. For instance, if the number of macro cells _N_ macro is
+selected for mutation, it may be updated as
+
+_N_ macro _N_ macro _+_ (11)
+
+where, Δ is a small random value (positive or negative) that ensures
+exploration of the solution space.
+**Elitism:** Elitism ensures that the best solutions are preserved across
+generations. The top _E_ chromosomes, based on fitness, are carried forward
+to the next generation to prevent the loss of high-quality solutions.
+**Termination** : The GA continues to evolve the population through
+multiple generations until a termination condition is met where, this
+condition could be a predefined number of generations and onvergence
+of the population’s fitness.
+The output of the algorithm is the best chromosome, representing
+the optimal deployment strategy for macro, pico, and femto cells, along
+with their respective locations and power levels. This solution satisfies
+the coverage, capacity, and energy efficiency constraints for the 5G
+network.
+
+
+_E.D. Spyrou and V. Kappatos_ _High-speed Railway 3 (2025) 155–162_
+
+
+
+**Table 1**
+Cell parameters.
+
+Cell Coverage/km Interference/dB Energy/J
+
+
+Macro 30 10 50
+Pico 1 20 30
+Femto 0.1 30 10
+
+
+**4. Simulated experiment**
+
+
+Simulations are run in Python using the following parameters. The po­
+pulation size of the cells is set to 100. The objective is that the population size
+will allow for more diversity in potential solutions, improving the chances of
+finding an optimal configuration. The number of generations, which is the
+total number of iterations the GA will run is set to 300. The crossover rate,
+which is the probability that 2 % configurations will exchange genetic ma­
+terial to produce offspring is set to 0.7. The mutation rate, which is the
+probability that a mutation will occur in an individual during reproduction,
+introduces random changes is set to 0.05. The stochastic universal sampling
+was employed to select individuals from the population for reproduction.
+The area is assumed to be 100 km [2 ] and the train speed is 250 km/h.
+The chosen GA parameters—population size of 100, 300 genera­
+tions, a crossover rate of 0.7, a mutation rate of 0.05, and stochastic
+universal sampling can be considered as appropriate baseline values in
+evolutionary algorithm literature. These settings are known to offer a
+robust trade-off between exploration and exploitation across a range of
+optimization problems. A population size of 100 and 300 generations
+allows for sufficient diversity and evolutionary depth, while the cross­
+over and mutation rates fall within empirically validated ranges (typi­
+cally 0.6–0.9 for crossover and 0.01–0.1 for mutation). Stochastic uni­
+versal sampling is used to maintain selection pressure while preserving
+
+
+
+population diversity. These values offer a reliable starting point for
+performance evaluation. However sensitivity analysis may be more
+appropriate for fine-tuning the approach.
+In terms of cell parameters the following are utilised that are given
+in Table 1.
+The PSO and SA have been utilized as a comparison to the GA that is
+described in this paper. The authors compared the GA with the afore­
+mentioned methods in terms of coverage, interference, best fitness, and
+energy efficiency.
+The PSO algorithm is a swarm-based optimization algorithm modeled on
+the collective behavior of birds, where each solution (or “particle”) updates
+its position by considering both its own best-known position and that of the
+swarm, making it effective for solving complex, continuous optimization
+problems such as those in 5G network planning. In contrast, SA is a prob­
+abilistic search method that allows occasional acceptance of inferior solu­
+tions to escape local optima, with this acceptance decreasing over time—an
+approach particularly useful for navigating highly nonlinear and multimodal
+problem spaces. Both methods are particularly well-suited for 5G-R network
+optimization due to their ability to efficiently explore large, complex search
+spaces and avoid premature convergence to suboptimal configurations.
+
+
+**5. Results**
+
+
+Initially, Figs. 2 and 3 are presented that show the configuration of
+the cells before and after the optimization in the grid. It is evident that
+the number of Macro cells decreases and the femto cells increase by a
+large magnitude.
+In Fig. 4, the reader can observe the best fitness function over the
+number of generations, evident that the PSO algorithm exhibits a better
+fitness function than SA and GA. The GA and SA are increasing reaching
+similar values after the finish of the iterations, namely 1003.86 and
+992.5 respectively, while the PSO exhibits 1041.80.
+
+
+
+**Fig. 2.** Coverage and interference before optimization.
+
+
+159
+
+
+_E.D. Spyrou and V. Kappatos_ _High-speed Railway 3 (2025) 155–162_
+
+
+**Fig. 3.** Coverage and interference after optimization.
+
+
+**Fig. 4.** Best fitness function over iterations.
+
+
+
+This trend indicates effective selection processes, as the algorithm
+prioritizes configurations that yield higher energy efficiency.
+Additionally, the rapid rise of the PSO algorithm suggests that the close
+to optimal value is determined while the SA and GA attempt to max­
+imize the fitness function throughout the interactions.
+Next, the reader can examine the coverage achieved by the algo­
+rithm over successive generations in Fig. 5. As expected, the PSO ac­
+complishes the lowest value (3000 km [2] ), while the SA and GA fluctuate
+and exhibit higher values with 3780 and 3660 km [2], respectively. This
+shows that the SA and the GA attempt to achieve a higher coverage
+which can be cross-examined with the best fitness function, stating that
+
+
+
+the fitness function does promote energy-efficiency. The values indicate
+the number of cells required to cover the entire area given the con­
+tribution of the total coverage by each method.
+As expected, and as illustrated in Fig. 6, the network interference
+increases as coverage expands. This outcome is natural, given that
+higher coverage generally introduces more overlapping signals, thereby
+elevating interference levels. The PSO algorithm accomplishes the least
+interference with 49.65 dB while the GA and the SA exhibit 58.28 and
+59.69 dB, respectively. It’s worth noting that alternative resource al­
+location and scheduling techniques could help mitigate interference by
+better managing the distribution of network resources and timing of
+
+
+
+160
+
+
+_E.D. Spyrou and V. Kappatos_ _High-speed Railway 3 (2025) 155–162_
+
+
+**Fig. 5.** Coverage over iterations.
+
+
+**Fig. 6.** Interference over interations.
+
+
+**Fig. 7.** Energy efficiency over iterations.
+
+
+161
+
+
+_E.D. Spyrou and V. Kappatos_ _High-speed Railway 3 (2025) 155–162_
+
+
+
+transmissions. However, these methods fall outside the scope of this
+paper. Instead, the focus here is on the primary trade-offs between
+coverage and interference within the constraints of the current model.
+Future work will explore potential solutions to manage interference
+more effectively, including advanced scheduling, dynamic resource
+management, and potentially adaptive algorithms aimed at balancing
+high coverage with reduced interference like the one of cell zooming
+
+[23]. These enhancements could further optimize network performance
+and user experience in dense or high-demand environments.
+The energy efficiency is also presented. The fact that the PSO al­
+gorithm favours low coverage and interference provides the overall
+network will high energy efficiency. On the other hand, for the GA and
+the SA the energy efficiency is not higher than the PSO algorithm,
+which is evident in Fig. 7. The values of the GA, PSO, and SA methods
+are 39.68, 42.1, and 38.48 J, respectively.
+
+
+**6. Conclusions and future work**
+
+
+In this work, the issue of 5G network planning for maximizing user
+experience in high speed trains moving along urban environments is ad­
+dressed. The network needs to exhibit high coverage and small inter­
+ference to be successful. The planning of the network aims directly to that.
+A GA is employed to address the complexities of 5G network plan­
+ning. By segmenting the network into macro, pico, and femto cells, the
+optimization process was designed to meet key goals: achieving broad
+coverage, reducing interference, and improving energy efficiency. The
+primary focus was on high-demand environments, such as high-speed
+trains, where numerous users require stable and high-quality con­
+nectivity. Through extensive simulations, valuable insights were gained
+into the effectiveness of our GA-based method as compared to the PSO
+algorithm and SA in solving these challenges.
+Despite not outperforming the PSO algorithm in all aspects, the GA
+demonstrates distinct advantages that make it a valuable optimization
+approach in wireless network design. Notably, GA achieves significantly
+higher coverage (3660 km [2] ) than the PSO algorithm, which is critical for
+ensuring broader service availability and user connectivity—especially in
+dense or large-scale deployments. While the PSO algorithm favors energy
+efficiency and minimal interference by reducing coverage, GA strategically
+balances these trade-offs, delivering competitive energy efficiency
+(39.68 J) and manageable interference (58.28 dB). Furthermore, GA shows
+a steady improvement in fitness over generations, highlighting its ro­
+bustness in navigating complex solution spaces. These qualities make GA
+particularly suitable for applications where maximizing coverage without
+severely compromising efficiency is essential, showcasing its strength in
+multi-objective optimization scenarios.
+For future work, the aim is to perform cell zooming to further op­
+timize the planning procedure. Cell zooming is the zooming in and out
+of base station cells with respect to their transmission power to reduce
+interference further. The approach that will be followed by increasing
+the number of colours to perform a game-theoretic graph coloring so­
+lution, another aim is to explore the algorithm’s scalability and effec­
+tiveness in larger or more diverse network scenarios, potentially en­
+hancing its robustness and extending its practical applicability.
+
+
+**CRediT authorship contribution statement**
+
+
+**Vassilios Kappatos:** Writing – review & editing, Supervision,
+Project administration. **Evangelos Spyrou:** Writing – original draft,
+Validation, Software, Methodology, Investigation, Formal analysis.
+
+
+162
+
+
+
+**Data availability**
+
+
+Data will be made available on request.
+
+
+**Declaration of competing interest**
+
+The authors declare the following financial interests/personal re­
+lationships which may be considered as potential competing interests:
+Evangelos D. Spyrou reports financial support was provided by Centre
+for Research and Technology- Hellas. If there are other authors, they
+declare that they have no known competing financial interests or per­
+sonal relationships that could have appeared to influence the work
+reported in this paper.
+
+
+**References**
+
+
+
+
+[1] Ericsson, 2020.m.r., Ericsson, Stockholm, Sweden, technical report [Online].
+Available: 〈https://www.ericsson.com/49da93/assets/local/mobility-report/docu­
+ments/2020/june2020-ericssonmobility-report.pdf〉.
+
+[[2] R. He, B. Ai, Z. Zhong, et al., 5G for railways: Next generation railway dedicated](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref1)
+[communications, IEEE Commun. Mag. 60 (2022) 130–136.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref1)
+
+[[3] B. Yoon, S. Lee, S. Oh, et al., Development of wireless communication system for](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref2)
+[ITE-R based train control, 2023, IEEE, Jeju Island, 2023.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref2)
+
+[[4] H. Feng, S. Li, X. Ma, et al., Development of 5G-R system in Chinese railway, IEEE,](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref3)
+[Beijing, 2022.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref3)
+
+[[5] B.B. Haile, E. Mutafungwa, J. Hämäläinen, A data-driven multiobjective optimi­](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref4)
+
+
+
+[zation framework for hyperdense 5G network planning, IEEE Access 8 (2020)](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref4)
+[169423–169443.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref4)
+
+[[6] L. Chiaraviglio, A.S. Cacciapuoti, G. DiMartino, et al., Planning 5G networks](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref5)
+[under emf constraints: State of the art and vision, IEEE Access 6 (2018)](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref5)
+[51021–51037.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref5)
+
+[[7] E. Amaldi, A. Capone, F. Malucelli, Planning umts base station location:](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref6)
+[Optimization models with power control and algorithms, IEEE Trans. Wirel.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref6)
+[Commun. 2 (2003) 939–952.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref6)
+
+[[8] M. Gen, L. Lin, Genetic algorithms and their applications, Springer Handbook of](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref7)
+[Engineering Statistics, Springer, London, 2023, pp. 635–674.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref7)
+
+[[9] Y.H. Santana, R.M. Alonso, G. GuillenNieto, et al., Indoor genetic algorithm-based](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref8)
+[5G network planning using a machine learning model for path loss estimation,](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref8)
+[Appl. Sci. 12 (2022) 3923.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref8)
+
+[10] Y. Benchaabene, N. Boujnah, F.Zarai, A genetic algorithm for solving the radio
+network planning problem in 5G cellular networks, 2020 IEEE/ACS 17th
+International Conference on Computer Systems and Applications (AICCSA), IEEE,
+Antalya, 2020.
+
+[[11] H. Ganame, L.Y. Zhuang, A. Hamrouni, et al., Evolutionary algorithms for 5G](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref9)
+[multi-tier radio access network planning, IEEE Access 9 (2021) 30386–30403.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref9)
+
+[[12] H. Fourati, R. Maaloul, L. Fourati, et al., An efficient energy-saving scheme using](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref10)
+[genetic algorithm for 5G heterogeneous networks, IEEE Syst. J. 17 (2022)](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref10)
+[589–600.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref10)
+
+[[13] D. Xun, Z. Jundi, H. Danping, et al., Research on network planning technology for](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref11)
+[new generation railway mobile communication, Chin. J. Radio Sci. 38 (2023)](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref11)
+[71–78.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref11)
+
+[[14] J. Li, J. Pang, X. Fan, Optimization of 5G base station coverage based on self-](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref12)
+[adaptive mutation genetic algorithm, Comput. Commun. 225 (2024) 83–95.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref12)
+
+[[15] Y. Bai, J. Ren, Y. Wen, Fast optimization of the installation position of 5G-R antenna](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref13)
+[on the train roof, Appl. Sci. 14 (2024) 6954.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref13)
+
+[[16] M.M. Ahamed, S. Faruque, 5G network coverage planning and analysis of the de­](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref14)
+
+
+
+[ployment challenges, Sensors 21 (2021) 6608.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref14)
+
+[[17] J. Pérez-Romero, O. Sallent, R. Ferrús, et al., Artificial intelligence-based 5G net­](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref15)
+
+
+
+[work capacity planning and operation, IEEE, Brussels, 2015, pp. 246–250.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref15)
+
+[[18] H.M. Tun, Radio network planning and optimization for 5G telecommunication](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref16)
+[system based on physical constraints, J. Comput. Sci. Res. 3 (2021) 1–15.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref16)
+
+[19] M.U. Khan, M. Azizi, A. García-Armada, et al., Unsupervised clustering for 5G
+network planning assisted by real data, IEEE Access 10 (2022) 39269–39281.
+
+[[20] J. Pérez-Romero, O. Sallent, R. Ferrús, et al., Knowledge-based 5G radio access](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref17)
+[network planning and optimization, 2016, IEEE, Poznan, 2016.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref17)
+
+[[21] C. Bektas, S. Böcker, B. Sliwa, et al., Rapid network planning of temporary private](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref18)
+[5G networks with unsupervised machine learning, IEEE, Norman, 2021.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref18)
+
+[[22] C. Larsson, 5G Networks: Planning, Design and Optimization, Academic Press,](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref19)
+[Cambridge, 2018.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref19)
+
+[[23] E.D. Spyrou, C. Stylios, Cell zooming in LET-R as a potential game, Navigating,](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref20)
+[Unpredictability: Collaborative Networks in Non-linear Worlds, Springer, Cham,](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref20)
+[2024, pp. 396–406.](http://refhub.elsevier.com/S2949-8678(25)00022-4/sbref20)
+
+

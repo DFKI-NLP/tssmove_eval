@@ -49,7 +49,7 @@ factual_correctness_metric = FactualCorrectness(llm=llm, mode="f1", atomicity="h
 
 
 DATASET_DIR = "."  # directory where ragas saves the dataset CSV
-TESTDOC_DIR = "/home/leonhard/Dokumente/projects/ongoing/TSS-MoVe/05_Projektarbeit/TL 5 NLP System/testdokumente"
+TESTDOC_DIR = "data/source_docs"
 
 configs = [
   {

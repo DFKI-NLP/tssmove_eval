@@ -1,0 +1,944 @@
+[High-speed Railway 3 (2025) 116–124](https://doi.org/10.1016/j.hspr.2025.05.003)
+
+
+[Contents lists available at ScienceDirect](http://www.sciencedirect.com/science/journal/29498678)
+## High-speed Railway
+
+
+[journal homepage: www.keaipublishing.com/en/journals/high-speed-railway](https://www.keaipublishing.com/en/journals/high-speed-railway)
+
+
+Research article
+### Zero on-site testing on GNSS for train control towards digital railways
+
+Debiao Lu [a][,][b][,][c][,][⁎], Wenzheng Qiao [a], Baigen Cai [a][,][b][,][c], Jian Wang [a][,][b][,][c], Jiang Liu [a][,][b][,][c], Yuchen Zhao [a],
+Chunjie Qiao [d], Dirk Spiegel [e ]
+
+a _School of Automation and Intelligence, Beijing Jiaotong University, Beijing 100044, China_
+b _Frontiers Science Center for Smart High-speed Railway System, Beijing Jiaotong University, Beijing 100044, China_
+c _Beijing Engineering Center for EMC and GNSS Technologies, Beijing Jiaotong University, Beijing 100044, China_
+d _Hunan Matrix Electronic Technology Co., Ltd., Changsha 410205, China_
+e _DB InfraGO AG, Berlin 10557, Germany_
+
+
+
+
+
+A R T I C L E I N F O
+
+
+_Keywords:_
+GNSS testing
+Railway train localization
+3D environment modelling
+Digital track map
+Zero on-site testing
+
+
+**1. Introduction**
+
+
+
+A B S T R A C T
+
+
+The integration of Global Navigation Satellite System (GNSS) technology into railway train control systems is a
+crucial step toward achieving the vision of a digital railway. Traditional train control systems undergo extensive
+in-house tests and prolonged field tests for certification and approval before operational deployment, leading to
+high costs, delays, and operational disruptions. This paper introduces a GNSS-based train control localization
+framework which eliminates the need for on-site testing by leveraging train movement dynamics and 3D en­
+vironment modeling to create a zero on-site testing platform. The proposed framework simulates train move­
+ment and the surrounding 3D environment using collected railway line location data and environmental attri­
+butes to generate realistic multipath signals and obscuration effects. This approach enables comprehensive
+laboratory-based case studies for train localization, reducing the huge amount test of needed for physical field
+trials. The framework is established in house, using the data collected at the Test Base of China Academy of
+Railway Sciences (Circular Railway). Results from the open area and cutting environment tests demonstrate high
+localization accuracy repeatability within the simulated environment, validating the feasibility and effectiveness
+of zero on-site testing for GNSS-based train control systems. This research highlights the potential of GNSS
+simulation platforms in enhancing cost efficiency, operational safety, and accuracy for future digital railways.
+
+
+
+Global Navigation Satellite Systems (GNSSs) have seen vast applications
+in the transportation domain. The integration of Global Positioning System
+(GPS) and Beidou Navigation Satellite System (BDS) in railway is efficient
+for modernizing the railway network, GNSS is increasingly becoming a
+fundamental pillar not only for non-safety applications, but also for im­
+proved maintenance, automated train operation, and safety- related appli­
+cations, including the Next Generation of Train Control (NGTC) and re­
+novation of the train on-board equipment, all these will increase the railway
+system capacity, efficiency and safety of all railways [1].
+To apply GNSS in railway train operation, the GNSS performance testing
+and verification is the essential procedure for the system to be adopted and
+further listed as mandatory in the system design and development. The
+certification of the GNSS-based train localization systems is also necessary to
+provide concrete validation or testing application services to carry out
+
+
+
+simulation tests with evaluation of the platform and environmental condi­
+tion simulations [2]. Beidou has a set of technical and regulatory standards,
+including the BDS Performance Standard, BDS Signal Interface Control
+Document (ICD), and technical requirements for user equipment. The BDS
+Signal In Space (SIS) and service performance characteristics include ac­
+curacy, availability, compatibility, and interoperability [3]. GPS has also
+published standard positioning service performance standards to guide the
+user for civil uses worldwide, the performance metrics are GPS SIS accuracy,
+continuity, and availability [4]. So both BDS and GPS are focusing on ac­
+curacy as the foundation for the GNSS performance [5]. The performance
+needs to be assessed and as the performances are all credited to the
+equipment, the equipment itself needs to be certified. The certification
+procedure, it is governed by various international and regional standards,
+such as the accuracy standards by BDS and GPS, the test and simulation
+standard procedures, the simulation must meet possible (as sensible to the
+GNSS) to make the test results plausible. Railway GNSS related testing is
+
+
+
+⁎ Corresponding author.
+
+_E-mail address:_ [debiao.lu@bjtu.edu.cn (D. Lu).](mailto:debiao.lu@bjtu.edu.cn)
+
+
+[https://doi.org/10.1016/j.hspr.2025.05.003](https://doi.org/10.1016/j.hspr.2025.05.003)
+Received 13 February 2025; Received in revised form 11 May 2025; Accepted 12 May 2025
+Available online 15 May 2025
+2949-8678/© 2025 The Authors. Published by Elsevier B.V. on behalf of KeAi Communications Co. Ltd. This is an open access article under the CC BY-NC-ND license
+[(http://creativecommons.org/licenses/by-nc-nd/4.0/).](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+
+
+_D. Lu, W. Qiao, B. Cai et al._ _High-speed Railway 3 (2025) 116–124_
+
+
+
+
+
+
+
+
+
+**Simulation trajectory generation** **GNSS RF signal** **Performance evaluation**
+
+**Fig. 1.** Laboratory simulation testing procedure.
+
+
+
+usually divided into laboratory simulation testing, and field validation
+testing.
+The laboratory simulation testing requires the GNSS receivers to un­
+dergo static and dynamic tests in a controlled environment, the signal si­
+mulated are using GNSS signal simulators (traditionally using Spirent or
+Vector simulators) to assess performance under different conditions (urban
+canyons, railway stations, tunnels, etc.), the multipath and obscuration si­
+mulations are required to analyze the performance in the specific environ­
+ment [6]. The testing procedure includes trajectory simulation, Radio Fre­
+quency (RF) signal generation, and performance evaluation for the Device
+Under Test (DUT), as shown in Fig. 1.
+Field validation testing evaluates GNSS equipment's performance in
+dynamic and complex environments by deploying it in physical rail
+environments, such as testing signal availability and positioning accu­
+racy in complex environments. As demonstrated in the DemoOrt pro­
+ject, the platform is consisted by GNSS receiver as the DUT, the re­
+ference system composed by RFID sensors and antennas, and Doppler
+radar, with the process control the DUT GNSS receiver can be evaluated
+as the validation, as shown in Fig. 2 [7]. Thus, because field testing
+usually requires the mobilization of many resources, involving equip­
+ment installation, track scheduling and safety assurance, and other
+links, the cost is high and there are potential risks.
+In both road and railway performance evaluation procedures, the re­
+ference vehicle for solving the GNSS localization challenges has been the
+
+
+
+main techniques over decades [8]. An adequate simulation platform is re­
+quired to set up, since the simulation testing needs to demonstrate identical
+performance to the field test, the zero on-site performance testing is to
+virtualize the testing environment as a standardized architecture for the lab
+testing with the connection between real equipment and lab tools as for the
+connection between different real equipment and software. Many projects
+have been trying to establish the testing environment, GATE4RAIL, VITE,
+and several projects have been conducted under the Shift2Rail IP2 as an
+advanced traffic management and control system.
+For zero on-site testing, Berbineau et al. [9] presented the EMULRA­
+DIO4RAIL platforms, developed in the framework of the Shift2Rail program
+and gives examples of results obtained. Mendizabal et al. [10] dealt with the
+evaluation of the integration of a GNSS-based on-board train integrity de­
+termination system in the ETCS On-Board Unit (OBU), the integration is
+carried out by means of the virtual laboratory developed in the ETCS Ad­
+vanced Testing and Smart Train Positioning System (EATS) project.
+For performance evaluation, Lu and Schnieder [5] compared GNSS
+performance with railway RAMS properties using random petri net model
+definitions, using real data collected on railway tracks in the High Tatra
+Mountains in Slovakia to assess performance characteristics. Shuai et al.
+
+[11] analyzed the necessity of GNSS performance assessment based on the
+actual needs of train positioning in the Qinghai-Tibet Railway Line.
+For GNSS signal propagation, Kbayer and Sahmoudi [12] used
+3DGNSS simulator to measure the upper and lower limits of NLOS error
+
+
+
+**Fig. 2.** Field validation testing architecture in DemoOrt Project.
+
+
+117
+
+
+_D. Lu, W. Qiao, B. Cai et al._ _High-speed Railway 3 (2025) 116–124_
+
+
+
+and used the boundary to finally get the constrained state estimation
+problem. Liso Nicolás [13] used ray tracing to describe the channel
+characteristics between the satellite and the ground receiver and ex­
+tracted information from it to design a more positive algorithm, redu­
+cing the influence of multipath effects on positioning.
+This paper introduces a zero on-site testing scheme for GNSS perfor­
+mance evaluation for railway train control system adoption. The paper is
+organized as follows. Section 2 introduces the problems and challenges in
+the methods for zero on-site testing, Section 3 introduces the key technol­
+ogies in the testing procedure. After that, Section 4 introduces the data
+collected using the zero on-site testing platform, and Section 5 delivers the
+conclusion of the testing performance and characteristics.
+
+
+**2. Problems description**
+
+
+Since the benefits of zero on-site testing have been illustrated, the
+state-of-the-art for simulation of GNSS has also been demonstrated, but
+there are still scientific problems and challenges to be addressed for
+implementing zero on-site testing. The zero on-site testing procedure
+shall be composed of the procedure starting with the test control and
+management, then the train movement and simulation. With the si­
+mulated train trajectory similar to Fig. 1, the GNSS signal simulation
+and the modeled 3D environment together can generate the GNSS
+signal by the GNSS simulator, the simulated GNSS signal propagation
+needs to be modeled in the simulator to evaluate the Non-Line-Of-Sight
+(NLOS) multipath effects estimations [14]. With the generated GNSS
+signal, the signal can either be coupled directly into the device under
+test through SMA or TNC interfaces or using the Over-The-Air (OTA)
+testing, the GNSS signal propagation in the environment can be shown
+directly using the 3D ray tracing theories and methods [13,15]. The
+whole procedure can be shown in Fig. 3.
+The main problem and challenge for the test can be illustrated as
+follows.
+
+
+1) Train movement simulation: the train movement needs to be si­
+
+mulated as identical to the train operation, since when the train
+operates the GNSS receiver mounted on the train should receive the
+GNSS signal, and the train moving along the track needs to have the
+right occupation which needs to be demonstrated on the railway
+simulation platform. Thus, the train maneuver dynamics should be
+modeled in accordance with the correct train type. An accurate train
+dynamics model is fundamental to train movement algorithms.
+
+
+
+2) GNSS signal propagation: with the train movement, the GNSS signal
+propagation in the real world can be affected by the environment
+along the railway track. As the optimized signal to be propagated is
+the Line-Of-Sight (LOS) signal, due to the obstacles along the track,
+the GNSS signal might be reflected, refracted, and blocked. Thus,
+environmental modelling is the basis for simulation.
+
+
+There are still many challenges in addressing scientific problems.
+The main problems to be discussed in this paper is the environmental
+modelling forming the ray-tracing procedure, and the train movement
+that integrates the environment and train location to generate the ap­
+propriate GNSS signal for the zero on-site testing.
+
+
+**3. Key technologies in zero on-site testing of GNSS**
+
+
+_3.1. GNSS testing standard and regulations_
+
+
+As illustrated in the introduction part, the public service performance
+evaluation of GNSS covers two key aspects: SIS performance and system
+service performance. As the BeiDou Navigation Satellite System Open
+Service Performance Standard (BDS-OS-PS-3.0) defines, the BDS service
+performance should cover 5 core indicators: positioning accuracy, velocity
+measurement accuracy, timing accuracy, PDOP availability, and positioning
+service availability, as shown in Fig. 4. In terms of positioning accuracy, the
+specification clarifies the statistical standard of geographical location mea­
+surement error and specifies the allowable error range under different
+geographical areas and environmental conditions. The evaluation of speed
+measurement accuracy is concerned with the accuracy of the user equip­
+ment to measure the motion speed, which is used in dynamic scenarios,
+such as transportation and railway applications. Timing accuracy is aimed
+at high-precision time synchronization services, which are critical cap­
+abilities in fields such as communications, energy, and scientific experi­
+ments. The availability of PDOP is an important index to evaluate the effect
+of geometric configuration on positioning accuracy and to measure the
+degree of support of satellite layout to the stability of positioning solution.
+Location service availability measures the ability to provide continuous and
+reliable service at a given time and area from the perspective of the overall
+functionality of the system.
+In addition, the standard also specifies the measurement methods of this
+performance, including the evaluation environment, data collection
+method, calculation method, and evaluation cycle specific requirements.
+For example, positioning accuracy and velocity measurement accuracy are
+usually obtained by field testing in different geographical areas and oper­
+ating scenarios, while timing accuracy needs to be compared with a highprecision reference time source. For PDOP and service availability, the si­
+mulation platform is often used for spatial geometry layout analysis. Several
+projects of Shift2Rail, such as Gate4Rail and Sensor4Rail, have validated the
+potential of GNSS in train monitoring, real-time trajectory planning and
+train spacing optimization. These projects combined simulation and field
+tests to demonstrate the robustness of GNSS in multi-interference scenarios
+and its ability to optimize positioning accuracy.
+To evaluate the positioning accuracy, the error can be illustrated by
+the 1D error as east and north. Besides, the error can be estimated by
+the error ellipse. The error ellipse is a statistical representation of the
+
+
+
+
+
+
+|Train<br>movement<br>simulation|Col2|
+|---|---|
+|Train<br>movement<br>simulation||
+
+
+
+
+
+
+
+
+
+
+|Col1|Col2|
+|---|---|
+|Test control<br>and<br>management|Test control<br>and<br>management|
+|Test control<br>and<br>management||
+
+
+
+
+
+
+
+
+
+
+
+|Col1|Col2|
+|---|---|
+|Performance<br>evaluation|Performance<br>evaluation|
+
+
+**Fig. 3.** Zero on-site testing workflow.
+
+
+
+
+|BDS service performance indicator<br>Positioning<br>Positioning Velocity Timing PDOP<br>service<br>accuracy accuracy accuracy availability<br>availability|Col2|
+|---|---|
+|Positioning<br>accuracy|Positioning<br>service<br>availability|
+
+
+
+**Fig. 4.** BDS service performance indicators.
+
+
+
+118
+
+
+_D. Lu, W. Qiao, B. Cai et al._ _High-speed Railway 3 (2025) 116–124_
+
+
+**Fig. 6.** Ray tracing fundamentals of TX propagation to RX.
+
+
+**Fig. 5.** Error ellipse with parameters.
+
+
+positional uncertainty in GNSS measurements. It provides a visual re­
+presentation of the confidence region within which the true position is
+likely to be found. The error formula is used to calculate the east and
+north errors as parameters to evaluate the satellite positioning perfor­
+mance. As shown in Fig. 5, the error ellipse can demonstrate the
+measurement error in any direction, using _E_ and _F_ as the long and short
+half axis of the ellipse, the process is shown in Table 1.
+
+
+_3.2. 3D environment reconstruction and ray-tracing_
+
+
+
+The core of the 3D simulation platform is the environment 3D modeling
+and the satellite signal channel modeling through ray tracing. As a method
+of channel modeling, ray tracing can predict signal parameters by simu­
+lating electromagnetic wave signal emission and propagation process. GNSS
+signal, as a typical electromagnetic wave signal, can effectively determine
+the channel parameters of LOS signal and NLOS signal through raytracing.
+As shown in Fig. 6, the sender (TX) emits the signal, the trajectory is re­
+flected by the surrounding object, the receiver (RX) signal has second-orderreflection, thus as the NLOS signal.
+In the defined environment, the environmental data of the target sce­
+nario is mapped using LiDAR, 3D modeling is conducted by the method of
+UAV oblique photography. Since the environmental parameters, satellite
+ephemeris and trajectory simulation time are pre-defined conditions or in­
+formation, the channel model of the satellite signal is a deterministic
+channel, in which the electromagnetic wave propagation theory can be used
+to derive the electromagnetic wave channel. This experiment focuses on the
+multipath effect in satellite signal propagation, so it focuses on the direct
+and reflection of electromagnetic waves.
+
+
+**Table 1**
+Error ellipse parameters calculation.
+
+Process: Calculate the parameters of the error ellipse ( _E_ / _F_ / E)
+
+
+1. Calculate the standard deviation on the _x_ and _y_
+
+
+
+**Fig. 7.** From TX to RX propagation trajectory geometry calculation.
+
+
+In Fig. 7, TX and RX represent the sending and receiving antennas,
+S1 and S2 are the surfaces of the two objects. Since the angle between
+the ray and the normal is unchanged after reflection, the transmission
+path can be determined by the mirror point of the source point. In the
+figure, TX is the first-order mirror point of S1, and TX" is the secondorder mirror point of TX' to S2 (second-order-reflection). The inter­
+section point between the ray and the object can be determined by
+connecting the mirror point TX'' and the receiving point RX.
+When the train moves under the environment when half-sky is blocked
+(urban), one side of the signal might be blocked or propagated with mul­
+tipath as shown in Fig. 8. The multipath signal propagation trajectory needs
+
+
+**Fig. 8.** Ray tracing in the half-sky environment.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_n_ 1
+
+
+
+_n_ 1
+
+3. Standardize according to error ellipse equation
+
+
+
+
+
+_xx_ ~~2~~ 2 _xy_ _x yxy_
+
+
+
+_y_ 2
+
+
+
+
+
+_x_ 2
+
+_E_ ~~2~~
+
+
+
+~~2~~
+
+
+
+~~2~~
+
+
+
+_x y_
+
+
+
+_y_ 2
+
+_F_ ~~2~~
+
+
+
+~~2~~ _= k_ 2
+
+
+
+
+
+_E_
+
+
+
+_=_
+
+
+
+
+
+
+
+
+
+_F_
+
+
+
+_=_
+
+
+
+
+
+
+
+
+
+E _=_ _E_ 2 _xy_ _x_ 2 _=_ _E_ ~~2~~ _xy_ ~~2~~ _y_
+
+
+
+tan E _=_ _E_ _xy_ _x_ _=_
+
+
+
+_xy_
+
+
+
+~~2~~ ~~2~~
+
+
+
+119
+
+
+_D. Lu, W. Qiao, B. Cai et al._ _High-speed Railway 3 (2025) 116–124_
+
+
+**Table 2**
+Multipath signal path algorithm.
+
+
+
+_x_
+_x_
+_ax_
+
+
+
+_y z_
+
+
+
+_by cz_
+
+
+
+**S**
+
+
+
+
+
+**Fig. 9.** Typical environment scenarios in railway GNSS for train localization.
+
+
+
+**Table 3**
+Description of typical railway scenarios.
+
+Scenario type Distribution direction Visibility/%
+
+
+Open area All directions Over 80
+Half-sky Block from one side Around 60–80
+Cutting Block from parallel sides Around 20–60
+Tunnel Totally blocked 0
+
+
+
+to be identified to evaluate the performance of the GNSS signal. The process
+is shown in Table 2.
+
+
+_3.3. Environmental identification for ray-tracing_
+
+
+Since the ray-tracing method is heavily related to the modeled en­
+vironment as shown in Figs. 3 and 6. The pre-defined 3D Digital Track
+Map (DTM) is required for the generation of the GNSS signal with both
+
+
+
+120
+
+
+_D. Lu, W. Qiao, B. Cai et al._ _High-speed Railway 3 (2025) 116–124_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Fig. 10.** Flowchart for GNSS-based environment identification.
+
+
+
+**Fig. 11.** Test Base of China Academy of Railway Sciences (Circular Railway).
+
+
+
+LOS and NLOS signals. In the 3D DTM, the terrain types included will
+fully cover the environmental conditions to accurately simulate and
+optimize the performance of satellite positioning. Typically, there are
+several environments that fall into the defined categories as open area,
+half-sky, cutting, and tunnel, as shown in Fig. 9. The performances of
+GNSS under each environment vary differently.
+There are different visible satellites for each scenario, the descrip­
+tion of the typical environments can be described as in Table 3.
+Based on the signal propagation and the characteristics of the nat­
+ural physical environment, the GNSS for train localization scenarios can
+be classified into several types as defined in Table 1. The procedure for
+the environment to be categorized into various scenarios requires GNSS
+to be evaluated using the GNSS positioning data. The GNSS measure­
+ments are extracted with satellite parameters and position parameters.
+With the provided environment information, the positioning para­
+meters, the sky visibility of the data can be reconstructed to form the
+clustering-based scenario classification. With the railway scenario
+
+
+
+**Fig. 12.** Circular railway environment identification.
+
+
+121
+
+
+_D. Lu, W. Qiao, B. Cai et al._ _High-speed Railway 3 (2025) 116–124_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Fig. 13.** Zero on-site testing on GNSS for Train Control platform architecture.
+
+
+identification, the environment can be classified and categorized into
+the typical environments, the flowchart is shown as provided in Fig. 10.
+
+
+**4. Zero on-site testing platform and experiment analysis**
+
+
+_4.1. Data collection and 3D environment modelling_
+
+
+
+**Fig. 14.** Zero on-site testing platform operation.
+
+
+
+The data and the environment to be modeled is the Test Base of China
+Academy of Railway Sciences (Circular Railway), located near the 5th Ring
+Road in the northeast of Chaoyang District, Beijing as shown in Fig. 11. The
+test base is currently the only ring-shaped test site in Asia. The site is home
+to a 38 km railway line, all of which have been electrified to support the
+
+
+
+**Fig. 15.** Open area and cutting in zero on-site ray tracing simulation.
+
+
+122
+
+
+_D. Lu, W. Qiao, B. Cai et al._ _High-speed Railway 3 (2025) 116–124_
+
+
+**Fig. 16.** (a) Error histogram in open area. (b) Error ellipse in open area.
+
+
+**Fig. 17.** (a) Error histogram in cutting. (b) Error ellipse in cutting.
+
+
+
+**Table 4**
+Error analysis for the 2 scenarios.
+
+Scenario Open area Cutting
+
+
+Mean easting error/m 0.49 1.12
+Standard deviation easting error/m 0.15 1.42
+Mean northing error/m 0.49 1.52
+Standard deviation easting error/m 0.24 1.37
+Mean horizontal error/m 0.75 2.03
+Standard horizontal deviation/m 0.12 1.09
+Error ellipse _E_ /m 0.27 2.37
+Error ellipse _F_ /m 0.66 4.26
+2 error ellipse (95 %)/m 0.84 3.38
+
+
+testing needs of a wide range of modern rolling stock, including the inner
+loop and the outer loop. The total length of the inner loop in this test is
+about 8.5 km, including a straight line and three curves of different cur­
+vatures, whose curve radii are 350, 600, and 1000 m, respectively.
+The environment scenarios being identified are cutting, tunnel,
+station, viaduct, etc. As shown in Fig. 12, the scenarios are identified
+via the proposed scenario identification method. The railway line di­
+gital track map is collected using GNSS receivers operating in RTK
+mode, the accurate map and the 3D model are the inputs for the zero
+on-site GNSS performance testing.
+
+
+_4.2. Zero on-site testing platform_
+
+
+The zero on-site testing platform integrates the train dynamics and
+environment generation module, signal generation module, test man­
+agement module, and evaluation module to form the zero on-site
+testing on GNSS for the Train Control platform, as shown in Fig. 13.
+
+
+
+The test management module controls the test process with the test
+case and test sequence for the simulator control; the train dynamics and
+environment generation module generates the train movement, and the
+train movement is converted from mileage to the WGS-84 latitude and
+longitude information using the digital track map; then the signal
+generation module generates the BDS/GPS signal together with the
+multipath signal, all the signals are generated into the device under test
+in the anechoic chamber; finally, the evaluation module performs the
+data management and using the evaluation algorithm to go through the
+evaluation and display the 3D ray-tracing process. The hardware of the
+platform is shown in Fig. 14.
+
+
+_4.3. Simulation results and data analysis_
+
+
+According to the simulation platform architecture, the train move­
+ment is defined using the high-speed railway CRH380AL. The train
+parameters are used to generate the train movement trajectory with the
+DTM and time information. Then the trajectory is converted to the
+WGS-84 coordinate for simulation (Fig. 15).
+Since the train is moving on the Test Base of China Academy of
+Railway Sciences (Circular Railway), the train can work continuously
+on the ring, which benefits for as long as requested tests. The open area
+and cutting (urban canyon) are investigated.
+For the open area environment, the test case was carried out in the
+environment 4 times. The horizontal error is shown in Fig. 16(a), and
+the error ellipse is shown in Fig. 16(b).
+In that, the maximum error is 0.97 m, the minimum error is 0.38 m,
+the mean error for open area is 0.75 m, with the standard deviation as
+0.12 m. The long axis and short axis are 0.66 and 0.27 m, with the 2
+error ellipse as 0.84 m.
+
+
+
+123
+
+
+_D. Lu, W. Qiao, B. Cai et al._ _High-speed Railway 3 (2025) 116–124_
+
+
+
+For the cutting environment, the test case was also carried out 4
+times. The horizontal error is shown in Fig. 17(a), and the error ellipse
+is shown in Fig. 17(b).
+In that, the maximum error is 9.58 m, the minimum error is 0.25 m,
+the mean error for cutting environment is 2.03 m, with the standard
+deviation as 1.09 m. The long axis and short axis are 4.26 m and 2.37 m,
+with the 2 error ellipse as 3.38 m.
+Table 4 illustrates both the error and standard deviation in the
+cutting environment are 3 times greater than those in the open area
+environment. This is due to obstructions in the cutting area that
+blockage, the multipath of the satellite signals, thereby reducing the
+number of satellites and bad geometries posed to the receiver.
+
+
+**5. Conclusion**
+
+
+This paper introduces a zero on-site testing platform on GNSS for
+train control towards digital railways, the platform utilizes the GNSS RF
+signal to be broadcasted through the multiplier of both GNSS signal and
+multipath signal, which enables the receiver to operate in an environ­
+ment where the signal reception is identical to the physical world. The
+proposed methods in this paper train dynamic modeling, 3D environ­
+ment modeling with digital track map, and the ray-tracing techniques.
+With the proposed method and the setup of the zero on-site platform,
+the tests on open area and cutting environment are tested, and the test
+results demonstrate the zero on-site ability of the platform.
+Further, repeatability and reproducibility need to be performed for
+the accreditation of the platform for the adoption of the certification
+process for the GNSS in railway applications. By reducing the cost and
+risks in field testing, zero on-site testing emerges as a highly advanta­
+geous method for future railway system validation and deployment.
+
+
+**CRediT authorship contribution statement**
+
+
+**Debiao Lu:** Writing – review & editing, Writing – original draft,
+Data curation, Conceptualization. **Wenzheng Qiao:** Writing – original
+draft, Formal analysis, Data curation. **Baigen Cai:** Resources, Project
+administration, Methodology, Funding acquisition. **Jian Wang:**
+Validation, Software, Resources. **Jiang Liu:** Resources, Investigation,
+Formal analysis. **Yuchen Zhao:** Data curation. **Chunjie Qiao:**
+Methodology, Investigation. **Dirk Spiegel:** Methodology.
+
+
+**Data availability**
+
+
+Data will be made available on request.
+
+
+
+**Declaration of competing interest**
+
+The authors declare that they have no known competing financial
+interests or personal relationships that could have appeared to influ­
+ence the work reported in this paper.
+
+
+**Acknowledgements**
+
+
+This research is supported by the National Natural Science
+Foundation of China (62027809, U2268206, T2222015, U2468202).
+
+
+**References**
+
+
+[1] European Union Agency for the Space Programme. EUSPA EO and GNSS Market
+Report, Luxembourg, Publications Office, 2024.
+
+[2] J. Poliak, J. Marais, F. Hänsel, et al., Methods and tools for the certification of
+GALILEO localisation for railway applications, 8th World Congress on Railway
+Research, Paris, 2008.
+
+[3] China Satellite Navigation Office, BeiDou Navigation Satellite System Open Service
+Performance Standard, Version 3.0, 2021.
+
+[4] United States Department of Defense, Global Positioning System (GPS) Standard
+Positioning Service (SPS) Performance Standard -, 5th Edition, 2020.
+
+[[5] D. Lu, E. Schnieder, Performance evaluation of GNSS for train localization, IEEE](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref1)
+[Trans. Intell. Transp. Syst. 16 (2) (2015) 1054–1059.](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref1)
+
+[[6] J. Beugin, J. Marais, Simulation-based evaluation of dependability and safety](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref2)
+[properties of satellite technologies for railway localization, Transp. Res. Part C:](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref2)
+[Emerg. Technol. 22 (2012) 42–57.](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref2)
+
+[[7] U. Becker, J. Poliak, A. Geistler, et al., DemoOrt repositions trains with satellite,](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref3)
+[EURAILmag Bus. Technol. 18 (2008) 216–219.](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref3)
+
+[[8] M. Ortiz, F. Peyret, V. Renaudin, et al., From Lab to Road Test Using a Reference](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref4)
+[Vehicle for Solving GNSS Localisation Challenges, Inside GNSS 5 (2013) 42–60.](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref4)
+
+[9] M. Berbineau, J. Moreno, S. Kharbech et al., Emulation of various radio access
+technologies for zero on site testing in the railway domain – The Emulradio4rail
+platforms, Proceedings of 8th Transport Research Arena, IEEE, Helsinki, 2020, pp.
+1–10.
+
+[10] J. Mendiyabal, J. Goya, G. D. Miguel, et al., Virtual testing of the on-board ETCS
+with GNSS based Train integrity determinationHardware-in-the-Loop Platform for
+Virtual Certification of Traction Systems for Railway, 2017 15th International
+Conference on ITS Telecommunications (ITST)，Warsaw, 2017, pp. 1–7.
+
+[[11] W. Shuai, X. Dong, J. Wang, et al., Research and Evaluation of GNSS for Train](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref5)
+[Positioning, J China Rail. Soc. 42 (6) (2020) 70–78.](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref5)
+
+[[12] K. Kbayer, M. Sahmoudi, Performances analysis of GNSS NLOS bias correction in](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref6)
+[urban environment using a three-dimensional city model and GNSS simulator, IEEE](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref6)
+[Trans. Aerosp. 54 (4) (2020) 1799–1814.](http://refhub.elsevier.com/S2949-8678(25)00025-X/sbref6)
+
+[13] M. L Nicolás, M. Jacob, M. Smyrnaios, et al., Basic concepts for the modeling and
+correction of GNSS multipath effects using ray tracing and software receivers, 2011
+IEEE-APS Topical Conference on Antennas and Propagation in Wireless
+Communications, IEEE, Turin, 2011.
+
+[14] R. Ercek, P. de Doncker, F. Grenez, NLOS-multipath effects on Pseudo-Range esti­
+
+mation in urban canyons for GNSS applications, 2006 First European Conference on
+Antennas and Propagation, IEEE, Nice, 2006, pp. 1–6.
+
+[15] M. L Nicolás, T. Kürner, M. Smyrnaios, et al., Ray tracing multipath modelling in
+GNSS with a single reflector, 2013 7th European Conference on Antennas and
+Propagation (EuCAP), IEEE, Gothenburg, 2013.
+
+
+
+124
+
+

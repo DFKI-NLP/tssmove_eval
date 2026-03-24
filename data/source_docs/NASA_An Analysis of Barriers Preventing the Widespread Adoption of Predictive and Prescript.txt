@@ -1,0 +1,1315 @@
+## NASA/TM–20230000841
+
+# **An Analysis of Barriers Preventing** **the Widespread Adoption of** **Predictive and Prescriptive** **Maintenance in Aviation**
+
+_Christopher Teubert_
+_National Aeronautics and Space Administration_
+
+
+_Ahmad Ali Pohya_
+_German Aerospace Center (DLR) Institute of Maintenance, Repair, and Overhaul_
+
+
+_George Gorospe_
+_National Aeronautics and Space Administration_
+
+## April 2023
+
+
+NASA STI Program . . . in Profile
+
+
+
+Since its founding, NASA has been dedicated to
+the advancement of aeronautics and space
+science. The NASA scientific and technical
+information (STI) program plays a key part in
+helping NASA maintain this important role.
+
+
+The NASA STI Program operates under the
+auspices of the Agency Chief Information Officer.
+It collects, organizes, provides for archiving, and
+disseminates NASA’s STI. The NASA STI
+Program provides access to the NASA
+Aeronautics and Space Database and its public
+interface, the NASA Technical Report Server,
+thus providing one of the largest collections of
+aeronautical and space science STI in the world.
+Results are published in both non-NASA
+channels and by NASA in the NASA STI Report
+Series, which includes the following report types:
+
+
+_•_ TECHNICAL PUBLICATION. Reports of
+completed research or a major significant
+phase of research that present the results of
+NASA programs and include extensive data or
+theoretical analysis. Includes compilations of
+significant scientific and technical data and
+information deemed to be of continuing
+reference value. NASA counterpart of
+peer-reviewed formal professional papers, but
+having less stringent limitations on manuscript
+length and extent of graphic presentations.
+
+
+_•_ TECHNICAL MEMORANDUM.
+Scientific and technical findings that are
+preliminary or of specialized interest, e.g.,
+quick release reports, working papers, and
+bibliographies that contain minimal
+annotation. Does not contain extensive
+analysis.
+
+
+_•_ CONTRACTOR REPORT. Scientific and
+technical findings by NASA-sponsored
+contractors and grantees.
+
+
+
+
+_•_ CONFERENCE PUBLICATION.
+Collected papers from scientific and technical
+conferences, symposia, seminars, or other
+meetings sponsored or co-sponsored by NASA.
+
+
+_•_ SPECIAL PUBLICATION. Scientific,
+technical, or historical information from
+NASA programs, projects, and missions, often
+concerned with subjects having substantial
+public interest.
+
+
+_•_ TECHNICAL TRANSLATION. Englishlanguage translations of foreign scientific and
+technical material pertinent to NASA’s
+mission.
+
+
+Specialized services also include creating custom
+thesauri, building customized databases, and
+organizing and publishing research results.
+
+
+For more information about the NASA STI
+Program, see the following:
+
+
+_•_ Access the NASA STI program home page at
+_http://www.sti.nasa.gov_
+
+
+_•_ E-mail your question to _help@sti.nasa.gov_
+
+
+_•_ Fax your question to the NASA STI
+Information Desk at 443-757-5803
+
+
+_•_ Phone the NASA STI Information Desk at
+443-757-5802
+
+
+_•_ Write to:
+STI Information Desk
+NASA Center for AeroSpace Information
+7115 Standard Drive
+Hanover, MD 21076–1320
+
+
+## NASA/TM–20230000841
+
+# **An Analysis of Barriers Preventing** **the Widespread Adoption of** **Predictive and Prescriptive** **Maintenance in Aviation**
+
+_Christopher Teubert_
+_National Aeronautics and Space Administration_
+
+
+_Ahmad Ali Pohya_
+_German Aerospace Center (DLR) Institute of Maintenance, Repair, and Overhaul_
+
+
+_George Gorospe_
+_National Aeronautics and Space Administration_
+
+
+National Aeronautics and
+Space Administration
+
+
+Ames Research Center
+Moffett Field, CA 94043
+
+## April 2023
+
+
+## Acknowledgments
+
+The authors would like to thank individuals who provided input to this study, including Kimon
+Abu-Taa (Rolls-Royce Deutschland Ltd& Co KG - Life Cycle Integration), Kai Goebel (VP,
+PARC), Darren Macer (Boeing Senior Technical Fellow, Predictive Maintenance and Health
+Management), Madhav Mishra (RISE Research Institutes of Sweden), Amy O’Dell (Director of
+Maintenance, United Airlines), David Piotrowski (Senior Principal Engineer, Delta Airlines), Kai
+Wicke (DLR Institute of Design, Maintenance, and Overhaul), Ravi Rajamani (President,
+Independent Data Consortium for Aviation (IDCA) and DrR2 Consulting), Mark Roboff (CEO,
+SkyThread), Wes Ryan (NASA and Former Federal Aviation Administration (FAA)), Abhinav
+Saxena (GE Aerospace Research), Brian Tucker (Senior Manager, IVHM, Bell), and those who
+participated in the discussions at the PHM conference. We would also like to thank those who
+contributed their input but preferred not to be named in this document.
+Also, thank you to the Transformative Tools and Technologies (TTT) project, which supported
+this study.
+Finally, we would like to thank the members of the NASA Intelligent System Division’s
+Diagnostics and Prognostics (DnP) group, Discovery and System Health (DaSH) tech area, and
+the Prognostics Center of Excellence (PCoE) for their support and input.
+
+
+The use of trademarks or names of manufacturers in this report is for accurate reporting and does not
+constitute an offical endorsement, either expressed or implied, of such products or manufacturers by the
+National Aeronautics and Space Administration.
+
+
+Available from:
+
+
+NASA Center for AeroSpace Information National Technical Information Service
+7115 Standard Drive 5301 Shawnee Road
+Hanover, MD 21076-1320 Alexandria, VA 22312
+
+
+Available electronically at http://www.sti.nasa.gov
+
+
+## **An Analysis of Barriers Preventing the Widespread Adoption of** **Predictive and Prescriptive Maintenance in Aviation**
+
+Christopher Teubert and George Gorospe
+National Aeronautics and Space Administration
+
+
+Ahmad Ali Pohya
+German Aerospace Center (DLR) Institute of Maintenance, Repair, and Overhaul
+
+## **Summary**
+
+
+The aviation industry has long recognized the potential benefits of predictive maintenance, a
+maintenance strategy that leverages sensor and operational data to predict the future degradation
+of components. Prescriptive maintenance takes this a step further and considers the entire
+aviation ecosystem to schedule maintenance actions optimally. With the ability to reduce
+maintenance costs by up to 30%, as reported by the Department of Energy, these maintenance
+strategies have been identified to be an important investment to reduce a airline costs. However,
+despite great interest and technological advances in areas such as diagnostics, prognostics,
+sensing, computation, and machine learning, the adoption of predictive and prescriptive
+maintenance has not been widely applied in aviation.
+To shed light on this issue, we conducted an analysis of the barriers preventing or limiting the
+adoption of predictive and prescriptive maintenance in aviation. Through discussions with subject
+matter experts across industry, academia, standards bodies, and government, we identified five
+key challenges: complexity of prediction; validation, safety assurance, and regulatory challenges;
+cost of adoption; difficulty in quantifying impact and informing decisions; and data availability,
+quality, and ownership challenges. This study provides a detailed overview of these barriers and
+areas where stakeholders could invest to overcome them, aiming to support the scaled adoption of
+predictive and prescriptive maintenance in aviation.
+
+
+## **Abbreviations**
+
+**AHM** Aircraft Health Management
+**CAA** Civilian Aviation Authority
+**CBM** Condition Based Maintenance
+**CBM+** Condition Based Maintenance Plus
+**DoE** Department of Energy
+**FAA** Federal Aviation Administration
+**HUMS** Health and Usage Monitoring System
+**IMRBPB** International Maintenance Review Board Policy Board
+**OEM** Original Equipment Manufacturer
+**MEL** Minimum Equipment List
+**MRB** Maintenance Review Board
+**MRBR** Maintenance Review Board Report
+**MRO** Maintenance, Repair, and Overhaul
+**MPIG** Maintenance Programs Industry Group
+**PdM** Predictive Maintenance
+**PHM** Prognostics and Health Management
+**PIML** Physics Informed Machine Learning
+**RCM** Reliability-Centered Maintenance
+**SME** Subject Matter Experts
+
+## **1 Background**
+
+
+**1.1** **Maintenance Strategies**
+
+
+
+At a high level, airlines and operators craft maintenance policies to minimize costs while ensuring a required level of safety.
+A spectrum of different maintenance policies can be applied
+to achieve these goals. An operator’s maintenance policy frequently consists of some combination of strategies according to
+data availability, failure risk, and consequence of failure.
+Maintenance policies generally fall into two overarching categories: corrective and preventative (Ref. 1). For **corrective**
+**maintenance** (also called reactive maintenance), a failure triggers maintenance. This is common for non-safety critical systems
+where the consequence of failure is low (e.g., a coffee machine).
+This is occasionally referred to as run to failure. Alternatively,
+**preventative maintenance** strategies are designed to schedule
+maintenance before a failure occurs.
+Preventative maintenance strategies are further divided into
+two categories: rule-based and indicator-based. In **rule-based**
+**maintenance**, pre-defined rules trigger maintenance based on
+
+
+
+**Figure 1.—** Hierarchy of Maintenance Strategies
+
+
+time, usage, or risk. Generally, these rules are defined using a reliability analysis, called ReliabilityCentered Maintenance (RCM), where a distribution of failure times is determined experimentally
+as a function of time, usage, or risk. A distribution percentile is selected based on the program’s
+risk tolerance. For example, choosing the first percentile indicates a willingness to accept a 1%
+risk of failure. Maintenance will then be performed on the selected fixed interval. Most modern
+maintenance programs can be categorized as some form of RCM (Ref. 2).
+Rule-based approaches naturally result in unnecessary maintenance. The amount of unnecessary
+maintenance is dependent on the operator’s risk tolerance. A lower accepted risk of failure results
+in lower costs from line (i.e., gate) maintenance and associated downtime at the cost of greater
+unnecessary base (i.e., in-hangar) maintenance costs.
+To illustrate, consider a simplified example from (Ref. 3): In a reliability study, an example
+centrifugal pump failed at the frequencies depicted in Figure 2.
+
+A user scheduling maintenance that accepts a 1%
+
+in increased maintenance costs.
+
+|Col1|Col2|Col3|Col4|Col5|Col6|Col7|Col8|
+|---|---|---|---|---|---|---|---|
+|failure rate<br> <br>    ual wear<br>    and envi-<br>    r 99% of<br>   resulting<br>** ce** strate-<br>||||||||
+|failure rate<br> <br>    ual wear<br>    and envi-<br>    r 99% of<br>   resulting<br>** ce** strate-<br>||||||||
+|failure rate<br> <br>    ual wear<br>    and envi-<br>    r 99% of<br>   resulting<br>** ce** strate-<br>||||||||
+|failure rate<br> <br>    ual wear<br>    and envi-<br>    r 99% of<br>   resulting<br>** ce** strate-<br>||||||||
+|failure rate<br> <br>    ual wear<br>    and envi-<br>    r 99% of<br>   resulting<br>** ce** strate-<br>||||||||
+|failure rate<br> <br>    ual wear<br>    and envi-<br>    r 99% of<br>   resulting<br>** ce** strate-<br>||||||||
+
+
+
+ipate its maintenance needs. Indicator-based strategies 17 18 19
+can either be **Condition Based Maintenance (CBM)** time between failures (in months)
+or **Predictive Maintenance (PdM)** . CBM is triggered
+by some measurement, inspection, or estimate of the sys- **Figure** **2.—** Example Centrifugal
+tem state. PdM strategies combine measurement or es- Pump Failure Frequency
+timation of system state produced from operational data
+with a model of degradation and future loading estimate to predict how a system will degrade with
+time (Ref. 3–5). This prediction is then used to improve maintenance scheduling. **Prescriptive**
+**Maintenance** takes this one step further by using the prediction to suggest optimized maintenance
+actions considering the entire ecosystem of aviation.
+PdM relies on an assessment of a component’s state and health as well as a prediction of how
+these will evolve with time. A component’s state and health are estimated using state estimation diagnostics or fault detection algorithms and models. Fault detection determines if there is
+anomalous behavior present in a system, while diagnostics isolates the specific cause of the fault
+and estimates its severity. Prognostics algorithms and models produce a prediction of how the
+system’s state and health evolve with time and when the system will eventually fail, with uncertainty. Diagnostic and prognostics models can be physics-based, data-driven, knowledge-based, or
+some combination of these. PdM algorithms leverage this information to schedule maintenance and
+inspection activities, illustrated in Figure 3.
+PdM is not appropriate for all systems. Some systems either have failure modes that cannot
+be predicted effectively or where the frequency or consequence of failure are low enough that a
+CBM or rule-based approach is adequate. But for systems where PdM is appropriate, there is a
+significant potential for impact. The Department of Energy (DoE) estimated that a well-designed
+PdM program can reduce maintenance costs by 30% (Ref. 6). Maintenance costs currently account
+
+
+
+17 18 19
+time between failures (in months)
+
+
+
+**Figure** **2.—** Example Centrifugal
+Pump Failure Frequency
+
+
+**Figure 3.—** Architecture of PdM and Prognostics and Health Management (PHM)
+
+
+for around 13% of total airline operation costs (Ref. 7). Independent aviation consulting firm ICF
+estimates that savings to airlines from aircraft health management and predictive maintenance
+could be as much as $3 Billion (Ref. 8). Most manufacturing companies expect PdM will increase
+their assets uptime (Ref. 9). The US Congress identified that ”If performed effectively, predictive
+maintenance can reduce. . . system downtime, ensure adequate supply of needed parts, and decrease
+costs.” (Ref. 10) Army and Navy officials have identified predictive maintenance technologies as
+possibly preventing accidents on aircraft such as the AH-64 Apache and the F/A-18 Super Hornet
+and in trucking, preventative maintenance has reduced breakdowns by 20% and maintenance costs
+by $2-12.5k per truck per year (Ref. 11).
+
+
+**1.2** **Maintenance Programs**
+The maintenance program for an aircraft type is a typically developed via the Maintenance
+Review Board (MRB) process, using the MSG methodology from the Maintenance Programs Industry Group (MPIG). MSG is a methodology used to determine cost-effective maintenance tasks
+and intervals for commercial aircraft (Ref. 12). This MRB process is based on the analysis of aircraft fleet data and feedback from operators’ experience, maintenance providers and manufacturers.
+However, it does not currently incorporate the benefits of PdM.
+The process starts with the collection and analysis of aircraft fleet data, including flight hours,
+cycles, and maintenance events. This data is used to identify patterns and trends in aircraft
+performance and maintenance requirements. Next, the team, which is composed of representatives
+from the aircraft manufacturer, airlines, and maintenance providers, review and evaluate the data
+in combination with a failure mode and effect analysis to develop maintenance tasks and intervals
+that are most cost-effective for the specific aircraft type.
+The MRB process is a collaborative effort between the industry and the regulatory authorities
+(e.g., FAA), with the goal of providing safe, reliable, and efficient maintenance programs. The MRB
+results in the development of a Maintenance Review Board Report (MRBR) which is then reviewed
+by the regulatory authorities and becomes the basis for the Minimum Equipment List (MEL) and
+the maintenance program of the aircraft type.
+The International Maintenance Review Board Policy Board (IMRBPB) is a group consisting of
+representatives from 10 global National Airworthiness Authorities (including FAA Flight Standards
+in the US) and the MPIG. They ensure that maintenance guidance is applied uniformly across the
+world, reconciling differences between nations airworthiness authorities.
+
+
+**1.3** **Current State of Adoption**
+PdM strategies have been investigated for years and have recently seen some success in nonaviation fields such as wind turbines or the oil and gas industry. Compared to aviation, these
+applications operate in a more repeatable, understood, and controlled environment.
+Several efforts are working to unlock the potential of PdM, including Airbus Skywise, Boeing
+Analytx, Collins Ascentia, Embraer Ikon, GE Predix, Honeywell Forge, KLM Prognos, Lufthansa
+AVIATAR, and Rolls-Royce Intelligent Engine. Furthermore, there has been limited success in the
+Helicopter Health and Usage Monitoring System (HUMS) (Ref. 13, 14) and military Condition
+Based Maintenance Plus (CBM+) communities (Ref. 11). Despite this, with a few exceptions,
+current aircraft maintenance strategies are primarily some combination of corrective and rule-based
+with a few CBM applications.
+One notable exception is jet engine maintenance. A significant amount of research has been put
+into PdM strategies for engines by General Electric (Ref. 15–17)[Abhinav Saxena, GE Aerospace
+Research, 2022][Kimon Abu-Taa, Rolls-Royce Germany, 2023] and others. Unlike manufacturers
+of many other aircraft systems, the Original Equipment Manufacturer (OEM) for engines typically
+is responsible for maintenance at a fixed price (per flight hour) [Ravi Rajamani, IDCA President].
+This creates an economic incentive to develop and adopt PdM technologies to minimize maintenance
+costs.
+Some claim to be utilizing PdM. With a few exceptions, most of these PdM approaches are
+rudimentary PdM approaches such as trending. In some cases, there is a mislabeling of CBM
+techniques. Price Waterhouse Cooper found that “companies plans and ambitions regarding PdM
+have not yet resulted in a noticeable increase in its use among companies” (Ref. 9)
+In 2022, the FAA issued guidance on how to develop an Integrated Aircraft Health Management
+(AHM) System (Ref. 18). This follows earlier guidance from the IMRBPB (Ref. 19). This action
+has encouraged airlines to put more effort into developing and exploring the adoption of PdM and
+other AHM technologies (Ref. 20).
+Stakeholders in NASA, industry, and academia have been dissatisfied with the scale of adoption
+of PdM strategies. There is universal recognition of the advantages of PdM, but it true potential
+has yet to be unlocked.
+
+## **2 Approach**
+
+
+In order to better understand why PdM has not been adopted en masse, we collected and
+examined data from aviation industry experts on the barriers they faced in adopting predictive
+maintenance strategies. The goal was to understand the barriers preventing scale adoptions, and
+the most impactful work that academia, industry, and research organizations such as NASA could
+do to address those barriers.
+Data collection was conducted via a literature survey and discussions with 24 Subject Matter
+Experts (SME)’s from academia, industry, and government, as well as ad-hoc discussions at the
+PHM Society and other industry conferences.
+In an attempt to attain comprehensive data, we tried to cover the majority of stakeholders:
+
+
+  - Operators (e.g., Airlines)
+
+
+  - Regulatory Organizations (e.g., FAA)
+
+
+  - Standard Bodies (e.g., SAE, IEEE)
+
+
+  - Aircraft Manufacturers (e.g., Boeing)
+
+
+ - OEMs (e.g., GE)
+
+
+  - Independent Maintenance, Repair, and Overhaul (MRO) Organizations (e.g., Rolls-Royce
+Germany)
+
+
+  - Professional Societies (e.g., PHM Society, IEEE)
+
+
+  - Research Institutions (e.g., Universities)
+
+
+Note that in this document input from these discussions are referenced using the following
+format: [Name, Affiliation, Year]. Some contributors preferred not to be indicated by name, in
+which case it is replaced with position. Others preferred not to have their affiliation revealed, in
+which case they referred to using their industry category (e.g., Airline or OEM).
+The key barriers are summarized in the following sections. For each barrier some potential
+investments are identified. These investments are areas where industry, academia, or government
+should invest resources (time, people, money) to resolve the barrier. Note that this list is not
+exhaustive, and NASA is not always the appropriate organization to contribute to the resolution
+of every barrier.
+It should be noted that the barriers are interconnected, as Figure 5 shows, indicating the
+general complexity that the widespread adoption of PdM is facing. The italic annotations between
+the barriers are just one out of many mentionable connections. Further details and cross-references
+can be found in the respective sections.
+
+
+**Complexity of Prediction**
+
+
+
+
+
+
+
+
+
+**Validation, Safety**
+**Assurance, and**
+**Regulatory Challenges**
+
+
+
+
+
+
+
+**Data Availability,**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_investment decision_
+
+
+
+**Figure 4.—** Key Barriers Limiting the Full-Scale Adoption of PdM
+
+
+## **3 Barrier 1: Complexity of Prediction**
+
+An overarching theme that we encountered was that prognostics of operational aircraft systems
+is a difficult problem (Ref. 21). Furthermore, aircraft are complex and that aircraft components
+are affected by the performance and states of other systems in difficult-to-model ways. Aircraft
+are operated in various conditions and environments and degradation is highly dependent on the
+operational environment and operational history [Mark Roboff, SkyThread CEO, 2023][Darren
+Macer, Boeing, 2023]. Often times, a prognostics model will perform well in a controlled lab
+environment but poorly in operation [Kai Goebel, PARC, 2022].
+An SME from an airline indicated they are “unable to truly simulate degradation in operation”
+due to this complexity [Airline SME, 2022]. Okeoma Moronu, Aviation and Regulatory Lead at
+Zipline, explains how “It’s one thing to create a product that works the way it’s supposed to every
+time. It’s another thing to create an operation that works the way it’s supposed to every time.” (Ref.
+22) Much of the technical barrier in adopting predictive maintenance strategies is the ability to
+produce quality predictions that can account for the myriad operational complexities.
+
+
+**3.1** **Challenges**
+The widespread adoption of PdM in commercial aviation faces several significant challenges
+in the domain of complexity. This section explores these challenges, categorized into (a) System
+Complexity, (b) Modeling and Implementation, and (c) Contractual, Logistical, and Process Complexity.
+
+
+**3.1.1** **System Complexity**
+
+
+Commercial aviation is a highly complex field where numerous systems interact, and understanding their behavior is essential for accurately predicting degradation, required for PdM. In this
+context, the inherent complexity of these systems include:
+
+
+1. **Inter-System Interactions** Diagnostics and prognostics are frequently thought of as applying to an individual component (e.g., valve or bearing). However, aircraft are a complex
+interconnection of many systems that work together to allow the aircraft to operate safely.
+Frequently, a system’s state and faults depend on these complex inter-system interactions [Kai
+Goebel, PARC, 2022] (Ref. 23). A SME from a commercial aircraft engine manufacturer said
+(translated from German) “Despite (partial) access to data, modeling the entire lifecycle of
+engines and their components is a difficult endeavor. Especially degradation behaviors and
+the interaction of (partially) degraded components in a system of systems poses a challenge”
+
+[Kimon Abu-Taa, Rolls-Royce Deutschland, 2023].
+
+
+2. **Operational Environment Complexity** Aircraft operate in complex operational environments. The loads on systems depend on the atmospheric conditions (turbulence, temperature,
+precipitation, etc.) and how the aircraft is controlled. These conditions are difficult to predict, and can vary greatly, introducing uncertainty into prediction. [Mark Roboff, SkyThread,
+2023]
+
+
+3. **Behavior Variation with Replacement and Repair** Over the lifetime of an aircraft,
+individual components will be replaced and repaired many times. There are slight variations
+in the behavior and performance after maintenance and replacement (e.g., natural variation
+
+
+between systems or imperfect maintenance due to human factors). This variation adds additional uncertainty into state estimation and prediction [Mark Roboff, SkyThread, 2023] (Ref.
+23).
+
+
+**3.1.2** **Modeling and Implementation**
+
+
+Engineers and maintenance professionals face a range of modeling and implementation challenges when attempting to develop, deploy, and operationalize PdM solutions that can meet the
+needs of complex and dynamic aircraft systems. These include:
+
+
+1. **Noise and Uncertainty** Any prediction or state estimate used to inform PdM is uncertain.
+Uncertainty can come from a variety of sources, including sensor noise, model uncertainty,
+model parameter uncertainty, approximations made by an algorithm (e.g., discretization in
+simulation or distribution representation), uncertainty in future loading, etc. These complicated uncertainty sources combine to create an uncertain state estimate and prediction. It
+is very challenging to estimate the uncertainty and to use an uncertain estimate or prediction effectively in a PdM strategy (Ref. 24). Effective prognostics must be able to quantify,
+propagate, and effectively handle this uncertainty.
+
+
+2. **Computational Complexity** Prognostics of a complex system can be very computationally expensive (Ref. 25, 26). Frequently, prognostics utilize a sample-based Monte Carlo
+approach to predict a distribution of possible states forward. Performing an accurate prediction of future states within the risk tolerances required for aviation can require many samples,
+sometimes measured in the hundreds of thousands or higher. When this is repeated for many
+inter-connected systems, the result is large computational loads, which are frequently untenable. This is especially true for users that wish to use prognostics in decision-making, which
+often requires repeated predictions with different future loading profiles, frequently in the
+inner optimization loop. This is not possible for many current prognostic approaches.
+
+
+**3.1.3** **Contractual, Logistical, and Process Complexity**
+
+
+Commercial aviation is a well-established field which relies on a complex system of logistics,
+processes, and contracts. As these systems pre-date PdM, PdM’s incorporation into them is a
+challenging endeavor. For example, the contractual framework between airlines and maintenance
+service providers can be highly individual and an introduction of PdM can increase that complexity,
+especially considering service level agreements and warranties. Furthermore, it is challenging to
+ensure the necessary logistics, including the availability of maintenance crews, spare parts and
+required tools, especially in remote airports. Any changes from the long-established processes
+between various stakeholders will be difficult. This is a barrier that complicates and delays the
+adoption of PdM.
+
+
+**3.2** **Investments Needed**
+To overcome these challenges, significant investments are needed. This section discusses some
+potential areas, organized into (a) Development and Improvement of Tools for System Modeling,
+(b) Development and Improvement of Tools for Prediction, and (c) Other Fields of Investments.
+
+
+**3.2.1** **Development and Improvement of Tools for System Modeling**
+
+
+The following investment areas focus on overcoming the challenge of modeling complex aviation
+systems.
+
+
+1. **Tools and Approaches for Modeling Complex Systems** Modeling aviation systems
+is challenging, and once an individual system’s complexity is understood, their interactions
+with other systems need to be modeled [Abhinav Saxena, GE Aerospace Research, 2022].
+There is a real need for a set of tools to support and enable the modeling of complex systems.
+Ideally, this is done in a collaborative, open-source manner, resulting in a shared set of tools
+for modeling components, systems, and system-of-systems (e.g., ProgPy (Ref. 27). These
+tools must be able to accurately and efficiently representing complex component behavior,
+including system-of-systems interactions and noise.
+
+
+2. **Approaches for Handling Variation in Operational Behavior** There needs to be methods and best practices for transferring models that are developed in a laboratory environment
+to be used in operation [Brian Tucker, Bell, 2022]. Furthermore, the variation of the operational behavior after repair and replacement needs to be addressed with appropriate methods.
+These include:
+
+
+(a) **Online transfer learning or meta learning:** These technologies can “transfer” or
+“adapt” general models to describe the behavior of a specific system after maintenance
+or replacement, improving the model’s ability to predict degradation accurately. [Mark
+Roboff, SkyThread, 2023]
+
+
+(b) **Online parameter estimation for physics-based and hybrid models:** Parameterized physics-based models use parameters to configure the model to match the component’s behavior. Often, parameters for a specific component type (e.g., Valve with
+model number ABC123) are estimated experimentally. This generalizes away variation in behavior between specific systems and after maintenance. Online parameter
+estimation updates those parameters post-maintenance or repair, in operation, without
+experimental parameter estimation, improving the model’s ability to predict degradation
+accurately.
+
+
+3. **New Modeling Approaches** There is a need for continuous development of new modeling
+approaches such as the hybrid and Physics Informed Machine Learning (PIML). These combine physics-based and data-driven modeling approaches. Leveraging the strengths of both,
+hybrid and PIML approaches can provide more accurate and robust predictions (Ref. 28, 29).
+
+
+4. **Algorithms Approaches for Reducing Computational Complexity in Models** Highfidelity prognostic models are needed for some applications. However, they are sometimes prohibitively computationally expensive or contain unnecessarily details for the application. In
+computationally constrained environments or scenarios that require repeated execution (e.g.,
+optimization), it may be impossible to use high-fidelity models. In these cases, multi-fidelity
+and surrogate modeling techniques and tools could help. Surrogate modeling techniques will
+generate a surrogate or replacement that approximates the behavior of the original model
+at a fraction of the runtime, often with a more limited scope specific to the systems current
+conditions and expected operational environment. Generally, surrogacy is a tradeoff between
+
+
+accuracy and runtime. There is a need for new techniques and technologies for model surrogacy, especially with configurable runtime and accuracy, including publishing guidance on
+when/how to use it, developing and publishing new approaches, and building and releasing
+surrogate tools (e.g., in ProgPy).
+
+
+**3.2.2** **Development and Improvement of Tools for Prediction**
+
+
+There is a need for developing and improving tools for the prediction of future states and dealing
+with uncertainty, including:
+
+
+1. **Strategies for Improved Prediction of Future Conditions** Environmental conditions
+impact on how the system degrades. Better predictions of future conditions (both environmental and operational) that the aircraft and its systems will encounter improve prediction
+accuracy and reduce uncertainty.
+
+
+2. **Tools for Prognostic Uncertainty Management** This includes tools for quantifying and
+propagating, and analyzing uncertainty in prediction and state estimation. All uncertainty
+sources (e.g., sensors, models, discretization, etc.) should be considered. For an efficient allocation of uncertainty quantification and reduction efforts, global sensitivity analyses should
+be readily available in these tools.
+
+
+3. **Tools for Reducing Computational Complexity in Prediction** In computationally
+constrained environments or scenarios that require repeated execution (e.g., optimization), it
+may be impossible to use current predictive approaches. Research is needed into improved
+prediction algorithms for computationally constrained environments. Additionally, research
+is needed into effectively leveraging alternative computational architectures like neuromorphic
+computing, tensor processing units, or even emerging quantum computing technologies.
+
+
+**3.2.3** **Other Fields of Investments**
+
+
+This last set of suggestions lists points that are less computationally driven, but rather focus
+on collaboration and soft-skills.
+
+
+1. **Interdisciplinary Collaboration** Predictive maintenance requires expertise from a range
+of disciplines, including engineering, data science, and maintenance professionals. Interdisciplinary collaboration between these groups could help overcome the complexity of commercial
+aviation systems and develop effective predictive maintenance solutions, taking into account
+different resources and mutual influences.
+
+
+2. **Update Logistics, Contracting Mechanisms, and Processes** update logistics, contracting mechanisms, and processes to take advantage of prognostics/PdM information. These
+include contracts, logistics, and processes for spare part maintenance, MRO contracts, information sharing (see Barrier 5), etc.
+
+
+3. **Focus on Usability** It is essential that prognostic information can be used effectively by
+human or automated decision makers. Additionally, providing user feedback during use can
+help with identifying potential problems and improving the overall user experience.
+
+
+4. **Specific Training and Education Efforts** These efforts should focus on enhancing the
+understanding of engineers and scientists regarding aviation systems, PdM, and other supporting technologies, including advanced modeling approaches and modern software tools.
+The training should also include hands-on experience in using these tools, applying appropriate modeling techniques to various aviation system domains, and interpreting the results.
+Furthermore, collaboration between academia and industry could be established to offer relevant training courses and internships to bridge the gap between theoretical knowledge and
+practical application. Additionally, publicly released supporting tools such as software, examples, and labeled datasets (see Barrier 5) can help the research and education community
+significantly.
+
+## **4 Barrier 2: Validation, Safety Assurance, and Regulatory Chal-** **lenges**
+
+
+Adopters of PdM technologies and regulatory agencies (e.g., FAA and other Civilian Aviation
+Authority (CAA)’s) are dedicated to maintaining aviation safety and reliability. Towards that
+goal, any new technology or approach, such as PdM, must be demonstrated to maintain or improve
+aviation safety levels. In the case of PdM, this typically means demonstrating that a combination
+of a PdM strategy and supporting prognostic technologies does not increase the likelihood of failure
+and still meet regulators requirements and acceptable means of compliance - an issue that has not
+yet been solved [Kai Goebel, PARC, 2022][Kai Wicke, DLR, 2022][Brian Tucker, Bell, 2022][Madhav
+Mishra, RISE, 2023] (Ref. 30). This is especially true for data-driven or hybrid (e.g., PIML)
+prognostics models.
+
+
+**4.1** **Challenges**
+The challenges in this barrier can be summarized as follows.
+
+
+1. **Shortage of Standards and Regulations** The absence of industry-wide standard methods, guidelines, and regulations for the development, testing, and deployment of predictive
+maintenance technologies and strategies is a significant challenge. The lack thereof can lead
+to inconsistent validation approaches, different interpretations of requirements, and varying
+levels of rigor in safety assessment, which ultimately leads to regulatory agencies such as
+the FAA being hesitant to approve of predictive maintenance strategies. Establishing such
+standards and certification procedures, in some cases, requires updating FAA regulations or
+the management via Certification Review and Action Items. Doing this will require demonstrating to FAA that PdM policies and supporting technologies are safe [Abhinav Saxena, GE
+Aerospace Research, 2022] [Kai Goebel, PARC, 2022] [Kai Wicke, DLR, 2022]. **The route**
+**to widespread PdM approval by the FAA and other regulators is not fully clear**,
+but there have been significant recent work in this area by regulatory authorities, both in
+rotorcraft and fixed-wing aircraft. Nonetheless, it is expected to be a lengthy and difficult
+process due to the high safety requirements in aviation.
+
+
+2. **Ensuring the Reliability and Accuracy of PdM Algorithms** It is important to ensure
+that the algorithms used to make predictions and decisions are reliable and accurate to avoid
+safety hazards or unnecessary maintenance actions. This requires a thorough evaluation
+
+
+and validation process to ensure that the algorithms are reliable and accurate under a wide
+range of operating conditions. The evaluation should consider factors such as the quality
+and quantity of the data used to train the algorithm, the suitability of the algorithm to the
+system and operating conditions, and the ability of the algorithm to handle uncertainty and
+variability. The evaluation should also consider the impact of any changes to the algorithm
+or system, such as the introduction of new components or changes in operating conditions, on
+the reliability and accuracy of the algorithms. Validation of AI/ML based PdM algorithms
+is especially challenging.
+
+
+3. **Ensuring Properly Calibrated Trust in PdM Algorithms** Closely related to the reliability and accuracy is trust. Trust is the confidence that human decision makers (e.g.,
+maintainers) have in a technology. Even if a PdM technology is accurate, if it’s not trusted,
+then the results are going to be ignored and it will not have an impact (Ref. 31). Conversely, trusting a PdM approach beyond it’s capabilities can result in unexpected failures
+and increased downtime.
+
+
+4. **Training and Education** Implementing PdM systems is challenging and requires special
+skills. It is important that engineers working on these systems have the right skills to create
+and validate robust and accurate PdM technologies.
+
+
+5. **Limited Data Quality** The quality of data used to train predictive maintenance models can
+be limited (see Barrier 5). This can result in models that are inaccurate or unreliable. Poor
+data quality can be caused by a variety of factors, such as faulty sensors, incomplete data
+sets, and inconsistent data formats. Regulatory agencies may require extensive and costly
+testing and validation to ensure that models trained on such data are safe and effective.
+
+
+**4.2** **Investments Needed**
+The development and widespread adoption of PdM require significant investments in technology,
+infrastructure, and personnel. Some of the investments needed include:
+
+
+1. **Develop and Mature PdM Validation Standards, Procedures, and Guides** This
+can help to ensure comparable quality assurance of PdM systems, algorithms, and models.
+This should be done in collaboration with standard committees such as the SAE HM-1 and
+IEEE P1856.1, and other stakeholders. Special attention is required into validation of PdM
+algorithms relying on machine learning [Madhav Misra, RISE, 2023]. In addition, prognostic
+model cards (borrowed from the AI/ML community) could be used to communicate the
+capabilities, requirements, and limitations of a model. Standardizing these is essential to
+enabling the responsible sharing and use of models in PdM. [Rodney Martin, NASA, 2022]
+
+
+2. **Update Infrastructure and Mature Infrastructure Certification Processes** PdM
+requires a robust and secure technology infrastructure, including hardware, software, and
+networks. This infrastructure must be scalable, reliable, and capable of supporting a large
+number of devices and sensors. The underlying data management infrastructure could, depending on the implementation, require high-performance computing resources, large-scale
+data storage and processing, and advanced analytic tools. Due to the high safety standards
+of regulatory authorities, this infrastructure will have to be tested rigorously in order to be
+certified.
+
+
+3. **Develop Supporting Technologies** Investing in the development of technologies supporting the evaluation of PdM technology quality will help support validation and assurance. This
+may include visual representations of prediction quality, interpretable metrics, automatic validation tools, data quality analysis tools, and other aspects. These tools could be provided
+open-source in a common industry tool such as ProgPy, or offered by an independent organization providing certification and/or validation services. Additionally, new technologies such
+as explainable prognostics could help address the lack of interpretability of some machine
+learning models.
+
+## **5 Barrier 3: Cost of Adoption**
+
+
+Designing and implementing any predictive technology is a costly and time-consuming endeavor.
+A strong, well-validated, and comprehensive degradation model can often take years of work. Occasionally, the expense of creating these technologies is deemed prohibitively expensive [Madhav
+Misra, RISE, 2023].
+
+
+**5.1** **Challenges**
+These costs challenges can be categorized into (a) Implementation and (b) Operational Costs.
+
+
+**5.1.1** **Implementation Costs**
+
+
+The implementation costs tend to be non-recurring in nature but can make up a large portion
+of the cost of adoption. They include:
+
+
+1. **Initial Investment** Predictive maintenance technologies require significant initial investments in research and development, manufacturing, procurement, and implementation. These
+costs include the development and validation of models and algorithms, the design and production of sensors and data collection systems, as well as the installation and integration
+of PdM systems into existing infrastructure. It is not unusual for the process of building a
+robust and complete prognostic component to take years of work by experts with specialized
+and rare expertise for a single component. Finally, legacy hardware and software increase the
+difficulty and cost of deploying PdM [Madhav Misra, RISE, 2023].
+
+
+2. **Cost of Data Collection and Quality Control** PdM systems rely on large amounts of
+high-quality data to function properly (see Barrier 5). Collecting, processing, and ensuring the
+quality of data can be a costly and time-consuming process. This includes the cost of sensor
+installation, calibration, and maintenance, as well as the cost of labor for data collection and
+quality control. Data transfer and storage can also be quite costly, depending on the specific
+solution (e.g., using cloud services).
+
+
+**5.1.2** **Operational Costs**
+
+
+The costs for the operation of PdM include:
+
+
+1. **Labor Costs** PdM systems require skilled personnel for operation, maintenance, and analysis. These personnel may need to be trained in the use of new technologies, which can be
+time-consuming and expensive [Wes Ryan, Former FAA, 2023][Madhav Misra, RISE, 2023].
+
+
+2. **Integration with Existing Systems** Integrating PdM systems with existing infrastructure
+(see Section 3.1.3) and legacy systems can be a complex and costly process. This includes
+the cost of upgrading or replacing existing hardware and software, as well as the cost of
+integrating new systems with legacy systems.
+
+
+3. **Validation and Certification** PdM systems must be validated and certified to ensure their
+reliability and accuracy. This process can be expensive and time-consuming, requiring extensive testing and validation to meet regulatory requirements (see Barrier 2).
+
+
+4. **Cost of Downtime** Downtime in industrial settings can be extremely costly, and predictive
+maintenance systems must be able to minimize downtime by accurately predicting when
+maintenance is required. If a predictive maintenance system is not accurate or reliable, it can
+result in increased downtime and associated costs.
+
+
+**5.2** **Investments Needed**
+The suggested investments are multifold and address all stakeholders, including research and
+academia. They are listed below.
+
+
+1. **Industry-level Collaboration and Discussions** For PdM to be successful, industry stakeholders must discuss and work collectively to develop standards, technologies, and approaches
+to address the challenges. [Amy O’Dell, United, 2023]
+
+
+2. **Build and Maintain Foundational Software Packages** Many disciplines have foundational software packages that support research and development in these areas. Examples
+include TensorFlow or PyTorch in Machine Learning, Pandas in Data Science, or OpenMDAO
+in design optimization. These packages implement their discipline’s common elements in an
+efficient, robust manner and include tools to help developers and researchers. They lift the
+entire discipline by reducing the effort required to perform research or build a functional
+solution. They also improve the quality of solutions by providing robust tools that have
+been thoroughly validated by a large user base. Finally, they enable the sharing of solutions,
+since solutions are built to common interfaces and patterns. The wider community should
+collaborate in building a robust set of tools (e.g., NASA’s ProgPy (Ref. 27)) and software
+frameworks to support PdM.
+
+
+3. **Develop and Mature Digital Thread Approaches and Technologies** Develop tools
+for reusing information from the design of a system (e.g., CAD models, requirements, etc.) in
+the development of new PdM technologies. These approaches could provide a good starting
+point for developing predictive models, and reduces duplicated work. [Brian Tucker, Bell,
+2022][Anupa Bajwa, NASA, 2022][Abhinav Saxena, GE Aerospace Research, 2022]
+
+
+4. **Support Training of the Next Generation of PdM Engineers** Multiple stakeholders
+had identified a talent shortage as a contributor to the high cost of adoption. NASA and
+Industry should invest in training the next generation of PdM engineers through internships,
+lectures and professional society involvement, partnerships with universities, and university
+grants. Additionally, NASA and Industry can help develop tools (e.g., ProgPy) and datasets
+(see Barrier 5) that support students in their education.[Madhav Misra, RISE, 2023][Wes
+Ryan, Former FAA, 2023]
+
+
+5. **Develop New Intelligent Maintenance Strategies and Methods** NASA, Industry, and
+Academia should invest in developing advanced maintenance strategies and methods such as
+those based on proximity (e.g., when a pump is maintained, consider maintaining adjacent
+valve). This goes hand in hand with Barrier 4, as we would need methods to estimate the
+effectiveness of maintenance strategies.
+
+
+6. **Develop Standards and Guidelines for Effective Communication of Prognostic In-**
+**formation** NASA, Industry, and Academia should develop recommendations and standards
+for effectively displaying and communicating prognostic information with uncertainty to best
+inform PdM decisions by automated and human maintainers.
+
+
+7. **Methods to Reduce Testing Required for Validation** New technologies and techniques
+are needed to reduce the investment required to validate a PdM technology (see Barrier
+2) while still maintaining a high level of safety [Brian Tucker, Bell, 2022][Abhinav Saxena,
+GE Aerospace Research, 2022]. These can be technologies like analysis tools, methods for
+minimizing the number of units required to test, automated testing technologies, or other
+validation tools.
+
+
+8. **Design for Prognostics**, incorporate decisions on sensor placement and prognostics applications early in design process, from the beginning for new systems. [Wes Ryan, Former FAA,
+2023][Kai Goebel, PARC, 2022]
+
+
+9. **Update Legacy Hardware and Software**
+
+## **6 Barrier 4: Impact Estimation**
+
+
+Any decision to adopt new technologies is preceded by a comprehensive cost-benefit analysis. In
+the case of predictive maintenance and other intelligent maintenance technologies, airlines, OEMs,
+MROs, and other stakeholders have to compare the cost of adoption (Barrier 3) against the benefits
+such a program could provide. This Section deals with the estimation of the latter.
+
+
+**6.1** **Challenges**
+Estimating the impact of predictive maintenance in commercial aviation is a complex endeavor.
+Challenges that stakeholders identified include:
+
+
+1. **Life Cycle Cost Modeling** There is a lack of accurate and reliable life cycle cost and risk
+modeling (Ref. 11, 32). [Darren Macer, Boeing, 2023][Kai Goebel, PARC, 2022][Brian Tucker,
+Bell, 2022][Kai Wicke, DLR, 2022][Wes Ryan, Former FAA, 2023] Life cycle costs include
+acquisition, operation, maintenance, and expected future repair and replacement. Life cycle
+cost modeling help airlines understand the impact of PdM and assess if its cost are worth
+the benefits of reduced downtime and reduction of unforeseen repairs. 63% of companies not
+working on implementing PdM indicate that their reason for not doing so was because of their
+inability to quantify the impact/business case (Ref. 9). Without this data, it is difficult for
+OEMs to tailor aircraft component design (including sensor integration) and manufacturing
+to reduce maintenance costs. Risk modeling examines how maintenance techniques may affect
+aircraft safety and dependability. Without proper comprehension of the potential risks and
+the likelihood of their occurrence, airlines are hindered in making informed decisions regarding
+
+
+optimal maintenance strategies. To this date, there exists neither a standardized methodology
+for the simulation of an aircraft’s life cycle, nor a widely used standardized methodology for
+the estimation of their life cycle cost [Aircraft OEM, 2022]. Some best practices, although
+rather general in nature, can be found in SAE ARP 4293 and SAE AIR 1939.
+
+
+2. **Uncertainty Modeling** Uncertainty in the life cycle simulation (including, but not limited
+to, future price developments, expected demands, and the environment) leads to inaccurate
+predictions and reduced trust in the overall benefit of predictive maintenance [Kai Wicke,
+DLR, 2022][Kai Goebel, PARC, 2022]. These uncertainties can be of aleatory nature (i.e.,
+not reducible, as it stems from the system’s natural randomness) or of epistemic nature (i.e.,
+potentially reducible, as it stems from a lack of knowledge). Difficulties include the many
+uncertain sources, lack of data to properly quantify them, lack of methods to combine and
+propagate them, and a lack of understanding when it comes to result interpretation. Overall
+speaking, there is a lack of comprehensive life cycle simulation uncertainty management,
+which, especially considering the nature of PdM, is a significant challenge for innovation.
+
+
+3. **Economic Competition** OEMs, independent MROs, and airlines compete in the aftermarket. This competition arises because MROs and airlines seek to reduce costs while maintaining
+the required level of reliability and safety. However, OEMs have a competitive advantage in
+the aftermarket due to their access to the original equipment design and engineering data. In
+contrast, independent MROs and airlines have to rely on reverse engineering, which can be
+costly and time-consuming. To maintain their market position, OEMs often restrict access to
+their proprietary data, making it difficult for MROs and airlines to develop and apply PdM
+technologies. This lack of access hinders the ability of MROs and airlines to provide accurate
+impact estimates and can limit the effectiveness of PdM programs [Kai Wicke, DLR, 2022].
+This point is related to the data ownership, described in Barrier 5.
+
+
+4. **Operational Complexity** The variety with which different airlines operate their fleet can
+make it difficult to generalize the impact of PdM to the entire industry [Kai Wicke, DLR,
+2022]. This includes not only the operational complexity mentioned in Barrier 1, but also fleetwide decisions such as when and how to cluster maintenance events, or decisions regarding
+phase-outs and acquisitions of new aircraft [Airline SME, 2022].
+
+
+These challenges need to be faced and solved in order to inform design and operational decisions,
+e.g. if, when, and how to deploy predictive maintenance [Kai Goebel, PARC, 2022].
+
+
+**6.2** **Investments Needed**
+To overcome the previously mentioned challenges, we have identified the following two potential solutions: Creating a standardized methodology for life cycle simulations and a standardized
+methodology for incorporating uncertainties in the predictions.
+
+
+**6.2.1** **Standardized Methodology for Life Cycle Simulations**
+
+
+By developing a standardized methodology for the simulation of aircraft and component life
+cycles, it will be possible to comprehensibly estimate the impact of PdM measures by simulating
+(at least) two cases: (a) a reference case, which imitates the current operation, and (b) a study
+case, where the technology in question is activated, and its repercussions are thoroughly monitored.
+
+
+The technology’s benefit can be isolated and quantified in terms of availability and downtime as
+well as operating costs. Feeding these insights back to the OEMs enables optimizing design for
+maintenance, prognostics, and, ultimately, life cycle cost. A thorough review and subsequent
+modeling of each stakeholder’s operation is required for this methodology to be standardized. This
+includes, but is not limited to, the airline’s rotational and maintenance planning, the MRO’s line and
+base maintenance operation, and the interactions between the aircraft’s operational environment
+and the component’s health. Ideally, such a methodology is modular and modifiable, allowing
+(de)activating and customizing specific aspects of the simulation. Recent developments indicate a
+high potential of discrete event or agent-based approaches.
+
+
+**6.2.2** **Standardized Methodology for the Incorporation of Uncertainty in Impact Es-**
+**timation**
+
+
+A standardized methodology for a comprehensive uncertainty-enabled simulation of aircraft
+and component life cycles would help practitioners navigate the vast field of uncertainty quantification techniques, helping them choose the best techniques at the right time. This can help
+guide future uncertainty reduction efforts as well as aid in the interpretation of uncertainty when
+presented to stakeholders and decision-makers. Recognizing, quantifying, combining, propagating,
+and portraying all sources of uncertainty that may affect impact estimation is complete uncertainty
+management. In addition, recent techniques such as sensitivity analysis or non-probabilistic modeling should be investigated and employed where suitable. Sensitivity analysis examines how input
+factors affect model output to determine which variables cause the most uncertainty. When data
+is insufficient and expert elicitation is needed, non-probabilistic methods may prove useful.
+
+## **7 Barrier 5: Data Availability, Quality, and Ownership**
+
+
+The success of predictive maintenance systems and technologies heavily relies on data, which
+is essential for training, validating, and improving machine learning models. However, there are
+several challenges that arise in the context of data availability, quality, and ownership. These
+challenges include issues related to the collection, labeling, cleaning, and sharing of data, as well
+as concerns around data privacy and security. In this section, we will discuss these challenges in
+more detail and explore potential solutions to overcome them.
+
+
+**7.1** **Challenges**
+1. **The Right Data** The first challenge is getting the right data for prognostics [Kai Goebel,
+PARC, 2022][Darren Macer, Boeing, 2023]. Prognostics requires the specific data that can be
+used to detect degradation and degradation trends at high enough frequencies and precision.
+As Darren Macer from Boeing said, “we’re woefully undersensed”. Sometimes, the sensing
+technologies required to collect this information does not exist. Other times, these needs are
+not considered in the design phase, so systems are not designed to include the required sensors
+(Design for Prognostics). Finally, sometimes the cost of integrating a sensor is not deemed
+acceptable for the capabilities it provides [Darren Macer, Boeing, 2023] (see also Barrier 3).
+
+
+2. **Getting the Data** Even if the data exists, frequently it is not possible to get the data off
+of the aircraft (Ref. 8, 16, 31) [Wes Ryan, Former FAA, 2023]. Bandwidth constraints from
+satellite connectivity limit the ability to stream data in flight. Additionally, cost and logistical
+
+
+constraints frequently prevent aircraft from installing systems to offload data at the gate or
+hangar [Mark Roboff, SkyThread CEO, 2023].
+
+
+3. **Record Digitization** Beyond the sensor data, development, evaluation, and application of
+predictive maintenance requires maintenance record digitization. Many records, and even
+current maintenance operations are still recorded on physical forms (Ref. 8), which are
+usually not structured and are thus difficult to use in an automated manner [Kimon Abu-Taa,
+Rolls-Royce Deutschland, 2023]. Digitizing and standardizing these forms and maintenance
+records processes is a big task. Additionally, maintenance records frequently include errors
+
+[Mark Roboff, SkyThread CEO, 2023].
+
+
+4. **Data Ownership** In addition to data availability and quality, there is some question about
+data ownership. Many OEMs restrict access to operational data for airlines and MROs (Ref.
+16, 33). Finally, pilot unions sometimes negotiate limitations on how the data can be used or
+requirements to anonymize data [Amy O’Dell, United, 2023]. Conversely, it can also be difficult for the Engine OEM to get access to operator’s essential data (e.g. data regarding EHM,
+flight connections, on-wing maintenance etc.). These data limitations or data anonymizations
+sometimes make it difficult to use the data for predictive maintenance.
+
+
+Finally, labeled relevant degradation datasets are essential for model building and validation
+in academia and industry. This can be seen in the impact of existing datasets like the CMAPSS
+datasets (Ref. 34, 35).
+
+
+**7.2** **Investments Needed**
+A few contributions that could help close this barrier are described below. They are clustered
+into those that aid in accessing more data and those that improve the way data is dealt with.
+
+
+**7.2.1** **Accessing more Data**
+
+
+1. **Develop New Sensing Technologies** New sensing technologies (e.g., embedded or printed
+sensors or active sensing techniques) can help generate data relevant for prognostics that may
+not exist now. [Darren Macer, Boeing, 2023]
+
+
+2. **Data Export from Aircraft** There is ongoing discussion and first approaches among some
+airlines and airports to explore technologies and methods for exporting data from aircraft
+(e.g., gate link and satellite) to secure and accessible storage. Further work is needed in
+order to make use of the data for predictive maintenance operations, model building, and
+tool validation. [Mark Roboff, SkyThread, 2023][Amy O’Dell, United, 2023][Madhav Misra,
+RISE, 2023]
+
+
+3. **Digitize Maintenance Records** Already underway by many airlines and MROs, maintenance records should be standardized, digitized, and parameterised (for machine readability)
+so they can be available for predictive maintenance model building and validation. [Madhav
+Misra, RISE, 2023][Marc Roboff, SkyThread, 2022][Kimon Abu-Taa, Rolls-Royce Deutschland, 2023]
+
+
+4. **Develop and Mature Methods and Technologies for Automated Inspection** Mature
+at-gate or in-hangar (“Hangar of the future”) automated inspection techniques. This would
+
+
+provide additional sources of information in an environment with fewer bandwidth constraints.
+Considering that many modeling and validation efforts for PdM depend on geometrical data
+(which can essentially be obtained in MRO facilities), an automated collection and parameterization of the component’s geometry (for machine readability) would be a significant step
+forward in the realization of PdM.
+
+
+5. **Develop and Mature Methods for Incorporating Textual Information** Develop tools
+and approaches to incorporate unstructured and textual data into PdM.
+
+
+**7.2.2** **Improving Data Accessibility**
+
+
+1. **Data Standardization** Stakeholders could work with the SAE HM-1, IEEE P1856.1, the
+Independent Data Consortium for Aviation (IDCA), and other standards teams to standardize
+data collection and sharing formats and procedures. Standardized format must protect pilot
+privacy while still containing the information necessary to inform predictive maintenance
+operations and research. [Madhav Misra, RISE, 2023]
+
+
+2. **Publicly Releasing Labeled Component-level Datasets** Generate or collect and publicly release relevant labeled degradation datasets for individual components. This would provide valuable data for model building and validation. This data could be generated through
+construction of a testbed that is able to load the system of interest while collecting data,
+perhaps while emulating a fault of interest or with an already faulty system. [Darren Macer,
+Boeing, 2023][Madhav Misra, RISE, 2023]
+
+
+3. **Publicly Releasing Labeled Operational Datasets** Develop, anonymize, and release a
+large dataset of operation data. For example this could be sensor, operational, and environmental data and maintenance records from a single aircraft over one year time, anonymized
+and labeled. This dataset would help support and enable research in predictive maintenance
+technologies and validation of new technologies. [Darren Macer, Boeing, 2023][Madhav Misra,
+RISE, 2023][Kai Wicke, DLR, 2023]
+
+
+4. **Support Data Sharing** Develop, mature, and support technologies and organizations supporting data sharing, such as the ICDA.
+
+## **8 Conclusions**
+
+
+Everyone in this study recognized the potential for PdM and agreed that there was inadequate
+adoption. According to the Department of Energy, predictive maintenance program can reduce
+maintenance costs by as much as 30% (Ref. 6) or $3 Billion (Ref. 8). With input from SMEs and
+published sources, the authors identified five barriers preventing the full-scale adoption of predictive
+maintenance technologies. Targeted investments to address these barriers, such as those outlined
+in this document, will ultimately help break down these barriers and enable progress toward the
+full-scale adoption of predictive maintenance technologies and strategies in aviation.
+
+
+## **References**
+
+1. Goebel, K.; and Rajamani, R.: Policy, regulations and standards in prognostics and health
+management. _International Journal of Prognostics and Health Management_, vol. 12, no. 1,
+2021.
+
+
+2. Ahmadi, A.; S¨oderholm, P.; and Kumar, U.: On aircraft scheduled maintenance program
+development. _Journal of Quality in Maintenance Engineering_, vol. 16, no. 3, 2010,
+pp. 229–255.
+
+
+3. Mobley, R. K.: _An introduction to predictive maintenance_ . Elsevier, 2002.
+
+
+4. Selcuk, S.: Predictive maintenance, its implementation and latest trends. _Proceedings of the_
+_Institution of Mechanical Engineers, Part B: Journal of Engineering Manufacture_, vol. 231,
+no. 9, 2017, pp. 1670–1679.
+
+
+5. Goebel, K.; Daigle, M. J.; Saxena, A.; Roychoudhury, I.; Sankararaman, S.; and Celaya, J. R.:
+_Prognostics: The science of making predictions_ . 2017.
+
+
+6. Sullivan, G.; Pugh, R.; Melendez, A.; and Hunt, W.: Operations & maintenance best
+practices. _US Department of Energy_, 2010.
+
+
+7. International Air Transportation Association (IATA): Airline Cost Management Group.,
+International Air Transport Association. URL `[https://www.iata.org/contentassets/](https://www.iata.org/contentassets/3b5a413027704ce08976fe1890fb43e2/acmg_highlights.pdf)`
+`[3b5a413027704ce08976fe1890fb43e2/acmg_highlights.pdf](https://www.iata.org/contentassets/3b5a413027704ce08976fe1890fb43e2/acmg_highlights.pdf)` .
+
+
+8. Groenenboom, J.: The changing MRO landscape. _IATA Maintenance Cost Conference_, Sep
+2019.
+
+
+9. Haarman, M.; de Klerk, P.; Decaigny, P.; Mulders, M.; Vassiliadis, C.; Sijtsema, H.; and
+Gallo, I.: Predictive maintenance 4.0-beyond the hype: PdM 4.0 delivers results. _Price,_
+_Waterhouse, Coopers and Mannovation_, 2018.
+
+
+10. U.S. House of Representatives: H. Rept. 117-118 - NATIONAL DEFENSE
+AUTHORIZATION ACT FOR FISCAL YEAR 2022. _117th Congress_, vol. House Report
+117-118, 2021. URL `https:`
+`[//www.congress.gov/congressional-report/117th-congress/house-report/118/1](https://www.congress.gov/congressional-report/117th-congress/house-report/118/1)` .
+
+
+11. Government Accountability Office (GAO): Actions Needed to Further Implement Predictive
+Maintenance on Weapon Systems. _Report to the Committee on Armed Services, House of_
+_Representatives_, Dec. 2022. URL `[https://www.gao.gov/assets/gao-23-105556.pdf](https://www.gao.gov/assets/gao-23-105556.pdf)` .
+
+
+12. Air Transportation Association; et al.: ATA MSG-3 Operator/Manufacturer Scheduled
+Maintenance. _Development_, 2007.
+
+
+13. Federal Aviation Administration (FAA): Airworthiness approval of rotorcraft health usage
+monitoring systems (HUMS). Feb 2003.
+
+
+14. International Maintenance Review Board Policy Board (IMRPBP): HUMS for credit. Apr
+2017.
+
+
+15. Predictive maintenance — GE Research Website. URL
+`[https://www.ge.com/research/project/predictive-maintenance](https://www.ge.com/research/project/predictive-maintenance)` .
+
+
+16. Sprehe, M.: What’s holding back predictive maintenance? Apr 2020. URL
+`[https://aviationweek.com/mro/whats-holding-back-predictive-maintenance](https://aviationweek.com/mro/whats-holding-back-predictive-maintenance)` .
+
+
+17. Klein, M.; Staudacher, S.; Abu-Taa, K.; and Schwengler, J.: Digital Service Twin to Assess
+Engine Deterioration and Remaining Part Life. _Turbo Expo: Power for Land, Sea, and Air_,
+American Society of Mechanical Engineers, vol. 85970, 2022, p. V001T01A020.
+
+
+18. Federal Aviation Administration (FAA): Operational Authorization of Integrated Aircraft
+Health Management Systems. Jul 2022.
+
+
+19. International Maintenance Review Board Policy Board (IMRPBP): Aircraft Health
+Monitoring (AHM) integration in MSG-3. Dec 2018.
+
+
+20. Rajamani, R.: _Unsettled Issues Concerning Maintenance Credits and IVHM Systems_ . SAE
+International, May 2020.
+
+
+21. Armenta, A.: Predictive maintenance challenges and mitigation techniques. Jan 2022. URL
+
+```
+  https://control.com/technical-articles/
+```
+
+`[predictive-maintenance-challenges-and-mitigation-techniques/](https://control.com/technical-articles/predictive-maintenance-challenges-and-mitigation-techniques/)` .
+
+
+22. This delivery tech is “the closest thing to teleportation”. 2022. URL
+`[https://www.youtube.com/watch?v=0aOF3CKYYrk](https://www.youtube.com/watch?v=0aOF3CKYYrk)` .
+
+
+23. Miller, K.; and Dubrawski, A.: System-level predictive maintenance: review of research
+literature and gap analysis. _arXiv preprint arXiv:2005.05239_, 2020.
+
+
+24. Tang, L.; Kacprzynski, G. J.; Goebel, K.; and Vachtsevanos, G.: Methodologies for
+uncertainty management in prognostics. _2009 IEEE Aerospace conference_, IEEE, 2009, pp.
+1–12.
+
+
+25. Jarvis, K. J.; Teubert, C.; Okolo, W. A.; and Kulkarni, C. S.: Improving Computational
+Efficiency of Prognostics Algorithms in Resource-Constrained Settings. _2022 IEEE Aerospace_
+_Conference (AERO)_, IEEE, 2022, pp. 1–11.
+
+
+26. Watkins, J.; Teubert, C.; and Ossenfort, J.: Prognostics as-a-Service (PaaS): A scalable cloud
+architecture for prognostics. _Annual Conference Prognostics and Health Management Society_
+_(PHM 2019)_, no. ARC-E-DAA-TN68377, 2019.
+
+
+27. Teubert, C.; Jarvis, K.; Corbetta, M.; Kulkarni, C.; and Daigle, M.: ProgPy Python
+Prognostic Packages v1.4. Oct. 2022. URL `[https://nasa.github.io/progpy](https://nasa.github.io/progpy)` .
+
+
+28. Chao, M. A.; Kulkarni, C.; Goebel, K.; and Fink, O.: Fusing physics-based and deep learning
+models for prognostics. _Reliability Engineering & System Safety_, vol. 217, 2022, p. 107961.
+
+
+29. Corbetta, M.: [Lecture] Towards the True Hybrid: Physics-Informed Trainable Models for
+Prognostics and Health Management. 2022.
+
+
+30. Eleftheroglou, N.: [Lecture] Prognostics: The Heart of Predictive Maintenance. February
+2023.
+
+
+31. Lee, J.; Mitici, M.; Blom, H. A.; Bieber, P.; and Freeman, F.: Analyzing Emerging Challenges
+for Data-Driven Predictive Aircraft Maintenance Using Agent-Based Modeling and Hazard
+Identification. _Aerospace_, vol. 10, no. 2, 2023, p. 186.
+
+
+32. Meissner, R.: [Lecture] Beyond prognostics: Prescriptive maintenance strategies in the
+aviation industry. March 2023.
+
+
+33. Sprehe, M.: Maintenance of aircraft – 3 obstacles for the Digital Transformation. Oct 2021.
+URL `https://mainblades.com/blog/`
+`[maintenance-of-aircraft-3-obstacles-for-the-digital-transformation/](https://mainblades.com/blog/maintenance-of-aircraft-3-obstacles-for-the-digital-transformation/)` .
+
+
+34. Saxena, A.; and Goebel, K.: Turbofan Engine Degradation Simulation Data Set. URL `[https:](https://www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository)`
+`[//www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository](https://www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository)` .
+
+
+35. Chao, M.; Kulkarni, C.; Goebel, K.; and Fink, O.: Turbofan Engine Degradation Simulation
+Data Set - 2. URL `https:`
+`[//www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository](https://www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository)` .
+
+

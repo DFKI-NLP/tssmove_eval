@@ -1,0 +1,1885 @@
+IU Internationale Hochschule
+
+
+IU Internationale Hochschule
+
+
+George Mason University
+
+
+Generative AI, Predictive Maintenance (PdM), Aircraft Maintenance, Generative Adversarial
+Network, Data Augmentation
+
+
+October 21st, 2024
+
+
+[https://doi.org/10.21203/rs.3.rs-5277729/v1](https://doi.org/10.21203/rs.3.rs-5277729/v1)
+
+
+  This work is licensed under a Creative Commons Attribution 4.0 International License.
+[Read Full License](https://creativecommons.org/licenses/by/4.0/)
+
+
+No competing interests reported.
+
+
+**Generative AI based Predictive Maintenance in Aviation: A Systematic Literature Review**
+
+
+**Zeeshan Ullah Khan** **[ a]** **, Bisma Nasim** **[a]** **, Zeehasham Rasheed** **[b]** *****
+
+
+**Zeeshan Ullah Khan** : Conceptualization (equal); Methodology (equal); writing - original draft (lead), **Bisma Nasim** :
+Conceptualization (equal); Methodology (equal); writing – review and editing (equal); formal analysis (lead), **Zeehasham Rasheed** :
+Writing – review and editing (equal); Conceptualization (supporting)
+
+
+a) Department of IT & Technology, IU Internationale Hochschule, Juri-Gagarin-Ring 152, 99084 Erfurt, Germany
+b) Department of Information Sciences and Technology, George Mason University, Fairfax VA, USA
+
+
+*Corresponding author: zrasheed@gmu.edu ORCID: 0000-0003-4394-2957
+
+
+Funding: None
+Conflict of interest statement: The authors have declared no conflict of interest.
+Permission to reproduce materials from other sources: None
+Data Availability statement: The data that support the findings of this study are available from the corresponding author, MV,
+upon reasonable request.
+
+
+**Abstract**
+
+
+Predictive maintenance (PdM) is a critical tool in aviation, promoting sustainability, safety, and cost-effectiveness. However, a
+significant challenge in implementing predictive maintenance framework is limited run-to-failure data due to frequent preventive
+maintenance. Generative AI (GAI) offers a promising solution to this challenge by generating synthetic data, enabling more
+accurate predictions of aircraft system health. The recent surge in scientific publications exploring GAI's potential for aviation
+predictive maintenance emphasizes the need for a comprehensive review. This research addresses this gap by conducting a
+systematic literature review (SLR), employing an active learning open-source tool to thoroughly analyze papers sourced from
+four scientific databases. These papers focus on predictive maintenance of aircraft systems through generative AI models. The
+findings of this review examine various aspects of GAI-powered predictive maintenance, including its objectives, the diversity
+of models employed, areas of application, datasets used for model validation, and the prevailing challenges and emerging trends.
+The review identified that most commonly used GAI models in aircraft PdM are GANs (Generative Adversarial Networks),
+VAEs (Variational Autoencoders) or combination of these models. However, knowledge sharing, model integration and
+specificity are the key challenges associated with the implementation of these models. This strong knowledge-base will be a
+valuable resource for researchers, engineers, and practitioners aiming to improve their knowledge and implementation of GAIdriven models for predictive maintenance in the aviation industry.
+
+**Keywords** : Generative AI, Predictive Maintenance (PdM), Aircraft Maintenance, Generative Adversarial Network, Data
+Augmentation
+
+
+
+**1.** **Introduction**
+
+
+Maintenance plays a pivotal role in the aviation industry,
+with its importance deeply rooted in ensuring the reliability
+and safety of aircraft operations. Operating in an
+environment characterized by extreme temperatures, high
+altitudes, and various forces during flight, aircraft systems
+undergo age-related degradation and operational wear
+without regular maintenance. The repercussions of such
+neglect are severe, leading to system failures that can
+compromise the safety of passengers and crew on board [1].
+Conversely, the financial ramifications of grounded aircraft
+due to insufficient maintenance are substantial, compelling
+airlines to prioritize comprehensive maintenance programs
+
+[2].
+
+
+
+Regular maintenance actions not only strengthen the
+structural and operational integrity of aircraft but also extend
+the lifespan of critical equipment, mitigating revenue losses
+associated with unplanned downtime [3]. According to a
+report by Statista, the financial burden of unscheduled
+aircraft maintenance is anticipated to skyrocket in the
+aviation industry, reaching an estimated annual cost of nearly
+39 billion USD by 2035 [4]. This projection is particularly
+alarming considering the expected surge in the global fleet
+size, forecasted to almost double from 25,900 to 47,080
+aircraft between 2019 and 2041, due to increased demand for
+both passenger and cargo transportation [5]. As aging planes
+with limited sensor capabilities are retired, a significant
+surge in maintenance requirements is inevitable, potentially
+overwhelming existing data management systems under the
+
+
+deluge of data from modern aircraft. This confluence of
+trends demands innovative solutions to ensure safe and
+efficient air travel in the coming decades.
+In the aviation industry, various approaches to
+maintenance are practiced and adopted. The literature offers
+a variety of maintenance management approaches with
+diverse terminology. However, Adryan & Sastra [6] put
+together most common classification of these practices:
+Reactive approach is the most basic approach, which
+involves fixing problems only after they arise. Preventive
+approach on the other hand entails scheduling maintenance
+tasks based on equipment operating hours or predetermined
+time intervals. Predictive approach, which is the focus of this
+study, utilizes data analysis and monitoring techniques to
+predict potential equipment failures before they happen.
+These maintenance strategies determine the types of
+maintenance activities and their timing to be undertaken in
+the decision-making process. Nonetheless, because of the
+growing volume of data being gathered by the onboard
+sensors of contemporary aircraft, the aviation sector is
+aggressively utilizing predictive maintenance, or PdM [7].
+The analysis of data from a machine's performance,
+condition, and other health indicators is the core goal of
+predictive maintenance. By optimizing the time between
+repairs, this technique assists in determining the best time for
+maintenance. Unlike traditional maintenance schedules,
+PdM uses sensor networks to monitor the machine and
+trigger maintenance actions only when pre-defined
+conditions indicate a potential failure [8]. An International
+Air Transport Association (IATA) report from 2015 suggests
+that predictive maintenance could potentially increase
+aircraft availability by up to 35% [9]. This increased
+availability directly translates to reduced overall
+maintenance costs.
+Researchers have identified three main approaches to
+predictive maintenance: physical modeling, data-driven, and
+hybrid [10]. Physics-based modelling uses existing
+knowledge of a system to create mathematical models that
+predict how it will degrade over time [11]. However,
+building such models can be time-consuming and
+computationally expensive, especially for complex systems
+with numerous interacting components [10]. In contrast,
+data-driven approach focuses on monitoring a system's
+condition and learning from historical data to predict its
+future state. Utilizing reliability functions, statistics, and
+even artificial intelligence, this approach finds possible
+equipment problems before they turn into serious
+malfunctions. However, the quantity and quality of the data
+gathered are crucial to the prediction's accuracy because
+inaccurate or insufficient data might provide erroneous
+models [12]. Finally, the hybrid approach combines these
+methods. The recent surge in machine data, combined with
+the power of deep learning, is significantly improving the
+accuracy of PdM models. This leads to more targeted
+maintenance strategies, focusing resources on the
+
+
+
+components most likely to fail, ultimately leading to
+optimized maintenance plans [8].
+As industrial demands for efficiency and reliability are
+pushing traditional maintenance methods to their limits,
+Prognostics and Health Management (PHM) has emerged as
+a powerful solution in aviation industry [10], in which PdM
+is also a key element [12]. By analyzing real-time and
+historical data, PHM can assess aircraft equipment health and
+predict future issues. Machine learning, a key tool within
+PHM, utilizes algorithms trained on vast amounts of data to
+predict equipment health or remaining useful life (RUL) [6].
+However, a major hurdle lies in the need for labeled data
+(data with known outcomes) for training these algorithms
+
+[13]. Limited labeled data can significantly restrict the
+effectiveness of machine learning in PdM [14].
+Acquiring the ideal data for machine learning in PdM for
+aircraft is practically challenging. This data, commonly
+known as "run-to-failure" data, consists of time-series
+readings that capture the gradual degradation of a component
+
+- from a healthy state all the way to complete failure [15].
+The problem lies in the extended timelines involved. For
+instance, a seemingly minor issue in a critical aircraft part
+might take months or even years to progress to complete
+failure under normal operating conditions. However,
+allowing a component to reach this point is not only
+unacceptable but also poses a serious safety risk. To
+prioritize safety, aircraft parts are routinely replaced well
+before reaching a critical failure state. Researchers are
+actively addressing this challenge by developing generative
+AI models that can predict future equipment health even with
+scarce failure data [16].
+In order to improve PdM procedures in the aviation
+sector and get beyond data constraints, generative AI (GAI)
+models are an effective technique. These algorithms may
+create synthetic data that imitates real-world "run-to-failure"
+circumstances after being trained on available data, even if it
+is incomplete. This synthetic data can then be used to train
+other machine learning algorithms for PdM tasks. Therefore,
+machine learning models may be able to forecast equipment
+health and RUL more accurately with more extensive
+training data. A variety of methods are included in generative
+AI, such as generative adversarial networks (GANs) and
+variational autoencoders (VAEs). VAEs generate unique and
+credible data points by examining underlying patterns in the
+data [8]. GANs, on the other hand, employ a collaborative
+competition between two neural networks. One network
+generates data, while the other strives to differentiate
+between real and generated data. These adversarial dynamic
+drives the continual improvement of both networks,
+ultimately leading to the generation of increasingly realistic
+synthetic data [13].
+
+**1.1** **Research Gap and Related Work**
+
+
+Over the past decade, several reviews have explored
+predictive maintenance applications across industries
+
+
+through various approaches. For instance, Ran et al. [14] and
+Zhang et al. [12] examined fault diagnosis, prognosis, and
+machine/deep learning techniques in PdM for diverse
+industrial settings. While these reviews offered valuable
+insights, they lacked a specific focus on the aircraft industry.
+Similarly, Carvalho et al. [15] provided an extensive review
+of various machine learning methods and datasets for PdM
+applications, highlighting approaches for specific
+equipment. However, their review, like the others, did not
+explore applications specific to the aviation industry.
+Although, some reviews addressed aircraft applications,
+but lacked specifics regarding generative AI models for
+predictive maintenance. Fu et al. [10] reviewed data-driven
+prognostic algorithms, including conventional and deep
+learning models. They highlighted aircraft as a key PdM
+application and reviewed papers using different models for
+various aircraft equipment. However, their focus was not on
+generative AI. Similarly, Serradilla et al. [8] reviewed deep
+learning architectures for PdM stages like anomaly detection
+and RUL estimation, using aircraft systems as examples.
+Although they discussed generative models in general but
+lacked details pertaining to their applications in aircraft PdM.
+Adryan & Sastra [6] reviewed machine learning for aircraft
+engine PdM, concluding that LSTM and GRU models deliver
+high accuracy (over 99%). Abdulrahman et al. [17] explored
+deep learning models for detecting aero-engine blade
+defects, identifying CNN and YOLO as popular choices.
+They also highlighted challenges like data scarcity and the
+inability to detect new defects, but generative AI was not the
+focus. Finally, Wen et al. [18] reviewed data-driven
+prognostic algorithms, similar to Fu et al. [10], with a focus
+on aircraft applications. However, generative AI models
+were not addressed.
+The closest study to generative AI applications in PdM
+comes from Sabuhi et al. [13]. They explored various
+domains like medicine and security, demonstrating
+generative AI's potential. However, their work lacked an
+aviation industry focus, highlighting the gap in research on
+generative AI for predictive maintenance in the aviation
+sector.
+In essence, existing systematic reviews offer valuable
+insights into PdM using various techniques, but they lack a
+dedicated focus on generative AI models within the specific
+context of aviation predictive maintenance. This gap presents
+a compelling opportunity for further research to explore the
+potential and unique functionalities of generative AI in
+enhancing predictive maintenance practices for the aviation
+industry.
+Keeping in view the above stated facts, to the best of
+author’s knowledge, this study stands out from previous
+research in two ways. First, it strictly followed a wellestablished method called SLR protocol. Second, it narrowed
+the focus to the specific combination of generative AI and
+predictive maintenance within the aviation industry. By
+focusing on a specific niche and employing a systematic
+approach, this study delivers unique and valuable insights.
+
+
+
+**1.2** **Paper Organization**
+
+
+This paper offers a comprehensive review of GAI based
+PdM in aviation industry, following a structured approach.
+Chapter 2 outlines the SLR protocol in detail, which
+combines both manual and semi-automated approaches.
+Chapter 3 describes the findings of the SLR. It begins by
+presenting key statistics of the SLR sample, followed by
+comprehensive exploration of each research question.
+Chapter 4 dives into a discussion. Subsequently, in chapter 6
+the significance of this research is presented and concluding
+remarks are summarized.
+
+**2.** **Research Methodology**
+
+
+A semi-automated SLR was conducted to collect
+relevant primary literature. The primary function of a
+systematic literature review is to thoroughly examine
+existing research to uncover research gaps, trends, and other
+valuable insights. To achieve this goal effectively, a
+structured methodology is crucial. Kitchenham & Charters
+
+[19] breaks down the process of conducting a systematic
+review into three key phases: Planning, conducting and
+reporting of reviews. The entire review protocol of this
+research has therefore been constructed on guidelines of
+Kitchenham & Charters [19] and Van Dinter et al. [20].
+Figure 1 represents the review protocol for this study.
+
+**2.1** **Research Questions**
+
+
+This study aims to find all relevant information on
+applying generative AI for predictive maintenance in the
+aviation industry. To effectively integrate generative AI,
+three key areas require investigation: (1) its purpose and
+extent of its utilization, (2) development approaches for
+generative AI-based predictive maintenance algorithms, and
+(3) anticipated challenges in implementation. To address
+these areas, the following research questions were
+formulated:
+
+- **RQ1:** What is the role of Generative AI in aircraft PdM?
+
+- **RQ2:** Which Generative models are used in Aircraft
+PdM?
+
+- **RQ3:** Which application domains exist in Generative AI
+based Aircraft PdM?
+
+- **RQ4:** Which datasets are used to validate Generative AI
+based models in aircraft PdM?
+
+
+**Fig. 1** Systematic literature review structure of this study
+
+
+**2.2** **Search Scope**
+
+
+To ensure a comprehensive review of the latest research,
+a specific scope for systematic literature review is defined.
+This scope considers two key dimensions: publication
+timeframe and publication sources. This study focused on
+research published between 2019 and 2024 to capture the
+latest trends. To identify relevant and high-quality research,
+
+
+**Search Scope** **Criteria**
+
+Time Frame ~~•~~ 2019 ~~–~~ 2024 (Five years)
+
+
+
+a diverse range of reputable academic databases was
+selected, such as ScienceDirect, IEEE Xplore, etc. Moreover,
+only English language publications with a strong reputation
+(cite score or impact factor > 1) were included to ensure
+credibility and avoid bias. The details of this search strategy
+are summarized in Table 1.
+
+**2.3** **Search String**
+
+
+Identifying high-quality research articles depends on
+selecting the right keywords. This selection process is
+dynamic, requiring continuous refinement to ensure search
+accuracy and relevance. It is also important to acknowledge
+the need to balance comprehensiveness with precision. While
+broader keywords might capture a wider range of studies,
+they risk including irrelevant content. Conversely, overly
+specific terms could exclude valuable research. In this
+context, several key factors were considered when finalizing
+search string for this SLR.
+A thorough initial search of keywords was initiated with
+broader terms like "generative artificial intelligence" and
+"predictive maintenance" in the aviation domain. However,
+these terms yielded a vast number of results that lacked the
+specific focus desired. For instance, the search term
+"generative artificial intelligence" included studies on
+various deep learning and machine learning models, which
+wasn’t relevant to the specific research interest of thesis
+
+
+
+Publication Sources
+
+
+
+
+- ScienceDirect
+
+- ACM Digital Library
+
+- IEEE Xplore
+
+- Emerald
+
+
+
+
+           - Research Articles
+
+Publication Type - Review Articles
+
+           - Conference Proceedings
+
+Language - English
+
+
+**Table 1:** Review scope of this study
+
+
+centered on generative AI models used for predicting aircraft
+maintenance needs. To address this challenge, a keyword
+refinement process was carried out. A preliminary review of
+existing literature was conducted, carefully examining the
+titles, abstracts, and keywords of relevant articles. This
+analysis helped identify synonyms, abbreviations, and
+related terms that could be incorporated into the search
+string. A crucial metric of predictive maintenance,
+"Remaining Useful Life," was added. Additionally,
+interchangeable terms related to Prognostics and Health
+Management, such as "anomaly detection" and
+"prognostics," were also added. Terms related to generative
+AI such as "generative," "adversarial," "GAN," "VAE," and
+"variational autoencoder" were included. Finally, aviation,
+aero, and aircraft were added to ensure the research focused
+on the aviation sector. As a result, search string shown in
+table 2 was utilized.
+
+
+**Database** **Search String**
+
+~~•~~ ACM Digital ("generative" OR "adversarial" OR
+Library "GAN" OR "VAE" OR "variational
+
+ - IEEE Xplore autoencoder") AND ("anomaly
+
+ - Emerald detection" OR "predictive
+
+maintenance" OR "remaining useful
+life" OR "prognostic") AND (aircraft
+OR aviation OR aero)
+
+~~•~~ ScienceDirect _Find articles with these terms:_
+("generative" OR "adversarial" OR
+"GAN" OR "VAE" OR "variational
+autoencoder") AND ("anomaly
+detection" OR "predictive
+maintenance" OR "remaining useful
+life" OR "prognostic")
+_Title, abstract or author-specified_
+_keywords:_
+aviation OR aircraft OR aero
+
+**Table 2:** Search string utilized for this review
+
+**2.4** **Search Method**
+
+
+This thesis adopted the systematic literature review
+methodology outlined by Preferred Reporting Items for
+Systematic Reviews and Meta-Analysis (PRISMA),
+thoroughly following a step-by-step process. The PRISMA
+framework is widely adopted by researchers for its ability to
+provide a scientifically rigorous structure for reporting
+methodology, results, and the conclusions drawn from their
+work [21]. This process involves comprehensive
+identification, evaluation, and review of relevant
+publications within the chosen field of study. Moreover,
+PRISMA employs a flow diagram consisting of four phases,
+
+
+
+which visually depicts the process of selecting research
+papers during the systematic review [22].
+Additionally, to ensure an efficient and comprehensive
+search, automated searches within each chosen electronic
+database were conducted. This involved utilizing a carefully
+formulated search string, as discussed above. The search
+string served as a precise filter, scanning vast databases for
+studies that contained the key terms and concepts most
+relevant to the research questions. By automating this
+process for each database, a significant volume of potentially
+relevant studies was identified in a timely manner.
+
+**2.5** **Search Execution**
+
+
+The search was executed following the PRISMA
+framework, which contains four phases of conducting the
+SLR. Each phase will be described in detail below:
+**2.5.1** **Identification.** The search was performed on 01
+February 2024 in the four databases utilizing the search
+query constructed above. The automated search identified a
+total of 442 studies across various databases (Column1,
+Table 3).
+
+
+
+**Database** **Auto**
+**Search**
+
+
+
+**Database** **Auto** **After** **After** **After**
+**Search** **Incl/** **Semi-** **Full-Text**
+
+**Excl** **Auto** **Reading &**
+
+**Abstract** **Quality**
+**Reading** **Assessment**
+
+
+ACM Digital 261 43 3 1
+Library
+
+
+
+**After**
+**Incl/**
+**Excl**
+
+
+
+**After**
+**Semi-**
+**Auto**
+**Abstract**
+**Reading**
+
+
+
+261 43 3 1
+
+
+
+IEEE Xplore 59 56 19 9
+Emerald 37 26 1 0
+ScienceDirect 85 74 34 6
+
+_Total_ **442** **199** **57** **16**
+
+
+**Table 3:** Summary of stage-wise search results
+
+**2.5.2** **Screening.** The initial screening stage employed
+a two-step process. The first stage involved manually
+screening the articles, while the second stage utilized a semiautomated approach.
+
+  - **Manual Screening.** First, filtering of studies in
+each of the four databases was carried out based on the
+inclusion (IC) and exclusion criteria (EC) detailed in Table
+4, which narrowed down the total number of studies to 199.
+ScienceDirect returned the most articles (n = 74), while
+Emerald yielded the fewest (n = 26) as shown by the second
+column of Table 3.
+
+
+**No.** **Criterion**
+
+
+IC1 The paper must have full text (abstract-only
+papers are not considered)
+IC2 The paper must be a research article or a review
+or from a conference proceeding only
+IC3 If the paper is research article, it must be from a
+journal with Impact Factor>=1 or Cite Score>=1
+EC1 The papers published before 2019
+EC2 The papers not related to generative AI based
+predictive maintenance in aviation industry
+EC3 The papers published in language other than
+English
+
+
+**Table 4** : Inclusion/ exclusion criteria of this review
+
+
+  - **Semi-Automated Screening.** One of the biggest
+bottlenecks in systematic reviews is the process of selecting
+relevant studies after basic filtering based on abstracts. This
+task is known to be laborious and monotonous, vulnerable to
+mistakes, and prohibitively time intensive [21]. To address
+this challenge, researchers are increasingly turning to datadriven tools to support in the selection phase [21]. This study
+utilized ASReview Lab (version 1.5), an Active Learning
+tool developed by Utrecht University [23]. Active learning is
+a machine learning technique where the algorithm
+specifically selects data points for a human reviewer to
+analyze, focusing on those that are most likely to be
+informative. In the context of systematic reviews, this
+translates to the tool prioritizing studies that are most likely
+to be relevant to the research question [24].
+There were several reasons why ASReview Lab was
+chosen for this study. First, it is open source, making it freely
+available to researchers. Second, ASReview runs locally,
+ensuring that the sensitive data being analyzed remains
+private. Third, the interface is user-friendly and easy to
+learn, even for researchers without prior experience with the
+tool [23].
+To use ASReview Lab, it was first installed using the
+instructions provided on the website. Next, all articles
+retrieved for the review, previously managed in Zotero, were
+exported in RIS file format and imported into ASReview. As
+the dataset required screening from the scratch, Oracle mode
+with unlabeled data was chosen. This mode assumes no prior
+classifications exist within the dataset. Active learning cycles
+rely on initial training data, also known as prior knowledge.
+This information serves as the foundation for the classifier to
+establish an initial ranking of the unreviewed studies. In this
+instance, two relevant and three irrelevant records were
+provided to the tool to jumpstart this process. Moreover, the
+author opted to utilize the default machine learning model,
+Naive Bayes, for the initial prioritization of studies.
+ASReview then presented the author with a series of articles
+ranked by their likelihood of being relevant. After each
+article was reviewed and a decision made (included or
+
+
+
+excluded), the machine learning model was updated,
+allowing it to refine its ranking of the remaining studies. The
+review process continued until encountering 22 irrelevant
+articles in a row, prompting the author to stop at 122 articles
+reviewed. This represents 61.30% reading of the initial pool
+of retrieved studies. Finally, through this semi-automated
+abstract screening process, the number of relevant studies
+was reduced from 199 to 57 (Column 3, Table 3).
+
+**2.5.3** **Eligibility.** This section specifies the third stage
+of the PRISMA flow diagram, where shortlisted articles
+undergo full-text reading and quality assessment to
+determine their eligibility for review on generative AI
+applications in aircraft predictive maintenance. The studies
+that solely proposed solutions based on machine or deep
+learning, without incorporating generative AI techniques
+were excluded.
+Additionally, the literature's quality was evaluated using
+predetermined criteria to assess potential biases in study
+outcomes. The quality assessment criteria were developed
+based on established guidelines for quantitative and
+qualitative studies proposed by Kitchenham and Charters
+
+[19], as shown in Table 5. Each study's full text was carefully
+reviewed, and points were assigned to the six assessment
+criteria on a scale from 0 to 1. As described by Van Dinter et
+al. [20] a full point (1) was awarded for meeting specific
+criteria, while no point (0) was given if the criteria were not
+met. Studies scoring below 50% were excluded from the
+analysis, ensuring that only high-quality studies were
+included in our review. Finally, 41 papers were excluded
+after full-text reading and quality assessment, leaving the
+author with 16 papers as the final sample for analysis as
+shown in Table 3 _._
+
+**2.5.4** **Included.** Ultimately, 16 high-quality
+studies met all the criteria and were included in the final
+review for this study. The entire PRISMA flow process is
+shown in Figure 2.
+
+
+**No.** **Criteria Description**
+
+
+Q1 Are the study objectives clearly defined?
+Q2 ~~Is the study’s scope, context, and experimental~~
+design stated well?
+Q3 Is the research process documented adequately?
+Q4 Are all the research questions answered?
+Q5 Do the conclusions align with the study
+objectives?
+Q6 How clear and logical is the reporting?
+
+
+**Table 5:** Quality checklist for the filtration of papers
+
+
+**Fig. 2** PRISMA flow process adopted in this review
+
+
+**2.6** **Data Extraction**
+
+
+Systematic reviews rely on accurate data extraction from
+primary studies. To minimize bias and ensure consistency,
+data extraction forms should be developed and tested
+alongside the overall study protocol. This ensures the forms
+effectively capture all the necessary information from the
+outset, reducing the potential for subjective interpretation
+during data extraction [19]. This study adopted a data
+extraction approach learned by the guidelines of Kitchenham
+and Charters [19] and the process used by Tummers et al.
+
+[25]. The process began with reading three randomly
+selected articles. Based on these papers, key data points that
+were needed to be captured were defined. The form was then
+tested by applying it to five more randomly selected studies
+and extracting their data. This iterative process resulted in
+the final data extraction form as specified in Table 6. After
+extracting data from all 16 studies using the finalized form,
+it was analyzed using Microsoft Excel to identify potential
+trends.
+
+**2.7** **Data Synthesis**
+
+
+The final stage of systematic literature review is data
+synthesis. This is the critical step where the information
+
+
+
+extracted from the chosen studies is meticulously combined
+and analyzed to answer the research questions guiding the
+review. However, challenges arose when studies were found
+employing slightly different terminology for their objectives,
+algorithms, or even the type of predictive maintenance task
+addressed (e.g., fault diagnosis versus remaining useful life
+estimation). To address this, the author followed the process
+of synonym identification as used by Van Dinter et al. [20].
+By defining core concepts related to PdM, generative AI
+techniques, and specific PdM tasks, the author was able to
+establish a standardized vocabulary. This crucial step
+ensured that despite variations in terminology across studies,
+the extracted data could be effectively combined and
+meaningful patterns within it can be uncovered. The entire
+dataset can be explored on [26].
+
+
+**No.** **Extraction Field**
+
+
+1 Publication Type
+2 Publication Source
+3 Title
+4 Authors
+5 Conference Name
+6 Journal Name
+7 Abstract
+8 Publication year
+9 DOI
+10 Volume
+11 Pages
+12 ISSN
+13 URL
+14 Keywords
+15 Research Question 1
+16 Research Question 2
+17 Research Question 3
+18 Research Question 4
+
+
+**Table 6** : Fields of data extraction form
+
+
+**3.** **Results**
+
+
+In this section, first the descriptive analysis of the SLR
+sample is covered. It consists of main statistics of the
+research sample including publication years, keywords
+analysis and distribution of journals/ conferences. Then the
+results pertaining to each research question are presented.
+The list of 16 primary studies included in the SLR is provided
+in dataset [26].
+
+**3.1** **Key Statistics**
+
+
+The graph in Figure 3 represents the publication years of
+research papers spread over five years, from 2019 to 2024.
+
+
+**Fig. 3** Research sample of papers published over the last five **Fig. 5** Distribution of papers as per journals and
+years conferences
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Fig. 4** Keywords used in the papers showing GANs with the highest
+frequency
+
+
+
+**Fig. 6** The journals with impact factor >1 included in this review
+
+
+The analysis is drawn on 16 research papers selected as
+sample. An evident trend of increasing research in this field
+can be observed over the years with a significant rise in year
+2023, with five articles published.
+
+There were more than 80 keywords included in the
+selected research papers. Figure 4 presents a visual
+representation graph, which shows “Generative Adversarial
+Networks or GANs” to be the most used keyword by the
+authors with a frequency of 11. The distribution of studies
+per search database is shown in Figure 5. The maximum
+number of publications, six as conference papers while three
+as journals articles, came from IEEE Xplore. Out of 16
+selected papers, 7 (43.5%) were conference papers and 9
+(56.5%) were journal articles. Figure 6 shows each journal
+contribution in the SLR, whereas figure 7 represents part of
+conference papers.
+
+**3.2** **Active Learning**
+
+As outlined in the Research Methodology chapter,
+ASReview Lab was used for screening of articles based on
+abstracts. The author continued reviewing articles through
+active learning for appropriate relevancy until 22 irrelevant
+articles appeared consecutively. This signaled a good
+stopping point, having reviewed 61% of the retrieved
+abstracts.
+Figure 8 illustrates the trend in accepted studies
+throughout the active learning review process. Initially, with
+a low number of reviewed articles (likely containing many
+relevant ones), the acceptance rate for proposed studies is
+high. However, as the review progresses and encounters a
+greater proportion of irrelevant studies, the number of
+accepted articles dips compared to the total reviewed. Figure
+
+
+
+8 directly compares the efficiency of active learning-assisted
+selection (solid) with a traditional, manual search approach
+(dotted). The figure reveals a clear advantage for the active
+learning approach. While the dotted line depicts a slow and
+steady increase in relevant studies found through a random
+manual search, the solid line representing the active learning
+process demonstrates a much steeper rise. This signifies that
+the active learning method identifies relevant studies at a
+significantly faster rate.
+
+**3.3** **RQ-1: What is the role of Generative AI**
+**in Aircraft PdM?**
+
+Aircraft rely on healthy systems for safe and efficient
+operations, and it is identified that predictive maintenance
+based on GAI plays a crucial role in capturing the faults
+before they even occur. Generative AI offers a powerful suite
+of techniques to address the challenges of imbalanced and
+scarce data for capturing the early stages of aircraft system
+degradation. Hence, the primary roles of generative AI are
+
+
+
+55
+
+46
+
+37
+
+28
+
+18
+
+
+
+~~Active Learning~~
+
+
+
+Manual Learning
+
+
+
+9
+
+0
+
+
+
+1 25 49 74 98 122
+
+
+**Number of reviewed records**
+
+
+
+**Fig. 8** Active Learning Vs Manual Learning
+
+
+(1) data augmentation, (2) feature extraction and (3) missing
+data imputation.
+Data augmentation refers to generation of new data and
+augmenting it with existing data. The goal of data
+augmentation is to increase data quantity and diversity [27].
+Moreover, GAI can be used to extract key features of the data
+for building classifiers and predictive models, hence
+assisting in learning data representation [28]. Finally, data
+imputation techniques involve filling in the blanks in the
+data. Unlike traditional estimation techniques of statistical
+analysis, neural network methods work in two stages. First,
+they train a model on the data. Then, in the imputation stage,
+the trained model is used to "fill in the blanks" for missing
+values by generating data that follows those learned patterns
+
+[29].
+Aircraft generate a lot of data through sensors installed
+but the key problem in implementing PdM is that the data is
+imbalanced. This means that normal operation readings
+significantly outnumber anomaly data. This imbalance
+mirrors situations where the number of healthy samples
+vastly outweighs defective ones, or the training data fails to
+represent all fault categories equally. Consequently, GAI
+models can become biased towards the over-represented
+normal class, leading to misleading performance metrics like
+accuracy. To address this challenge, various techniques are
+being used to balance the data before training the models.
+This involved oversampling the rare "failure" data or under
+sampling the abundant "normal" data. Wu et al. [30], Chen et
+al. [31], Chen et al. [28], Liu et al. [32], Xiong et al. [33] and
+Fu et al. [34] addressed class imbalance in datasets using
+generative models. They improved classification accuracy in
+fault diagnosis and yielded a more balanced dataset by
+creating synthetic fault data for training diagnostic models.
+Similarly, Zhang et al. [35], Lv et al. [36], Lang et al. [37],
+Xiong et al. [33] and Zhang et al. [28] handled the sparse
+degradation data by creating synthetic time-series data
+representing different degradation patterns. This data
+augmentation enriched training datasets for machine learning
+models, allowing them to identify these early warning signs
+and predict RUL more accurately. In some cases, sensor data
+might also be incomplete, with missing readings. Ma et al.
+
+[29] proposed that generative models can reconstruct missing
+entries for time-series data with missing values from multiple
+sensors, leading to improved downstream tasks like RUL
+prediction in aeroengines. Furthermore, Huang et al. [38]
+used variational auto encoders to improve the feature
+extraction process. They stated that AI models can go beyond
+simple data augmentation by uncovering hidden patterns
+within sensor data and generated health index curve, leading
+to better RUL prediction accuracy.
+
+**3.4** **RQ-2: Which Generative models are**
+**used in Aircraft PdM?**
+
+
+The applications of GAI in predictive maintenance are
+extensive. Despite its potential, GAI is still an evolving field.
+
+
+
+Different GAI models are best suited for addressing specific
+data challenges. Researchers are actively exploring ways to
+make GAI models more interpretable, allowing for a better
+understanding of how these models arrive at their decisions
+
+[39]. The types of Generative AI models commonly implied
+in the reviewed papers are GANs and VAEs. Table 7 lists the
+type of generative models identified in the SLR.
+
+
+**Type of Generative Model** **References**
+
+
+SS-InfoGAN Wu et al. [30]
+IT-GAN Huang et al. [39]
+DRN-ACGAN Chen et al. [31]
+SAAN Lv et al. [36]
+CGAN Duan et al. [40]
+1D-DGAN-PHM Baptista et al. [41]
+PT-WGAN-GP Chen et al. [28]
+CPI-GAN Xiong et al. [33]
+GAN-CNN-LSTM Huang et al. [38], Zhang
+et al. [35] and Lang et al.
+
+[37]
+TSGAIN Ma et al. [29]
+VAE-GAN Peng et al. [42]
+DARWIN Zhang et al. [27]
+DA-SMOTE-ED Liu et al. [32]
+LWSF-CNN Fu et al. [34]
+
+
+**Table 7:** Generative Models discussed in the SLR sample
+
+
+**3.4.1** **Generative Adversarial Network.** A typical GAN
+consist of two neural networks; a generator that creates new
+data resembling real data and a discriminator that tries to
+distinguish between real and generated data. The generator
+tries to improve its ability to create realistic data, while the
+discriminator tries to perform better at differentiating
+between the real and the fake data, through an iterative
+training process. This adversarial training helps the generator
+produce increasingly realistic data.
+In this study, eleven variants of GANs were identified to
+address fault diagnosis of aircraft parts. A semi-supervised
+Information Maximizing Generative Adversarial Network
+(SS-InfoGAN) has been employed by Wu et al. [30] on
+classification of bearing faults. SS-InfoGAN uses labeled
+data to not only generate realistic time series but also retain
+class information. This allows the model to generate samples
+specifically for minority classes. Interpretable Temporal
+GANs (IT-GANs) were proposed by Huang et al. [39],
+especially for imbalanced multivariate time series flight data.
+Through the process of learning variable association graphs
+for every class, IT-GANs integrate an interpretability feature.
+This allows for understanding the differentiating factors
+between different classes. Chen et al. [31] utilizes a Deep
+Residual Network-Auxiliary Classifier GAN (DRN
+
+ACGAN) for fault diagnosis of rolling bearings. The DRN
+architecture within the generator helps address the vanishing
+gradient problem associated with deep networks, leading to
+an improved quality of the generated samples. Additionally,
+Instance Normalization (IN) is incorporated to stabilize the
+training process.
+Lv et al. [36] employed SAAN model for RUL
+prediction of aeroengines using sensor data. The generator
+adapts the auxiliary data to resemble the degradation patterns
+of the target engine. It fools the discriminator by
+transforming the auxiliary data to appear like target engine
+data while preserving the RUL information. While the
+discriminator tries to correctly identify the data source and
+predict the sequence life and RUL for both the target engine
+data and the generator's outputs. The LSTM layer in the
+discriminator is shared with the RUL prediction task. This
+allows the model to leverage features learned for source
+identification and sequence life prediction to improve RUL
+prediction accuracy.
+Duan et al. [40] used the improved Conditional GANs
+(CGAN) to address sparse data issues for RUL prediction.
+Unlike regular GANs, CGAN takes an additional input called
+a conditional variable and specifically handle time series data
+like condition monitoring samples. The model is applied to
+Aircraft Auxiliary Power Unit (APU) as an example of a
+complex electro-mechanical system. The paper further
+employed various RUL prediction methods like Support
+Vector Regression (SVR) and Restricted Boltzmann
+Machine - Extreme Learning Machine (RBM-ELM) along
+with the augmented data for better prediction.
+Baptista et al. [41] proposed a 1D-Denoising GAN (1DDGAN-PHM) to remove noise from 1-dimensional condition
+monitoring signals, while preserving important edges
+(degradation patterns) in the data. This model is applied to
+data from a simulated aircraft turbofan engine (NASA's CMAPSS simulator). The model consists of a denoising
+generator and a discriminator. The generator learns to
+remove noise from the input signal. The discriminator helps
+the generator learn by comparing noise-free signals with the
+generator's outputs. The specific architecture uses stride
+convolutions instead of pooling layers, batch normalization,
+LeakyReLU (activation function used to introduce nonlinearity among the outputs) activation, and a final fully
+connected layer in the discriminator. The generator uses an
+autoencoder structure to enhance its denoising capability. It
+is trained to minimize both the reconstruction error
+(difference between noisy input and generated clean signal)
+and the adversarial loss (fooling the discriminator into
+thinking the generated signal is real).
+Chen et al. [28] proposed an enhanced fault diagnosis
+method using a Pre-Trained Wasserstein GAN with Gradient
+Penalty (PT-WGAN-GP). WGAN is a variant of GAN that
+seeks to eliminate issues like mode collapse, increase
+learning stability, and produce meaningful learning curves
+that are helpful for debugging and hyperparameter searches.
+The proposed model aims to generate high-quality samples
+
+
+
+and expand the imbalanced training dataset for improved
+fault diagnosis. The model consists of a pre-training network,
+discriminator, classifier and a generator. The pre-trained
+network is trained on different data sources (balanced data)
+to improve the generalization ability of the diagnostic model.
+This network is then used as the initial layers for both the
+discriminator and classifier. The discriminator uses the pretrained network and helps the generator learn by
+distinguishing real fault signals from generated ones. The
+classifier uses the pre-trained network and classifies the fault
+types based on the processed signals (either real or
+generated). The generator incorporates Instance
+Normalization (IN) and Residual Network. This network is
+designed to generate new, realistic fault signals that resemble
+the imbalanced data. Instance normalization is used instead
+of Batch Normalization (BN) to provide better ability of
+fitting with imbalanced data.
+Xiong et al. [33] tackles the difficulty of predicting RUL
+when real-world operating conditions are missing from the
+training data. To address this, they propose a novel
+framework called Controlled Physics Informed GAN (CPIGAN). CPI-GAN is a physics-informed generative
+adversarial network that offers two key advantages. First, it
+controls the generation of TTF trajectories (time-to-failure)
+by combining GANs with RNNs to capture long-term
+dependencies and incorporating physical laws for realistic
+and interpretable degradation patterns. Second, it ensures the
+generated data aligns with the actual degradation process
+through a physics-informed loss function based on inferred
+system health indicators. This combination of controlled
+generation and physics-informed loss function allows CPIGAN to produce synthetic data that reflects real-world
+conditions, improving the accuracy of RUL prediction.
+Lang et al. [37] and Zhang et al. [35] combines the
+strength of three distinct neural networks namely
+Convolutional Neural Network (CNN) and Convolutional
+Recurrent Neural Network (CNN) like Long Short-term
+Memory Network (LSTM) and GAN to address the data
+limitation of training data for predicting aircraft engine RUL.
+The GAN augments the training data, whereas CNN-LSTM
+focus on extracting key features relevant to predicting faults
+and capture long-term dependencies in sequence data.
+Similarly, Huang et al. [38] uses GAN-LSTM to improve the
+RUL prediction accuracy of aero-engines.
+Ma et al. [29] introduces TSGAIN (Time-Series
+Generative Adversarial Imputation Network) with PPCTE
+(Pre-imputation, Parallel Convolution, Transformer
+Encoder) to address the challenge of missing values in multisensor aircraft engine data. TSGAIN builds upon GAN to
+impute missing data, but it incorporates several
+advancements. A pre-imputation module refines the initial
+data fed into the system. To capture the complex
+relationships between multiple sensors, a parallel
+convolution module is introduced. Finally, a transformer
+encoder with a multi-head attention mechanism strengthens
+
+
+the model's ability to learn temporal dependencies within the
+sensor readings.
+
+**3.4.2** **Auto-Encoders.** Another prominent type of neural
+network architecture identified in SLR is Auto-Encoders.
+These models aim at learning compressed representations of
+raw data through a unique training process. The encoder acts
+like a compression engine, transforming the input data into a
+lower-dimensional latent space representation. This space
+captures the main features of the original data in a more
+compact form. The decoder then uses this compressed data
+to reconstruct the original input data as accurately as
+possible. The training process focuses on minimizing the
+reconstruction error, which is the difference between the
+original input data and the reconstructed output generated by
+the decoder. By iteratively refining the encoder and decoder
+based on this error, the AE learns to extract meaningful and
+informative features from the data [42].
+Peng et al. [42] employed a novel method of Variational
+Auto-Encoders Generative Adversarial Networks (VAEGANs) for predicting RUL for turbofan engines using sensor
+data. The model consists of an encoder that reduces the
+dimensionality of sensor data, extracting hidden features, a
+decoder / generator that generates HI degradation curves that
+resemble real curves based on the encoded data and a
+discriminator that improves the generated HI curves by
+distinguishing them from real ones, promoting realistic and
+characteristic degradation patterns. Then it uses a Bidirectional Long Short-Term Memory network (BLSTM) for
+prediction of sensor sequence. It incorporated two LSTMs in
+opposite directions to Capture both past and future
+dependencies in the sensor data sequences. The model finally
+combines the predicted sensor data with predicted HI curve
+and extrapolates the Health Index curve to a predefined
+threshold value. The RUL is predicted through the difference
+between the cycle reaching the threshold and the current
+cycle.
+Zhang et al. [27] proposes the framework named DataAugmentation-boosted Dual Informer framework
+(DARWIN) for predicting performance degradation in aeroengines. DARWIN addresses the challenge of limited data in
+the initial degradation stages, a critical period for early fault
+detection. The framework employs a two-step approach.
+First, a data augmentation model based on the Informer
+architecture generates additional degradation time-series
+data. Second, a separate Informer model with a generative
+decoder is employed for prediction. Additionally, a specific
+padding strategy is implemented to preserve the integrity of
+the degradation context during the prediction process.
+
+**3.4.3** **Other Statistical Techniques integrated with**
+**Neural Networks.** Few hybrid methods were identified
+during the study which employed data processing techniques
+coupled with deep learning models to achieve fault
+diagnosis. Liu et al. [32] focuses on anomaly detection of gas
+turbines and addressed the class imbalance (fewer anomaly
+
+
+
+samples) and overlapping features between normal and
+anomaly data. They introduced deep attention synthetic
+minority over-sampling technique with the Encoder-Decoder
+(DA-SMOTE-ED), which utilizes a hybrid re-sampling
+scheme, strategically removing some normal data (undersampling) while preserving informative examples. The core
+lies in advanced data augmentation with feature learning. A
+self-attention-based Encoder-Decoder tackles both interclass overlap by learning a well-separated feature space and
+temporal feature extraction from multi-dimensional sensor
+readings. To ensure high-quality synthetic anomaly data,
+DA-SMOTE-ED incorporates an attention module that
+dynamically controls the "blending" between existing
+anomalies.
+The study by Fu et al. [34] proposed a novel approach
+for diagnosing faults in aviation hydraulic pumps. They
+addressed the scarcity of fault samples and integrates local
+wavelet similarity fusion (LWSF) with a CNN in a method
+called LWSF_CNN. It works by decomposing vibration
+signals into wavelet packet coefficients (WPCs) which
+contain characteristic information at specific frequencies.
+LWSF then modifies the WPCs of faulty samples by
+referencing normal samples, ensuring the generated samples
+remain representative of the fault. Finally, the modified
+WPCs are used to reconstruct new, augmented faulty
+samples, increasing the diversity and number of samples for
+improved fault classification. The CNN is then trained on
+this balanced dataset and is used to diagnose faults in unseen
+test samples.
+
+**3.5** **RQ-3: Which application domains exist**
+**in GAI based Aircraft PdM?**
+
+
+Recent years have seen a surge in innovative methods
+for PdM in aviation sector, with many researchers employing
+a combination of data-driven analysis and machine learning
+techniques. Below is an overview of the various PdM
+applications within the aircraft industry. Aero-engine and
+rolling bearings have been identified to be the leading
+applications in aircraft where GAI has reached a more mature
+stage.
+
+**3.5.1** **Aero-Engine.** Aircraft engines are complex
+machinery and a significant expense for airlines, requiring
+regular maintenance to ensure smooth operation. These
+engines rely on a network of sensors to monitor their health,
+including factors like fan inlet temperature, pressure, and
+rotational speed. Aircraft engine failures can be catastrophic,
+so ensuring their reliability is crucial [42]. Predicting RUL
+of an aircraft engine involves analyzing complex multivariate time series data of sensors collected throughout the
+engine's lifecycle, which makes it as one of the most
+challenging tasks in PHM [37].
+Zhang et al. [27] describe the three stages of an engine’s
+life in their paper: healthy, initial degradation, and severe
+degradation. The healthy stage has no degradation trends and
+
+
+random sensor readings. The initial degradation stage,
+however, holds the key to identifying impending failure, but
+data from this stage is scarce [27, 36]. Existing methods that
+do not differentiate these stages can lead to false alarms or
+even accidents. Majority of papers have talked about the
+challenges which are faced in acquiring degradation data of
+aircraft. Obtaining enough information on complete engine
+failures is a significant hurdle. It could take years for an
+engine such as turbofan engine to naturally degrade from its
+peak performance to a complete breakdown. In practical
+scenarios, experiencing failure is highly unfavorable as it
+poses safety risks and carries the potential for severe and
+irreversible damage. As a consequence, engine parts are
+replaced long before they reach the point of failure,
+prioritizing safety over the collection of complete
+degradation data. This lack of "run-to-failure" data, which is
+particularly valuable because it captures the engine's natural
+degradation process in its entirety creates a major challenge
+for advanced machine learning algorithms trying to
+accurately predict an engine's remaining useful life
+
+[29,33,35,38].
+Existing reviews on aircraft engine health have
+highlighted the potential of machine learning, particularly for
+predicting RUL. The methods proposed by researchers often
+combine existing RUL models with techniques for
+generating realistic time-series data. These AI networks
+excel at finding patterns in data, helping them understand the
+relationships between various sensor measurements.
+Additionally, they can learn from sequences, allowing them
+to capture how sensor readings change over time [35].
+
+**3.5.2** **Rolling Bearings** . Bearings minimize frictional
+forces between parts engaged in relative motion along a
+predetermined axis. For high-end equipment, condition
+monitoring and diagnosing bearing health is a critical aspect
+of PHM. In the aviation industry, high-speed bearings within
+an aeroengine's rotor system are undeniably crucial for
+ensuring the safe and stable operation of the aircraft.
+However, these bearings are susceptible to various faults due
+to the harsh environments they endure during extended
+operation. These faults can manifest as vibrations caused by
+rotor issues like misalignment, rubbing or loose components.
+Ultimately, bearing faults can lead to equipment failure,
+compromising sustained airworthiness, and potentially
+causing significant financial losses or even catastrophic
+accidents [28].
+Vibration signals, due to their ease of use and wide
+frequency range, are a critical indicator of bearing health.
+However, diagnosing faults through these signals can be
+difficult. The complexity of bearing fault modes, such as
+cracks, wear, and lubrication problems, leads to vibration
+signals that are erratic, non-linear, and constantly changing.
+Aeroengine rotor systems present unique challenges for
+intelligent diagnostic methods. Rolling bearings in these
+systems operate continuously under harsh conditions – high
+speeds, high temperatures, and variable workloads. The
+
+
+
+complex combination of centrifugal, aerodynamic, and
+thermal loads further complicates diagnosis [28]. A
+significant hurdle stems from the imbalanced nature of the
+data. Bearings typically operate in a normal state for
+extended periods, resulting in far more data for healthy states
+compared to faulty ones. This imbalance can negatively
+impact the performance of data-driven intelligent diagnostic
+methods [31]. Therefore, improving prediction efficiency in
+the presence of data imbalance, particularly for minority
+classes holds immense importance [30].
+
+**3.5.3** **Hydraulics.** The health of hydraulic pumps
+significantly impacts aircraft safety and reliability as
+hydraulic systems are critical for aircraft flight controls.
+However, harsh operating environment pose serious
+challenges to the health of these pumps. Early fault detection
+is crucial to prevent malfunctions.
+Diagnosing faults in these pumps is challenging.
+Building accurate physical models requires extensive
+knowledge, and traditional model-based methods are limited
+by this knowledge gap. Recent advances in data-driven fault
+diagnosis, particularly deep learning, offer promise. These
+techniques use historical pump data to train automated fault
+classifiers, directly learning features indicative of faults from
+real-world data. However, a major hurdle exists similar to
+that of bearing as discussed above: data imbalance. Because
+aviation hydraulic pumps are highly reliable, collecting data
+on faulty pumps is difficult. Pumps spend most of their time
+operating normally, resulting in a vast amount of normal data
+compared to a very limited set of fault data (sometimes as
+few as 2-3 samples). This imbalance significantly hinders the
+effectiveness of data-driven methods.
+Only one publication related to fault diagnosis of
+hydraulic pump was found in this review. The same study by
+Fu et al. [34] proposed a solution that capitalized on the
+similarities between normal and faulty vibration signals. By
+exploiting these shared features, the model was enhanced to
+effectively "augment" the limited faulty samples, reducing
+reliance on the small original dataset.
+
+**3.5.4** **Auxiliary Power Unit.** The Auxiliary Power Unit
+is a critical electro-mechanical component of an aircraft, but
+its complex and non-linear degradation process makes it
+difficult to predict RUL using traditional data-driven
+methods. Most of the condition monitoring samples collected
+from the APU during aircraft operation lack degradation
+features and are unusable for RUL prediction [40].
+Duan et al. [40] state in their work that even after preprocessing, only a small portion of the data is suitable for
+analysis. Moreover, they highlighted that for the APU, only
+exhaust gas temperature (EGT) and bleed air pressure (PT)
+are considered informative for RUL prediction. These twodimensional samples might not be enough for accurate
+prediction, so improved Conditional Generative Adversarial
+Networks (CGAN) is used to augment the data.
+
+
+**3.5.5** **Gas Turbine.** A gas turbine is a critical
+component of many aircraft engines. Most gas turbine data
+reflect normal operation, with only a small portion indicating
+anomalies. Additionally, abnormal data can closely resemble
+normal data before an issue arises. These factors make
+anomaly detection of gas turbines difficult. Moreover, gas
+turbine data is complex, multi-dimensional time series with
+intricate relationships between various parameters.
+Traditional methods struggle to extract meaningful
+information from this data to create synthetic abnormal data
+for analysis [32].
+While numerous gas turbine faults exist, Liu et al. (2023)
+highlights that key performance parameters for anomaly
+detection include exhaust gas temperature (EGT), rotor
+speeds (N1 and N2), and fuel flow (FF). However, these
+parameters are influenced by flight conditions and
+environment. To account for this, manufacturers may
+transform these raw measurements into derived metrics that
+are less sensitive to external variations, ultimately improving
+the accuracy of anomaly detection systems.
+
+**3.6** **RQ-4: Which datasets are used to**
+**validate GAI based Models in aircraft PdM?**
+
+
+Data-driven prognostics is playing an increasingly
+important role in aircraft health monitoring with the growing
+availability of sensor data and sophisticated algorithms. This
+approach analyzes sensor measurements from various
+subsystems to assess their health, pinpointing patterns that
+indicate potential issues. Previously, limited access to realworld data hampered PdM research. However, the recent rise
+of public datasets for machinery has provided an extensive
+collection of sensor measurement data. This allows
+researchers to develop and test PdM algorithms using realworld conditions, leading to a surge in experimentation. This
+section explores the datasets employed in PdM tasks, as
+identified in recent scientific literature.
+Publicly available datasets play a pivotal role within the
+realm of scientific research. They enable researchers to share
+critical data and facilitate the comparative analysis of
+methodologies across various disciplines. However, in the
+specific domain of aircraft maintenance research, a single
+dataset dominates: The National Aeronautics and Space
+Administration's (NASA) Commercial Modular AeroPropulsion System Simulation (C-MAPSS). This dataset
+offers high-fidelity simulations of large commercial turbofan
+jet engines, incorporating realistic engine control systems.
+Each data point combines multiple measurements taken over
+time forming multivariate time series from 21 sensors.
+Additionally, the dataset consists of four sub datasets. These
+sub datasets represent different operational conditions and
+fault scenarios for the simulated turbofan engines, commonly
+identified by codes like FD001, FD002, FD003, and FD004.
+The data represents a diverse fleet of engines with varying
+degrees of initial wear and potentially different
+manufacturing processes. It encompasses information on 100
+
+
+
+such engines, including how their performance changes over
+time until they fail called run-to-failure time-series
+trajectories [36,38].
+While the C-MAPSS dataset is a popular choice for
+researchers because it allows for easy comparisons between
+different models, it has limitations. Because it focuses on
+turbofan engines, most research uses it for that specific
+component. This means there's less research on other critical
+airplane parts, like hydraulics and bearings, which require
+different data and analysis techniques. In other words,
+researchers were found to be focusing too much on one area
+because the data is readily available, neglecting other
+important parts of an airplane.
+For conducting fault diagnosis methods related to rolling
+bearings, the researchers were found to leverage a publicly
+available bearing dataset from Paderborn University. This
+dataset, collected in 2016, is particularly valuable because it
+incorporates real-world complexities. It contains vibration
+data from 30 bearings: 6 healthy, 12 with artificially induced
+faults, and 14 with real-world damage such as wear and tear
+through accelerated life tests. This variety of damage types,
+encompassing single point faults, distributed faults, and even
+combinations, allows for a more robust evaluation of the
+method's effectiveness in handling diverse bearing fault
+scenarios [28].
+Another bearing dataset from the Polytechnic University
+of Turin in Italy was found to be used for testing of PdM
+models. This dataset focuses on high-speed bearings
+employed in aeroengines and includes vibration acceleration
+data measured under varying rotational speeds (18,000 and
+24,000 RPM) and across different levels of bearing damage.
+This allows the researchers to assess how well their fault
+diagnosis method performs in identifying issues within these
+high-speed bearings under diverse operating conditions [31].
+Other experimental datasets found in the literature were
+based on test rigs and practical settings. Fu et al. [34] used
+ground-based test rig simulating an aviation hydraulic pump
+to collect vibration signals during fault simulations.
+Similarly, Wu et al. [30] investigated bearing faults using a
+rotating machinery platform. Duan et al. [40] validated their
+method for estimating remaining useful life in a practical
+setting using real-world sensor readings from the APU on an
+Airbus A320 aircraft during its environmental control mode.
+Likewise, Huang et al. [39] investigated real-world airplane
+data to detect malfunctions. They collected comprehensive
+flight data from 47 sensors on each aircraft throughout the
+entire flight (takeoff to landing). This data includes
+information on both normal flights and those experiencing
+two specific types of problems.
+
+**4.** **Discussion**
+
+
+This study is the first comprehensive SLR to explore
+how Generative AI can be used for predicting maintenance
+needs in aircraft. We looked at over 400 research papers from
+2019 and narrowed it down to 16 high-quality studies. An
+
+
+active learning process was implemented using ASReview
+Lab to select relevant articles based on abstracts. The process
+was stopped after the appearance of 22 consecutive irrelevant
+articles. The selection process could have been stopped
+earlier but that would have slightly increased the risk of
+losing relevant articles.
+Notably, all papers clearly stated the objectives of
+addressing the challenge of limited run-to-failure data of
+through generative models. Data scarcity, imbalanced
+dataset, noisy and missing data are some key challenges
+posed to accurate predictions of RUL and fault diagnosis
+
+[28,29,30,32,35,37,41,42]. The most popular models
+employed for GAI based PdM are GANs and VAEs.
+Different variants of GANs, such as CGANs, DGANs,
+WGANs, RNN-GANs, CR-GANs etc. are being adopted by
+researchers to address the issues of limited data. However,
+the choice of the specific GAN variant is dependent on the
+nature of the data and the desired level of interpretability.
+VAEs, on the other hand, are being utilized to extract
+meaningful and information features from the data. All the
+proposed approaches, combining under-sampling, feature
+space learning, and attention-guided synthetic data
+generation, aimed to create a balanced training set with
+superior synthetic anomalies, ultimately enhancing anomaly
+detection accuracy in aircraft equipment. Nevertheless, few
+challenges remain in implementation of GAI models. One of
+the challenges identified is optimization of the balance
+between generator and discriminator for realistic synthetic
+data [30,40]. The current research heavily focuses on sensor
+data, ignoring the fact that textual and visual data can also
+augment GAI models. Furthermore, lack of interpretability
+causes lack of trust in the output of GAI models especially
+for safety critical systems, as a lesser understanding
+generally exists into how these models arrive at their
+conclusion. Also, GAI models trained on specific aircraft
+system might not work well with other systems, due to sensor
+data variations. Finally, the implementation of generative
+models in PdM of aircraft is affected by high-dimensional
+aircraft data, expensive infrastructure, and real-time
+integration challenges. The successful integration of GAI
+model in PdM framework depends upon the knowledge
+dissemination. The lack of knowledge sharing may result in
+a breakdown in communication and make it difficult to
+incorporate generative AI models into current operations
+
+[27,30,35].
+It was observed that public repositories offer a wealth of
+data, with the C-MAPSS emerging as the dominant choice
+for turbofan engine research [36,38]. This dataset
+encompasses information on 100 engines including run-tofailure data, facilitating RUL prediction studies. However,
+C-MAPSS focuses solely on turbofan engines, potentially
+limiting research on other critical aircraft components like
+bearings and hydraulics.
+Despite these limitations, there exists positive prospects
+for research in this field. Researchers are trying to explore
+various strategies to collect more data through simulation
+
+
+
+techniques or collaboration with airlines. Knowledge sharing
+between airlines, manufacturers and research institutions can
+drastically improve the performance of these models to
+predict accurate RUL or degradation pattern. Hence, future
+research can be directed towards exploring avenues to collect
+extensive data for other aircraft critical systems to accelerate
+the development and adoption of GAI for PdM in aviation
+industry. Moreover, studies can be undertaken to enable GAI
+models to handle multimodal data which is frequently
+encountered in real-world scenarios. Research into
+integrating these technologies for greater automation can
+lead to wider adoption by maintenance personnel and
+improved efficiency in anomaly detection processes. This
+will ultimately translate to better safety and costeffectiveness for airlines. It is also important to note that the
+field of generative AI is not operating in isolation, rather its
+combination with other technologies such as digital twins
+and sensor technologies create even more comprehensive
+models for RUL and fault prediction. While this field is
+showing great promises in the aviation industry, researchers
+are constantly trying to explore means to improve its
+capabilities and increasing the interpretability of generative
+models, which will allow for the understanding of its
+decision-making process, promoting wider adoption of
+generative models in the aviation industry.
+
+**5.** **Limitations of Research**
+
+
+Although the search protocol was formulated after
+thorough testing and refinement; however, it is
+acknowledged that the search for relevant papers might have
+excluded some valuable studies. Phrasing search queries can
+be tricky, and even minor wording changes can significantly
+alter search results in different databases. Furthermore, the
+search of relevant studies was concluded in Feb 2024,
+excluding any research published afterwards. This is a
+challenge in a rapidly developing field like generative AI.
+With so many new publications, capturing all relevant
+literature up to the review's submission date is difficult.
+Even with efficient research methods, there's always a time
+gap between data collection and the final review. This means
+there might be recently published techniques that address the
+issues identified in this review, but they weren't included due
+to the cutoff date. This can potentially lead to missing
+important research on the topic. Another limitation is
+publication bias. Studies with positive results are more likely
+to be published than those with negative findings. The
+authors tried to address this by focusing on high-quality
+research using specific methods, but there's still a chance
+relevant information was missed. Selection bias is also a
+concern. Even with predetermined criteria for including
+studies, subjective judgments can still influence which ones
+are chosen. The broad scope of the research area,
+encompassing both predictive maintenance and generative
+AI, requires expertise in various fields. This increases the
+possibility of misinterpreting some studies during the
+
+
+selection process. The data extraction and synthesis process
+were equally shared between the authors to capture important
+information needed to answer the research questions. The
+disagreements were carefully reflected upon, and decisions
+were made accordingly. Finally, the study acknowledges
+limitations in its internal and external validity. The research
+questions themselves might have missed crucial aspects or
+made assumptions due to the evolving nature of the field and
+the vast number of approaches for developing these
+technologies. Moreover, only considering studies that
+combined GAI with predictive maintenance limited the
+findings' generalizability. This means they might not be
+applicable to other forms of predictive maintenance
+techniques.
+
+**6.** **Conclusion**
+
+
+This study explored the growing use of Generative AI in
+transforming how the aviation industry performs predictive
+maintenance on aircraft. A systematic literature review was
+conducted, analyzing studies published over the past five
+years. The focus was on understanding how GAI is
+revolutionizing aircraft PdM. This included the role
+generative models play, the specific models being used, the
+areas where GAI is applied, and the datasets employed to
+validate these models.
+The study implemented a semi-automated approach for
+the literature review, utilizing ASReview and PRISMA
+techniques. This process identified 16 relevant studies out of
+a pool of 442. The findings highlight the significant
+contribution of GAI in surpassing traditional PdM methods.
+Notably, GAI excels at addressing limitations caused by a
+lack of data. This allows for more accurate diagnoses of
+equipment degradation and the ability to estimate the RUL
+of aircraft systems with greater precision.
+The primary objective of utilizing GAI in aircraft PdM
+is to generate realistic RUL data. This data is then used to
+predict RUL and diagnose faults. GAI proves particularly
+adept at tackling challenges like imbalanced and noisy data,
+where information on normal operations significantly
+outweighs data on faults. GANs, VAE-GANs, and various
+combinations of these models are the most prevalent GAI
+approaches used for predicting aircraft component RUL.
+Across the reviewed studies, NASA's CMAPSS
+emerged as the most popular dataset for validating GAIbased PdM models. However, a limitation of this dataset is
+its focus on turbofan engines. This restricts the possibilities
+for conducting research on PdM for other aircraft
+components.
+
+**7.** **References**
+
+
+[1] Marais, K. B., & Robichaud, M. R. (2012). Analysis
+of trends in aviation maintenance risk: An empirical
+approach. Reliability Engineering & System Safety,
+106, 104-118.
+
+
+
+
+[2] Samaranayake, P., & Kiridena, S. (2012). Aircraft
+maintenance planning and scheduling: an integrated
+framework. Journal of Quality in Maintenance
+Engineering, 18(4), 432-453.
+
+[3] Saltoğlu, R., Humaira, N., & İnalhan, G. (2016).
+Aircraft scheduled airframe maintenance and
+downtime integrated cost model. Advances in
+operations research, 2016.
+
+[4] Statista. (2023). Estimated costs worldwide from
+unscheduled maintenance by aircraft type 2019-2038.
+Retrieved April 2, 2024, from
+https://www.statista.com/statistics/922666/estimatedcosts-worldwide-from-unscheduled-maintenance-byaircraft-type/
+
+[5] Statista. (2023). Size of aircraft fleets by region
+worldwide: projection 2019-2041. Retrieved April 2,
+2024, from
+https://www.statista.com/statistics/262971/aircraftfleets-by-region-worldwide/
+
+[6] Adryan, F. A., & Sastra, K. W. (2021). Predictive
+Maintenance for Aircraft Engine Using Machine
+Learning: Trends and Challenges. AVIA, 3(1).
+
+[7] Stanton, I., Munir, K., Ikram, A., & El‐Bakry, M.
+(2023). Predictive maintenance analytics and
+implementation for aircraft: Challenges and
+opportunities. Systems Engineering, 26(2), 216-237.
+
+[8] Serradilla, O., Zugasti, E., Rodriguez, J., & Zurutuza,
+U. (2022). Deep learning models for predictive
+maintenance: a survey, comparison, challenges and
+prospects. Applied Intelligence, 52(10), 10934-10964
+
+[9] International Air Transport Association (IATA) MCC
+
+[Montréal Connectivity Conference]. (2017).
+Prescriptive analytics for maintenance effectiveness
+IATA MCC 2017 [PDF]. Retrieved April 2, 2024,
+from
+https://www.iata.org/contentassets/af577ffae2714e85
+9202927be50afbea/1530-1600-improve-mtceffectiveness-through-data-analytics-honeywell.pdf
+
+[10] Fu, S., & Avdelidis, N. P. (2023). Prognostic and
+Health Management of Critical Aircraft Systems and
+Components: An Overview. Sensors, 23(19), 8124.
+
+[11] Xiongzi, C., Jinsong, Y., Diyin, T., & Yingxun, W.
+(2011, August). Remaining useful life prognostic
+estimation for aircraft subsystems or components: A
+review. In IEEE 2011 10th international conference on
+electronic measurement & instruments (Vol. 2, pp. 9498). IEEE.
+
+[12] Zhang, W., Yang, D., & Wang, H. (2019). Data-driven
+methods for predictive maintenance of industrial
+equipment: A survey. IEEE systems journal, 13(3),
+2213-2227.
+
+[13] Sabuhi, M., Zhou, M., Bezemer, C. P., & Musilek, P.
+(2021). Applications of generative adversarial
+networks in anomaly detection: a systematic literature
+review. Ieee Access, 9, 161003-161029.
+
+
+[14] Ran, Y., Zhou, X., Lin, P., Wen, Y., & Deng, R.
+(2019). A survey of predictive maintenance: Systems,
+purposes and approaches. arXiv preprint
+arXiv:1912.07383.
+
+[15] Carvalho, T. P., Soares, F. A., Vita, R., Francisco, R.
+D. P., Basto, J. P., & Alcalá, S. G. (2019). A
+systematic literature review of machine learning
+methods applied to predictive maintenance.
+Computers & Industrial Engineering, 137, 106024.
+
+[16] Fu, Q., Wang, H., Zhao, J., & Yan, X. (2019,
+December). A maintenance-prediction method for
+aircraft engines using generative adversarial networks.
+In 2019 IEEE 5th international conference on
+computer and communications (ICCC) (pp. 225-229).
+IEEE.
+
+[17] Abdulrahman, Y., Eltoum, M. M., Ayyad, A., Moyo,
+B., & Zweiri, Y. (2023). Aero-Engine Blade Defect
+Detection: A Systematic Review of Deep Learning
+Models. IEEE Access.
+
+[18] Wen, Y., Rahman, M. F., Xu, H., & Tseng, T. L. B.
+(2022). Recent advances and trends of predictive
+maintenance from data-driven machine prognostics
+perspective. Measurement, 187, 110276.
+
+[19] Kitchenham, B., & Charters, S. (2007). Guidelines for
+performing systematic literature reviews in software
+engineering.
+
+[20] van Dinter, R., Tekinerdogan, B., & Catal, C. (2021).
+Automation of systematic literature reviews: A
+systematic literature review. Information and
+Software Technology, 136, 106589.
+
+[21] Reis, J., & Melão, N. (2023). Digital transformation:
+A meta-review and guidelines for future research.
+Heliyon, e12834.
+
+[22] Moher, D., Shamseer, L., Clarke, M., Ghersi, D.,
+Liberati, A., Petticrew, M., ... & Prisma-P Group.
+(2015). Preferred reporting items for systematic
+review and meta-analysis protocols (PRISMA-P)
+2015 statement. Systematic reviews, 4, 1-9.
+
+[23] Van De Schoot, R., De Bruin, J., Schram, R., Zahedi,
+P., De Boer, J., Weijdema, F., ... & Oberski, D. L.
+(2021). An open source machine learning framework
+for efficient and transparent systematic reviews.
+Nature machine intelligence, 3(2), 125-133.
+
+[24] Boetje, J., & van de Schoot, R. (2024). The SAFE
+procedure: a practical stopping heuristic for active
+learning-based screening in systematic reviews and
+meta-analyses. Systematic Reviews, 13(1), 81.
+
+[25] Tummers, J., Kassahun, A., & Tekinerdogan, B.
+(2019). Obstacles and features of Farm Management
+Information Systems: A systematic literature review.
+Computers and electronics in agriculture, 157, 189204.
+
+[26] Nasim, Bisma; Khan, Zeeshan Ullah; Rasheed,
+Zeehasham (2024),
+“SLR_GenerativeAI_based_PdM_Aviation”,
+Mendeley Data, V1, doi: 10.17632/g2mxr92m8f.1
+
+
+
+
+[27] Zhang, Z., Chen, P., Xing, C., Liu, B., Wang, R., Li,
+L., ... & Zio, E. (2023). A Data Augmentation Boosted
+Dual Informer Framework for the Performance
+Degradation Prediction of Aero-engines. IEEE
+Sensors Journal.
+
+[28] Chen, J., Yan, Z., Lin, C., Yao, B., & Ge, H. (2023).
+Aero-engine high speed bearing fault diagnosis for
+data imbalance: A sample enhanced diagnostic
+method based on pre-training WGAN-GP.
+Measurement, 213, 112709.
+
+[29] Ma, S., Xu, Z. S., & Sun, T. (2023). Parallel
+Generative Adversarial Imputation Network for
+Multivariate Missing Time-Series Reconstruction and
+Its Application to Aero-Engines. IEEE Transactions
+on Instrumentation and Measurement.
+
+[30] Wu, J., Zhao, Z., Sun, C., Yan, R., & Chen, X. (2020).
+Ss-InfoGAN for class-imbalance classification of
+bearing faults. Procedia Manufacturing, 49, 99-104.
+
+[31] Chen, J., Lin, C., Cui, J., & Ge, H. (2022, May). An
+fault diagnostic method based on DRN-ACGAN for
+data imbalance. In 2022 Prognostics and Health
+Management Conference (PHM-2022 London) (pp.
+97-102). IEEE.
+
+[32] Liu, D., Zhong, S., Lin, L., Zhao, M., Fu, X., & Liu,
+X. (2023). Deep attention SMOTE: Data
+augmentation with a learnable interpolation factor for
+imbalanced anomaly detection of gas turbines.
+Computers in Industry, 151, 103972.
+
+[33] Xiong, J., Fink, O., Zhou, J., & Ma, Y. (2023).
+Controlled physics-informed data generation for deep
+learning-based remaining useful life prediction under
+unseen operation conditions. Mechanical Systems and
+Signal Processing, 197, 110359.
+
+[34] Fu, S., Lin, L., Wang, Y., Zhao, M., Guo, F., Zhong,
+S., & Liu, Y. (2024). High imbalance fault diagnosis
+of aviation hydraulic pump based on data
+augmentation via local wavelet similarity fusion.
+Mechanical Systems and Signal Processing, 209,
+111115.
+
+[35] Zhang, X., Qin, Y., Yuen, C., Jayasinghe, L., & Liu,
+X. (2020). Time-series regeneration with
+convolutional recurrent generative adversarial
+network for remaining useful life estimation. IEEE
+Transactions on Industrial Informatics, 17(10), 68206831.
+
+[36] Lv, H., Chen, J., & Pan, T. (2020, July). Sequence
+adaptation adversarial network for remaining useful
+life prediction using small data set. In 2020 IEEE 18th
+international conference on industrial informatics
+(INDIN) (Vol. 1, pp. 115-118). IEEE.
+
+[37] Lang, P., Peng, K., Cui, J., Yang, J., & Guo, Y. (2021,
+December). Data augmentation for fault prediction of
+aircraft engine with generative adversarial networks.
+In 2021 CAA Symposium on Fault Detection,
+Supervision, and Safety for Technical Processes
+(SAFEPROCESS) (pp. 1-5). IEEE.
+
+
+[38] Huang, Y., Tang, Y., VanZwieten, J., Liu, J., & Xiao,
+X. (2019, May). An adversarial learning approach for
+machine prognostic health management. In 2019
+International Conference on High Performance Big
+Data and Intelligent Systems (HPBD&IS) (pp. 163168). IEEE.
+
+[39] Huang, H., Xu, C., & Yoo, S. (2021, March).
+Interpretable temporal gans for industrial imbalanced
+multivariate time series simulation and classification.
+In Proceedings of the 36th Annual ACM Symposium
+on Applied Computing (pp. 924-933).
+
+[40] Duan, Y., Peng, Y., Zhou, J., & Xue, M. (2022,
+November). Remaining Useful Life Prediction for
+Complex Electro-Mechanical System Based on
+Conditional Generative Adversarial Networks.
+In 2022 International Conference on Sensing,
+Measurement & Data Analytics in the era of Artificial
+Intelligence (ICSMD) (pp. 1-6). IEEE.
+
+[41] Baptista, M. L., & Henriques, E. M. (2022). 1DDGAN-PHM: A 1-D denoising GAN for Prognostics
+and Health Management with an application to
+turbofan. Applied Soft Computing, 131, 109785.
+
+[42] Peng, Y., Pan, X., Wang, S., Wang, C., Wang, J., &
+Wu, J. (2021, May). An aero-engine RUL prediction
+method based on VAE-GAN. In 2021 IEEE 24th
+International Conference on Computer Supported
+Cooperative Work in Design (CSCWD) (pp. 953957). IEEE.
+
+

@@ -1,0 +1,3169 @@
+_Article_
+# **AI-Driven Fault Detection and Maintenance Optimization for** **Aviation Technical Support Systems**
+
+
+**Igor Kabashkin** **[1,]** ***** **, Vladimir Perekrestov** **[2]** **and Maksim Pivovar** **[2]**
+
+
+1 Engineering Faculty, Transport and Telecommunication Institute, Lauvas iela 2, LV-1019 Riga, Latvia
+2 Sky Net Technics, Business Center 03, Ras Al-Khaimah B04-223, United Arab Emirates
+
+***** Correspondence: kiv@tsi.lv
+
+
+
+Academic Editors: José de Jesús
+
+
+Rangel-Magdaleno and Jose
+
+
+Hugo Barron-Zambrano
+
+
+Received: 11 February 2025
+
+
+Revised: 21 February 2025
+
+
+Accepted: 25 February 2025
+
+
+Published: 26 February 2025
+
+
+**Citation:** Kabashkin, I.; Perekrestov,
+
+
+V.; Pivovar, M. AI-Driven Fault
+
+
+Detection and Maintenance
+
+
+Optimization for Aviation Technical
+
+
+Support Systems. _Processes_ **2025**, _13_,
+
+
+[666. https://doi.org/10.3390/](https://doi.org/10.3390/pr13030666)
+
+
+[pr13030666](https://doi.org/10.3390/pr13030666)
+
+
+**Copyright:** © 2025 by the authors.
+
+
+Licensee MDPI, Basel, Switzerland.
+
+
+This article is an open access article
+
+
+distributed under the terms and
+
+
+conditions of the Creative Commons
+
+
+Attribution (CC BY) license
+
+
+[(https://creativecommons.org/](https://creativecommons.org/licenses/by/4.0/)
+
+
+[licenses/by/4.0/).](https://creativecommons.org/licenses/by/4.0/)
+
+
+
+**Abstract:** This study investigates the integration of customization and personalization approaches in aviation maintenance through Aviation Technical Support as a Service (ATSaaS)
+platform. Through a comprehensive survey of 86 small and medium-sized airlines, combined with mathematical modeling of fault detection systems, the study develops and
+validates a hybrid framework that integrates traditional maintenance approaches with
+AI-driven solutions. The comparative analysis demonstrates that the hybrid model significantly outperforms both pure customization and pure personalization approaches,
+achieving a 95% fault detection rate compared to 75% for customization-only and 88% for
+personalization-only models. The hybrid approach also showed superior performance in
+predictive maintenance effectiveness (96%), operational downtime reduction (92%), and
+cost optimization (90%). The research presents three architectural frameworks for ATSaaS
+implementation—customization-based, personalization-based, and hybrid—providing a
+structured approach for different airline categories. Large airlines, with their extensive
+technical expertise and complex operational requirements, benefit from enhancing their customized maintenance programs with personalization tools, improving overall maintenance
+efficiency by 23%. Simultaneously, smaller operators, often constrained by limited resources, can use ATSaaS platforms to access sophisticated maintenance capabilities without
+extensive in-house expertise, reducing operational costs by 35% compared to traditional
+approaches. The study concludes that the successful integration of customization and
+personalization through ATSaaS platforms represents a promising direction for optimizing
+aviation maintenance operations, supporting the industry’s movement toward data-driven,
+adaptive maintenance solutions.
+
+
+**Keywords:** aviation maintenance; customization; personalization; aviation technical
+support as a service; predictive maintenance; digital transformation; MRO services
+
+
+**1. Introduction**
+
+
+_1.1. Background and Motivation_
+
+
+The aviation industry faces increasing challenges in ensuring the reliability and safety
+of aircraft maintenance while minimizing operational disruptions and costs. Traditional
+maintenance approaches, based primarily on rigid scheduled inspections and reactive
+fault repairs, often lead to operational inefficiencies through unnecessary preventive maintenance, extended equipment downtime during inspections, and an inability to prevent
+unexpected failures between scheduled service intervals. These challenges are particularly
+evident in the aviation sector, where unscheduled maintenance events can cascade into
+
+
+
+_Processes_ **2025**, _13_, 666 [https://doi.org/10.3390/pr13030666](https://doi.org/10.3390/pr13030666)
+
+
+_Processes_ **2025**, _13_, 666 2 of 54
+
+
+significant operational disruptions and cost overruns [1]. The growing complexity of modern aviation systems necessitates the integration of advanced fault detection and control
+mechanisms to optimize maintenance processes and enhance operational resilience.
+Recent advancements in artificial intelligence (AI), machine learning (ML), and Internet
+of Things (IoT) sensor technologies have enabled a shift toward predictive maintenance and
+condition-based maintenance (CBM) strategies. These methodologies use real-time data
+collection, intelligent fault classification, and automated control processes to detect early
+signs of degradation, classify anomalies, and predict failures before they result in costly
+malfunctions. To fully utilize these capabilities, the Aviation Technical Support as a Service
+(ATSaaS) platform was proposed [1]. It integrates AI-driven predictive analytics into its
+core architecture, enabling scalable and adaptive maintenance solutions. By incorporating
+real-time fault detection and automated decision-making, ATSaaS enhances traditional
+maintenance frameworks, optimizing operational efficiency and minimizing downtime
+for both large airlines and smaller operators. The transition to AI-driven fault detection
+and classification provides an opportunity to enhance maintenance efficiency, reduce
+unnecessary interventions, and improve overall system reliability.
+The ATSaaS platform employs hybrid maintenance strategies, combining customization (for precise, airline-specific control of maintenance processes) and personalization (for
+scalable, AI-driven adaptive maintenance solutions). Large airlines with dedicated maintenance teams benefit from customizable service modules, while small and medium-sized
+airlines (SMAs) rely on personalized predictive analytics to optimize resource allocation
+and reduce maintenance overhead.
+This study explores the hybrid ATSaaS framework, which integrates AI-based
+fault detection, classification algorithms, and control methodologies to enhance maintenance decision-making. The proposed ATSaaS platform provides a solution that enables
+stakeholders—including airlines, Maintenance, Repair, and Overhaul (MRO) providers,
+and aviation regulators—to implement data-driven, scalable, and adaptive maintenance
+strategies that ensure higher fleet availability, lower operational costs, and improved
+safety standards.
+
+
+_1.2. Current Approaches to Data Exchange in Aviation Industry_
+
+
+Aviation data management follows strict protocols and technical guidelines to maintain dependability across all industry participants, from airlines to manufacturers and
+maintenance teams. These guidelines ensure systematic and protected methods for handling operational and service information.
+EASA (European Union Aviation Safety Agency) establishes regulatory frameworks
+relevant to aviation maintenance, including Part M (Continuing Airworthiness Requirements), Part 145 (Maintenance Organization Approvals), and Part 21 (Certification of
+Aircraft and Components) [2]. These regulations mandate that maintenance data remain
+current, accessible, and subject to formal update procedures, ensuring compliance with
+safety and operational standards. The ATSaaS platform aligns with these requirements by
+integrating digital compliance tracking and real-time documentation updates, facilitating
+seamless adherence to regulatory obligations for both large airlines and smaller operators.
+Leading plane manufacturers have created sophisticated data management systems.
+For instance, Airbus Skywise categorizes information into some areas: technical aircraft
+data, such as flight reports and system monitoring outputs; service records including
+work orders and parts replacement documentation; operational flight data from recording
+systems; and technical documents including service updates and engineering records [3].
+Boeing’s aircraft health management system (AHMS) features three components: live
+fault tracking, which monitors airborne communications addressing and reporting sys
+
+_Processes_ **2025**, _13_, 666 3 of 54
+
+
+tem (ACARS) messages and sends real-time alerts; system performance tracking to assess
+aircraft operational efficiency; and configuration oversight for managing parts and modifications [4]. While AHMS primarily serves Boeing aircraft, its real-time monitoring, predictive
+fault detection, and automated alert mechanisms align with the core functionalities of the
+ATSaaS platform. ATSaaS builds upon these principles by integrating AI-driven predictive
+analytics and cloud-based maintenance solutions, extending similar capabilities to a wider
+range of aircraft operators, including small and medium-sized airlines that may not have
+access to manufacturer-specific monitoring tools.
+The Federal Aviation Administration (FAA) has developed guidelines for implementing AHMS, emphasizing improvements in safety, operational efficiency, regulatory compliance, and cost management. Their standards cover data gathering, frequency, quality
+requirements, and communication methods. The guidelines also detail analytical processes,
+including monitoring trends, defining alert conditions, and response strategies. However, users encounter difficulties with system complexity, technology requirements, and
+personnel training needed to maximize AHMS benefits [5].
+The Air Transport Association provides Spec 2000 guidelines for optimizing aviation
+industry data sharing and operations [6]. It covers component information, aircraft records,
+and digital documentation requirements. Reliability metrics include component removal
+frequency, failure patterns, and average operational time between unexpected removals.
+While Spec 2000 improves operational performance, tracking, and expense management,
+users must address integration, training, and data security concerns.
+The maintenance prediction system PROGNOS, employs sophisticated analysis to
+anticipate component failures, enabling preventive maintenance [7]. This helps avoid
+unplanned repairs, reduces grounded aircraft incidents, and improves fleet dependability. However, its prediction accuracy relies on comprehensive, high-quality data input.
+System integration presents significant challenges, demanding substantial resources for
+successful implementation.
+The MRO software solution AMOS offers a complete maintenance management solution [8]. It combines technical documentation, component records, and operational
+data, providing consistent information access to all users. The system reduces manual
+entry requirements, minimizes mistakes, and accelerates processes. However, implementing AMOS requires extensive customization, data transfer, and employee training.
+Users must address interface design, system compatibility, and financial considerations for
+effective implementation.
+While these systems and standards offer significant benefits, challenges persist, particularly in achieving smooth integration with existing infrastructure, which often requires
+substantial resources.
+
+
+_1.3. Related Works_
+
+
+Modern service systems are largely driven by ICT platforms, both physical and webbased. These platforms enable distinctive operational and functional processes that are
+fundamental to service system architecture. They also act as vital sources of data that
+shape service system development. The main difficulty involves combining insights from
+multiple fields engaged in service design to develop well-structured service systems, especially those dependent on ICT infrastructure. In the context of aviation maintenance, this
+challenge arises from the need to integrate engineering principles, data science, regulatory
+compliance, and operational logistics into a unified framework. The complexity increases
+as maintenance solutions must balance real-time predictive analytics, customization for
+airline-specific needs, and strict aviation safety standards. Failure to effectively merge
+these domains can result in inefficient maintenance workflows, suboptimal fault detection,
+
+
+_Processes_ **2025**, _13_, 666 4 of 54
+
+
+and regulatory non-compliance, ultimately affecting aircraft availability and operational
+costs. The ATSaaS platform addresses this issue by harmonizing diverse service system
+requirements into a scalable, AI-driven maintenance model.
+Service system development has historically followed separate academic traditions,
+leading to distinct research streams [9]. While this academic division maintains methodological rigor within specific cultural frameworks [9,10], it can limit a comprehensive
+understanding of intricate service systems and their development processes.
+Merging these varied academic approaches through multiple forms of cross-disciplinary
+research has been identified as crucial [11]. Despite attempts to create theoretical bridges
+between these traditions (e.g., [12,13]), real-world implementations remain scarce [14].
+The research example detailed in [15] addresses this issue by showing that structured,
+data-centered methods from engineering and service innovation can successfully integrate
+with interpretive and collaborative service design approaches. The paper also presents
+a framework for service system development that combines various cultural domains,
+including urban development, economic theory, and service design, particularly for projects
+involving multiple stakeholders. By implementing systematic and structured tools in each
+stage, the framework encourages direct engagement and collaboration in development.
+This strategy complements service design methods outlined by [16,17] and service
+innovation models that utilize empirical evidence to guide service system development,
+as noted by [18]. The results align with experience factors identified by [19] and the
+modification of service-dominant logic for public service contexts discussed by [20].
+The unique contribution of this integrated approach lies in its novel methodology and
+unique case application, as emphasized in [14]. Certain design requirements would have
+been overlooked without combining insights from different design traditions. The approach
+also incorporates systematic methods from PSS design, particularly regarding interactions
+between physical and non-physical elements [21]. However, the case study doesn’t conform to traditional PSS categories [21–25], since it involves physical products where both
+ownership and functionality transfer completely to customers, without supplementary
+services or intangible alternatives.
+Rather, the case study exemplifies a complex service system due to its structure
+and composition, matching the classification system proposed by [26]. By combining
+perspectives and employing both systematic and participatory approaches, this research
+demonstrates the importance of interdisciplinary integration in enhancing service system
+development, providing an innovative solution to managing the complexities of contemporary service ecosystems.
+Condition-based maintenance (CBM) represents a maintenance strategy where repair
+and replacement decisions depend on the equipment’s present or anticipated state [27]. This
+methodology incorporates a program that suggests actions based on monitoring results
+and follows three key stages: gathering data, analyzing information, and determining
+maintenance actions [28]. CBM advances beyond standard predictive maintenance by
+implementing automated warning systems that activate before equipment fails, utilizing
+sophisticated multi-variable techniques to fulfill operational needs. This approach has
+been successfully adopted across several industries, demonstrating its effectiveness in
+improving operational reliability and cost efficiency. For instance, in the railway sector,
+CBM is used to monitor wheelset wear and track conditions, reducing unexpected failures
+and improving safety. In the energy industry, wind turbines use CBM to detect gearbox
+anomalies, allowing for proactive maintenance and extended asset lifespan. Similarly, in
+automotive manufacturing, CBM supports robotic assembly lines by predicting equipment
+degradation, minimizing downtime, and optimizing production efficiency [29]. These
+proven applications highlight CBM’s potential in aviation maintenance, where early fault
+
+
+_Processes_ **2025**, _13_, 666 5 of 54
+
+
+detection and proactive interventions are critical for aircraft availability and safety. The
+ATSaaS framework integrates CBM principles by utilizing AI-driven predictive analytics
+and real-time sensor data to optimize maintenance scheduling and minimize disruptions.
+The fundamental objective of CBM is to minimize maintenance expenses by examining
+periodic or ongoing data about essential component performance [30].
+CBM implementations vary from basic to sophisticated systems. Most industries adopt
+a version focusing on data collection, forecasting, and remedial measures, with different
+automation levels [27]. The system begins by tracking equipment health indicators continuously. When these measurements indicate specific deterioration thresholds, maintenance
+procedures begin, ensuring equipment stops operating only when clear signs of wear
+exist [31]. This data-driven strategy reduces unnecessary maintenance while maximizing
+operational performance, as repairs occur only when needed to restore proper equipment
+function [32].
+ATSaaS functions as a web-based platform that follows the software as a service
+(SaaS) cloud computing model [33]. Under SaaS, providers maintain remote ownership,
+distribution, and management of software in a single-source, multiple-user framework.
+Customers access services through usage-based payments or subscriptions, utilizing shared
+programming and data structures [34].
+Within digital business frameworks, platforms serve as products that enable other
+products or services. These range from comprehensive systems supporting platform-based
+business operations to fundamental business and technological capabilities that support
+other offerings [35]. Research [36] further characterizes web platforms as online frameworks
+supporting various human interactions.
+SaaS was developed as a solution to traditional software deployment challenges, particularly addressing extensive costs related to software licenses, setup, equipment, and
+upkeep [37]. Research [38] characterizes the “digital platform economy” as an expanding sphere of digital business, political, and social interactions centered around digital
+platforms. In the context of aviation maintenance, this shift enables seamless data exchange, real-time collaboration between MRO providers and airlines, and the integration
+of AI-driven predictive maintenance solutions. Digital platforms facilitate cloud-based
+maintenance records, automated compliance tracking, and remote diagnostics, reducing operational inefficiencies and minimizing aircraft downtime. The ATSaaS framework builds
+upon these advancements by creating a scalable, AI-powered maintenance ecosystem that
+allows airlines to optimize resources, enhance fleet reliability, and reduce costs through
+data-driven decision-making.
+These platforms drive economic transformation, functioning as “a set of online digital
+arrangements whose algorithms serve to organize and structure economic and social
+activity”. Digital platforms operate within business ecosystems that provide services and
+tools to members, primarily through programming interfaces [36].
+Digital platforms combine software, hardware, operational systems, and networks,
+offering shared technologies and interfaces to diverse users. These users can develop
+custom applications on established foundations, sometimes combining multiple platforms
+to form intricate digital systems, like cloud services [38]. As user groups expand, network
+effects [39] increase platform value. Users gain advantages, including lower costs, greater
+service reliability, complementary service access, and enhanced service quality [40].
+
+
+_Processes_ **2025**, _13_, 666 6 of 54
+
+
+For SaaS providers, the ability to scale is essential. SaaS converts computing infrastructure from capital investment to operational costs through scale economics, delivering
+cost benefits to both service providers and customers [41].
+The platform’s features and reach determine its information delivery and user interactions [42]. By following the SaaS approach, these platforms deliver streamlined,
+user-friendly, and effective management solutions for various user requirements.
+Information forms the foundation of web platform operations. It is also fundamental in modern business settings, enabling business evaluation, operational choices [43],
+supporting innovation [44,45], and creating competitive advantages. Data quantity and
+diversity impact all operational aspects, making it a vital strategic resource [46]. However,
+effective systematic information management is essential for maximizing opportunities
+and handling challenges in today’s evolving business environment.
+Information management includes multiple elements, such as quality control, oversight, protection, operations, platform development, and long-term viability. It must
+handle growing data volume, types, and speed to support organizational advancement [47].
+Managing information becomes more complex due to various platforms and DBMS. Organizations struggle when information spreads across multiple systems, complicated by
+diverse DBMS options.
+As digital organizations expand and process increasing information volumes, key
+challenges include growing data amounts, information complexity, and ongoing quality
+concerns. A thorough information management approach is crucial for reaching organizational targets. This approach covers communication, management functions, business
+justification, and resource allocation [47]. Among these activities, data transfer remains
+particularly challenging and important [48]. It involves moving information between
+storage systems to enhance scalability, access, and mobility while reducing operational
+costs [49–52].
+Major data transfer considerations include information validation [53], accuracy verification, efficient transfer methods [54,55], handling diverse data types [56,57], and creating
+sustainable transfer decision frameworks [58]. Current methodologies for data transfer
+tend to be broad, focusing on information pipelines and system integration [59].
+Organizations increasingly choose to transfer data from proprietary to open-source
+DBMS [60]. This trend highlights data transfer risks and complexity. Poor transfer execution can lead to unreliable information, service disruptions, financial impact, and reputation
+damage [61]. Inadequate transfer planning and implementation may cause business interruptions or failures [62]. Therefore, implementing strong data transfer strategies is vital
+for reliable information management, continuous operations, and achieving long-term
+organizational goals.
+
+
+_1.4. Research Gap, Contributions, and Paper Structure_
+
+
+Despite significant advancements in the aviation industry’s maintenance practices and
+the emergence of data-driven platforms like ATSaaS, a critical gap exists in the literature
+regarding integrated frameworks that effectively combine customization and personalization. Current research tends to focus on either traditional MRO services emphasizing
+customized, static solutions or data-driven personalization through advanced technologies like predictive analytics. However, the interplay between these two approaches and
+their synergistic potential in creating a scalable, efficient, and user-adaptive maintenance
+ecosystem remains underexplored.
+This paper addresses this gap by proposing a conceptual framework for ATSaaS,
+integrating customization and personalization approaches within a unified e-commerce
+platform. This framework aims to provide both large airlines with complex operational
+
+
+_Processes_ **2025**, _13_, 666 7 of 54
+
+
+requirements and small-to-medium airlines with resource constraints access to tailored,
+scalable, and proactive maintenance solutions.
+The paper introduces a comparative model and hybrid strategies that bridge the gap
+between static customization and dynamic personalization in maintenance services.
+A structured approach is presented for implementing ATSaaS platforms that incorporate customizable modules and personalized, real-time analytics. Through detailed case
+analyses and survey data, the study highlights the practical implications of adopting ATSaaS platforms for diverse airline sizes and operational contexts. A model and architecture
+are outlined, enabling the optimal integration of customization and personalization to
+achieve cost-efficiency, scalability, and regulatory compliance.
+The structure of this paper is as follows. Section 2 discusses the materials and methodologies used, including the survey and analytical techniques applied to validate the proposed framework. Section 3 presents the results, detailing the dual approach’s strategic
+dimensions, including conceptual architectures for ATSaaS platforms. Section 4 provides a
+comparative analysis and explores the opportunities for hybrid application models, offering
+recommendations tailored to airlines of different sizes and needs. Section 5 concludes the
+study, summarizing key findings, implications for industry stakeholders, and potential
+directions for future research.
+
+
+**2. Materials and Methods**
+
+
+_2.1. Methodology for Data Collection and Model Development_
+
+
+The research methodology employed a mixed-methods approach combining quantitative and qualitative data collection to develop and validate the proposed ATSaaS framework.
+The study was conducted in three main phases: initial data gathering, model development,
+and validation.
+The first phase involved collecting comprehensive data through a structured survey
+of 86 small and medium-sized airlines across different regions. The survey was designed
+to gather information about current maintenance practices, technological readiness, and
+attitudes toward ATSaaS adoption. The questionnaire covered seven key areas: general
+operational information, current maintenance practices, customization approaches, personalization preferences, hybrid model implementation, future needs and expectations,
+and overall reflections on maintenance strategies. This provided insights into the practical
+challenges and requirements of different airline categories.
+The second phase focused on developing mathematical models for fault detection
+and maintenance optimization. Three distinct models were created: a customization-based
+model using rule-based classification, a personalization-based model employing machine
+learning techniques, and a hybrid model integrating both approaches. The selection of
+rule-based classification for customization-based models and machine learning techniques
+for personalization-based models is driven by their respective strengths in structured
+maintenance decision-making and adaptive fault prediction.
+The rule-based classification was chosen for the customization-based model because
+it allows for explicit, airline-defined maintenance parameters, ensuring compliance with
+regulatory standards and structured operational requirements. This method is particularly effective for large airlines that require strict control over maintenance schedules and
+decision-making rules, as it operates based on predefined thresholds, expert knowledge,
+and historical failure data without requiring extensive computational resources.
+Machine learning techniques were selected for the personalization-based model due
+to their ability to analyze large-scale operational data, detect complex fault patterns, and
+adapt dynamically to changing aircraft conditions. Supervised learning (random forest)
+and deep learning (long short-term memory for anomaly detection) were implemented to
+
+
+_Processes_ **2025**, _13_, 666 8 of 54
+
+
+use real-time sensor data, environmental variables, and predictive analytics, allowing the
+system to anticipate failures and recommend proactive maintenance interventions.
+The hybrid model integrates both approaches, ensuring that structured rule-based
+maintenance decisions are enhanced with AI-driven predictive insights, leading to improved
+fault detection, reduced operational downtime, and optimized maintenance planning.
+The development process incorporated historical maintenance records, real-time sensor data from aircraft systems, and operational parameters to ensure model accuracy
+and reliability.
+For model validation, performance metrics were established to evaluate each approach’s effectiveness. A composite performance score was calculated using weighted
+coefficients to reflect the relative importance of each metric in aviation maintenance.
+The research utilized statistical analysis tools to process survey data and evaluate
+model performance. Machine learning algorithms, including random forests for structured
+fault classification and long short-term memory (LSTM) networks for time-series anomaly
+detection, were implemented using industry-standard programming frameworks.
+To optimize model performance, hyperparameter tuning was conducted for the machine learning models used in the personalization-based fault detection approach. The
+tuning process involved grid search and Bayesian optimization techniques to identify
+optimal values for key parameters, including the number of trees in random forest models,
+learning rates, dropout rates, and the number of hidden units in LSTM networks.
+For the random forest model, hyperparameter tuning focused on max depth, minimum samples per split, and the number of estimators, ensuring a balance between model
+complexity and generalization. For the LSTM-based anomaly detection model, tuning was
+performed on batch size, number of layers, and recurrent dropout rates to improve fault
+detection accuracy while preventing overfitting.
+Cross-validation was applied during hyperparameter selection to ensure model robustness and generalization across different operational datasets. The final tuned models
+demonstrated enhanced predictive accuracy and fault classification performance, supporting their use in the ATSaaS framework. The methodology also incorporated feedback loops
+to continuously refine the models based on performance data and user feedback.
+Additionally, case studies were conducted with selected airlines to validate the practical applicability of the proposed framework. These studies provided real-world validation
+of the models’ effectiveness and helped identify potential implementation challenges. The
+methodology ensured comprehensive coverage of both technical and operational aspects
+of aircraft maintenance, leading to the development of practical, implementable solutions
+for the aviation industry.
+
+
+_2.2. The Strategic Dimensions of Customization and Personalization in Aviation Environment_
+
+
+In Everything-as-a-Service (XaaS) environments, customization and personalization
+play distinct but complementary roles in optimizing service delivery and user experience.
+Customization involves predefined, rule-based configurations tailored to an organization’s
+operational needs, ensuring consistency and compliance. In contrast, personalization uses
+AI-driven adaptation, dynamically adjusting services based on real-time user behavior and
+data insights.
+From a strategic perspective, customization enhances control and standardization,
+making it suitable for enterprises with strict regulatory and operational requirements.
+Meanwhile, personalization maximizes flexibility and engagement, providing adaptive,
+user-specific experiences that improve efficiency and satisfaction. The integration of both approaches into XaaS solutions ensures scalability, predictive optimization, and cost-effective
+
+
+_Processes_ **2025**, _13_, 666 9 of 54
+
+
+service management, making hybrid models the most effective strategy for balancing
+stability with adaptability in evolving digital ecosystems.
+In the complex ecosystem of aviation maintenance, the concepts of customization and
+personalization manifest uniquely based on airline scale and capabilities. This distinction
+plays a crucial role in how MRO services are delivered and consumed across the industry,
+particularly when comparing the needs and approaches of different-sized airlines.
+Large airlines, typically operating with their own maintenance departments, exemplify the customization approach to MRO services. These organizations possess substantial
+internal technical expertise and dedicated maintenance personnel, enabling them to precisely identify and specify their maintenance requirements. When engaging with MRO
+providers, they effectively customize their service requests by selecting specific maintenance tasks, defining exact work scopes, and determining inspection parameters. This
+level of customization allows them to optimize maintenance costs, maintain greater control over processes, and seamlessly integrate external MRO services with their internal
+maintenance programs.
+In contrast, small and medium-sized airlines operate within a personalization framework. These operators, often lacking extensive internal maintenance capabilities and
+technical expertise, require more comprehensive service packages. Their approach to maintenance involves selecting pre-defined maintenance packages and relying on MRO expertise
+for complete solutions. This personalization model offers several advantages, including
+access to complete maintenance solutions without requiring internal expertise, simplified
+maintenance planning, and assured compliance with airworthiness requirements.
+The differentiation between customization and personalization also influences the
+development of maintenance management systems and digital solutions. Large airlines
+with customized approaches often require sophisticated interfaces that allow detailed
+specification of maintenance requirements. In contrast, smaller operators benefit from
+streamlined systems that simplify the selection and management of maintenance packages.
+By integrating both strategies, airlines can achieve efficient resource allocation, costeffective maintenance planning, and enhanced fleet reliability. The hybrid approach balances customization’s precision with personalization’s adaptability, enabling data-driven,
+scalable, and proactive aircraft maintenance solutions.
+
+
+_2.3. Aviation Technical Support as a Service Concept_
+
+
+The concept of ATSaaS has emerged as an innovative solution to address the unique
+challenges faced by small airlines in maintaining their aircraft and managing technical
+operations. This approach combines advanced digitalization methods, comprehensive
+service delivery models, and collaborative frameworks to create a sustainable and efficient
+technical support system.
+Small airlines often face significant challenges in aircraft maintenance due to limited
+resources and technical expertise. These challenges include restricted access to maintenance
+facilities, difficulties in sourcing spare parts, limited in-house technical capabilities, and
+complex regulatory compliance requirements. The ATSaaS concept addresses these challenges by providing a comprehensive, scalable, and accessible solution that uses modern
+technologies and service delivery models.
+The core components of ATSaaS include customized service offerings, digitalization
+and advanced technologies, a collaborative ecosystem, and scalability features. Through
+customized service offerings, ATSaaS adapts to the specific needs and requirements of
+each airline, considering their fleet composition, operational context, and regulatory obligations. The digitalization aspect incorporates state-of-the-art tools such as data analytics,
+
+
+_Processes_ **2025**, _13_, 666 10 of 54
+
+
+predictive maintenance, IoT, and AI to optimize maintenance operations and enhance
+decision-making processes.
+A distinctive feature of ATSaaS is its collaborative ecosystem, which connects various
+stakeholders including the service provider, small airlines, aircraft manufacturers, spare
+parts suppliers, MRO providers, regulatory bodies, training centers, research institutions,
+industry associations, and technology providers (Figure 1). This ecosystem facilitates seamless communication, information sharing, and resource optimization among participants
+through a central platform.
+
+
+**Figure 1.** Ecosystem of ATSaaS.
+
+
+The central platform serves as the technological backbone of ATSaaS, providing essential functionalities such as user authentication, dashboard analytics, communication tools,
+document management, service request handling, data exchange capabilities, performance
+monitoring, and security measures. This platform enables efficient interaction between
+service providers and airlines while ensuring data privacy and regulatory compliance.
+The service delivery model in ATSaaS is structured to accommodate both customization and personalization approaches. Large airlines with substantial internal technical expertise can benefit from customized solutions that allow precise control over
+maintenance processes. Meanwhile, smaller airlines can access personalized service
+packages that provide comprehensive support while maintaining operational efficiency
+and cost-effectiveness.
+ATSaaS employs a pay-as-you-go or subscription-based pricing model, making it more
+accessible for small airlines compared to traditional maintenance support approaches. This
+flexible pricing structure allows airlines to optimize their maintenance costs while ensuring
+access to high-quality technical support services when needed.
+
+
+_2.4. Aircraft Maintenance and Support Services for Airlines_
+
+
+The evolution of digital marketplaces in aviation maintenance is transforming how
+airlines access technical support, predictive analytics, and MRO services. The ATSaaS
+model facilitates this shift by offering on-demand, AI-driven maintenance solutions through
+cloud-based platforms, allowing airlines to optimize operations, reduce costs, and improve
+fleet reliability.
+By integrating customization and personalization, ATSaaS enables airlines to select
+tailored maintenance packages while benefiting from AI-driven fault detection, remote
+diagnostics, and predictive maintenance strategies.
+
+
+_Processes_ **2025**, _13_, 666 11 of 54
+
+
+ATSaaS improves fault detection capabilities compared to conventional maintenance
+methods, which often rely on scheduled inspections and reactive repairs. Unlike traditional
+time-based or condition-based maintenance approaches, ATSaaS uses real-time sensor data,
+AI-driven anomaly detection, and predictive analytics to identify potential failures before
+they escalate into critical malfunctions.
+Key advantages of ATSaaS over conventional methods include
+
+
+_•_ ATSaaS collects and analyzes real-time data from aircraft sensors, enabling instant
+fault detection and response.
+
+_•_ Machine learning models identify subtle anomalies, and degradation patterns that
+human technicians or rule-based systems may overlook, allowing earlier and more
+accurate failure predictions.
+
+_•_ ATSaaS integrates predictive maintenance recommendations directly into airline maintenance workflows, reducing the reliance on reactive troubleshooting and minimizing
+aircraft downtime.
+
+_•_ Unlike conventional systems that require manual customization, ATSaaS dynamically
+adjusts to fleet-wide operational conditions, optimizing maintenance schedules for
+both large airlines and small operators.
+
+
+By integrating data-driven fault detection with AI-powered automation, ATSaaS
+enhances maintenance efficiency, reduces operational disruptions, and lowers overall costs,
+making it a superior alternative to conventional fault detection methods.
+This approach fosters a scalable and data-driven maintenance ecosystem, where
+airlines, MRO providers, and technology vendors collaborate seamlessly. As aviation
+maintenance transitions from rigid service contracts to dynamic, real-time support, ATSaaS
+plays a key role in enhancing efficiency, reducing downtime, and driving industry-wide
+digital transformation.
+Aircraft maintenance and support services are evolving to meet the demands of
+efficiency, cost reduction, and operational reliability.
+Figure 2 presents a taxonomy of the main services required for aircraft in airlines,
+systematically organized into key categories to reflect the complexity and scope of aviation
+technical support.
+Table 1 categorizes the services from the taxonomy into those typically customized by
+large airlines when interacting with traditional MRO centers and those personalized for
+small and medium-sized airlines (SMAs) using platforms like ATSaaS.
+
+
+**Table 1.** Comparison of service delivery approaches for customization in traditional MRO vs.
+personalization in ATSaaS.
+
+
+**Service Group** **Customized by Large Airlines (Traditional MRO)** **Personalized for Small and Medium Airlines (ATSaaS)**
+
+
+
+
+                  - Specific line/base maintenance tasks (e.g., bespoke
+Maintenance Services
+A-check requirements).
+
+
+
+
+- Automated maintenance scheduling based on flight
+data, usage patterns, and IoT sensor inputs.
+
+
+
+
+- Engine overhauls tailored to - Predictive maintenance recommendations for critical
+fleet-specific demands. components, avoiding downtime.
+
+
+- Adjusted D-check intervals for unique - Proactive notifications for non-routine maintenance
+operational contexts. based on historical data trends.
+
+
+
+
+- Engine overhauls tailored to
+fleet-specific demands.
+
+
+
+
+- Proactive notifications for non-routine maintenance
+based on historical data trends.
+
+
+
+
+                  - Bespoke cleaning and servicing schedules (e.g.,
+Operational Services
+additional interior care for premium cabins).
+
+
+
+
+- Bespoke cleaning and servicing schedules (e.g., - Automated de-icing recommendations based on
+additional interior care for premium cabins). weather forecasts integrated into the platform.
+
+
+- Custom fueling options (e.g., biofuel blends for - Fuel optimization suggestions based on operational
+sustainability goals). routes and historical patterns.
+
+
+
+
+- Fuel optimization suggestions based on operational
+routes and historical patterns.
+
+- Centralized ground handling requests tailored to
+operational peaks.
+
+
+_Processes_ **2025**, _13_, 666 12 of 54
+
+
+**Table 1.** _Cont._
+
+
+**Service Group** **Customized by Large Airlines (Traditional MRO)** **Personalized for Small and Medium Airlines (ATSaaS)**
+
+
+
+
+                  - Custom calibration for avionics specific to
+Component Services
+proprietary software.
+
+
+                  - Tailored overhaul schedules for engines and
+landing gear unique to fleet configurations.
+
+
+
+
+- Dynamic performance monitoring and updates for
+avionics and critical systems using
+real-time analytics.
+
+
+- Automated reminders for component replacements
+based on actual wear-and-tear data, not
+fixed intervals.
+
+
+
+
+                   - Customized audit preparation services tailored to
+Regulatory Compliance
+meet different international regulations.
+
+
+
+
+- Customized audit preparation services tailored to - Real-time airworthiness compliance checks and
+meet different international regulations. automated documentation generation for inspections.
+
+
+- Specialized documentation formatting for - Integrated compliance tracking for multiple
+inter-regional compliance. jurisdictions using the central ATSaaS platform.
+
+
+
+
+- Integrated compliance tracking for multiple
+jurisdictions using the central ATSaaS platform.
+
+
+
+Safety and Emergency
+Equipment
+
+
+
+
+- Tailored emergency equipment servicing contracts
+(e.g., specific oxygen mask types for large cabins).
+
+
+
+
+- Tailored emergency equipment servicing contracts - Automated servicing notifications for emergency
+(e.g., specific oxygen mask types for large cabins). systems based on usage and expiry data.
+
+
+- Customized training on safety systems for - Simplified training content for smaller crews
+large crews. integrated into ATSaaS.
+
+
+
+
+- Simplified training content for smaller crews
+integrated into ATSaaS.
+
+
+
+
+                   - Custom hazardous waste disposal protocols based
+Environmental Services
+on airline-specific sustainability policies.
+
+
+
+
+- Custom hazardous waste disposal protocols based - Automated reporting and suggestions for reducing
+on airline-specific sustainability policies. emissions based on flight operations data.
+
+
+- Unique carbon offset integrations for - Tailored sustainability metrics and insights for SMAs
+regulatory goals. using standardized algorithms.
+
+
+
+Supply Chain and
+Inventory
+
+
+
+
+- Priority parts delivery and inventory restocking
+based on forecasted demand for large fleets.
+
+
+- Specialized parts procurement contracts.
+
+
+
+
+- Tailored sustainability metrics and insights for SMAs
+using standardized algorithms.
+
+
+- Intelligent inventory suggestions to avoid
+overstocking and reduce costs for smaller fleets.
+
+
+- Real-time spare part availability and procurement
+recommendations through integrated
+ATSaaS suppliers.
+
+
+- Personalized dashboards showing actionable
+insights tailored to the airline’s fleet size and usage.
+
+
+- Pre-integrated predictive analytics tools for
+fleet optimization.
+
+
+- Automated training module recommendations based
+on skill gaps identified from platform usage data.
+
+
+
+
+                   - Fleet management platforms customized for
+IT and Digital Services
+proprietary in-house systems.
+
+
+                   - In-house integration of predictive maintenance
+tools with MRO analytics.
+
+
+
+Training and
+Development
+
+
+Customer and
+Passenger Services
+
+
+
+
+- Customized interior maintenance to align with
+branding and passenger comfort goals.
+
+
+
+
+- Customized interior maintenance to align with - Dynamic maintenance suggestions for high-touch
+branding and passenger comfort goals. areas based on passenger feedback or complaints.
+
+
+- Tailored passenger data integration systems to - Standardized passenger experience enhancements
+connect with loyalty programs. suggested through ATSaaS analytics.
+
+
+
+
+- Bespoke technical training programs for
+proprietary aircraft and systems.
+
+
+
+
+                                        - Personalized e-learning paths for maintenance crews,
+
+- Custom simulator-based training modules.
+optimized for smaller operational teams.
+
+
+
+
+- Standardized passenger experience enhancements
+suggested through ATSaaS analytics.
+
+
+
+Large airlines focus on customization due to their ability to articulate precise needs
+based on in-house expertise and fleet-specific demands. They require bespoke solutions for
+unique operational goals and regulatory compliance.
+Small and medium airlines benefit from personalization driven by real-time data
+and predictive analytics, which automatically adapt services to their operational patterns.
+This approach is beneficial for resource-constrained airlines that lack in-house technical
+expertise or comprehensive systems.
+
+
+_Processes_ **2025**, _13_, 666 13 of 54
+
+
+**Figure 2.** Taxonomy of services required for aircraft in airlines.
+
+
+**3. Results**
+
+
+_3.1. Comparative Model_
+
+
+The comparative model highlights the differences and complementary aspects of
+customization and personalization in aircraft maintenance, focusing on their application
+within traditional MRO services and modern ATSaaS platforms. This model evaluates
+both approaches across critical dimensions, including initiation, flexibility, technology
+integration, cost structure, scalability, operational efficiency, and suitability, to provide a
+clear understanding of their roles and potential synergies.
+To understand the roles and effectiveness of customization and personalization in
+aircraft maintenance, it is essential to establish a comparative model that highlights their
+distinct characteristics, strengths, and limitations. This model provides a structured framework for evaluating these approaches, focusing on their implementation within traditional
+MRO services and modern ATSaaS platforms, and considering their impact on operational
+efficiency, cost, scalability, and adaptability. It evaluates both approaches across critical dimensions, including initiation, flexibility, technology integration, cost structure, scalability,
+operational efficiency, and suitability, to provide a clear understanding of their roles and
+potential synergies.
+By systematically evaluating these approaches, the comparative model provides a
+framework for understanding how customization and personalization can coexist and complement each other. This understanding paves the way for the development of optimized,
+
+
+_Processes_ **2025**, _13_, 666 14 of 54
+
+
+scalable maintenance strategies that meet the diverse needs of the aviation industry, driving
+safety, efficiency, and cost-effectiveness.
+To describe the comparative model of customization and personalization in aircraft
+maintenance, we can use a framework involving sets, functions, and parameters to represent the key dimensions and relationships.
+
+
+3.1.1. Key Entities and Definitions
+
+
+Table 2 provides a structured foundation for understanding the key entities, their
+definitions, and interrelationships within a mathematical model designed to integrate
+customization and personalization into aircraft maintenance.
+
+
+**Table 2.** Key entities, definitions, and components of a mathematical model for customization and
+personalization in aircraft maintenance.
+
+
+**Entity/Component** **Definition** **Description and Role** **Potential Applications**
+
+
+
+Modeling fleet-wide
+maintenance schedules,
+resource allocation,
+and prioritization.
+
+
+Optimizing task allocation
+based on urgency, cost, and
+resource availability.
+
+
+Tailoring maintenance
+schedules to meet unique
+operational challenges or
+fleet characteristics.
+
+
+Identifying potential failures,
+optimizing part replacements,
+and reducing downtime.
+
+
+Feeding predictive models to
+identify wear patterns and
+recommend
+proactive interventions.
+
+
+Scheduling routine and
+predictive maintenance while
+balancing resource availability.
+
+
+Ensuring efficient resource
+allocation to minimize delays
+and costs.
+
+
+Automating compliance
+reporting and integrating
+mandatory tasks into
+maintenance schedules.
+
+
+Minimizing total maintenance
+costs while maintaining
+reliability and safety.
+
+
+Balancing competing priorities
+such as operational readiness
+and cost savings.
+
+
+
+The collection of all aircraft
+Aircraft Fleet
+operated by an airline.
+
+
+
+Maintenance Tasks
+
+
+
+Specific activities required to
+ensure aircraft safety,
+performance, and
+regulatory compliance.
+
+
+
+User-defined parameters and
+Custom Configuration preferences for
+maintenance tasks.
+
+
+
+Personalized Insights
+
+
+
+Data-driven recommendations
+generated by predictive
+analytics and machine learning
+algorithms.
+
+
+
+Real-time performance metrics
+IoT Sensor Data collected from aircraft systems
+and components.
+
+
+The time frame within which
+Time Horizon maintenance tasks are planned
+and executed.
+
+
+Availability of resources such as
+Resource Constraints technicians, spare parts,
+and tools.
+
+
+
+Includes multiple aircraft types,
+each with unique maintenance
+requirements and
+operational profiles.
+
+
+Includes inspections, part
+replacements, overhauls, and
+software updates, each with
+varying complexity.
+
+
+Reflects explicit airline
+requirements, such as customized
+inspection frequencies or tailored
+task sequences.
+
+
+Adaptive adjustments to
+maintenance schedules or tasks
+based on operational data and
+component performance.
+
+
+Includes parameters such as
+engine vibration, hydraulic
+pressure, and flight hours.
+
+
+Can range from immediate (daily)
+to long-term (annual)
+maintenance planning.
+
+
+Represents the limitations in
+staffing, inventory,
+and equipment.
+
+
+Defines mandatory checks,
+intervals, and
+documentation processes.
+
+
+Captures both direct and indirect
+costs associated with
+maintenance activities.
+
+
+Can include minimizing
+downtime, maximizing fleet
+reliability, or balancing costs
+and efficiency.
+
+
+
+Regulatory
+Compliance
+
+
+
+Standards and requirements set
+by aviation authorities (e.g.,
+FAA, EASA).
+
+
+
+Mathematical representation of
+Cost Function maintenance costs, including
+labor, parts, and downtime.
+
+
+The goal or outcome the model
+Objective Function
+seeks to optimize.
+
+
+_Processes_ **2025**, _13_, 666 15 of 54
+
+
+**Table 2.** _Cont._
+
+
+**Entity/Component** **Definition** **Description and Role** **Potential Applications**
+
+
+
+Enabling flexible
+decision-making to achieve
+optimal maintenance outcomes.
+
+
+Ensuring realistic and feasible
+solutions within the
+optimization framework.
+
+
+Improving model accuracy and
+adaptability over time through
+iterative learning.
+
+
+
+Variables that define the choices
+Decision Variables available in the
+optimization process.
+
+
+The mathematical boundaries
+Constraint Set
+that restrict decision variables.
+
+
+Continuous evaluation of model
+Feedback Loop outcomes and adjustments
+based on new data or results.
+
+
+
+Examples include task
+prioritization, technician
+allocation, and
+scheduling decisions.
+
+
+Includes regulatory limits,
+resource availability, and
+operational timelines.
+
+
+Updates configurations and
+recommendations as more data
+becomes available.
+
+
+
+3.1.2. Customization Function
+
+
+Customization relies on explicit input from the airline to define its needs. The airline
+specifies its unique maintenance requirements:
+
+
+_Rc_ = _{r_ 1, _r_ 2 . . ., _rk}_ (1)
+
+
+where _ri_ represents a specific requirement, such as engine inspections, corrosion checks, or
+avionics updates.
+The maintenance provider adapts its service offerings to meet these requirements:
+
+
+_Tcust_ = _f_ ( _Rc_, _T_, _C_ ) (2)
+
+
+where _Tcust_ —tailored services, _Rc_ —the airline’s defined requirements, _T_ —the provider’s
+service capabilities, _C_ —cost constraints influencing service feasibility.
+The outcome of customization _Ocust_ is evaluated based on how well the tailored
+services meet the airline’s operational needs:
+
+
+_Ocust_ = _h_ ( _Tcust_, _S_, _O_ ) (3)
+
+
+where _h_ quantifies the effectiveness of _Tcust_ in addressing fleet size _S_ and operational
+requirements _O_ .
+
+
+3.1.3. Personalization Function
+
+
+Personalization dynamically adapts services using real-time data and advanced technologies. Data inputs for personalization include _n_ factors:
+
+
+_D_ = _{d_ 1, _d_ 2, . . ., _dn}_ (4)
+
+
+where, for example, _d_ 1—flight hours of each aircraft, _d_ 2—environmental factors (e.g.,
+weather, temperature), _d_ 3—sensor data indicating wear and tear and others.
+The provider uses predictive analytics and machine learning to determine the required
+services:
+_Tpers_ = _p_ ( _D_, _Tc_, _Cd_ ) (5)
+
+
+where _Tpers_ —predictive services, _D_ —real-time data driving service decisions, _Tc_ —technological
+tools enabling prediction and automation, _Cd_ —cost considerations for implementing datadriven solutions.
+The outcome reflects the ability of _Tpers_ to adapt dynamically:
+
+
+_Opers_ = _q_                  - _Tpers_, _D_, _S_, _O_                  - (6)
+
+
+_Processes_ **2025**, _13_, 666 16 of 54
+
+
+where _q_ evaluates the effectiveness of _Tpers_ in improving efficiency and addressing dynamic
+operational conditions.
+
+
+3.1.4. Comparative Outcome
+
+
+The overall maintenance outcome _Om_ combines the contributions of customization
+and personalization:
+_Om_ = _αOcust_ + _βOpers_ (7)
+
+
+where _α_ —the weight of customization, indicating reliance on manual tailoring, _β_ —the
+weight of personalization, reflecting the influence of automated adjustments, _α_ + _β_ = 1.
+
+
+3.1.5. Cost, Scalability, and Efficiency
+
+
+Costs are modeled for each approach:
+
+
+_Ccust_ = _ϕ_ ( _Rc_, _T_ . _C_ ) (8)
+
+
+_Cpers_ = _ψ_ ( _D_, _Tc_, _C_ ) (9)
+
+
+where _ϕ_ is the cost of delivering tailored services, influenced by airline-defined requirements, _ψ_ is the cost of implementing predictive services, driven by data processing and
+technological capabilities.
+Scalability measures how well each approach accommodates growing airline needs:
+
+
+_Scust_ = _γ_ ( _Tcust_, _S_ ) (10)
+
+
+_Spers_ = _δ_                                     - _Tpers_, _D_, _S_                                     - (11)
+
+
+where _γ_ is the scalability of customization, limited by manual adjustments, _δ_ is the scalability of personalization, enhanced by automated systems.
+Efficiency quantifies how effectively services improve maintenance outcomes:
+
+
+_Ecust_ = _ϵ_ ( _Tcust_, _O_ ) (12)
+
+
+_Epers_ = _η_                                    - _Tpers_, _D_, _O_                                    - (13)
+
+
+where _ϵ_ is the efficiency of customization, impacted by rigid processes, _η_ is the efficiency of
+personalization, driven by real-time adaptability.
+
+
+3.1.6. Hybrid Model
+
+
+A hybrid approach combines the strengths of both customization and personalization:
+
+
+_Thybrit_ = _µTcust_ + _νTpers_ (14)
+
+
+where _µ_ is the weight of customization in the hybrid approach, _ν_ is the weight of personalization, _µ_ + _ν_ = 1.
+The hybrid outcome _Ohybrit_ evaluates how effectively the combined approach meets
+maintenance objectives:
+
+
+                       -                        -                        -                        _Ohybrit_ = _αh_ _Thybrit_, _S_, _O_ + _βq_ _Thybrit_, _D_, _S_, _O_ (15)
+
+
+3.1.7. Optimization Objective
+
+
+The goal is to maximize the overall efficiency _Em_ while minimizing costs _C_ and
+ensuring scalability _Sm_ :
+_Maximize_ : _Em_ = _Om −_ _C_ (16)
+
+
+_Processes_ **2025**, _13_, 666 17 of 54
+
+
+with scalability constraint _Sm ≥_ _Smin_ and weight constraints _α_, _β_, _µ_, _ν ∈_ [0, 1].
+This mathematical model provides a comprehensive framework to evaluate the performance of customization and personalization in different airline contexts, quantify the
+trade-offs between manual tailoring and automated adaptability, and optimize hybrid
+maintenance strategies to balance cost, scalability, and efficiency.
+By applying this model, stakeholders can make data-driven decisions to enhance
+maintenance operations, reduce downtime, and improve safety and reliability in the aviation industry.
+The comparison can be visualized in Table 3, illustrating how customization and
+personalization perform across these dimensions. This helps to identify their respective
+strengths and weaknesses, as well as the contexts in which each is most applicable.
+
+
+**Table 3.** Comparative analysis of customization and personalization approaches in aviation
+maintenance.
+
+
+**Dimension** **Customization (Traditional MRO)** **Personalization (ATSaaS)**
+
+
+Initiation Airline-driven; manual specification of needs System-driven; automated adjustments based on data
+Flexibility Static solutions; requires renegotiation for changes Dynamic, real-time adjustments to changing conditions
+Technology Limited use of advanced technologies Extensive use of IoT, AI, and predictive analytics
+Cost Higher upfront costs; resource-intensive Subscription-based; cost-effective for SMAs
+Scalability Difficult to scale for diverse needs Easily scalable across different airline sizes
+Efficiency Rigid processes; potential inefficiencies Enhanced efficiency via predictive and proactive maintenance
+Suitability Large airlines with complex, bespoke needs SMAs needing cost-effective, adaptive solutions
+
+
+The comparative model highlights that while customization provides precise control
+and is valuable for addressing highly specific airline needs, its rigidity and resource intensity make it less suitable for smaller operators or dynamic environments. Conversely,
+personalization offers a flexible, technology-driven approach that democratizes access to
+tailored maintenance services, particularly benefiting resource-constrained SMAs.
+The comparative analysis also reveals opportunities for hybrid models that combine
+the strengths of both approaches. For example, large airlines could integrate personalization
+tools into their customized maintenance plans to enhance real-time adaptability and ATSaaS
+platforms could incorporate elements of customization, allowing airlines to specify highpriority needs while using automated personalization for routine adjustments.
+
+
+_3.2. Architectural Frameworks for ATSaaS Platform Implementation_
+
+
+When defining technologies for implementing services on an ATSaaS platform, understanding the distinction between customization and personalization is essential. Customization relies on explicit user input and requires technologies that enable granular control
+and modular adaptability. Personalization, on the other hand, is data-driven, requiring advanced analytics, AI, and real-time processing to dynamically tailor services. By addressing
+the unique expectations and processes of each approach, platform developers can create
+systems that enhance user satisfaction, operational efficiency, and overall engagement. Both
+models are essential for modern ATSaaS platforms, but their implementation demands a
+nuanced understanding of user needs and technological capabilities.
+
+
+3.2.1. Architecture for Customization-Based ATSaaS Platform
+
+
+Figure 3 illustrates a comprehensive architecture of a customization-based ATSaaS
+platform, demonstrating how user-driven customization enables precise control over aviation maintenance processes. This system architecture comprises four primary layers: User
+Interface Layer, Process Management, Service Processing, and Data Management.
+
+
+_Processes_ **2025**, _13_, 666 18 of 54
+
+
+**Figure 3.** Data flow architecture for customization-based ATSaaS platform.
+
+
+The User Interface Layer forms the foundation of user interaction, where the Airline Maintenance Team directly engages with the system. Through the Configuration
+Dashboard, users can access Service Parameter Forms to input specific maintenance requirements. The Customization Options component allows for detailed specification of
+maintenance parameters, while the Validation Interface ensures the accuracy and feasibility
+of user inputs before they are processed further.
+
+
+_Processes_ **2025**, _13_, 666 19 of 54
+
+
+The Process Management layer implements the business logic necessary to transform
+user requirements into actionable maintenance plans. The Rule-based Workflow Engine
+processes user inputs according to predefined business rules and industry standards.
+Configuration Management ensures proper organization of user specifications, while
+Parameter Validation provides an additional layer of verification. The Service Module
+Selection component then determines the appropriate maintenance modules based on
+validated parameters.
+In the Service Processing layer, the system converts validated configurations into
+specific maintenance actions. Modular Service Components provide the building blocks for
+customized maintenance solutions, which are then refined through Task-Specific Adjustments. Custom Inspection Rules are generated based on user specifications, and finally, the
+Maintenance Schedule Generator creates a comprehensive maintenance timeline tailored to
+the airline’s needs.
+The Data Management layer serves as the system’s memory and audit mechanism. The
+User Input Database stores all user-specified parameters, while Configuration Templates
+maintain standardized formats for common maintenance scenarios. Service Parameters
+are stored for future reference, and Audit Logs maintain a detailed record of all system
+interactions and changes, ensuring traceability and compliance.
+A key strength of this architecture is its feedback loop mechanism. The system
+maintains continuous communication between the Data Management layer and the User
+Interface Layer through Audit Logs, allowing users to track changes and verify that their
+customization requirements are being met accurately. The final output, a Customized
+Maintenance Plan, represents the culmination of this user-driven process.
+The architecture demonstrates several crucial advantages of customization-based ATSaaS:
+
+
+_•_ Direct user control over maintenance parameters.
+
+_•_ Systematic validation of user inputs.
+
+_•_ Modular approach to service composition.
+
+_•_ Comprehensive audit trail.
+
+_•_ Flexibility to accommodate diverse maintenance requirements.
+
+
+This customization-based approach is particularly valuable for airlines with specific
+maintenance requirements or unique operational conditions that require precise control
+over maintenance procedures. The system’s ability to accommodate detailed user specifications while maintaining proper validation and documentation makes it an effective
+solution for complex aviation maintenance management.
+However, it is worth noting that this approach requires significant user expertise and
+active involvement in the maintenance planning process. The success of the system depends
+heavily on the ability of the Airline Maintenance Team to accurately specify requirements
+and effectively utilize the customization options provided.
+
+
+3.2.2. Architecture for Personalization-Based ATSaaS Platform
+
+
+Figure 4 illustrates the sophisticated architecture of a personalization-based ATSaaS
+platform, demonstrating how automated data processing and artificial intelligence drive
+intelligent maintenance solutions. The architecture consists of six interconnected layers:
+Data Sources, Data Processing, AI/ML Processing, Personalization Service, and User
+Interface, culminating in personalized maintenance plans.
+
+
+_Processes_ **2025**, _13_, 666 20 of 54
+
+
+**Figure 4.** Automated data flow architecture for personalization-based atsaas platform.
+
+
+_Processes_ **2025**, _13_, 666 21 of 54
+
+
+The Data Sources layer forms the foundation of the personalization approach, collecting diverse data types crucial for comprehensive analysis. IoT Sensors provide real-time
+operational data, while Historical Records offer insights into past maintenance patterns. Operational Data, Environmental Data, and Performance Metrics complete the data ecosystem,
+ensuring a holistic view of aircraft maintenance needs.
+The Data Processing layer transforms raw data into actionable intelligence. Real-time
+Data Ingestion ensures immediate processing of incoming data, while Data Aggregation
+combines information from multiple sources. Data Cleaning ensures data quality, and Feature Engineering prepares the data for advanced analysis, extracting relevant characteristics
+for machine learning models.
+The AI/ML Processing layer represents the system’s intelligence core. Pattern Recognition identifies trends and anomalies in the processed data, while Predictive Analytics
+forecasts potential maintenance needs. Machine Learning Models continuously learn from
+new data, improving their predictive accuracy. The Automated Decision Engine uses these
+insights to make informed maintenance recommendations.
+The Personalization Service layer translates AI-driven insights into practical maintenance solutions. Dynamic Service Adjustment responds to changing conditions, while
+Automated Recommendations suggest specific maintenance actions. Proactive Alerts warn
+of potential issues before they become critical, and Personalized Schedules create optimized
+maintenance timelines based on all available data.
+The User Interface layer provides human oversight and interaction with the automated
+system. Through the Dashboard View, maintenance teams can monitor system recommendations and alerts. The Recommendation Display presents AI-generated suggestions, while
+Alert Management handles time-sensitive notifications. The Approval Interface allows
+human operators to review and authorize suggested actions before implementation.
+This architecture demonstrates several key advantages of personalization-based ATSaaS:
+
+
+_•_ Automated data collection and processing.
+
+_•_ Predictive maintenance capabilities.
+
+_•_ Real-time adaptation to changing conditions.
+
+_•_ Proactive issue identification.
+
+_•_ Minimal human intervention while maintaining oversight.
+
+
+The system’s strength lies in its ability to continuously learn and adapt. The feedback
+loops between layers ensure that the system’s recommendations improve over time, learning from both successful and unsuccessful predictions. This continuous learning process,
+combined with real-time data processing, enables the platform to provide increasingly
+accurate and relevant maintenance recommendations.
+However, the effectiveness of this approach depends heavily on data quality and
+availability. The system requires robust data collection infrastructure and reliable sensors
+to function optimally. Additionally, while human intervention is minimized, the importance of human oversight through the User Interface layer cannot be understated, as it
+ensures that automated recommendations align with practical operational constraints and
+safety requirements.
+
+
+3.2.3. Architecture for Hybrid-Based ATSaaS Platform
+
+
+Figure 5 illustrates a sophisticated hybrid architecture for ATSaaS that effectively
+combines human expertise with artificial intelligence. This integrated approach merges
+customization-based and personalization-based methodologies through five key components: Customization Data, Personalization Data, Hybrid Engine, Service Processing, and
+Feedback System, all connected through a user-centric interface.
+
+
+_Processes_ **2025**, _13_, 666 22 of 54
+
+
+**Figure 5.** Integrated architecture for hybrid ATSaaS platform.
+
+
+The Customization Data component represents the human expertise input, featuring
+User-Defined Rules, Task Parameters, Service Configurations, and Manual Schedules.
+This ensures that expert knowledge and specific operational requirements are explicitly
+incorporated into the maintenance planning process.
+In parallel, the Personalization Data component collects automated inputs through IoT
+Sensors, Historical Data, Performance Metrics, and Environmental Data. This data-driven
+approach enables real-time monitoring and adaptive response to change conditions.
+The Hybrid Engine serves as the system’s core intelligence, whereas the Decision
+Engine balances inputs from both the Rule Processor (handling human-defined rules) and
+AI Analytics (processing automated data). The Conflict Resolution module harmonizes potentially contradicting inputs from both sources, while the Optimization Module generates
+the most efficient solutions.
+
+
+_Processes_ **2025**, _13_, 666 23 of 54
+
+
+Service Processing translates the hybrid decisions into actionable plans through a
+structured workflow: The task Generator creates specific maintenance tasks, the Schedule
+Optimizer arranges them efficiently, the Resource Allocator assigns necessary resources,
+and the Implementation Plan provides detailed execution guidelines.
+The Feedback System ensures continuous improvement through Performance Tracking, User Feedback, and System Analytics, generating Optimization Suggestions that
+feed back into both customization and personalization components. The User Interface
+Layer provides a Configuration Dashboard where maintenance teams can view both Manual Settings and AI Recommendations, with a Validation Interface ensuring oversight of
+all decisions.
+This hybrid architecture offers several unique advantages:
+
+
+_•_ Balanced integration of human expertise and AI capabilities.
+
+_•_ Conflict resolution between automated and manual inputs.
+
+_•_ Continuous optimization through comprehensive feedback loops.
+
+_•_ Flexible adaptation to both routine and exceptional maintenance scenarios.
+
+_•_ Maintained human oversight while using automation benefits.
+
+
+The system’s strength lies in its ability to use both human expertise and artificial
+intelligence while maintaining clear communication channels between all components. The
+feedback loops ensure continuous improvement of both automated and manual processes,
+while the validation interfaces maintain the necessary human oversight.
+However, the success of this hybrid approach depends on the effective integration of
+its components and clear protocols for resolving conflicts between human and AI-generated
+decisions. The system must maintain a delicate balance between automation efficiency and
+human control, ensuring that safety and regulatory requirements are never compromised.
+This architecture represents the future of aviation maintenance, where human expertise
+and artificial intelligence work in harmony to deliver optimal maintenance solutions. The
+hybrid approach ensures that neither the human element nor the technological capabilities
+are compromised but rather enhanced through their integration.
+
+
+_3.3. Aircraft Maintenance Stakeholder Questionnaire_
+
+
+The aircraft maintenance stakeholder questionnaire was developed as a key component of the study to gain insights into the perspectives, practices, and expectations
+of various stakeholders involved in aircraft maintenance. This survey aimed to gather
+data on the adoption and implementation of ATSaaS platforms, with a particular focus
+on the integration of customization and personalization in maintenance processes. Understanding stakeholder experiences and preferences is critical for identifying challenges,
+assessing the effectiveness of existing practices, and shaping the future development of
+ATSaaS platforms.
+The questionnaire was designed to capture a comprehensive view of the ecosystem by
+addressing the needs and roles of key stakeholders, including airlines, MRO providers, and
+suppliers. It consisted of seven sections, each targeting a specific aspect of maintenance
+operations and ATSaaS adoption:
+
+
+1. The general information section collected demographic and operational details about
+the respondents, including their organizational size, role in the ecosystem, and
+fleet composition.
+2. The current maintenance practices section focused on existing workflows, methods,
+and tools used for aircraft maintenance, including pain points and inefficiencies.
+3. Customization in the maintenance section examined how stakeholders use or configure services to meet their specific operational needs and preferences.
+
+
+_Processes_ **2025**, _13_, 666 24 of 54
+
+
+4. Personalization in the maintenance section explored the use of data-driven insights
+and automated recommendations for adapting maintenance processes.
+5. The hybrid model section investigated the integration of customization and personalization within ATSaaS platforms and their effectiveness in addressing diverse
+operational requirements.
+6. The future needs and expectations section captured stakeholder expectations regarding emerging technologies, scalability, and platform improvements.
+7. The final reflections section provided an opportunity for respondents to share their
+overall impressions, challenges, and recommendations for enhancing ATSaaS adoption.
+
+
+By analyzing the responses, the study aims to identify trends, align technological
+capabilities with user expectations, and address barriers to the successful implementation
+of ATSaaS platforms. The insights from this survey are expected to contribute significantly
+to the development of practical, scalable solutions for the aviation maintenance industry.
+
+
+3.3.1. General Information About Survey Data
+
+
+During the research process, 86 small and medium-sized enterprises were surveyed,
+the characteristics of which are given in Figures 6–9. The survey data was collected using a
+mixed-method approach to ensure comprehensive insights from industry stakeholders. Of
+the 86 responses, 55 were gathered through an online questionnaire, allowing participants
+to provide structured feedback remotely, while 31 responses were obtained via direct
+interviews, enabling in-depth discussions on maintenance practices and ATSaaS adoption.
+This combined approach facilitated both quantitative analyses from standardized responses
+and qualitative insights from detailed discussions, enhancing the reliability and contextual
+depth of the findings.
+Summary statistics reveal an average fleet size of 19.8 aircraft and an average operational history of 20.5 years, indicating that the typical respondent is a well-established
+operator with a moderate fleet size. The high readiness of adoption rate (60.5%) among
+these airlines suggests that digital transformation is well underway in the small and
+medium-sized airline segment.
+
+
+**Figure 6.** Distribution of airlines by region.
+
+
+**Figure 7.** ATSaaS adoption status.
+
+
+**Figure 9.** Age distribution of airlines.
+
+
+3.3.2. Results of Survey
+
+
+Based on the survey data, several distinct patterns emerge in maintenance approaches
+and preferences. The distribution of maintenance types (Figure 10) suggests that traditional
+scheduled maintenance remains the backbone of airline maintenance strategies, though
+there is a notable emergence of predictive approaches.
+
+
+**Figure 11.** Maintenance frequency distribution.
+
+
+Regarding maintenance providers (Figure 12), there is an interesting equal split between in-house and outsourced services suggests that both approaches are equally viable
+
+
+_Processes_ **2025**, _13_, 666 26 of 54
+
+
+in the current market, with some organizations opting for a blended approach to use the
+
+
+**Figure 12.** Distribution of maintenance providers.
+
+
+Based on the survey data analyzing maintenance customization practices, several
+distinct patterns emerge in customization approaches and priorities.
+In the analysis of customization aspects (Figure 13), the distribution suggests that
+airlines focus their customization efforts primarily on component-level maintenance and
+specialized inspection protocols rather than more complex system-wide updates.
+
+
+Regarding customization levels (Figure 14), there is a notable equal distribution
+between high and medium levels of customization, low customization is less common. This pattern indicates a strong industry tendency toward more sophisticated
+customization approaches.
+
+
+latory Compliance are equally important motivators. Operational efficiency follows as a
+significant driver, while fleet age is the least common driver. This distribution highlights
+that financial considerations and regulatory requirements are the primary motivators for
+maintenance customization, rather than fleet-specific factors.
+
+
+**Figure 15.** Drivers for customization in maintenance.
+
+
+The overall data suggests a mature approach to maintenance customization in the
+industry, with a clear preference for component-level and inspection-focused customization,
+driven primarily by cost and compliance considerations. The high proportion of airlines
+implementing sophisticated customization levels indicates that customized maintenance
+approaches have become a standard practice rather than an exception in the industry.
+Based on the survey data analyzing maintenance personalization, several clear patterns
+emerge in the approaches.
+In terms of personalization aspects (Figure 16), there is an even distribution between tailored maintenance plans and fleet-specific predictive analytics. This distribution indicates that airlines are primarily focusing their personalization efforts on customized maintenance planning and predictive analytics rather than reactive or reporting
+
+The analysis of personalization levels (Figure 17) reveals a strong tendency toward
+more sophisticated implementation, with an equal split between high and medium levels
+of personalization, low personalization is less common. This pattern suggests that the
+majority of airlines are significantly investing in personalized maintenance approaches.
+
+
+Savings emerge as the primary motivators. Improved safety and enhanced reporting are
+equally represented as secondary drivers. This distribution highlights that operational and
+financial considerations are the main drivers for implementing personalized maintenance
+
+
+_Processes_ **2025**, _13_, 666 28 of 54
+
+
+**Figure 18.** Drivers for personalization in maintenance.
+
+
+Based on the survey data, analyzing hybrid models’ clear patterns emerges in adoption
+approaches, benefits, and challenges.
+The distribution of hybrid model types (Figure 19) shows an even split between standardization with customization and personalization with customization. The fully hybrid
+approach is less common. This distribution suggests that most airlines prefer a focused
+hybrid approach rather than attempting to implement a fully integrated hybrid model.
+
+
+Regarding the perceived benefits of hybrid models (Figure 20), cost efficiency and
+operational flexibility emerge as the primary advantages. This suggests that immediate operational and financial benefits are viewed as more significant than technical or
+regulatory advantages.
+
+
+The analysis of challenges in adopting hybrid models (Figure 21) reveals that integration complexity and high initial costs are the most significant barriers. This pattern
+indicates that technical and financial implementation barriers are more concerning than
+operational or human resource challenges.
+
+
+_Processes_ **2025**, _13_, 666 29 of 54
+
+
+**Figure 21.** Challenges in adopting hybrid models.
+
+
+The overall data suggest a balanced approach to hybrid model adoption in the industry,
+with airlines clearly favoring partial hybrid solutions over full integration.
+Based on the survey data analyzing Future Needs and Expectations, clear priorities
+and impact expectations emerge in the aviation maintenance sector.
+In terms of Future Needs distribution (Figure 22), AI-Driven Predictive Maintenance
+emerges as the most prioritized technology. There is an even distribution among Augmented Reality Tools, Blockchain for Data Security, and Sustainability Monitoring. Digital
+Twins for Maintenance shows the lowest prioritization. This distribution indicates a strong
+industry focus on predictive technologies while maintaining a balanced interest in other
+emerging solutions.
+
+
+**Figure 22.** Distribution of future needs in aircraft maintenance.
+
+
+The Expected Impact analysis (Figure 23) reveals a strong confidence in these technologies’ potential, anticipating High Impact from their implementation. Only 15.1% of airlines
+predict Low Impact. This distribution suggests broad optimism about the transformative
+potential of new technologies in aircraft maintenance.
+
+
+The overall data suggests that while airlines are embracing multiple technological
+innovations, there is a clear preference for AI-driven solutions, with strong confidence
+in the transformative potential of these technologies. The balanced distribution among
+secondary priorities indicates a comprehensive approach to technological advancement
+rather than focusing solely on a single solution.
+Based on the survey data analyzing final reflections, several significant patterns emerge
+across satisfaction levels, technology readiness, and future investment priorities.
+
+
+_Processes_ **2025**, _13_, 666 30 of 54
+
+
+The overall satisfaction analysis (Figure 24) reveals that the majority of airlines express
+
+
+Regarding readiness to adopt new technologies, the data shows a strong positive
+inclination toward technological advancement (Figure 25). Most airlines demonstrate
+preparedness. A moderate group of airlines maintains a neutral stance, while only 10.5% of
+airlines report being not ready for technological adoption.
+
+
+**Figure 25.** Readiness to adopt new technologies.
+
+
+In terms of future investment priorities (Figure 26), predictive analytics emerges as the
+clear leader. Automation tools follow as the second most important priority, sustainability
+initiatives rank third, followed by workforce training. Compliance management receives
+the lowest prioritization.
+
+
+The overall data suggests a generally positive industry outlook, with high levels of
+satisfaction with current practices and strong readiness for technological advancement.
+The clear prioritization of predictive analytics and automation tools indicates a strong
+industry focus on data-driven and automated solutions for future maintenance operations, while traditional areas like compliance management receive less emphasis on future
+investment plans.
+
+
+_Processes_ **2025**, _13_, 666 31 of 54
+
+
+_3.4. AI-Based Fault Detection Modeling_
+
+
+The development and comparative analysis of the three AI-based fault detection models customization-based, personalization-based, and hybrid approaches require structured
+initial data and a systematic methodology to ensure accurate performance evaluation. This
+section details the data sources, preprocessing steps, modeling approach, and comparative
+analysis framework used in this study.
+
+
+3.4.1. Initial Data Sources
+
+
+The fault detection models were developed and tested using a combination of historical
+maintenance records, real-time sensor data, and operational parameters collected from
+aviation maintenance systems and industrial benchmarks. The data sources included
+historical maintenance logs comprising aircraft maintenance records from large and small
+airlines, such as component failures, past repairs, and inspection intervals, as well as
+service reports from MRO providers detailing fault trends and failure rates. Real-time
+sensor data consisted of IoT-based sensor readings from engines, avionics, hydraulic
+systems, and structural components, along with live telemetry data, including vibration
+levels, temperature, pressure, and electrical anomalies. Operational data encompassed
+aircraft utilization patterns, such as flight hours, operational routes, and environmental
+conditions (weather, altitude, turbulence impact), as well as airline-specific maintenance
+schedules, resource allocation, and compliance protocols. Additionally, industry standards
+and failure thresholds were incorporated, including safety thresholds and performance
+indicators based on FAA, EASA, and manufacturer guidelines, alongside expert-defined
+risk classification rules and probability distributions for component degradation.
+
+
+3.4.2. Data Preprocessing and Feature Engineering
+
+
+The raw data underwent preprocessing, standardization, and transformation into
+meaningful features before applying AI-based fault detection models. Key steps included
+data cleaning, which involved removing incomplete records, handling missing sensor values through interpolation, and filtering outliers using Z-score analysis. Feature extraction
+focused on identifying critical parameters influencing fault detection, such as temperature variance, pressure deviation, frequency domain analysis of vibrations, and anomaly
+scores derived from statistical models. Normalization and standardization were applied to
+convert all sensor and operational data into a common scale, ensuring uniformity across
+different datasets. Additionally, time-series segmentation was performed to structure the
+data into fixed time windows, enabling accurate real-time prediction of failures.
+
+
+3.4.3. Modeling Approach for Fault Detection
+
+
+A. Customization-Based Model Implementation
+
+
+The Customization Model was implemented using rule-based classification techniques
+based on expert-defined failure thresholds. The detection function follows:
+
+
+_Fd_ = _R_ ( _T_, _H_, _C_ ) (17)
+
+
+where _R_ ( _·_ ) applies predefined decision rules based on failure history _H_, threshold limits _T_,
+and operational constraints _C_ .
+Fault detection occurs when operational values exceed predefined limits:
+
+
+_Fd_ = 1 _i f_ _Xi > Ti ∀i ∈_ _N_ (18)
+
+
+where _N_ represents the set of monitored parameters.
+
+
+_Processes_ **2025**, _13_, 666 32 of 54
+
+
+B. Personalization-Based Model Implementation
+
+
+The personalization model was developed using ML techniques with real-time adaptation. The probability of a fault occurring was modeled as
+
+
+_P_ ( _Fd|X_ ) = _f_ ( _WX_ + _b_ ) (19)
+
+
+where _X_ is the real-time sensor data vector, _W_ and _b_ are ML-trained weight and bias values,
+_f_ ( _·_ ) is the activation function (e.g., softmax, sigmoid) for probabilistic fault classification.
+The model was trained using supervised learning (random forest for structured fault
+classification, and deep learning (LSTM) for anomaly detection in time-series sensor data.
+
+
+C. Hybrid Model Implementation
+
+
+The hybrid model integrates the rule-based and AI-driven approaches using a
+weighted combination:
+
+
+_Fd_ = _αR_ ( _T_, _H_, _C_ ) + (1 _−_ _α_ ) _P_ ( _Fd|X_ ) (20)
+
+
+where 0 _≤_ _α ≤_ 1 is a tuning parameter that controls the balance between manual rule-based
+detection and AI-driven predictive analytics.
+
+
+3.4.4. Comparative Analysis Framework
+
+
+To evaluate the performance of the three AI-based fault detection models, a comparative analysis was conducted using the performance score (PS), which integrates key
+performance indicators into a single metric. The PS provides a quantitative evaluation of
+each model’s effectiveness in fault detection accuracy, predictive maintenance efficiency,
+operational downtime reduction, and cost savings. The performance score is calculated
+as follows:
+_PS_ = _w_ 1 _FDR_ + _w_ 2 _PME_ + _w_ 3 _ODR_ + _w_ 4 _CO_ (21)
+
+
+where _FDR_ —fault detection rate measures how accurately the model identifies failures,
+_PME_ —predictive maintenance effectiveness evaluates how well the model anticipates
+failures before they occur, _ODR_ —operational downtime reduction assesses the ability of
+the model to minimize aircraft ground time, _CO_ —cost optimization reflects the financial
+benefits of predictive maintenance in reducing unnecessary maintenance costs, _wi_, _i_ = 1, 4
+are the respective weight coefficients with ∑ [4] _i_ =1 _[w][i]_ [=][ 1.]
+The specific weighting values were chosen based on industry priorities and operational
+impact in aviation maintenance. Fault Detection Accuracy ( _w_ 1 = 0.35) is given the highest
+weight because early and precise fault detection is critical for aviation safety. Misdiagnosed
+faults can lead to catastrophic failures or excessive maintenance costs. Predictive Maintenance Effectiveness ( _w_ 2 = 0.3) is the second most important factor as AI-driven prediction
+models help reduce unexpected failures, improving efficiency and aircraft availability. Operational Downtime Reduction ( _w_ 3 = 0.2) is prioritized to ensure airlines minimize aircraft
+ground time, which directly affects profitability and service reliability. Cost Optimization
+( _w_ 4 = 0.15) has the lowest weight because, while cost efficiency is essential, safety and
+predictive effectiveness must take precedence in aviation.
+
+
+_3.5. Mathematical Methods Used in the Calculation of Results_
+
+
+The performance evaluation of the customization-based, personalization-based, and
+hybrid ai-based fault detection models relied on a combination of mathematical, statistical, and AI-based methods. These methods were used for fault detection classification,
+predictive modeling, performance score computation, and comparative analysis.
+
+
+_Processes_ **2025**, _13_, 666 33 of 54
+
+
+3.5.1. Mathematical Methods in the Customization-Based Model
+
+
+The customization-based model is built on rule-based logic and deterministic classification, where predefined threshold-based rules determine the occurrence of faults.
+Fault detection is governed by expert-defined limits, following a binary decision function:
+
+
+
+_Fd_ =
+
+
+
+
+- 1, _Xi > Ti ∀i ∈_ _N_
+(22)
+0, _otherwise_
+
+
+
+where _Xi_ represents real-time sensor data, _Ti_ is the expert-defined threshold for each fault
+category, _N_ is the set of monitored components.
+The model follows if-then-else conditions based on maintenance history:
+
+
+_N_
+## R ( T, H, C ) = ∑ δi· f ( Ti, Hi, Ci ) (23)
+
+_i_ =1
+
+
+where _δi_ is an indicator function (1 if threshold exceeded, 0 otherwise), _Hi_ represents historical failure data, and _Ci_ denotes conditional parameters based on operational constraints.
+
+
+3.5.2. Mathematical and AI Methods in the Personalization-Based Model
+
+
+The personalization-based model employs machine learning and statistical methods
+to enhance predictive maintenance. The following techniques were used:
+
+
+_•_ Supervised learning for fault classification. Machine learning classifiers were trained
+on historical failure data using fault labels (19).
+
+_•_ Recurrent neural networks were used for real-time predictive maintenance. LSTM
+networks were specifically chosen for predictive maintenance due to their superior
+ability to model temporal dependencies in sequential data. Aircraft sensor data, which
+includes engine performance metrics, temperature variations, vibration levels, and
+pressure fluctuations, often exhibits long-term dependencies and nonlinear patterns
+that traditional feedforward neural networks struggle to capture effectively. To validate the effectiveness of LSTMs, a comparative analysis with other deep learning
+models, including convolutional neural networks (CNN) and standard recurrent
+neural networks (RNN) was conducted. The results indicated that LSTM models outperformed RNNs in handling long-term dependencies in time-series maintenance data,
+reducing false positive fault predictions. While CNNs performed well in detecting
+localized patterns, they were less effective at identifying time-dependent failure trends
+essential for predictive maintenance. LSTM models demonstrated higher accuracy in
+fault detection and anomaly classification, making them the most suitable choice for
+AI-driven predictive maintenance in ATSaaS. Thus, LSTMs were selected based on
+their ability to learn sequential dependencies, capture historical trends, and provide
+robust predictive insights, ensuring accurate maintenance scheduling and improved
+operational reliability.
+
+
+Using LSTM models to capture temporal dependencies in failure patterns:
+
+
+_ht_ = _σ_ ( _Wxxt_ + _Whht−_ 1 + _b_ ) (24)
+
+
+where _ht_ is he hidden state at time _t_, _xt_ is the input sensor data at time _t_, _Wx_, _Wh_ are weight
+matrices, and _σ_ is the activation function.
+In addition to deep learning models, correlation parameters and tree-based classifiers play a crucial role in enhancing predictive maintenance accuracy by improving fault
+detection and anomaly identification. Correlation parameters were used to assess the
+relationships between different sensor readings and fault occurrences. By analyzing sta
+
+_Processes_ **2025**, _13_, 666 34 of 54
+
+
+tistical correlations between variables such as engine vibration, hydraulic pressure, and
+temperature fluctuations, key indicators of component degradation can be identified. This
+helped improve the feature selection process for machine learning models, ensuring that
+the most relevant variables were used for prediction. Tree-based classifiers (random forest)
+were employed alongside LSTMs to enhance fault classification accuracy. These models
+were particularly effective in handling non-linear interactions between sensor data and
+failure patterns, providing feature importance rankings, allowing for more interpretable
+maintenance predictions and detecting rare but critical fault occurrences, improving the
+robustness of predictive maintenance recommendations. By integrating correlation-based
+feature selection with tree classifiers and deep learning techniques, the ATSaaS predictive
+maintenance model achieved a higher fault detection rate, reduced false positives, and improved predictive accuracy. This hybrid approach ensures that maintenance interventions
+are both data-driven and operationally reliable, minimizing downtime and optimizing
+resource allocation.
+
+
+_•_ Anomaly detection with autoencoders. A neural autoencoder was trained to reconstruct
+normal operational data. Anomalies were detected based on reconstruction errors:
+
+
+_E_ = �� _X −_ _X_ ˆ ��2 (25)
+
+
+where _X_ is the input feature vector, _X_ [ˆ] is the reconstructed output, _E_ is the error threshold
+(higher values indicate anomalies).
+
+
+3.5.3. Mathematical and AI Methods in the Hybrid AI-Based Model
+
+
+The hybrid model integrates rule-based logic and machine learning-based fault
+prediction, providing the best balance between structured maintenance control and AIdriven adaptability.
+
+
+_•_ A weighted combination of rule-based and AI models. The hybrid decision function is
+expressed as (20).
+
+_•_ Bayesian updating for adaptive fault probability estimation. The model updates failure
+probabilities in real-time based on new data using Bayes’ theorem:
+
+
+_P_ ( _Fd|Xt_ ) = _[P]_ [(] _[X][t][|][F][d]_ [)] _[P]_ [(] _[F][d]_ [)] (26)
+
+_P_ ( _Xt_ )
+
+
+where _P_ ( _Fd|Xt_ ) is the updated probability of fault detection, _P_ ( _Xt|Fd_ ) is the likelihood of
+observed sensor data under failure conditions, _P_ ( _Fd_ ) is the prior fault probability, _P_ ( _Xt_ ) is
+the total probability of the observed data.
+
+
+_•_ Hybrid neural network integration combines feature extraction from rule-based models with deep learning classification:
+
+
+_F_ ˆ _d_ = _MLP{ϕ_ [ _R_ ( _T_, _H_, _C_ )], _X}_ (27)
+
+
+where _ϕ_ [ _R_ ( _T_, _H_, _C_ )] is the feature transformation of the rule-based model, _X_ is the input
+feature vector, _MLP_ (multi-layer perceptron) refines fault classification accuracy.
+
+
+_•_ Optimization of performance score _PS_ using multi-objective genetic algorithm. The
+hybrid model optimizes its performance score by dynamically adjusting _α_ in:
+
+
+max (28)
+_α_ _[PS]_ [ =] _[ w]_ [1] _[FDR]_ [ +] _[ w]_ [2] _[PME]_ [ +] _[ w]_ [3] _[ODR]_ [ +] _[ w]_ [4] _[CO]_
+
+
+_•_ Genetic algorithms were used to optimize _α_ for different airline types.
+
+
+The composite performance score _PS_ was selected as a multi-criteria evaluation metric
+to provide a quantitative assessment of each fault detection model’s effectiveness across key
+
+
+_Processes_ **2025**, _13_, 666 35 of 54
+
+
+performance indicators. This approach is widely used in multi-criteria decision-making to
+aggregate weighted performance metrics into a single interpretable score [63].
+The performance score integrates fault detection rate _FDR_, predictive maintenance
+effectiveness _PME_, operational downtime reduction _ODR_, and cost optimization _CO_, each
+assigned a weight coefficient _wi_ based on its relative impact on aviation maintenance.
+This weighted aggregation ensures that safety-critical factors such as _FDR_ and _PME_ are
+prioritized over cost-related considerations, aligning with industry best practices in maintenance optimization [64]. This method is conditioned by composite scoring approaches
+used in predictive maintenance assessments, where a single performance metric facilitates
+comparison between competing models and enhances decision-making clarity [65].
+In addition to deep learning models, correlation parameters and tree-based classifiers
+play a critical role in enhancing predictive maintenance accuracy by improving fault
+detection and anomaly identification.
+Correlation analysis was conducted to identify the most relevant sensor data affecting aircraft maintenance decisions. By calculating Pearson and Spearman correlation
+coefficients, the relationships between variables such as engine temperature, vibration
+levels, hydraulic pressure, and system failures were assessed. This feature selection process reduces model complexity and enhances interpretability, ensuring that only the most
+significant predictors are included in fault detection models.
+In addition to deep learning methods, tree-based classifiers, such as random forests,
+were utilized to improve fault classification. These models were particularly effective
+in handling non-linear interactions between sensor readings and maintenance outcomes;
+providing feature importance rankings, allowing for better interpretability and explainability in maintenance decision-making; detecting rare but critical fault occurrences; and
+improving overall predictive accuracy.
+By integrating correlation-based feature selection with tree classifiers and deep learning techniques, the ATSaaS predictive maintenance model achieved higher fault detection
+rates, reduced false positives, and improved predictive accuracy. This hybrid approach
+ensures that maintenance interventions are both data-driven and operationally reliable,
+minimizing downtime and optimizing resource allocation.
+
+
+_3.6. Results of AI-Based Fault Detection Modeling_
+
+
+The modeling and evaluation of the customization-based, personalization-based,
+and hybrid AI-based fault detection models were conducted to assess their performance
+across key maintenance parameters: fault detection rate _FDR_, predictive maintenance
+effectiveness _PME_, operational downtime reduction _ODR_ and cost optimization _CO_ . The
+results highlight the comparative advantages of each approach and demonstrate the hybrid
+model’s superior performance in predictive maintenance applications.
+Figure 27 presents a comparative breakdown of performance scores for each model
+across the four key evaluation criteria.
+The results indicate significant variations in the effectiveness of different AI-based fault
+detection approaches. The Customization Model achieved an FDR of 75%, demonstrating
+its effectiveness in structured, rule-based detection but lacked adaptability to unforeseen
+conditions. The Personalization Model used machine learning-based predictive analytics,
+achieving an FDR of 88% and a significantly higher PME of 92%, indicating its strong
+real-time fault prediction capabilities. The Hybrid Model consistently outperformed both
+approaches, achieving 95% FDR, 96% PME, 92% ODR, and 90% CO, demonstrating its optimal balance between structured rule-based logic and AI-driven predictive analytics. These
+results confirm that while Customization provides precise control, and Personalization
+
+
+**Figure 27.** Comparative analysis of AI-based fault detection models.
+
+
+The superior performance of the hybrid ATSaaS model was validated using a comprehensive dataset collected from 86 small and medium-sized airlines, covering a diverse
+range of operational conditions, aircraft types, and maintenance records. The dataset
+includes real-time sensor data, historical maintenance logs, and operational performance
+metrics, ensuring a robust basis for model evaluation.
+For benchmarking, a 10-fold cross-validation strategy was applied to prevent overfitting and ensure generalizability across different airline operations. Additionally, comparisons were conducted against industry-standard predictive maintenance solutions, validating the hybrid model’s superior ability to balance structured rule-based decision-making
+with AI-driven fault prediction.
+Figure 28 illustrates the comparative performance scores, emphasizing the advantages
+of the hybrid model in fault detection precision and operational efficiency.
+
+
+**Figure 28.** Overall performance score comparison.
+
+
+_Processes_ **2025**, _13_, 666 37 of 54
+
+
+**Figure 29.** Comparison of maintenance approaches for large vs. small airlines.
+
+
+The hybrid approach shows the highest performance across both airline types, while
+personalization is more effective for small and medium airlines, and customization is more
+commonly optimized for large airlines.
+The effectiveness of personalization-based maintenance strategies for small and
+medium-sized airlines is supported by studies highlighting the advantages of adaptive,
+data-driven maintenance models over rigid, rule-based approaches. Unlike large airlines
+that operate dedicated in-house maintenance teams, SMA often faces limited technical
+resources and budget constraints, making cost-efficient and flexible predictive maintenance
+solutions critical for their operations [66].
+A report by Aviation Today [66] indicates that predictive maintenance enables airlines,
+particularly small fleet operators, to detect operational anomalies early, reducing unexpected failures and optimizing maintenance schedules. Additionally, an industry analysis
+by Market.us [67] highlights the growing adoption of AI-driven predictive maintenance,
+demonstrating its effectiveness in helping SMAs reduce operational costs and improve
+efficiency by preventing failures before they occur.
+The hybrid ATSaaS model builds upon these insights by offering a scalable solution
+that integrates AI-driven personalization with structured rule-based decision-making,
+ensuring that SMAs benefit from predictive insights without requiring extensive infrastructure investments.
+
+
+**4. Discussion**
+
+
+_4.1. Contextual Application_
+
+
+The application of customization and personalization in aircraft maintenance varies
+significantly depending on the size of the airline, its operational needs, and the resources
+available. This section explores how these approaches are implemented in real-world
+contexts, highlighting the specific circumstances under which each approach is most
+effective and examining their potential for integration into hybrid models.
+
+
+4.1.1. Customization in Traditional MRO Models
+
+
+Customization thrives in environments where airlines have the technical expertise and
+resources to define their specific maintenance needs. This approach is particularly prevalent
+among large airlines that operate extensive fleets and maintain in-house maintenance
+departments. These airlines use their knowledge of fleet performance, operational routes,
+and regulatory requirements to collaborate with MRO providers, tailoring services to their
+unique contexts.
+
+
+_Processes_ **2025**, _13_, 666 38 of 54
+
+
+For example, a large airline operating in extreme weather conditions may customize
+its maintenance contracts to include frequent inspections of environmental control systems,
+anti-icing equipment, and fuselage integrity. Specific component overhauls, such as landing
+gear inspections or engine checks, may be customized to align with the airline’s operational
+schedules, minimizing downtime and ensuring regulatory compliance.
+While effective, customization is resource-intensive, requiring significant human
+oversight and manual adjustments. It is inherently static, with service agreements defined
+at the outset and requiring renegotiation to accommodate changes in operational contexts.
+This rigidity limits customization’s ability to adapt dynamically, making it less suitable for
+airlines with fluctuating operational demands or limited resources.
+
+
+4.1.2. Personalization in ATSaaS Platforms
+
+
+Personalization, by contrast, is inherently dynamic and relies on technology-driven
+adaptability to deliver maintenance services tailored to an airline’s real-time needs. This
+approach is particularly beneficial for small and medium-sized airlines (SMAs) that lack
+in-house technical resources and cannot afford the high costs of customized services.
+Modern platforms like ATSaaS enable personalization by using advanced technologies
+such as IoT, AI, and predictive analytics. These platforms collect real-time data from
+aircraft sensors, operational records, and environmental conditions to dynamically adjust
+maintenance schedules and service priorities.
+For example, an ATSaaS platform may use predictive analytics to identify potential
+component failures based on sensor data, scheduling proactive maintenance before issues
+escalate. This reduces downtime and ensures continuous airworthiness without requiring
+explicit input from the airline. Small airlines operating across diverse climates might benefit
+from personalized de-icing services or adjustments to maintenance intervals, automatically
+determined by the platform based on environmental data.
+Personalization democratizes access to tailored maintenance services, providing
+SMAs with the same level of operational efficiency and compliance typically reserved for
+larger carriers. Its scalability and cost-effectiveness make it an ideal solution for resourceconstrained operators.
+
+
+4.1.3. Hybrid Application: Combining Customization and Personalization
+
+
+While customization and personalization are distinct approaches, they are not mutually exclusive. A hybrid application that integrates the strengths of both can create a more
+flexible and efficient maintenance ecosystem, catering to the diverse needs of airlines.
+For instance, large airlines can enhance their customized maintenance plans by incorporating personalization tools from ATSaaS platforms. While the airline defines the overarching maintenance strategy (e.g., specific tasks for A-checks or C-checks), real-time datadriven insights from ATSaaS can refine the execution of these tasks, improving efficiency
+and responsiveness. Similarly, small and medium-sized airlines can benefit from personalized services as their primary maintenance strategy while customizing specific elements,
+such as focusing on high-priority areas like engine performance or regulatory compliance.
+The selection of the hybrid ATSaaS approach over standalone customization or personalization is driven by its ability to balance flexibility, efficiency, and cost-effectiveness in
+aviation maintenance. Comparative performance analysis (Figure 29) demonstrates that the
+hybrid model achieves a 95% fault detection rate, 96% predictive maintenance effectiveness,
+92% operational downtime reduction, and 90% cost optimization—outperforming both
+customization- and personalization-based approaches in all key metrics.
+Customization-based approaches provide strict control over maintenance parameters,
+making them ideal for large airlines with in-house technical expertise, yet they lack adapt
+
+_Processes_ **2025**, _13_, 666 39 of 54
+
+
+ability to real-time operational changes and require higher resource investment. On the
+other hand, personalization-based models use AI-driven analytics to optimize maintenance
+dynamically, making them cost-effective and scalable but offering limited customization
+options for operators with specific regulatory or operational needs.
+The hybrid model integrates the precision of customization with the adaptability of
+personalization, ensuring airlines can define critical maintenance parameters while still
+using AI-driven predictive maintenance for real-time adjustments. This dual capability
+makes hybrid ATSaaS the optimal solution for both large airlines seeking operational
+control and smaller operators requiring scalable, cost-efficient maintenance services.
+
+
+4.1.4. Contextual Factors Influencing Application
+
+
+The choice between customization and personalization depends on several contextual factors:
+
+
+_•_ Airline size and resources: Large airlines with extensive fleets and technical expertise
+are better positioned to implement customization effectively. SMAs benefit more from
+the cost-effectiveness and scalability of personalization.
+
+_•_ Operational Complexity: Airlines with complex, region-specific operations may require customization to address unique challenges. Personalization excels in dynamic
+environments with frequent changes in operational conditions.
+
+_•_ Technological Integration: Airlines with access to advanced digital tools can maximize the benefits of personalization through predictive maintenance and realtime monitoring.
+
+_•_ Cost Constraints: Customization often involves higher upfront costs, making it more
+feasible for well-funded airlines. Personalization, with its subscription-based models,
+offers a more affordable solution for smaller operators.
+
+
+By understanding the contextual applications of customization and personalization,
+stakeholders can optimize maintenance strategies, balancing cost, efficiency, and operational flexibility to meet the evolving demands of the aviation industry. This alignment
+ensures not only regulatory compliance and safety but also improved sustainability and
+competitiveness across airline categories.
+
+
+_4.2. Comparison_
+
+
+Customization and personalization in aircraft maintenance represent two distinct approaches, each with its own strengths, limitations, and applications. While customization is
+rooted in manual processes and static agreements tailored to specific airline needs, personalization uses data-driven automation and adaptability to provide maintenance solutions
+dynamically. Comparing these approaches highlights their suitability for different types of
+airlines and operational contexts, as well as their potential synergies when integrated into
+hybrid models.
+Customization thrives in traditional Maintenance, Repair, and Overhaul (MRO) models, where large airlines with extensive resources and technical expertise define their specific
+maintenance requirements. This approach offers precise control over the scope and execution of services, ensuring alignment with the unique characteristics of an airline’s fleet and
+operational demands.
+Key advantages of customization include
+
+
+_•_ Maintenance services are explicitly designed to meet the airline’s predefined needs,
+addressing unique challenges such as operating in extreme weather conditions or
+adhering to region-specific regulatory standards.
+
+_•_ Customization allows airlines to align maintenance activities with broader operational
+goals, such as optimizing fleet performance or extending component lifespans.
+
+
+_Processes_ **2025**, _13_, 666 40 of 54
+
+
+_•_ For airlines with diverse fleets or specialized operational requirements, customization
+provides the flexibility to address these complexities effectively.
+
+
+However, customization has notable limitations:
+
+
+_•_ It requires significant investment in time, expertise, and financial resources, making it
+less accessible for small and medium-sized airlines (SMAs).
+
+_•_ Customization agreements are often rigid, requiring renegotiation to accommodate
+changes in operational conditions or fleet composition.
+
+_•_ The manual and bespoke nature of customization makes it challenging to scale for
+larger or more dynamic fleets.
+
+
+Personalization, as implemented in ATSaaS platforms, is a dynamic and technologydriven approach. It adapts maintenance services in real time based on operational data,
+predictive analytics, and machine learning. This approach is particularly beneficial for
+SMAs, providing cost-effective, scalable, and efficient maintenance solutions without
+requiring extensive in-house expertise.
+Key advantages of personalization include
+
+
+_•_ Services are continuously adjusted to reflect real-time operational conditions, such as
+flight patterns, environmental stressors, and component wear-and-tear.
+
+_•_ By focusing resources on actual maintenance needs identified through data-driven insights, personalization reduces unnecessary expenses and optimizes resource allocation.
+
+_•_ Automated processes enable ATSaaS platforms to handle the maintenance needs of airlines with fleets of varying sizes, making them ideal for both small and large operators.
+
+_•_ Predictive analytics allow issues to be identified and addressed before they escalate,
+minimizing downtime and improving fleet reliability.
+
+
+Despite its advantages, personalization also has challenges:
+
+
+_•_ The effectiveness of personalization relies heavily on advanced technologies and
+accurate data inputs, making it susceptible to disruptions if technical issues arise.
+
+_•_ Initial investments in ATSaaS platforms and staff training may pose challenges for
+resource-constrained airlines.
+
+_•_ While personalization dynamically tailors services, it may not fully address the highly
+specific, predefined needs that customization can accommodate.
+
+
+The last thesis can be commented on further. One of the primary limitations of
+personalization-based maintenance approaches is their dependence on accurate and uninterrupted data streams from aircraft sensors and operational databases. Inconsistent or
+erroneous data can lead to false alarms, misclassifications, or delayed maintenance actions,
+potentially affecting fleet availability and operational efficiency. To mitigate these risks, the
+following strategies can be implemented:
+
+
+_•_ Implementing multi-source data validation techniques, such as cross-referencing
+sensor readings with historical maintenance logs and operational benchmarks, ensures
+higher data reliability and accuracy. Additionally, redundant sensor networks and
+failover mechanisms help maintain data continuity in case of hardware malfunctions.
+
+_•_ AI-driven anomaly detection algorithms can identify inconsistencies in incoming data,
+flagging abnormal sensor behavior and preventing incorrect fault predictions. This
+enhances the robustness of predictive maintenance models by filtering out faulty or
+misleading data points.
+
+_•_ Combining machine learning-based predictive analytics with rule-based verification
+systems can balance the flexibility of AI-driven models with structured decisionmaking frameworks, reducing the likelihood of false positives and unverified alerts.
+
+
+_Processes_ **2025**, _13_, 666 41 of 54
+
+
+By integrating these strategies, personalization-based predictive maintenance models can achieve greater reliability, minimizing risks associated with inaccurate data and
+operational disruptions.
+While customization and personalization are distinct, they are not mutually exclusive. Integrating these approaches into a hybrid model offers opportunities to use their
+respective strengths.
+For large airlines, customization can remain the foundation of long-term maintenance strategies, while personalization tools enhance real-time adaptability and predictive
+capabilities.
+For SMAs, personalization can serve as the primary approach, with limited customization applied to address high-priority needs or unique regulatory requirements.
+The comparison underscores that neither approach is universally superior; their effectiveness depends on the airline’s size, operational complexity, and resource availability.
+Customization excels in providing control and precision for airlines with specific needs,
+while personalization democratizes access to tailored maintenance through scalability
+and cost-efficiency. Together, these approaches offer a pathway for developing flexible,
+technology-driven maintenance ecosystems that enhance safety, efficiency, and sustainability across the aviation industry.
+
+
+_4.3. Opportunities in Bridging Models_
+
+
+The integration of customization and personalization in aircraft maintenance offers
+a significant opportunity to develop hybrid models that combine the strengths of both
+approaches. By merging the static precision of customization with the dynamic adaptability
+of personalization, these hybrid models can create flexible, efficient, and scalable solutions,
+catering to the diverse needs of airlines regardless of size, operational complexity, or
+resource availability.
+A hybrid model enables airlines to benefit from both long-term, tailored maintenance
+strategies and real-time, data-driven adjustments. Customization provides a structured
+framework for addressing fleet-specific needs, while personalization introduces dynamic,
+proactive adaptations. For instance, a large airline with a customized maintenance plan can
+use predictive analytics to refine individual tasks based on current operational conditions,
+reducing downtime and improving fleet reliability.
+Hybrid models offer scalability, making them suitable for both large airlines and SMAs.
+Large airlines can integrate personalization tools into their existing customized strategies,
+optimizing operations while retaining control over specific requirements. Meanwhile,
+SMAs can primarily rely on personalization for its cost-efficiency and scalability but add
+limited customization to address high-priority needs such as compliance with unique
+regulatory demands.
+By combining the resource-intensive elements of customization with the efficiency of
+automation in personalization, hybrid models help airlines optimize costs. Personalization
+reduces manual interventions, allowing maintenance providers to allocate resources more
+effectively. Additionally, modular and subscription-based customization options enable
+airlines to align services with their budgets while benefiting from the real-time adaptability
+of personalization.
+Hybrid models encourage greater collaboration between airlines, MRO providers, and
+ATSaaS platforms. Unified digital ecosystems streamline communication and coordination
+among stakeholders, enhancing service delivery. Furthermore, these models simplify regulatory compliance by combining the thorough documentation processes of customization
+with the automated compliance tracking provided by personalization.
+
+
+_Processes_ **2025**, _13_, 666 42 of 54
+
+
+Integrating customization and personalization enhances predictive maintenance. Customization ensures that long-term strategies are aligned with specific airline needs, while
+personalization provides real-time insights to adjust these strategies dynamically. Predictive analytics integrated into customized maintenance plans can identify potential failures
+and refine service delivery, ensuring that maintenance remains efficient and relevant.
+Hybrid models make advanced maintenance solutions accessible to airlines of all
+sizes. SMAs benefit from scalable personalization augmented by affordable customization modules, achieving operational efficiencies comparable to larger carriers. For MRO
+providers, these models open opportunities to serve a broader client base by offering
+tailored, technology-driven services.
+The convergence of customization and personalization creates a foundation for innovation in aircraft maintenance. Hybrid platforms that support tailored service agreements
+alongside real-time data integration can revolutionize maintenance practices. Advanced AI
+and machine learning applications can harmonize these approaches, enhancing predictive
+accuracy and operational adaptability. Furthermore, hybrid models can contribute to sustainability by optimizing resource use and reducing waste through precise, data-informed
+maintenance planning. The following comprise examples of hybrid applications:
+
+
+_•_ Large airlines can maintain customized maintenance strategies while using predictive analytics to dynamically adjust schedules and tasks based on real-time performance data.
+
+_•_ SMAs can primarily rely on ATSaaS platforms for core services while customizing
+specific tasks, such as inspections tailored to environmental conditions.
+
+_•_ Hybrid platforms can automate regulatory compliance tracking while integrating
+customized elements, simplifying processes for airlines and regulators.
+
+
+The integration of customization and personalization offers immense potential to
+enhance flexibility, efficiency, and scalability in aircraft maintenance. By using the strengths
+of both approaches, hybrid models provide tailored, cost-effective, and proactive solutions
+that align with the unique needs of different airlines. This evolution in maintenance
+practices fosters collaboration, innovation, and sustainability, ensuring the safety and
+reliability of air travel in a rapidly changing aviation landscape.
+
+
+_4.4. Recommendations for Large Airlines_
+
+
+Large airlines, with their extensive fleets and complex operational requirements, are
+uniquely positioned to benefit from the integration of both customization and personalization in their maintenance strategies. Using their resources and expertise, these airlines
+can adopt hybrid approaches that combine the precision of traditional customization
+with the adaptability of data-driven personalization to optimize maintenance outcomes.
+The following recommendations outline strategies for large airlines to enhance efficiency,
+cost-effectiveness, and operational reliability.
+While large airlines typically rely on customized maintenance agreements tailored
+to their specific needs, integrating predictive analytics can enhance these strategies. By
+incorporating data-driven insights into customized maintenance plans, airlines can
+
+
+_•_ Identify emerging issues in real time, such as wear patterns on critical components,
+and proactively address them.
+
+_•_ Refine the timing and scope of maintenance tasks to reduce downtime and increase
+aircraft availability.
+
+_•_ Continuously improve tailored maintenance strategies based on operational data and
+historical performance trends.
+
+
+_Processes_ **2025**, _13_, 666 43 of 54
+
+
+Personalization technologies, such as IoT-enabled sensors and machine learning algorithms, can complement the existing customization framework by streamlining routine
+maintenance tasks. Large airlines should
+
+
+_•_ Deploy ATSaaS platforms to monitor fleet performance in real time, enabling dynamic
+adjustments to routine checks and inspections.
+
+_•_ Use personalized maintenance schedules to optimize resource allocation, focusing on
+aircraft with the highest priority needs while maintaining overall fleet health.
+
+_•_ Automate documentation and compliance tracking, reducing administrative burdens
+and ensuring alignment with regulatory standards.
+
+
+Large airlines often have robust in-house maintenance capabilities, which can be
+enhanced through collaboration with external MRO providers and ATSaaS platforms. To
+maximize the benefits of hybrid models, airlines should
+
+
+_•_ Partner with MRO providers to deliver customized services for complex tasks, such
+as D-checks and engine overhauls, while using personalization tools for real-time
+monitoring and adjustments.
+
+_•_ Integrate data from ATSaaS platforms with in-house systems to create a unified view
+of fleet performance and maintenance needs.
+
+_•_ Establish clear communication channels between in-house teams and external
+providers to streamline workflows and minimize redundancies.
+
+
+Customization can be resource-intensive, but adopting a modular approach allows
+large airlines to prioritize high-impact areas while using personalization for routine tasks.
+Airlines should
+
+
+_•_ Focus customized services on critical components, such as engines, avionics, and
+landing gear, where tailored solutions offer the greatest operational benefits.
+
+_•_ Use personalization to manage less critical or routine maintenance needs, reducing
+overall costs while maintaining efficiency.
+
+_•_ Negotiate flexible agreements with MRO providers that incorporate both customized
+and personalized elements, enabling cost-effective scaling of services as needed.
+
+
+To fully benefit from personalization, large airlines must invest in robust data infrastructure that supports real-time analytics and integration with existing systems. Key
+steps include
+
+
+_•_ Equipping aircraft with IoT-enabled sensors to collect comprehensive performance data.
+
+_•_ Integrating data analytics platforms that consolidate information from multiple
+sources, such as MRO providers, ATSaaS platforms, and in-house systems.
+
+_•_ Developing internal expertise in data analysis to ensure that insights generated by
+personalization tools are effectively applied to maintenance strategies.
+
+
+Large airlines are increasingly focused on sustainability, and hybrid maintenance
+models can support these efforts. By using personalization and customization, airlines can
+
+
+_•_ Optimize resource use by reducing unnecessary maintenance activities and focusing
+on data-identified priorities.
+
+_•_ Minimize emissions associated with maintenance operations by improving fleet efficiency and reducing downtime.
+
+_•_ Use predictive maintenance tools to extend the lifespan of components, reducing
+waste and supporting circular economy initiatives.
+
+
+As the aviation industry evolves, large airlines must remain adaptable to emerging
+technologies and practices. To future-proof their maintenance strategies, airlines should
+
+
+_Processes_ **2025**, _13_, 666 44 of 54
+
+
+_•_ Monitor advancements in AI, machine learning, and predictive maintenance to integrate cutting-edge tools into their operations.
+
+_•_ Participate in pilot programs with ATSaaS providers to explore new functionalities
+and gain early access to innovative solutions.
+
+_•_ Collaborate with industry stakeholders to shape the development of hybrid maintenance models that align with regulatory and operational trends.
+
+
+For large airlines, combining customization and personalization in a hybrid maintenance strategy offers a pathway for enhancing operational reliability, optimize costs, and
+achieve long-term sustainability. By integrating predictive analytics, fostering collaboration,
+and investing in advanced technologies, these airlines can develop flexible and efficient
+maintenance ecosystems that meet their complex needs while positioning themselves for
+future growth and innovation.
+
+
+_4.5. Recommendations for Small and Medium Airlines_
+
+
+SMAs face unique challenges in aircraft maintenance due to limited technical expertise,
+financial constraints, and smaller fleet sizes. These airlines often struggle to access the
+high-quality, tailored maintenance solutions available to larger carriers. However, by
+using personalization through ATSaaS platforms and selectively integrating elements of
+customization, SMAs can optimize their maintenance operations, enhance fleet reliability,
+and reduce costs. The following recommendations outline strategies for SMAs to overcome
+challenges and maximize the benefits of modern maintenance solutions.
+Personalization offers a cost-effective and scalable approach to maintenance, making
+it ideal for SMAs with limited resources. By adopting ATSaaS platforms, SMAs can
+
+
+_•_ Use predictive maintenance tools to identify and address potential issues before they
+escalate, reducing downtime and preventing costly repairs.
+
+_•_ Automate routine tasks, such as scheduling inspections, monitoring component performance, and generating compliance reports, minimizing the need for in-house
+technical expertise.
+
+_•_ Benefit from real-time data-driven insights that dynamically adapt maintenance schedules to operational needs, ensuring efficient resource allocation.
+
+
+While full-scale customization may be impractical for SMAs, adopting a modular
+approach allows them to focus on high-priority areas where tailored solutions offer the
+most value. SMAs should
+
+
+_•_ Customize specific maintenance tasks, such as inspections for region-specific environmental conditions or compliance with unique regulatory requirements.
+
+_•_ Partner with MRO providers to negotiate flexible agreements that combine essential
+customization with broader personalized services offered by ATSaaS platforms.
+
+_•_ Limit customization to critical components, such as engines or avionics, while relying
+on personalization for routine and non-critical maintenance needs.
+
+
+Financial constraints often limit the ability of SMAs to implement comprehensive
+maintenance strategies. To address this, SMAs should
+
+
+_•_ Use the subscription-based or pay-as-you-go models offered by ATSaaS platforms,
+ensuring predictable and manageable costs.
+
+_•_ Focus on minimizing downtime by using predictive analytics to schedule maintenance
+during low-demand periods, maximizing operational efficiency.
+
+_•_ Avoid overinvesting in in-house capabilities by outsourcing non-critical tasks to ATSaaS providers and MROs.
+
+
+_Processes_ **2025**, _13_, 666 45 of 54
+
+
+SMAs can benefit from close partnerships with ATSaaS providers, who bring expertise,
+technology, and scalability to maintenance operations. To foster effective collaboration,
+SMAs should
+
+
+_•_ Share operational data with ATSaaS platforms to enhance the accuracy and relevance
+of personalized maintenance solutions.
+
+_•_ Actively engage with providers to tailor platform functionalities to their specific needs,
+such as integrating tools for fleet performance tracking or compliance monitoring.
+
+_•_ Seek provider recommendations on best practices for optimizing maintenance strategies and using advanced tools.
+
+
+While SMAs may lack the resources for large-scale technological upgrades, investing
+in foundational digital infrastructure is essential to fully utilize personalization. Key
+steps include
+
+
+_•_ Equipping aircraft with IoT-enabled sensors to collect performance data for predictive analytics.
+
+_•_ Implementing cloud-based systems for centralized data storage and real-time access
+to maintenance insights.
+
+_•_ Training staff to interpret and act on data-driven recommendations provided by
+ATSaaS platforms.
+
+
+Regulatory compliance is a critical challenge for SMAs, which may lack the expertise
+and resources to navigate complex requirements. By using ATSaaS platforms, SMAs can
+
+
+_•_ Automate the tracking of maintenance activities and generate compliance documentation, reducing administrative burdens.
+
+_•_ Use data-driven insights to ensure adherence to safety standards and streamline
+inspections by regulatory authorities.
+
+_•_ Collaborate with ATSaaS providers to stay updated on evolving regulations and
+incorporate necessary adjustments into maintenance plans.
+
+
+To remain competitive in a rapidly evolving aviation industry, SMAs must adopt
+resilient and adaptable maintenance strategies. This includes
+
+
+_•_ Starting with pilot projects to test the benefits of ATSaaS platforms and build confidence in their effectiveness.
+
+_•_ Gradually scaling the integration of personalization and modular customization as
+operational needs and budgets allow.
+
+_•_ Emphasizing continuous learning and adaptation to emerging technologies, such as
+AI and advanced predictive analytics.
+
+
+Maintenance strategies should align with the long-term growth goals of SMAs, ensuring that investments in technology and processes support scalability and sustainability.
+SMAs can
+
+
+_•_ Use ATSaaS platforms to accommodate fleet expansions by easily scaling maintenance
+services without significant additional costs.
+
+_•_ Adopt sustainability-focused tools, such as predictive maintenance, to optimize resource use and minimize waste, aligning with industry trends toward greener aviation practices.
+
+
+For small and medium-sized airlines, adopting a hybrid approach that prioritizes
+personalization while selectively integrating customization offers a practical pathway
+for optimizing maintenance operations. By using the scalability and cost-efficiency of
+ATSaaS platforms, SMAs can overcome resource constraints, enhance fleet reliability, and
+ensure compliance with regulatory standards. With a focus on collaboration, incremental
+
+
+_Processes_ **2025**, _13_, 666 46 of 54
+
+
+investment in technology, and alignment with long-term objectives, SMAs can position
+themselves for success in a competitive and dynamic aviation industry.
+
+
+_4.6. Recommendations for MRO Providers_
+
+
+MRO providers are pivotal in ensuring aircraft safety, reliability, and operational
+efficiency. As the aviation industry evolves, driven by advancements in technology and
+a shift toward data-driven maintenance solutions, MRO providers must adapt to remain
+competitive and meet the diverse needs of airlines. By embracing digital transformation,
+offering scalable services, and fostering stronger collaboration with airline clients, MRO
+providers can position themselves as leaders in this evolving landscape. The following
+recommendations outline key strategies for achieving these goals.
+To stay competitive in a technology-driven industry, MRO providers should prioritize
+digital transformation by integrating advanced tools into their operations. Predictive
+maintenance tools powered by IoT-enabled sensors and real-time analytics can proactively
+identify potential issues, reducing unplanned downtime for airlines. Developing ATSaaS
+capabilities allows MRO providers to offer real-time, personalized maintenance solutions,
+making advanced services accessible to SMAs. Additionally, incorporating AI-driven
+tools enhances fault diagnosis, optimizes resource allocation, and supports more effective
+decision-making in maintenance processes.
+MRO providers can cater to a broader range of airline clients by designing modular
+maintenance packages. Customizable modules allow large airlines to address their unique
+fleet requirements, such as component-specific maintenance or fleet-wide overhauls. Standardized personalization elements, such as real-time monitoring and dynamic scheduling,
+can make services more cost-effective and scalable for SMAs. Flexible pricing models,
+including subscription-based or pay-as-you-go options, further attract a diverse client base
+and accommodate fluctuating airline budgets.
+Collaboration with airlines is critical for understanding their maintenance needs and
+delivering effective solutions. MRO providers should engage in collaborative planning
+to develop maintenance strategies that combine the precision of customization with the
+adaptability of personalization tools. Creating integrated ecosystems that link airline data,
+maintenance schedules, and compliance tracking fosters seamless communication and
+coordination. Proactive communication with clients, including sharing predictive insights
+and recommendations, helps optimize maintenance strategies and strengthen relationships.
+Personalization depends on high-quality data and seamless integration with airline
+systems. MRO providers should develop centralized platforms that consolidate data from
+multiple sources, such as aircraft sensors, operational records, and airline feedback. Ensuring interoperability with existing airline infrastructure minimizes integration challenges,
+while robust cybersecurity measures protect sensitive operational and maintenance data.
+Equipping staff with the skills to manage advanced maintenance technologies is
+essential. MRO providers should offer technical training programs focused on using
+predictive analytics, IoT devices, and AI tools. Continuous learning opportunities ensure
+that technicians and engineers remain up to date with emerging trends, while customercentric training enhances collaboration with airline clients to align services with their
+operational priorities.
+Sustainability is increasingly important in aviation, and MRO providers can play a
+key role by adopting environmentally friendly practices. Predictive tools can optimize
+resource use by minimizing unnecessary maintenance tasks and reducing waste. Advanced
+diagnostics can extend the lifecycle of critical components, decreasing the environmental
+impact of replacements. Collaborating with airlines on green initiatives, such as eco-friendly
+materials and processes, further supports industry-wide sustainability efforts.
+
+
+_Processes_ **2025**, _13_, 666 47 of 54
+
+
+SMAs represent a growing market for MRO providers, and tailoring services to their
+needs can unlock new opportunities. Accessible personalization options, such as real-time
+monitoring and predictive maintenance, offered through ATSaaS platforms, make advanced
+maintenance solutions viable for resource-constrained SMAs. Simplified maintenance
+packages that prioritize essential tasks and compliance requirements ensure affordability
+and efficiency. Scalable support systems enable MRO providers to grow alongside smaller
+airlines, fostering long-term client relationships.
+Aligning with regulatory standards is crucial for MRO providers to ensure compliance
+and build trust with airline clients. Developing tools that automate the tracking and reporting of maintenance activities simplifies compliance with aviation regulations. Engaging
+with regulatory authorities early in the development of new maintenance solutions ensures
+they meet evolving safety and documentation requirements. Obtaining certifications for
+advanced tools and practices enhances credibility and attracts a broader client base.
+MRO providers are at the forefront of aviation maintenance, and adapting to the
+industry’s evolving demands is essential for their continued success. By embracing digital
+transformation, offering modular and scalable services, and enhancing collaboration with
+airlines, MRO providers can deliver innovative, cost-effective, and sustainable solutions.
+These strategies ensure that MRO providers remain vital contributors to the safety, reliability,
+and efficiency of global air travel in a dynamic and competitive aviation industry.
+
+
+_4.7. Recommendations for ATSaaS Platforms_
+
+
+ATSaaS platforms are revolutionizing aircraft maintenance by delivering personalized,
+data-driven solutions that adapt dynamically to airline needs. These platforms are especially advantageous for SMAs, offering scalable, cost-effective services without requiring
+extensive in-house expertise. To maximize their impact and remain competitive, ATSaaS
+providers must focus on enhancing predictive capabilities, fostering collaboration, and
+advancing user-friendly and innovative solutions. The following recommendations outline
+key strategies for ATSaaS platforms to meet the evolving demands of the aviation industry.
+Predictive maintenance is central to ATSaaS platforms, and improving these capabilities is essential for ensuring reliable and efficient services. Providers should invest in
+advanced analytics and machine learning models to analyze vast amounts of real-time data
+and predict potential component failures with higher accuracy. Incorporating environmental insights, such as weather conditions and geographic factors, can refine maintenance
+schedules and tasks. Additionally, expanding sensor integration to support a wider range
+of IoT-enabled devices, including those for older aircraft models, ensures comprehensive
+performance monitoring across diverse fleets.
+To cater to the diverse needs of airlines, ATSaaS platforms should provide modular
+and customizable solutions. For large airlines, this includes enabling tailored options such
+as prioritizing specific maintenance tasks or aligning analytics with operational goals. For
+SMAs, pre-configured modules focused on essential maintenance tasks simplify adoption
+and reduce costs. Flexible pricing models, such as tiered subscriptions or pay-as-you-go
+plans, make services more affordable for smaller operators while maintaining scalability
+for larger ones.
+Effective collaboration with airlines, MRO providers, and regulatory authorities is
+crucial for ATSaaS platforms to deliver impactful solutions. Platforms should facilitate
+seamless data sharing with MRO providers to execute maintenance tasks efficiently based
+on real-time recommendations. Working closely with regulatory bodies ensures that
+platform functionalities meet safety and compliance standards, streamlining documentation
+and approval processes for airlines. Establishing feedback mechanisms with airline clients
+can help refine platform features and address evolving operational needs.
+
+
+_Processes_ **2025**, _13_, 666 48 of 54
+
+
+Adopting advanced technologies can be challenging for airlines, particularly SMAs
+with limited technical expertise. To overcome this, ATSaaS platforms should simplify
+user interfaces, making it easier for maintenance teams to access and act on predictive
+insights. Comprehensive training programs and 24/7 customer support can further assist
+airlines in integrating the platform into their operations. Automating routine tasks, such as
+generating maintenance schedules and compliance reports, reduces administrative burdens
+and improves operational efficiency.
+SMAs represent a significant growth market for ATSaaS platforms, and increasing
+accessibility to these solutions is essential. Developing lightweight platform versions with
+core functionalities tailored to smaller fleets reduces complexity and costs. Scalability
+ensures that platforms can grow alongside airline operations, allowing SMAs to add
+features or expand capabilities as needed. Partnerships with industry organizations and
+governments to provide financial incentives or subsidies can further encourage adoption
+among resource-constrained airlines.
+Sustainability is a growing priority in aviation, and ATSaaS platforms can contribute
+significantly to green initiatives. Optimizing resource use through predictive tools minimizes unnecessary maintenance tasks, conserving materials and reducing waste. Providing
+insights to extend component lifespans supports circular economy practices and reduces environmental impact. Additionally, integrating tools to monitor and optimize fuel efficiency
+enables airlines to align maintenance strategies with carbon reduction goals, supporting
+industry-wide sustainability efforts.
+Handling sensitive operational data requires robust security measures. ATSaaS platforms should implement advanced security protocols, such as encryption, access controls,
+and threat detection systems, to protect against cyberattacks. Compliance with international data privacy regulations, such as GDPR, builds trust with airline clients. Providers
+should also develop contingency plans, including disaster recovery protocols and system
+redundancy, to ensure continuous operation in case of disruptions.
+To remain competitive, ATSaaS platforms must continuously evolve by adopting
+emerging technologies. Enhancing platform intelligence through AI and machine learning
+can improve prediction accuracy and operational adaptability. Exploring blockchain technology for maintenance record transparency and compliance documentation can further
+streamline operations. Incorporating augmented reality (AR) tools for remote diagnostics
+and training offers innovative ways to support airline maintenance teams.
+ATSaaS platforms are at the forefront of transforming aircraft maintenance, offering
+personalized, scalable, and efficient solutions to airlines of all sizes. By enhancing predictive capabilities, fostering collaboration, and focusing on user-friendly and sustainable
+features, these platforms can meet the diverse needs of the aviation industry. Continuous
+innovation and attention to data security and accessibility will ensure that ATSaaS platforms remain critical to advancing safe, efficient, and environmentally responsible aircraft
+maintenance practices.
+The successful adoption of ATSaaS in real-world aviation maintenance operations
+depends on compliance with international aviation regulatory frameworks. The system is
+designed to align with key industry standards, including
+
+
+_•_ EASA Part M and Part 145—Ensuring that maintenance data, processes, and approvals
+comply with European airworthiness requirements.
+
+_•_ FAA 14 CFR Part 43 and Part 145—Supporting U.S. regulatory mandates for maintenance record-keeping, personnel certification, and repair station operations.
+
+_•_ ICAO Annex 6—Addressing global standards for aircraft operation, maintenance
+oversight, and airworthiness monitoring.
+
+
+_Processes_ **2025**, _13_, 666 49 of 54
+
+
+ATSaaS facilitates regulatory compliance by automating maintenance record-keeping,
+integrating real-time fault tracking with required documentation updates, and ensuring
+transparency for aviation authorities. Additionally, the system can be customized to accommodate airline-specific regulatory requirements, making it adaptable for both regional and
+international carriers.
+Although ATSaaS is not a certified regulatory body, it functions as a supportive digital platform that enhances compliance adherence by structuring maintenance activities
+in accordance with established aviation regulations. Future work will focus on validating ATSaaS through real-world trials with airline partners to ensure seamless regulatory
+integration and certification readiness.
+
+
+_4.8. Limitations and Challenges of the Study_
+
+
+While this research provides significant insights into aviation maintenance optimization through ATSaaS platforms, several limitations and challenges should be acknowledged
+to contextualize the findings and guide future research efforts.
+The study’s primary limitation lies in its sample size of 86 airlines, which, while
+providing valuable insights, may not fully represent the global aviation industry.
+The data collection period was limited to a specific timeframe, potentially missing
+seasonal variations in maintenance requirements and operational patterns.
+The rapid pace of technological advancement in AI and machine learning means that
+some of the technical frameworks proposed in this study may require regular updates.
+The evaluation of personalization tools was based on currently available technologies, and
+emerging solutions might offer additional capabilities not considered in this research.
+While the study presents theoretical frameworks and mathematical models, practical implementation challenges such as integration with legacy systems, staff training
+requirements, and organizational resistance to change were not fully explored.
+The effectiveness of the proposed AI-based fault detection models relies heavily on
+the quality and completeness of historical maintenance data. Many airlines, particularly
+smaller operators, may lack comprehensive historical data, potentially affecting the models’
+predictive accuracy in real-world applications.
+Although the study includes cost optimization metrics, detailed cost-benefit analyses
+across different airline sizes and operational contexts were not fully developed.
+Although the mathematical models demonstrated promising results in controlled
+environments, comprehensive validation in real-world operational settings across different
+airline categories would strengthen the findings’ practical applicability.
+These limitations and challenges present opportunities for future research and highlight the need for continued investigation into aviation maintenance optimization. They
+also underscore the importance of considering practical implementation factors alongside
+theoretical frameworks when developing maintenance solutions for the aviation industry.
+
+
+_4.9. Future Research Directions_
+
+
+The integration of customization and personalization in aircraft maintenance represents a significant shift in how airlines and service providers manage operational efficiency
+and safety. While the current frameworks of traditional MRO models and ATSaaS platforms
+have demonstrated their value, further research is needed to explore emerging technologies, address implementation challenges, and unlock new possibilities for innovation in
+this domain.
+Advanced predictive analytics represents a critical area for future studies, focusing on
+enhancing maintenance capabilities through machine learning and artificial intelligence.
+This includes developing more accurate failure prediction algorithms for complex systems,
+
+
+_Processes_ **2025**, _13_, 666 50 of 54
+
+
+integrating environmental and operational data for nuanced predictive models, and investigating hybrid analytics frameworks that combine predictive and prescriptive approaches
+for optimized maintenance scheduling.
+Research into the integration of customization and personalization requires deeper
+exploration, particularly in developing hybrid models that effectively combine the precision
+of customization with the adaptability of personalization. Key areas include identifying
+optimal frameworks for integrating manual customization with data-driven personalization, assessing operational and economic impacts on airlines of different sizes, and
+developing methodologies for dynamically transitioning between approaches based on
+real-time conditions.
+The scalability of ATSaaS platforms warrants further investigation as these systems
+gain broader adoption. Research should focus on evaluating how platforms can efficiently
+scale predictive maintenance capabilities for large fleets without compromising accuracy, investigating cost-effective solutions for small and medium-sized airlines, and exploring modular design approaches that enable seamless adaptation to growing operational demands.
+Cybersecurity in aircraft maintenance emerges as a crucial research priority given
+the increasing reliance on digital tools and data-driven platforms. Studies should assess
+vulnerabilities in ATSaaS platforms and maintenance technologies, investigate blockchain
+technology’s potential for enhancing data security and traceability, and design robust
+contingency plans and resilience frameworks to mitigate cyber risks.
+Economic viability and return on investment analysis require thorough investigation
+through cost-benefit analyses of different maintenance models, assessment of ROI for
+airlines transitioning to ATSaaS platforms, and exploration of financial incentives and
+business models to encourage adoption among smaller operators.
+Future research in aircraft maintenance should ultimately aim to enhance the integration of advanced technologies, refine hybrid models, and address challenges related
+to scalability, cybersecurity, and sustainability. These efforts will contribute to developing
+innovative, efficient, and environmentally responsible maintenance practices that meet the
+evolving demands of the aviation industry while improving safety and operational reliability. This research agenda will help pave the way for a more adaptive and forward-thinking
+aviation ecosystem.
+
+
+**5. Conclusions**
+
+
+This research presents a comprehensive analysis of the integration of customization
+and personalization approaches in aviation maintenance through ATSaaS platforms.
+The key conclusions are as follows:
+
+
+_•_ Hybrid ATSaaS enhances predictive maintenance efficiency by combining structured
+rule-based decision-making with AI-powered fault detection, leading to higher accuracy in failure predictions and reduced operational costs.
+
+_•_ Comparative performance analysis demonstrated superior results for hybrid ATSaaS,
+achieving 95% fault detection accuracy, 96% predictive maintenance effectiveness,
+92% operational downtime reduction, and 90% cost optimization compared to standalone approaches.
+
+_•_ Personalization-based predictive maintenance is particularly beneficial for small and
+medium-sized airlines, allowing for cost-effective, scalable, and adaptive maintenance
+solutions without requiring extensive in-house expertise.
+
+_•_ Correlation parameters and tree-based classifiers significantly improved fault classification accuracy by handling non-linear interactions and ranking feature importance.
+
+
+_Processes_ **2025**, _13_, 666 51 of 54
+
+
+_•_ Hyperparameter tuning (via grid search and Bayesian optimization) enhanced the
+performance of LSTM-based anomaly detection models, ensuring more accurate failure
+predictions and lower false positive rates.
+
+_•_ Data validation, real-time anomaly detection, and hybrid data fusion techniques
+mitigate the risks associated with data accuracy and sensor disruptions, increasing the
+reliability of AI-driven maintenance models.
+
+_•_ Despite its advantages, the hybrid model requires robust data infrastructure, and further research is needed to explore real-world implementation strategies and optimize
+integration with existing maintenance frameworks.
+
+
+This study highlights the potential of hybrid ATSaaS to modernize aviation maintenance, improving efficiency, cost savings, and operational reliability while ensuring
+scalability for different airline sizes.
+
+
+**Author Contributions:** Conceptualization, I.K.; methodology, I.K.; software, M.P.; validation, V.P. and
+M.P.; formal analysis, I.K.; investigation, I.K., V.P. and M.P.; resources, V.P. and M.P.; data curation,
+V.P. and M.P.; writing—original draft preparation, I.K.; writing—review, and editing, I.K., V.P. and
+M.P.; visualization, I.K.; supervision, I.K.; project administration, I.K.; funding acquisition, I.K., V.P.
+and M.P. All authors have read and agreed to the published version of the manuscript.
+
+
+**Funding:** This research received no external funding.
+
+
+**Data Availability Statement:** The original contributions presented in the study are included in the
+article, and further inquiries can be directed to the corresponding author.
+
+
+**Conflicts of Interest:** Authors Vladimir Perekrestov and Maksim Pivovar were employed by the
+company Sky Net Technics. The remaining authors declare that the research was conducted in the
+absence of any commercial or financial relationships that could be construed as potential conflicts
+of interest.
+
+
+**References**
+
+
+1. Kabashkin, I.; Perekrestov, V. Concept of Aviation Technical Support as a Service. _Transp. Telecommun._ **2023**, _24_, 471–482.
+
+[[CrossRef]](https://doi.org/10.2478/ttj-2023-0037)
+2. [European Union Aviation Safety Agency. Continuing Airworthiness. Available online: https://www.easa.europa.eu/en/](https://www.easa.europa.eu/en/regulations/continuing-airworthiness)
+[regulations/continuing-airworthiness (accessed on 20 February 2025).](https://www.easa.europa.eu/en/regulations/continuing-airworthiness)
+3. [Airbus. Skywise. Available online: https://aircraft.airbus.com/en/services/enhance/skywise (accessed on 7 November 2024).](https://aircraft.airbus.com/en/services/enhance/skywise)
+4. Boeing Global Services. Enhanced Digital Solutions Focus on Customer Speed and Operational Efficiency. Available on[line: https://investors.boeing.com/investors/news/press-release-details/2018/Boeing-Global-Services-Enhanced-Digital-](https://investors.boeing.com/investors/news/press-release-details/2018/Boeing-Global-Services-Enhanced-Digital-Solutions-Focus-on-Customer-Speed-and-Operational-Efficiency/default.aspx)
+[Solutions-Focus-on-Customer-Speed-and-Operational-Efficiency/default.aspx (accessed on 6 December 2024).](https://investors.boeing.com/investors/news/press-release-details/2018/Boeing-Global-Services-Enhanced-Digital-Solutions-Focus-on-Customer-Speed-and-Operational-Efficiency/default.aspx)
+5. Federal Aviation Administration. _Advisory Circular AC 43-218: Integrated Aircraft Health Management_ ; FAA: Washington, DC, USA,
+[2022. Available online: https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/](https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentID/1035729)
+[documentID/1035729 (accessed on 6 December 2024).](https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentID/1035729)
+6. [Air Transport Association. iSpec 2200—Information Standards for Aviation Maintenance. Available online: https://ataebiz.org/](https://ataebiz.org/standards/)
+[standards/ (accessed on 6 December 2024).](https://ataebiz.org/standards/)
+7. [Air France-KLM Group. PROGNOS—Predictive Maintenance. Available online: https://www.afiklmem.com/en/solutions/](https://www.afiklmem.com/en/solutions/about-prognos)
+[about-prognos (accessed on 6 December 2024).](https://www.afiklmem.com/en/solutions/about-prognos)
+8. [Swiss AviationSoftware. AMOS. An MRO Software Solution to Create Stories of Success. Available online: https://www.swiss-](https://www.swiss-as.com/amos-mro)
+[as.com/amos-mro (accessed on 6 December 2024).](https://www.swiss-as.com/amos-mro)
+9. El-Akruti, K.; Dwight, R.; Zhang, T. The strategic role of Engineering Asset Management. _Int. J. Prod. Econ._ **2013**, _146_, 227–239.
+
+[[CrossRef]](https://doi.org/10.1016/j.ijpe.2013.07.002)
+10. Sangreman, E.; McMahon, P.; Cabral, A. Establishing the relationship between asset management and business performance. _Int._
+_J. Prod. Econ._ **2021**, _232_ [, 107937. [CrossRef]](https://doi.org/10.1016/j.ijpe.2020.107937)
+11. Sangreman, E.; Cabral, A. Improving Asset Management under a regulatory view. _Reliab. Eng. Syst. Saf._ **2019**, _190_, 106523.
+
+[[CrossRef]](https://doi.org/10.1016/j.ress.2019.106523)
+12. Mohammadi, A.; El-Diraby, T. A conceptual construct on value for infrastructure asset management. _Util. Policy_ **2022**, _75_, 101354.
+
+[[CrossRef]](https://doi.org/10.1016/j.jup.2022.101354)
+
+
+_Processes_ **2025**, _13_, 666 52 of 54
+
+
+13. Mohammadi, A.; El-Diraby, T. Toward user-oriented asset management for urban railway systems. _Sustain. Cities Soc._ **2021**, _70_,
+[102903. [CrossRef]](https://doi.org/10.1016/j.scs.2021.102903)
+14. Izaddoost, A.; Naderpajouh, N.; Heravi, G. Integrating resilience into asset management of infrastructure systems with a focus on
+building facilities. _J. Build._ **2021**, _44_ [, 103304. [CrossRef]](https://doi.org/10.1016/j.jobe.2021.103304)
+15. Serrano, W. Smart or Intelligent Assets or Infrastructure: Technology with a Purpose. _Buildings_ **2023**, _13_ [, 131. [CrossRef]](https://doi.org/10.3390/buildings13010131)
+16. Roda, I.; Kumar, A.; Macchi, M.; Garetti, M. A Framework for implementing value-based approach in Asset Management. In
+Proceedings of the World Congress on Engineering Asset Management, Campo Grande, Brazil, 15–18 August 2015; pp. 487–495.
+
+[[CrossRef]](https://doi.org/10.1007/978-3-319-27064-7_47)
+17. Vermeer, M.; Wetzer, J.; van der Wielen, P.; de Haan, E.; de Meulemeester, E. Asset-management decision-support modeling,
+using a health and risk model. In Proceedings of the IEEE PowerTech, Eindhoven, The Netherlands, 29 June–2 July 2015; pp. 1–6.
+
+[[CrossRef]](https://doi.org/10.1109/PTC.2015.7232556)
+18. Bosisio, A.; Giustina, D.D.; Fratti, S.; Dedè, A.; Gozzi, S. A Metamodel for Multi-utilities Asset Management. In Proceedings of
+[the IEEE Milan PowerTech, Milan, Italy, 23–27 June 2019; pp. 1–4. [CrossRef]](https://doi.org/10.1109/PTC.2019.8810812)
+19. Jia-xu, C.; Guan-ran, W.; Wei-xuan, M. Analysis of Key Processes and Dimensions Based on Complex Assets management
+Systems. In Proceedings of the International Conference on Urban Engineering and Management Science, Sanya, China, 29–31
+[January 2021; pp. 310–313. [CrossRef]](https://doi.org/10.1109/ICUEMS52408.2021.00074)
+20. Laue, M.; Brown, K.; Scherrer, P.; Keast, R. Integrated Strategic Asset Management: Frameworks and Dimensions. _Infranomics Top._
+_Saf. Risk Reliab. Qual._ **2014**, _24_ [, 75–87. [CrossRef]](https://doi.org/10.1007/978-3-319-02493-6_6)
+21. Mahmood, M.; Dhakal, S.; Wiewiora, A.; Keast, R.; Brown, K. Towards an integrated maturity model of asset management
+capabilities. In Proceedings of the World Congress on Engineering Asset Management, Daejeon, Republic of Korea, 8–9 October
+[2012; pp. 431–441. [CrossRef]](https://doi.org/10.1007/978-3-319-06966-1_39)
+22. Attwate, A.; Wang, J.; Parlikad, A.; Russell, P. Measuring the performance of asset management systems. In Proceedings of the
+[Asset Management Conference, London, UK, 27–28 November 2014; pp. 1–6. [CrossRef]](https://doi.org/10.1049/cp.2014.1046)
+23. Zhang, W.; Wang, W. Whole life cost modelling in infrastructure asset management. In Proceedings of the International Conference
+[on Quality, Reliability, Risk, Maintenance, and Safety Engineering, Chengdu, China, 15–18 July 2013; pp. 1695–1697. [CrossRef]](https://doi.org/10.1109/QR2MSE.2013.6625902)
+24. Lovea, P.; Matthews, J. The ‘how’ of benefits management for digital technology: From engineering to asset management. _Autom._
+_Constr._ **2019**, _107_ [, 102930. [CrossRef]](https://doi.org/10.1016/j.autcon.2019.102930)
+25. Asghari, V.; Hsu, S.-C. An open-source and extensible platform for general infrastructure asset management system. _Autom._
+_Constr._ **2021**, _127_ [, 103692. [CrossRef]](https://doi.org/10.1016/j.autcon.2021.103692)
+26. Al-Kasasbeh, M.; Abudayyeh, O.; Liu, H. An integrated decision support system for building asset management based on BIM
+and Work Breakdown Structure. _J. Build. Eng._ **2021**, _34_ [, 101959. [CrossRef]](https://doi.org/10.1016/j.jobe.2020.101959)
+27. Prabhakar, D.; Raj, V.J. CBM, TPM, RCM and A-RCM-a qualitative comparison of maintenance management strategies. _Int. J._
+_Manag. Bus. Stud._ **2014**, _4_, 49–56.
+28. Fernandes, J.; Reis, J.; Melão, N.; Teixeira, L.; Amorim, M. The Role of Industry 4.0 and BPMN in the Arise of Condition-Based
+and Predictive Maintenance: A Case Study in the Automotive Industry. _Appl. Sci._ **2021**, _11_ [, 3438. [CrossRef]](https://doi.org/10.3390/app11083438)
+29. Ali, A.; Abdelhadi, A. Condition-Based Monitoring and Maintenance: State of the Art Review. _Appl. Sci._ **2022**, _12_ [, 688. [CrossRef]](https://doi.org/10.3390/app12020688)
+30. Ali, M.H.; Haddad, S. Stratégie pour la maintenance prévisionnelle des systèmes photovoltaïques. _J. Renew. Energ._ **2020**, _23_, 59–71.
+
+[[CrossRef]](https://doi.org/10.54966/jreen.v23i1.33)
+31. Peng, Y.; Dong, M.; Zuo, M.J. Current status of machine prognostics in condition-based maintenance: A review. _Int. J. Adv. Manuf._
+_Technol._ **2010**, _50_ [, 297–313. [CrossRef]](https://doi.org/10.1007/s00170-009-2482-0)
+32. Bengtsson, M. On Condition Based Maintenance and Its Implementation in Industrial Settings. Ph.D. Thesis, Mälardalens
+Högskola, Västerås, Sweden, 2007.
+33. Gao, R.; Wang, L.; Teti, R.; Dornfeld, D.; Kumara, S.; Mori, M.; Helu, M. Cloud-enabled prognosis for manufacturing. _CIRP Ann._
+**2015**, _64_ [, 749–772. [CrossRef]](https://doi.org/10.1016/j.cirp.2015.05.011)
+34. [Gartner Inc. Definition of Software as a Service (SaaS). Available online: https://www.gartner.com/en/information-technology/](https://www.gartner.com/en/information-technology/glossary/software-as-a-service-saas)
+[glossary/software-as-a-service-saas (accessed on 6 December 2024).](https://www.gartner.com/en/information-technology/glossary/software-as-a-service-saas)
+35. [Gartner Inc. Definition of Platform (Digital Business). Available online: https://www.gartner.com/en/information-technology/](https://www.gartner.com/en/information-technology/glossary/platform-digital-business)
+[glossary/platform-digital-business (accessed on 6 December 2024).](https://www.gartner.com/en/information-technology/glossary/platform-digital-business)
+36. Görög, G. The Definitions of Sharing Economy: A Systematic Literature Review. _Management_ **2018**, _13_ [, 175–189. [CrossRef]](https://doi.org/10.26493/1854-4231.13.175-189)
+37. [Levinson, M. Software as a Service (SaaS) Definition and Solutions. Available online: https://www.cio.com/article/272086/web-](https://www.cio.com/article/272086/web-services-software-as-a-service-saas-definition-and-solutions.html)
+[services-software-as-a-service-saas-definition-and-solutions.html (accessed on 6 December 2024).](https://www.cio.com/article/272086/web-services-software-as-a-service-saas-definition-and-solutions.html)
+38. Kenney, M.; Zysman, J. The Rise of the Platform Economy. _Issues Sci. Technol._ **2016**, _32_ [, 61. Available online: https://brie.berkeley.](https://brie.berkeley.edu/sites/default/files/kenney-zysman-the-rise-of-the-platform-economy-spring-2016-istx.pdf)
+[edu/sites/default/files/kenney-zysman-the-rise-of-the-platform-economy-spring-2016-istx.pdf (accessed on 6 December 2024).](https://brie.berkeley.edu/sites/default/files/kenney-zysman-the-rise-of-the-platform-economy-spring-2016-istx.pdf)
+39. Katz, M.L.; Shapiro, C. Network Externalities, Competition, and Compatibility. _Am. Econ. Rev._ **1985**, _75_, 424–440. Available online:
+[https://www.jstor.org/stable/1814809 (accessed on 6 December 2024).](https://www.jstor.org/stable/1814809)
+
+
+_Processes_ **2025**, _13_, 666 53 of 54
+
+
+40. De Reuver, M.; Sørensen, C.; Basole, R.C. The Digital Platform: A Research Agenda. _J. Inf. Technol._ **2018**, _33_ [, 124–135. [CrossRef]](https://doi.org/10.1057/s41265-016-0033-3)
+41. Kushida, K.E.; Murray, J.; Scaglia, P.; Zysman, J. _The Implications of Cloud Computing for Integrated Research and Innovation Strategy_ ;
+Berkeley Roundtable on the International Economy, University of California: Berkeley, CA, USA, 2014.
+42. Fiorillo, F.; Spettu, F. Data Management, Efficient Use, and Smart Access to Reality Capture Data via Web Platforms. In _Proceedings_
+_of the Digital & Documentation; From Virtual Space to Information Database_ ; Picchio, F., Ed.; Pavia University Press: Pavia, Italy, 2023;
+Volume 5, pp. 163–177.
+43. Wongvilaisakul, W.; Netinant, P.; Rukhiran, M. Dynamic Multi-Criteria Decision Making of Graduate Admission Recommender
+System: AHP and Fuzzy AHP Approaches. _Sustainability_ **2023**, _15_ [, 9758. [CrossRef]](https://doi.org/10.3390/su15129758)
+44. Sánchez-García, E.; Marco-Lajara, B.; Seva-Larrosa, P.; Martínez-Falcó, J. Driving Innovation by Managing Entrepreneurial
+Orientation, Cooperation and Learning for the Sustainability of Companies in the Energy Sector. _Sustainability_ **2022**, _14_, 16978.
+
+[[CrossRef]](https://doi.org/10.3390/su142416978)
+45. Rukhiran, M.; Netinant, P. A practical model from multidimensional layering: Personal finance information framework using
+mobile software interface operations. _J. Inf. Commun. Technol._ **2020**, _19_ [, 321–349. [CrossRef]](https://doi.org/10.32890/jict2020.19.3.2)
+46. Xiong, F.; Xie, M.; Zhao, L.; Li, C.; Fan, X. Recognition and evaluation of data as intangible assets. _SAGE Open_ **2022**, _12_,
+[21582440221094600. [CrossRef]](https://doi.org/10.1177/21582440221094600)
+47. Fleckenstein, M.; Fellows, L. Overview of data management frameworks. In _Modern Data Strategy_ ; Springer International
+[Publishing: Cham, Switzerland, 2018; pp. 55–59. [CrossRef]](https://doi.org/10.1007/978-3-319-68993-7_7)
+48. Opara-Martins, J.; Sahandi, R.; Tian, F. Critical analysis of vendor lock-in and its impact on cloud computing migration: A
+business perspective. _J. Cloud Comput._ **2016**, _5_ [, 4. [CrossRef]](https://doi.org/10.1186/s13677-016-0054-z)
+49. Chawla, N.; Kumar, D.; Sharma, D. Improving cost for data migration in cloud computing using genetic algorithm. _Int. J. Softw._
+_Innov._ **2020**, _8_ [, 69–81. [CrossRef]](https://doi.org/10.4018/IJSI.2020070105)
+50. Ansar, M.; Ashraf, M.W.; Fatima, M. Data migration in cloud: A systematic review. _Am. Sci. Res. J. Eng. Technol. Sci._ **2018**, _48_,
+73–89.
+51. Azeroual, O.; Jha, M. Without Data Quality, There Is No Data Migration. _Big Data Cogn. Comput._ **2021**, _5_ [, 24. [CrossRef]](https://doi.org/10.3390/bdcc5020024)
+52. Jaumard, B.; Pouya, H. Migration plan with minimum overall migration time or cost. _J. Opt. Commun. Netw._ **2018**, _10_, 1–13.
+
+[[CrossRef]](https://doi.org/10.1364/JOCN.10.000001)
+53. Sibgatullina, A.I.; Yakupov, A.S. Development a data validation module to satisfy the retention policy metric. _Russ. Digit. Libr. J._
+**2022**, _25_ [, 159–178. [CrossRef]](https://doi.org/10.26907/1562-5419-2022-25-2-159-178)
+54. Prasanna, C.; Subha, R.; Sreemathy, J.; Aravindh Ramanathan, P.; Jainaveen, M. Data validation and migration-a theoretical
+perspective. In Proceedings of the 7th International Conference on Advanced Computing and Communication Systems,
+[Coimbatore, India, 19–20 March 2021. [CrossRef]](https://doi.org/10.1109/ICACCS51430.2021.9441784)
+55. Yang, C.; Zhao, F.; Tao, X.; Wang, Y. Publicly verifiable outsourced data migration scheme supporting efficient integrity checking.
+_J. Netw. Comput. Appl._ **2021**, _192_ [, 103184. [CrossRef]](https://doi.org/10.1016/j.jnca.2021.103184)
+56. Latha, M.; Kumar, P. Analysis on data migration strategies in heterogeneous databases. _Int. J. Adv. Res. Sci. Commun. Technol._ **2021**,
+_6_ [, 210–214. Available online: https://www.researchgate.net/publication/352172318_Analysis_on_Data_Migration_Strategies_](https://www.researchgate.net/publication/352172318_Analysis_on_Data_Migration_Strategies_in_Heterogeneous_Databases)
+[in_Heterogeneous_Databases (accessed on 6 December 2024).](https://www.researchgate.net/publication/352172318_Analysis_on_Data_Migration_Strategies_in_Heterogeneous_Databases)
+57. McGill, M.M.; Sexton, S.; Peterfreund, A.; Praetzellis, M. Efficient, effective, and ethical education research data management and
+sustainability. In Proceedings of the 52nd ACM Technical Symposium on Computer Science Education, Virtual Event, USA, 13–20
+[March 2021. [CrossRef]](https://doi.org/10.1145/3408877.3432493)
+58. Bento, P.; Neto, M.; Corte-Real, N. How data governance frameworks can leverage data-driven decision making: A sustainable
+approach for data governance in organizations. In Proceedings of the 2022 17th Iberian Conference on Information Systems and
+[Technologies, Madrid, Spain, 22–25 June 2022. [CrossRef]](https://doi.org/10.23919/CISTI54924.2022.9866895)
+59. Dehury, C.K.; Srirama, S.N.; Chhetri, T.R. CCoDaMiC: A framework for coherent coordination of data migration and computation
+platforms. _Future Gener. Comput. Syst._ **2020**, _109_ [, 1–16. [CrossRef]](https://doi.org/10.1016/j.future.2020.03.029)
+60. [Transition from Legacy Databases to a Modern Data Architecture. Available online: https://www.devprojournal.com/technology-](https://www.devprojournal.com/technology-trends/open-source/transition-from-legacy-databases-to-a-modern-data-architecture)
+[trends/open-source/transition-from-legacy-databases-to-a-modern-data-architecture (accessed on 6 December 2024).](https://www.devprojournal.com/technology-trends/open-source/transition-from-legacy-databases-to-a-modern-data-architecture)
+61. Hussein, A.A. Data migration need, strategy, challenges, methodology, categories, risks, uses with cloud computing, and
+improvements in its using with cloud using suggested proposed model (DMig 1). _J. Inf. Secur._ **2021**, _12_ [, 17–103. [CrossRef]](https://doi.org/10.4236/jis.2021.121004)
+62. Mackita, M.; Shin, S.-Y.; Choe, T.-Y. ERMOCTAVE: A Risk Management Framework for IT Systems Which Adopt Cloud
+Computing. _Future Internet_ **2019**, _11_ [, 195. [CrossRef]](https://doi.org/10.3390/fi11090195)
+63. Triantaphyllou, E. _Multi-Criteria Decision Making: A Comparative Study_ ; Kluwer Academic Publishers: Dordrecht, The Netherlands,
+2000; ISBN 0-7923-6607-7.
+64. Kabashkin, I.; Fedorov, R.; Perekrestov, V. Decision-Making Framework for Aviation Safety in Predictive Maintenance Strategies.
+_Appl. Sci._ **2025**, _15_ [, 1626. [CrossRef]](https://doi.org/10.3390/app15031626)
+
+
+_Processes_ **2025**, _13_, 666 54 of 54
+
+
+65. Kamariotis, A.; Tatsis, K.; Chatzi, E.; Goebel, K.; Straub, D. A metric for assessing and optimizing data-driven prognostic
+algorithms for predictive maintenance. _arXiv_ **2023** [. [CrossRef]](https://doi.org/10.1016/j.ress.2023.109723)
+66. [Parsons, D. Predict to Prevent. Avionics International, March/April 2023. Available online: https://interactive.aviationtoday.](https://interactive.aviationtoday.com/avionicsmagazine/march-april-2023/predict-to-prevent/)
+[com/avionicsmagazine/march-april-2023/predict-to-prevent/ (accessed on 21 February 2025).](https://interactive.aviationtoday.com/avionicsmagazine/march-april-2023/predict-to-prevent/)
+67. [Global AI in Aviation Market. Report ID: 118959. Market.us. Available online: https://market.us/report/ai-in-aviation-market/](https://market.us/report/ai-in-aviation-market/)
+(accessed on 21 February 2025).
+
+
+**Disclaimer/Publisher’s Note:** The statements, opinions and data contained in all publications are solely those of the individual
+author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
+people or property resulting from any ideas, methods, instructions or products referred to in the content.
+
+

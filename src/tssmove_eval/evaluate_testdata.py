@@ -48,7 +48,7 @@ answer_correctness_metric = AnswerCorrectness(llm=llm, embeddings=embeddings)
 factual_correctness_metric = FactualCorrectness(llm=llm, mode="f1", atomicity="high", coverage="high")
 
 
-DATASET_DIR = "."  # directory where ragas saves the dataset CSV
+DATASET_DIR = "./tmp_ragas"  # directory where ragas saves the dataset CSV
 TESTDOC_DIR = "data/source_docs"
 
 configs = [

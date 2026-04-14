@@ -190,7 +190,7 @@ async def main():
                 with open(file, "r", encoding="utf-8") as f:
                     file_data = json.load(f)
                     queries.append(file_data["metadata"]["query"])
-                    generated_answers.append(file_data["summary"])
+                    generated_answers.append(file_data["final_output"]["summary"])
             for idx, query in enumerate(queries):
                 assert(query == df.iloc[idx, df.columns.get_loc(config["col_dict"]["user_input"])])
             df[config["col_dict"]["response"]] = generated_answers

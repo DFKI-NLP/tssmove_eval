@@ -191,8 +191,7 @@ async def main():
                     file_data = json.load(f)
                     queries.append(file_data["metadata"]["query"])
                     generated_answers.append(file_data["final_output"]["summary"])
-            #for idx, query in enumerate(queries):
-            #    assert(query == df.iloc[idx, df.columns.get_loc(config["col_dict"]["user_input"])])
+
             new_df = pd.DataFrame({
                 config["col_dict"]["user_input"]: queries,
                 config["col_dict"]["response"]: generated_answers
@@ -200,14 +199,6 @@ async def main():
 
             result = pd.merge(df, new_df, on=config["col_dict"]["user_input"], how='inner')
             df = result
-            #df[config["col_dict"]["response"]] = generated_answers
-
-        # query: eingehende     Fragestellung
-        # user_message: eingehende  Fragestellung + Domaine
-        # summary: vollständige  Antwort  des  Systems
-        # claims: identifizierte Aussagen inkl.Quellenverweis
-
-
 
         dataset = build_ragas_dataset(df, name=f"rag_eval_dataset_{config['experiment_name']}",
                                       root_dir=DATASET_DIR, col_dict=config["col_dict"])

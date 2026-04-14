@@ -1,0 +1,2635 @@
+{
+  "metadata": {
+    "schema_version": "v3",
+    "run_id": "2ff81374e014fac1",
+    "run_started_at": "20260409T214102Z",
+    "started_at": "2026-04-09T19:41:19.276516+00:00",
+    "last_updated_at": "2026-04-09T19:41:42.472952+00:00",
+    "finished_at": "2026-04-09T19:41:42.472952+00:00",
+    "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+    "status": "completed",
+    "run_type": "live",
+    "config_snapshot": {
+      "fallback_env": {
+        "elasticsearch_url": null,
+        "elasticsearch_index": "chunks_eval",
+        "openai_model": null,
+        "openai_embedding_model": null
+      }
+    },
+    "pricing": {
+      "model": "gpt-5.2",
+      "provider": "azure_openai",
+      "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+      "captured_at": "2026-03-31",
+      "region": "Germany West Central",
+      "pricing_scope": "Data Zone",
+      "currency": "EUR",
+      "unit": "per_1m_tokens",
+      "rates": {
+        "input_eur_per_1m_tokens": "1.64",
+        "cached_input_eur_per_1m_tokens": "0.17",
+        "output_eur_per_1m_tokens": "13.05"
+      }
+    }
+  },
+  "summary": {
+    "nodes_total": 7,
+    "nodes_ok": 7,
+    "nodes_error": 0,
+    "total_duration_ms": 39385,
+    "retrieved_docs": 1,
+    "hypotheses": {
+      "total": 0,
+      "proposed": 0,
+      "validated": 0,
+      "challenged": 0
+    },
+    "challenge_findings": 0,
+    "challenge_findings_by_type": {},
+    "claims": 0,
+    "missing_information": 2,
+    "hypothesis_mode": true,
+    "outcome_status": "unresolved",
+    "duration_by_node": {
+      "research_plan_agent": 16735,
+      "hypothesis_gate_agent": 4734,
+      "database_retrieval_agent": 1201,
+      "reranker_agent": 4613,
+      "hypothesis_agent": 7766,
+      "challenge_agent": 4334,
+      "knowledge_synthesis_agent": 2
+    },
+    "critical_path_node": "research_plan_agent",
+    "loop_cycles_completed": 1,
+    "challenge_iteration_limit": 2,
+    "challenge_loop_cycles_completed": 1,
+    "normal_loop_iterations_completed": 1,
+    "post_limit_challenge_cycles": 0,
+    "costs": {
+      "model": "gpt-5.2",
+      "currency": "EUR",
+      "priced_events": 5,
+      "pricing_reference": {
+        "provider": "azure_openai",
+        "model": "gpt-5.2",
+        "pricing_scope": "Data Zone",
+        "region": "Germany West Central",
+        "captured_at": "2026-03-31",
+        "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+        "currency": "EUR",
+        "unit": "per_1m_tokens"
+      },
+      "input_tokens": 6586,
+      "cached_input_tokens": 0,
+      "non_cached_input_tokens": 6586,
+      "output_tokens": 1348,
+      "total_cost_eur": "0.028393",
+      "by_agent": {
+        "research_plan_agent": {
+          "events": 1,
+          "input_tokens": 1107,
+          "cached_input_tokens": 0,
+          "output_tokens": 908,
+          "total_cost_eur": "0.013665"
+        },
+        "hypothesis_gate_agent": {
+          "events": 1,
+          "input_tokens": 1742,
+          "cached_input_tokens": 0,
+          "output_tokens": 223,
+          "total_cost_eur": "0.005767"
+        },
+        "reranker_agent": {
+          "events": 1,
+          "input_tokens": 1637,
+          "cached_input_tokens": 0,
+          "output_tokens": 42,
+          "total_cost_eur": "0.003233"
+        },
+        "hypothesis_agent": {
+          "events": 1,
+          "input_tokens": 1153,
+          "cached_input_tokens": 0,
+          "output_tokens": 22,
+          "total_cost_eur": "0.002178"
+        },
+        "challenge_agent": {
+          "events": 1,
+          "input_tokens": 947,
+          "cached_input_tokens": 0,
+          "output_tokens": 153,
+          "total_cost_eur": "0.003550"
+        }
+      }
+    },
+    "source_quality_profile": {
+      "corpus_total_sources": 1,
+      "selection_total_sources": 0,
+      "selection_peer_reviewed_share": 0.0,
+      "selection_open_access_share": 0.0,
+      "selection_median_year": null,
+      "selection_high_date_confidence_share": 0.0,
+      "delta_count": 3,
+      "selected_source_cards_count": 0,
+      "corpus_source_resolution_rate": 100.0,
+      "corpus_crawl_match_rate": 0.0,
+      "selection_source_resolution_rate": 0.0,
+      "selection_crawl_match_rate": 0.0
+    },
+    "timeline": [
+      {
+        "node": "research_plan_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.PLANNING",
+        "iteration": 0,
+        "duration_ms": 16735,
+        "cost": {
+          "model": "gpt-5.2",
+          "provider": "azure_openai",
+          "currency": "EUR",
+          "pricing_scope": "Data Zone",
+          "region": "Germany West Central",
+          "captured_at": "2026-03-31",
+          "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+          "unit": "per_1m_tokens",
+          "tokens": {
+            "input_tokens": 1107,
+            "cached_input_tokens": 0,
+            "non_cached_input_tokens": 1107,
+            "output_tokens": 908,
+            "total_tokens": 2015
+          },
+          "rates": {
+            "input_eur_per_1m_tokens": "1.64",
+            "cached_input_eur_per_1m_tokens": "0.17",
+            "output_eur_per_1m_tokens": "13.05"
+          },
+          "costs": {
+            "input_cost_eur": "0.001815",
+            "cached_input_cost_eur": "0.000000",
+            "output_cost_eur": "0.011849",
+            "total_cost_eur": "0.013665"
+          }
+        },
+        "node_metrics": {
+          "tasks_total": 5,
+          "tasks_database": 5,
+          "tasks_web": 0,
+          "avg_keywords_per_task": 5.0,
+          "source_types_requested": [
+            "publication",
+            "regulation",
+            "report",
+            "standard",
+            "website"
+          ]
+        }
+      },
+      {
+        "node": "hypothesis_gate_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.RETRIEVAL",
+        "iteration": 0,
+        "duration_ms": 4734,
+        "cost": {
+          "model": "gpt-5.2",
+          "provider": "azure_openai",
+          "currency": "EUR",
+          "pricing_scope": "Data Zone",
+          "region": "Germany West Central",
+          "captured_at": "2026-03-31",
+          "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+          "unit": "per_1m_tokens",
+          "tokens": {
+            "input_tokens": 1742,
+            "cached_input_tokens": 0,
+            "non_cached_input_tokens": 1742,
+            "output_tokens": 223,
+            "total_tokens": 1965
+          },
+          "rates": {
+            "input_eur_per_1m_tokens": "1.64",
+            "cached_input_eur_per_1m_tokens": "0.17",
+            "output_eur_per_1m_tokens": "13.05"
+          },
+          "costs": {
+            "input_cost_eur": "0.002857",
+            "cached_input_cost_eur": "0.000000",
+            "output_cost_eur": "0.002910",
+            "total_cost_eur": "0.005767"
+          }
+        },
+        "node_metrics": {
+          "is_hypothesis": true,
+          "score_total": 8,
+          "threshold": 6,
+          "dimension_scores": {
+            "scope_breadth": 2,
+            "comparative_nature": 1,
+            "temporal_depth": 1,
+            "evidence_diversity": 2,
+            "ambiguity_level": 2
+          },
+          "gate_reason_short": "score=8/6; scope=2, comparative=1, temporal=1, evidence=2, ambiguity=2; llm_reasoning=Breite Bestandsaufnahme über drei Distributionskanäle (lineares Radio, Mediatheken, Streaming)…"
+        }
+      },
+      {
+        "node": "database_retrieval_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.RETRIEVAL",
+        "iteration": 0,
+        "duration_ms": 1201,
+        "cost": null,
+        "node_metrics": {
+          "db_tasks_executed": 5,
+          "docs_retrieved": 1,
+          "docs_novel": 1,
+          "docs_deduped": 0,
+          "unique_sources": 1,
+          "unique_publishers": 1,
+          "avg_relevance": 1.0,
+          "top_k_effective": 15,
+          "final_retrieval_pass_consumed": false
+        }
+      },
+      {
+        "node": "reranker_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.HYPOTHESIS_GENERATION",
+        "iteration": 0,
+        "duration_ms": 4613,
+        "cost": {
+          "model": "gpt-5.2",
+          "provider": "azure_openai",
+          "currency": "EUR",
+          "pricing_scope": "Data Zone",
+          "region": "Germany West Central",
+          "captured_at": "2026-03-31",
+          "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+          "unit": "per_1m_tokens",
+          "tokens": {
+            "input_tokens": 1637,
+            "cached_input_tokens": 0,
+            "non_cached_input_tokens": 1637,
+            "output_tokens": 42,
+            "total_tokens": 1679
+          },
+          "rates": {
+            "input_eur_per_1m_tokens": "1.64",
+            "cached_input_eur_per_1m_tokens": "0.17",
+            "output_eur_per_1m_tokens": "13.05"
+          },
+          "costs": {
+            "input_cost_eur": "0.002685",
+            "cached_input_cost_eur": "0.000000",
+            "output_cost_eur": "0.000548",
+            "total_cost_eur": "0.003233"
+          }
+        },
+        "node_metrics": {}
+      },
+      {
+        "node": "hypothesis_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.HYPOTHESIS_GENERATION",
+        "iteration": 0,
+        "duration_ms": 7766,
+        "cost": {
+          "model": "gpt-5.2",
+          "provider": "azure_openai",
+          "currency": "EUR",
+          "pricing_scope": "Data Zone",
+          "region": "Germany West Central",
+          "captured_at": "2026-03-31",
+          "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+          "unit": "per_1m_tokens",
+          "tokens": {
+            "input_tokens": 1153,
+            "cached_input_tokens": 0,
+            "non_cached_input_tokens": 1153,
+            "output_tokens": 22,
+            "total_tokens": 1175
+          },
+          "rates": {
+            "input_eur_per_1m_tokens": "1.64",
+            "cached_input_eur_per_1m_tokens": "0.17",
+            "output_eur_per_1m_tokens": "13.05"
+          },
+          "costs": {
+            "input_cost_eur": "0.001891",
+            "cached_input_cost_eur": "0.000000",
+            "output_cost_eur": "0.000287",
+            "total_cost_eur": "0.002178"
+          }
+        },
+        "node_metrics": {
+          "hypotheses_generated": 0,
+          "avg_confidence": null,
+          "min_confidence": null,
+          "max_confidence": null,
+          "avg_evidence_docs": null
+        }
+      },
+      {
+        "node": "challenge_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.CHALLENGE",
+        "iteration": 0,
+        "duration_ms": 4334,
+        "cost": {
+          "model": "gpt-5.2",
+          "provider": "azure_openai",
+          "currency": "EUR",
+          "pricing_scope": "Data Zone",
+          "region": "Germany West Central",
+          "captured_at": "2026-03-31",
+          "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+          "unit": "per_1m_tokens",
+          "tokens": {
+            "input_tokens": 947,
+            "cached_input_tokens": 0,
+            "non_cached_input_tokens": 947,
+            "output_tokens": 153,
+            "total_tokens": 1100
+          },
+          "rates": {
+            "input_eur_per_1m_tokens": "1.64",
+            "cached_input_eur_per_1m_tokens": "0.17",
+            "output_eur_per_1m_tokens": "13.05"
+          },
+          "costs": {
+            "input_cost_eur": "0.001553",
+            "cached_input_cost_eur": "0.000000",
+            "output_cost_eur": "0.001997",
+            "total_cost_eur": "0.003550"
+          }
+        },
+        "node_metrics": {
+          "hypotheses_updated": 0,
+          "status_validated": 0,
+          "status_challenged": 0,
+          "findings_total": 0,
+          "findings_by_type": {},
+          "actionable_gaps": 0,
+          "followup_tasks_generated": 0,
+          "followup_tasks_deduped": 0,
+          "followup_tasks_added": 0,
+          "stagnation_detected_count": 0,
+          "pivot_tasks_generated": 0,
+          "avg_evidence_novelty": null,
+          "final_retrieval_pass_pending": false
+        }
+      },
+      {
+        "node": "knowledge_synthesis_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.SYNTHESIS",
+        "iteration": 1,
+        "duration_ms": 2,
+        "cost": null,
+        "node_metrics": {
+          "claims": 0,
+          "missing_information": 2,
+          "outcome_status": "unresolved",
+          "answer_chars": 0,
+          "citations_detected": 0
+        }
+      }
+    ],
+    "termination_reason": "synthesis_outcome:unresolved",
+    "termination_reason_detail": "outcome=unresolved; reason=Abstention: Evidenzqualität unzureichend für eine belastbare Antwort.",
+    "query_parameters_snapshot": {
+      "keywords": [
+        "Radverkehr",
+        "Fahrrad",
+        "Radfahren",
+        "Radweg",
+        "Sendung"
+      ],
+      "date_from": null,
+      "date_to": null,
+      "source_types": [
+        "publication",
+        "report",
+        "website"
+      ],
+      "retrieval_mode": "hybrid",
+      "filters": {
+        "language": [
+          "de"
+        ],
+        "geo": [
+          "DE"
+        ],
+        "date_to": "2024-12-31"
+      }
+    }
+  },
+  "agent_flow": [
+    {
+      "event_id": "a40d29c034af",
+      "ts": "2026-04-09T19:41:19.276516+00:00",
+      "node": "research_plan_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.PLANNING",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 16735,
+      "input_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "language": "de"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 4,
+        "preview": {
+          "user_message": "Forschungsfrage: Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattforme…",
+          "detected_domain": "road",
+          "research_plan": "object[2 fields]",
+          "parse_diagnostics": "object[5 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "language": "de"
+      },
+      "output": {
+        "user_message": "Forschungsfrage: Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?\n\nErkannte Domänen: road",
+        "detected_domain": "road",
+        "research_plan": {
+          "tasks": [
+            {
+              "task_id": "8f028db5-93e2-477a-9b53-7e76753bf864",
+              "target_agent": "database",
+              "search_intent": "Identifiziere Radiosendungen/Serien in Deutschland mit regelmäßigem Radverkehrsbezug (linear ausgestrahlt) bis einschließlich 2024.",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Radfahren",
+                  "Radweg",
+                  "Sendung"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 1,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Erstellt die Kernliste linearer Radioformate mit Radverkehrsbezug als Basis der Bestandsaufnahme."
+            },
+            {
+              "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+              "target_agent": "database",
+              "search_intent": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024.",
+              "query_parameters": {
+                "keywords": [
+                  "Mediathek",
+                  "ARD Audio",
+                  "Deutschlandfunk",
+                  "RBB",
+                  "Radverkehr"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "report",
+                  "publication"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 2,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt die zugehörigen Mediatheken der Rundfunkanbieter ab und verknüpft Sendungen mit On-Demand-Verfügbarkeit."
+            },
+            {
+              "task_id": "67aff60e-bf09-42ed-9f04-87134cfa04a6",
+              "target_agent": "database",
+              "search_intent": "Ermittle deutschsprachige Podcasts/Streamingformate aus Deutschland, die primär Radverkehr, Fahrradmobilität oder Radpolitik behandeln (Stand 2024).",
+              "query_parameters": {
+                "keywords": [
+                  "Podcast",
+                  "Radverkehr",
+                  "Fahrradmobilität",
+                  "Radpolitik",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 3,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Ergänzt Radio/Mediatheken um plattformspezifische Podcast- und Streamingangebote als zweites Hauptcluster."
+            },
+            {
+              "task_id": "0f2339b7-0151-435b-95ce-a0d76daed529",
+              "target_agent": "database",
+              "search_intent": "Suche Branchen-/Verzeichnisquellen (z.B. Landesmedienanstalten, Senderverzeichnisse, Podcast-Verzeichnisse) mit Einträgen zu Radverkehrs-Audioformaten.",
+              "query_parameters": {
+                "keywords": [
+                  "Landesmedienanstalt",
+                  "Hörfunkprogramm",
+                  "Podcast-Verzeichnis",
+                  "Format",
+                  "Radverkehr"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "report",
+                  "website",
+                  "regulation",
+                  "standard"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 4,
+              "status": "pending",
+              "evidence_modality": "supporting",
+              "task_rationale": "Liefert strukturierte Ausgangslisten/Metadaten, um die Abdeckung zu prüfen und Lücken systematisch zu schließen."
+            },
+            {
+              "task_id": "c1f3bcec-92af-49c0-9248-f2b6b4fca4c0",
+              "target_agent": "database",
+              "search_intent": "Identifiziere Suchbegriffe/Synonyme und thematische Cluster für Radverkehr in Audioformaten (z.B. Bikepacking, Lastenrad, StVO, Vision Zero).",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Lastenrad",
+                  "Bikepacking",
+                  "Verkehrssicherheit",
+                  "Vision Zero"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "language": [
+                    "de",
+                    "en"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 5,
+              "status": "pending",
+              "evidence_modality": "supporting",
+              "task_rationale": "Optimiert die Recherche durch ein kontrolliertes Vokabular und erhöht Recall über unterschiedliche Formulierungen hinweg."
+            }
+          ],
+          "reasoning": "Die Frage zielt auf eine Bestandsaufnahme (Stand 2024) auditiver Inhalte zum Radverkehr in Deutschland über drei Ausspielwege: lineares Radio, Rundfunk-Mediatheken und Streaming/Podcast-Plattformen. Für ein vollständiges Scouting sollten (1) öffentlich-rechtliche und private Radiosender inkl. Mediatheken, (2) reine Podcast-/Streamingformate, (3) ggf. regulative/branchenbezogene Verzeichnisse und (4) Suchbegriffe/Synonyme rund um Radverkehr und Verkehrspolitik systematisch abgedeckt werden."
+        },
+        "parse_diagnostics": {
+          "structured_output_mode": "provider",
+          "token_usage_available": true,
+          "schema_enforcement_mode": "fail",
+          "schema": "ResearchPlanResponsePayload",
+          "schema_validation": "ok"
+        }
+      },
+      "token_usage": {
+        "input_tokens": 1107,
+        "output_tokens": 908,
+        "total_tokens": 2015
+      },
+      "cost": {
+        "model": "gpt-5.2",
+        "provider": "azure_openai",
+        "currency": "EUR",
+        "pricing_scope": "Data Zone",
+        "region": "Germany West Central",
+        "captured_at": "2026-03-31",
+        "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+        "unit": "per_1m_tokens",
+        "tokens": {
+          "input_tokens": 1107,
+          "cached_input_tokens": 0,
+          "non_cached_input_tokens": 1107,
+          "output_tokens": 908,
+          "total_tokens": 2015
+        },
+        "rates": {
+          "input_eur_per_1m_tokens": "1.64",
+          "cached_input_eur_per_1m_tokens": "0.17",
+          "output_eur_per_1m_tokens": "13.05"
+        },
+        "costs": {
+          "input_cost_eur": "0.001815",
+          "cached_input_cost_eur": "0.000000",
+          "output_cost_eur": "0.011849",
+          "total_cost_eur": "0.013665"
+        }
+      },
+      "error": null
+    },
+    {
+      "event_id": "5f11883aeed6",
+      "ts": "2026-04-09T19:41:24.032928+00:00",
+      "node": "hypothesis_gate_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.RETRIEVAL",
+      "iteration": 0,
+      "max_iterations": 2,
+      "duration_ms": 4734,
+      "input_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "research_plan": "object[2 fields]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "hypothesis_gate": "object[5 fields]",
+          "parse_diagnostics": "object[5 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "research_plan": {
+          "tasks": [
+            {
+              "task_id": "8f028db5-93e2-477a-9b53-7e76753bf864",
+              "target_agent": "database",
+              "search_intent": "Identifiziere Radiosendungen/Serien in Deutschland mit regelmäßigem Radverkehrsbezug (linear ausgestrahlt) bis einschließlich 2024.",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Radfahren",
+                  "Radweg",
+                  "Sendung"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 1,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Erstellt die Kernliste linearer Radioformate mit Radverkehrsbezug als Basis der Bestandsaufnahme."
+            },
+            {
+              "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+              "target_agent": "database",
+              "search_intent": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024.",
+              "query_parameters": {
+                "keywords": [
+                  "Mediathek",
+                  "ARD Audio",
+                  "Deutschlandfunk",
+                  "RBB",
+                  "Radverkehr"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "report",
+                  "publication"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 2,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt die zugehörigen Mediatheken der Rundfunkanbieter ab und verknüpft Sendungen mit On-Demand-Verfügbarkeit."
+            },
+            {
+              "task_id": "67aff60e-bf09-42ed-9f04-87134cfa04a6",
+              "target_agent": "database",
+              "search_intent": "Ermittle deutschsprachige Podcasts/Streamingformate aus Deutschland, die primär Radverkehr, Fahrradmobilität oder Radpolitik behandeln (Stand 2024).",
+              "query_parameters": {
+                "keywords": [
+                  "Podcast",
+                  "Radverkehr",
+                  "Fahrradmobilität",
+                  "Radpolitik",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 3,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Ergänzt Radio/Mediatheken um plattformspezifische Podcast- und Streamingangebote als zweites Hauptcluster."
+            },
+            {
+              "task_id": "0f2339b7-0151-435b-95ce-a0d76daed529",
+              "target_agent": "database",
+              "search_intent": "Suche Branchen-/Verzeichnisquellen (z.B. Landesmedienanstalten, Senderverzeichnisse, Podcast-Verzeichnisse) mit Einträgen zu Radverkehrs-Audioformaten.",
+              "query_parameters": {
+                "keywords": [
+                  "Landesmedienanstalt",
+                  "Hörfunkprogramm",
+                  "Podcast-Verzeichnis",
+                  "Format",
+                  "Radverkehr"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "report",
+                  "website",
+                  "regulation",
+                  "standard"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 4,
+              "status": "pending",
+              "evidence_modality": "supporting",
+              "task_rationale": "Liefert strukturierte Ausgangslisten/Metadaten, um die Abdeckung zu prüfen und Lücken systematisch zu schließen."
+            },
+            {
+              "task_id": "c1f3bcec-92af-49c0-9248-f2b6b4fca4c0",
+              "target_agent": "database",
+              "search_intent": "Identifiziere Suchbegriffe/Synonyme und thematische Cluster für Radverkehr in Audioformaten (z.B. Bikepacking, Lastenrad, StVO, Vision Zero).",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Lastenrad",
+                  "Bikepacking",
+                  "Verkehrssicherheit",
+                  "Vision Zero"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "language": [
+                    "de",
+                    "en"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 5,
+              "status": "pending",
+              "evidence_modality": "supporting",
+              "task_rationale": "Optimiert die Recherche durch ein kontrolliertes Vokabular und erhöht Recall über unterschiedliche Formulierungen hinweg."
+            }
+          ],
+          "reasoning": "Die Frage zielt auf eine Bestandsaufnahme (Stand 2024) auditiver Inhalte zum Radverkehr in Deutschland über drei Ausspielwege: lineares Radio, Rundfunk-Mediatheken und Streaming/Podcast-Plattformen. Für ein vollständiges Scouting sollten (1) öffentlich-rechtliche und private Radiosender inkl. Mediatheken, (2) reine Podcast-/Streamingformate, (3) ggf. regulative/branchenbezogene Verzeichnisse und (4) Suchbegriffe/Synonyme rund um Radverkehr und Verkehrspolitik systematisch abgedeckt werden."
+        }
+      },
+      "output": {
+        "hypothesis_gate": {
+          "is_hypothesis": true,
+          "score_total": 8,
+          "threshold": 6,
+          "dimension_scores": {
+            "scope_breadth": 2,
+            "comparative_nature": 1,
+            "temporal_depth": 1,
+            "evidence_diversity": 2,
+            "ambiguity_level": 2
+          },
+          "reasoning": "score=8/6; scope=2, comparative=1, temporal=1, evidence=2, ambiguity=2; llm_reasoning=Breite Bestandsaufnahme über drei Distributionskanäle (lineares Radio, Mediatheken, Streaming) und viele potenzielle Anbieter/Formate → hoher Scope. Vergleichend insofern, als Formate kanalübergreifend identifiziert/abgegrenzt werden müssen. Zeitlich auf „Stand 2024“ begrenzt, aber mit Abgleich historischer Verfügbarkeit/Status bis 2024. Erfordert vielfältige Evidenz (Programmschemata, Mediatheken-Seiten, Podcast-Plattformen, Verzeichnisse/Regulatorik). Unklarheit durch unscharfe Definition von „Format“ und „zum Thema Radverkehr“ (regelmäßig vs. einzelne Episoden, Mobilität vs. Sport/Bikepacking) → hoher Ambiguitätsgrad."
+        },
+        "parse_diagnostics": {
+          "structured_output_mode": "provider",
+          "token_usage_available": true,
+          "schema_enforcement_mode": "fail",
+          "schema": "HypothesisGateResponsePayload",
+          "schema_validation": "ok"
+        }
+      },
+      "token_usage": {
+        "input_tokens": 1742,
+        "output_tokens": 223,
+        "total_tokens": 1965
+      },
+      "cost": {
+        "model": "gpt-5.2",
+        "provider": "azure_openai",
+        "currency": "EUR",
+        "pricing_scope": "Data Zone",
+        "region": "Germany West Central",
+        "captured_at": "2026-03-31",
+        "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+        "unit": "per_1m_tokens",
+        "tokens": {
+          "input_tokens": 1742,
+          "cached_input_tokens": 0,
+          "non_cached_input_tokens": 1742,
+          "output_tokens": 223,
+          "total_tokens": 1965
+        },
+        "rates": {
+          "input_eur_per_1m_tokens": "1.64",
+          "cached_input_eur_per_1m_tokens": "0.17",
+          "output_eur_per_1m_tokens": "13.05"
+        },
+        "costs": {
+          "input_cost_eur": "0.002857",
+          "cached_input_cost_eur": "0.000000",
+          "output_cost_eur": "0.002910",
+          "total_cost_eur": "0.005767"
+        }
+      },
+      "error": null
+    },
+    {
+      "event_id": "40627c70eff8",
+      "ts": "2026-04-09T19:41:25.297886+00:00",
+      "node": "database_retrieval_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.RETRIEVAL",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 1201,
+      "input_summary": {
+        "type": "object",
+        "fields": 8,
+        "preview": {
+          "index_name": "chunks_eval",
+          "hypothesis_mode": true,
+          "final_retrieval_pass_pending": false,
+          "final_retrieval_pass_used": false,
+          "effective_top_k": 15,
+          "default_retrieval_mode": "hybrid",
+          "task_queries": "list[5]",
+          "tasks": "list[5]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 6,
+        "preview": {
+          "new_retrieval_results": "list[1]",
+          "retrieval_results": "list[1]",
+          "updated_tasks": "list[5]",
+          "deduped_docs_count": 0,
+          "novel_docs_count": 1,
+          "final_retrieval_pass_consumed": false
+        }
+      },
+      "input": {
+        "index_name": "chunks_eval",
+        "hypothesis_mode": true,
+        "final_retrieval_pass_pending": false,
+        "final_retrieval_pass_used": false,
+        "effective_top_k": 15,
+        "default_retrieval_mode": "hybrid",
+        "task_queries": [
+          {
+            "task_id": "8f028db5-93e2-477a-9b53-7e76753bf864",
+            "query": "Identifiziere Radiosendungen/Serien in Deutschland mit regelmäßigem Radverkehrsbezug (linear ausgestrahlt) bis einschließlich 2024. Radverkehr Fahrrad Radfahren Radweg Sendung",
+            "retrieval_mode": "hybrid"
+          },
+          {
+            "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+            "query": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024. Mediathek ARD Audio Deutschlandfunk RBB Radverkehr",
+            "retrieval_mode": "hybrid"
+          },
+          {
+            "task_id": "67aff60e-bf09-42ed-9f04-87134cfa04a6",
+            "query": "Ermittle deutschsprachige Podcasts/Streamingformate aus Deutschland, die primär Radverkehr, Fahrradmobilität oder Radpolitik behandeln (Stand 2024). Podcast Radverkehr Fahrradmobilität Radpolitik Deutschland",
+            "retrieval_mode": "vector"
+          },
+          {
+            "task_id": "0f2339b7-0151-435b-95ce-a0d76daed529",
+            "query": "Suche Branchen-/Verzeichnisquellen (z.B. Landesmedienanstalten, Senderverzeichnisse, Podcast-Verzeichnisse) mit Einträgen zu Radverkehrs-Audioformaten. Landesmedienanstalt Hörfunkprogramm Podcast-Verzeichnis Format Radverkehr",
+            "retrieval_mode": "hybrid"
+          },
+          {
+            "task_id": "c1f3bcec-92af-49c0-9248-f2b6b4fca4c0",
+            "query": "Identifiziere Suchbegriffe/Synonyme und thematische Cluster für Radverkehr in Audioformaten (z.B. Bikepacking, Lastenrad, StVO, Vision Zero). Radverkehr Lastenrad Bikepacking Verkehrssicherheit Vision Zero",
+            "retrieval_mode": "vector"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "8f028db5-93e2-477a-9b53-7e76753bf864",
+            "target_agent": "database",
+            "search_intent": "Identifiziere Radiosendungen/Serien in Deutschland mit regelmäßigem Radverkehrsbezug (linear ausgestrahlt) bis einschließlich 2024.",
+            "query_parameters": {
+              "keywords": [
+                "Radverkehr",
+                "Fahrrad",
+                "Radfahren",
+                "Radweg",
+                "Sendung"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report",
+                "website"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "language": [
+                  "de"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 1,
+            "status": "pending",
+            "evidence_modality": "direct",
+            "task_rationale": "Erstellt die Kernliste linearer Radioformate mit Radverkehrsbezug als Basis der Bestandsaufnahme."
+          },
+          {
+            "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+            "target_agent": "database",
+            "search_intent": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024.",
+            "query_parameters": {
+              "keywords": [
+                "Mediathek",
+                "ARD Audio",
+                "Deutschlandfunk",
+                "RBB",
+                "Radverkehr"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "website",
+                "report",
+                "publication"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "language": [
+                  "de"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 2,
+            "status": "pending",
+            "evidence_modality": "direct",
+            "task_rationale": "Deckt die zugehörigen Mediatheken der Rundfunkanbieter ab und verknüpft Sendungen mit On-Demand-Verfügbarkeit."
+          },
+          {
+            "task_id": "67aff60e-bf09-42ed-9f04-87134cfa04a6",
+            "target_agent": "database",
+            "search_intent": "Ermittle deutschsprachige Podcasts/Streamingformate aus Deutschland, die primär Radverkehr, Fahrradmobilität oder Radpolitik behandeln (Stand 2024).",
+            "query_parameters": {
+              "keywords": [
+                "Podcast",
+                "Radverkehr",
+                "Fahrradmobilität",
+                "Radpolitik",
+                "Deutschland"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report",
+                "website"
+              ],
+              "retrieval_mode": "vector",
+              "filters": {
+                "language": [
+                  "de"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 3,
+            "status": "pending",
+            "evidence_modality": "direct",
+            "task_rationale": "Ergänzt Radio/Mediatheken um plattformspezifische Podcast- und Streamingangebote als zweites Hauptcluster."
+          },
+          {
+            "task_id": "0f2339b7-0151-435b-95ce-a0d76daed529",
+            "target_agent": "database",
+            "search_intent": "Suche Branchen-/Verzeichnisquellen (z.B. Landesmedienanstalten, Senderverzeichnisse, Podcast-Verzeichnisse) mit Einträgen zu Radverkehrs-Audioformaten.",
+            "query_parameters": {
+              "keywords": [
+                "Landesmedienanstalt",
+                "Hörfunkprogramm",
+                "Podcast-Verzeichnis",
+                "Format",
+                "Radverkehr"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "report",
+                "website",
+                "regulation",
+                "standard"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "language": [
+                  "de"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 4,
+            "status": "pending",
+            "evidence_modality": "supporting",
+            "task_rationale": "Liefert strukturierte Ausgangslisten/Metadaten, um die Abdeckung zu prüfen und Lücken systematisch zu schließen."
+          },
+          {
+            "task_id": "c1f3bcec-92af-49c0-9248-f2b6b4fca4c0",
+            "target_agent": "database",
+            "search_intent": "Identifiziere Suchbegriffe/Synonyme und thematische Cluster für Radverkehr in Audioformaten (z.B. Bikepacking, Lastenrad, StVO, Vision Zero).",
+            "query_parameters": {
+              "keywords": [
+                "Radverkehr",
+                "Lastenrad",
+                "Bikepacking",
+                "Verkehrssicherheit",
+                "Vision Zero"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report"
+              ],
+              "retrieval_mode": "vector",
+              "filters": {
+                "language": [
+                  "de",
+                  "en"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 5,
+            "status": "pending",
+            "evidence_modality": "supporting",
+            "task_rationale": "Optimiert die Recherche durch ein kontrolliertes Vokabular und erhöht Recall über unterschiedliche Formulierungen hinweg."
+          }
+        ]
+      },
+      "output": {
+        "new_retrieval_results": [
+          {
+            "document_id": "C5VVQ50BVFQHb0io6ICP",
+            "source_agent": "database",
+            "source_type": "paper",
+            "retrieval_iteration": 1,
+            "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+            "content": {
+              "title": "WIK Diskussionsbeitrag Nr 315 01",
+              "abstract_or_snippet": " von Flatrates für die Best-Effort Verkehrsklas- se akzeptabel, weil sie ökonomisch weit weniger nachteilig ist. Eine Flat-Rate für den QoS-Verkehr ist laut Kruse hingegen ungeeignet und ineffizient. 4.2 Barrieren der Anwendung dynamischer Preismodelle Grundsätzlich können also auf Basis ökonomischer Preistheorien eine Reihe von Ar- gumenten (Internalisierung von Externalitäten, Verhinderung von Crowding Out höher- wertiger Dienste, effizientere Netzauslastung, höhere Wohlfahrt) für differenzierte Preismodelle angebracht werden. Allerdings gibt es drei Faktoren die der Implementie- rung entgegenstehen. 81 Yuksel / Kalyanaraman / Sidkar (2002) zeigen im Modell, dass die Vermeidung von Überlast durch Preissignale nur dann funktioniert, wenn Preise im Sekundenzyklus (2-3 Sekunden) erneuert und be- kannt gemacht werden. 50 Diskussionsbeitrag Nr. 315 Erstens zeigt die empirische Betrachtung, dass die Nutzer simple Preismodelle bevor- zugen und ein deutlicher Trend zu Flat Pricing existiert. In Deutschland ist seit dem Jahr 2006 das Flatratemodell mit einem pauschalen, nutzungsunabhängigen Entgelt dominant (zur Veränderung im Bereich der Abrechnungsarten siehe Abbildung 4-1). Abbildung 4-1: Entwicklung der Abrechnungsarten Onlineverbindungen in Deutschland 100% 90% 80% 70% 60% 50% 40% 30% 20% 10% 0% Weiß nicht Internet by Call Volumentarif Zeittarif Flatrate 2005 2006 2007 2008 Quelle: ARD/ZDF-Onlinestudie 2008, Media Perspektiven 7/2008, S. 347 Diese Entwicklung ist laut Odlyzko (1999/2001) typisch für Kommunikationstechnolo- gien wie Post, Telegraphie, Telefon und das Internet, denn in der Regel wird ein Zyklus durchlaufen, bei",
+              "full_text": null,
+              "url_or_identifier": "/app/data/eval_dataset/docs/WIK_Diskussionsbeitrag_Nr_315_01.pdf",
+              "publication_date": "2026-03-31 09:59:56.812715+00:00"
+            },
+            "relevance_score": 1.0,
+            "metadata": {
+              "chunk_id": "C5VVQ50BVFQHb0io6ICP",
+              "source_id": "cdaebc0bc9c2aee7",
+              "chunk_index": 75,
+              "token_count": 512,
+              "start_index": 122497,
+              "end_index": 124148,
+              "publisher": "eval_dataset",
+              "raw_score": 0.014705882352941176,
+              "task_query": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024. Mediathek ARD Audio Deutschlandfunk RBB Radverkehr",
+              "retrieval_mode": "hybrid",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt die zugehörigen Mediatheken der Rundfunkanbieter ab und verknüpft Sendungen mit On-Demand-Verfügbarkeit."
+            }
+          }
+        ],
+        "retrieval_results": [
+          {
+            "document_id": "C5VVQ50BVFQHb0io6ICP",
+            "source_agent": "database",
+            "source_type": "paper",
+            "retrieval_iteration": 1,
+            "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+            "content": {
+              "title": "WIK Diskussionsbeitrag Nr 315 01",
+              "abstract_or_snippet": " von Flatrates für die Best-Effort Verkehrsklas- se akzeptabel, weil sie ökonomisch weit weniger nachteilig ist. Eine Flat-Rate für den QoS-Verkehr ist laut Kruse hingegen ungeeignet und ineffizient. 4.2 Barrieren der Anwendung dynamischer Preismodelle Grundsätzlich können also auf Basis ökonomischer Preistheorien eine Reihe von Ar- gumenten (Internalisierung von Externalitäten, Verhinderung von Crowding Out höher- wertiger Dienste, effizientere Netzauslastung, höhere Wohlfahrt) für differenzierte Preismodelle angebracht werden. Allerdings gibt es drei Faktoren die der Implementie- rung entgegenstehen. 81 Yuksel / Kalyanaraman / Sidkar (2002) zeigen im Modell, dass die Vermeidung von Überlast durch Preissignale nur dann funktioniert, wenn Preise im Sekundenzyklus (2-3 Sekunden) erneuert und be- kannt gemacht werden. 50 Diskussionsbeitrag Nr. 315 Erstens zeigt die empirische Betrachtung, dass die Nutzer simple Preismodelle bevor- zugen und ein deutlicher Trend zu Flat Pricing existiert. In Deutschland ist seit dem Jahr 2006 das Flatratemodell mit einem pauschalen, nutzungsunabhängigen Entgelt dominant (zur Veränderung im Bereich der Abrechnungsarten siehe Abbildung 4-1). Abbildung 4-1: Entwicklung der Abrechnungsarten Onlineverbindungen in Deutschland 100% 90% 80% 70% 60% 50% 40% 30% 20% 10% 0% Weiß nicht Internet by Call Volumentarif Zeittarif Flatrate 2005 2006 2007 2008 Quelle: ARD/ZDF-Onlinestudie 2008, Media Perspektiven 7/2008, S. 347 Diese Entwicklung ist laut Odlyzko (1999/2001) typisch für Kommunikationstechnolo- gien wie Post, Telegraphie, Telefon und das Internet, denn in der Regel wird ein Zyklus durchlaufen, bei",
+              "full_text": null,
+              "url_or_identifier": "/app/data/eval_dataset/docs/WIK_Diskussionsbeitrag_Nr_315_01.pdf",
+              "publication_date": "2026-03-31 09:59:56.812715+00:00"
+            },
+            "relevance_score": 1.0,
+            "metadata": {
+              "chunk_id": "C5VVQ50BVFQHb0io6ICP",
+              "source_id": "cdaebc0bc9c2aee7",
+              "chunk_index": 75,
+              "token_count": 512,
+              "start_index": 122497,
+              "end_index": 124148,
+              "publisher": "eval_dataset",
+              "raw_score": 0.014705882352941176,
+              "task_query": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024. Mediathek ARD Audio Deutschlandfunk RBB Radverkehr",
+              "retrieval_mode": "hybrid",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt die zugehörigen Mediatheken der Rundfunkanbieter ab und verknüpft Sendungen mit On-Demand-Verfügbarkeit."
+            }
+          }
+        ],
+        "updated_tasks": [
+          {
+            "task_id": "8f028db5-93e2-477a-9b53-7e76753bf864",
+            "target_agent": "database",
+            "search_intent": "Identifiziere Radiosendungen/Serien in Deutschland mit regelmäßigem Radverkehrsbezug (linear ausgestrahlt) bis einschließlich 2024.",
+            "query_parameters": {
+              "keywords": [
+                "Radverkehr",
+                "Fahrrad",
+                "Radfahren",
+                "Radweg",
+                "Sendung"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report",
+                "website"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "language": [
+                  "de"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 1,
+            "status": "completed",
+            "evidence_modality": "direct",
+            "task_rationale": "Erstellt die Kernliste linearer Radioformate mit Radverkehrsbezug als Basis der Bestandsaufnahme."
+          },
+          {
+            "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+            "target_agent": "database",
+            "search_intent": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024.",
+            "query_parameters": {
+              "keywords": [
+                "Mediathek",
+                "ARD Audio",
+                "Deutschlandfunk",
+                "RBB",
+                "Radverkehr"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "website",
+                "report",
+                "publication"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "language": [
+                  "de"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 2,
+            "status": "completed",
+            "evidence_modality": "direct",
+            "task_rationale": "Deckt die zugehörigen Mediatheken der Rundfunkanbieter ab und verknüpft Sendungen mit On-Demand-Verfügbarkeit."
+          },
+          {
+            "task_id": "67aff60e-bf09-42ed-9f04-87134cfa04a6",
+            "target_agent": "database",
+            "search_intent": "Ermittle deutschsprachige Podcasts/Streamingformate aus Deutschland, die primär Radverkehr, Fahrradmobilität oder Radpolitik behandeln (Stand 2024).",
+            "query_parameters": {
+              "keywords": [
+                "Podcast",
+                "Radverkehr",
+                "Fahrradmobilität",
+                "Radpolitik",
+                "Deutschland"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report",
+                "website"
+              ],
+              "retrieval_mode": "vector",
+              "filters": {
+                "language": [
+                  "de"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 3,
+            "status": "completed",
+            "evidence_modality": "direct",
+            "task_rationale": "Ergänzt Radio/Mediatheken um plattformspezifische Podcast- und Streamingangebote als zweites Hauptcluster."
+          },
+          {
+            "task_id": "0f2339b7-0151-435b-95ce-a0d76daed529",
+            "target_agent": "database",
+            "search_intent": "Suche Branchen-/Verzeichnisquellen (z.B. Landesmedienanstalten, Senderverzeichnisse, Podcast-Verzeichnisse) mit Einträgen zu Radverkehrs-Audioformaten.",
+            "query_parameters": {
+              "keywords": [
+                "Landesmedienanstalt",
+                "Hörfunkprogramm",
+                "Podcast-Verzeichnis",
+                "Format",
+                "Radverkehr"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "report",
+                "website",
+                "regulation",
+                "standard"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "language": [
+                  "de"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 4,
+            "status": "completed",
+            "evidence_modality": "supporting",
+            "task_rationale": "Liefert strukturierte Ausgangslisten/Metadaten, um die Abdeckung zu prüfen und Lücken systematisch zu schließen."
+          },
+          {
+            "task_id": "c1f3bcec-92af-49c0-9248-f2b6b4fca4c0",
+            "target_agent": "database",
+            "search_intent": "Identifiziere Suchbegriffe/Synonyme und thematische Cluster für Radverkehr in Audioformaten (z.B. Bikepacking, Lastenrad, StVO, Vision Zero).",
+            "query_parameters": {
+              "keywords": [
+                "Radverkehr",
+                "Lastenrad",
+                "Bikepacking",
+                "Verkehrssicherheit",
+                "Vision Zero"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report"
+              ],
+              "retrieval_mode": "vector",
+              "filters": {
+                "language": [
+                  "de",
+                  "en"
+                ],
+                "geo": [
+                  "DE"
+                ],
+                "date_to": "2024-12-31"
+              }
+            },
+            "priority": 5,
+            "status": "completed",
+            "evidence_modality": "supporting",
+            "task_rationale": "Optimiert die Recherche durch ein kontrolliertes Vokabular und erhöht Recall über unterschiedliche Formulierungen hinweg."
+          }
+        ],
+        "deduped_docs_count": 0,
+        "novel_docs_count": 1,
+        "final_retrieval_pass_consumed": false
+      },
+      "token_usage": null,
+      "cost": null,
+      "error": null
+    },
+    {
+      "event_id": "7a3c30398cb5",
+      "ts": "2026-04-09T19:41:29.985616+00:00",
+      "node": "reranker_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.HYPOTHESIS_GENERATION",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 4613,
+      "input_summary": {
+        "type": "object",
+        "fields": 4,
+        "preview": {
+          "chunks": 1,
+          "language": "de",
+          "task_count": 1,
+          "tasks": "list[1]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "kept": 0,
+          "all_chunks": "list[1]"
+        }
+      },
+      "input": {
+        "chunks": 1,
+        "language": "de",
+        "task_count": 1,
+        "tasks": [
+          "fa085073-7aa3-4d08-b722-f5a8c4ac1e51"
+        ]
+      },
+      "output": {
+        "kept": 0,
+        "all_chunks": [
+          {
+            "document_id": "C5VVQ50BVFQHb0io6ICP",
+            "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+            "task_query": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024. Mediathek ARD Audio Deutschlandfunk RBB Radverkehr",
+            "reranker_score": 0,
+            "evidence_grade": "irrelevant",
+            "kept": false,
+            "title": "WIK Diskussionsbeitrag Nr 315 01",
+            "abstract_or_snippet": " von Flatrates für die Best-Effort Verkehrsklas- se akzeptabel, weil sie ökonomisch weit weniger nachteilig ist. Eine Flat-Rate für den QoS-Verkehr ist laut Kruse hingegen ungeeignet und ineffizient. 4.2 Barrieren der Anwendung dynamischer Preismodelle Grundsätzlich können also auf Basis ökonomischer Preistheorien eine Reihe von Ar- gumenten (Internalisierung von Externalitäten, Verhinderung von Crowding Out höher- wertiger Dienste, effizientere Netzauslastung, höhere Wohlfahrt) für differenzierte Preismodelle angebracht werden. Allerdings gibt es drei Faktoren die der Implementie- rung entgegenstehen. 81 Yuksel / Kalyanaraman / Sidkar (2002) zeigen im Modell, dass die Vermeidung von Überlast durch Preissignale nur dann funktioniert, wenn Preise im Sekundenzyklus (2-3 Sekunden) erneuert und be- kannt gemacht werden. 50 Diskussionsbeitrag Nr. 315 Erstens zeigt die empirische Betrachtung, dass die Nutzer simple Preismodelle bevor- zugen und ein deutlicher Trend zu Flat Pricing existiert. In Deutschland ist seit dem Jahr 2006 das Flatratemodell mit einem pauschalen, nutzungsunabhängigen Entgelt dominant (zur Veränderung im Bereich der Abrechnungsarten siehe Abbildung 4-1). Abbildung 4-1: Entwicklung der Abrechnungsarten Onlineverbindungen in Deutschland 100% 90% 80% 70% 60% 50% 40% 30% 20% 10% 0% Weiß nicht Internet by Call Volumentarif Zeittarif Flatrate 2005 2006 2007 2008 Quelle: ARD/ZDF-Onlinestudie 2008, Media Perspektiven 7/2008, S. 347 Diese Entwicklung ist laut Odlyzko (1999/2001) typisch für Kommunikationstechnolo- gien wie Post, Telegraphie, Telefon und das Internet, denn in der Regel wird ein Zyklus durchlaufen, bei",
+            "domain_applicability": {
+              "is_general_enough": false,
+              "confidence": 0.74,
+              "reason": "Behandelt dynamische Preismodelle/Netzauslastung und QoS-Flatrates im Kontext Telekom/Netzdienste; kein Bezug zu Radverkehr oder allgemein zu Verkehrsinfrastruktur, daher fuer Ziel-Domaene nicht uebertragbar."
+            }
+          }
+        ]
+      },
+      "token_usage": {
+        "by_task": [
+          {
+            "input_tokens": 1637,
+            "output_tokens": 42,
+            "total_tokens": 1679,
+            "parse": {
+              "structured_output_mode": "provider",
+              "token_usage_available": true,
+              "schema_enforcement_mode": "fail",
+              "schema": "RerankerResponsePayload",
+              "schema_validation": "ok"
+            },
+            "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+            "score_distribution": {
+              "3": 0,
+              "2": 0,
+              "1": 0,
+              "0": 1
+            },
+            "threshold": 2
+          }
+        ]
+      },
+      "cost": {
+        "model": "gpt-5.2",
+        "provider": "azure_openai",
+        "currency": "EUR",
+        "pricing_scope": "Data Zone",
+        "region": "Germany West Central",
+        "captured_at": "2026-03-31",
+        "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+        "unit": "per_1m_tokens",
+        "tokens": {
+          "input_tokens": 1637,
+          "cached_input_tokens": 0,
+          "non_cached_input_tokens": 1637,
+          "output_tokens": 42,
+          "total_tokens": 1679
+        },
+        "rates": {
+          "input_eur_per_1m_tokens": "1.64",
+          "cached_input_eur_per_1m_tokens": "0.17",
+          "output_eur_per_1m_tokens": "13.05"
+        },
+        "costs": {
+          "input_cost_eur": "0.002685",
+          "cached_input_cost_eur": "0.000000",
+          "output_cost_eur": "0.000548",
+          "total_cost_eur": "0.003233"
+        }
+      },
+      "error": null
+    },
+    {
+      "event_id": "9a9d2e31f0cd",
+      "ts": "2026-04-09T19:41:37.872250+00:00",
+      "node": "hypothesis_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.HYPOTHESIS_GENERATION",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 7766,
+      "input_summary": {
+        "type": "object",
+        "fields": 7,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "generation_iteration": 1,
+          "research_plan_reasoning": "Die Frage zielt auf eine Bestandsaufnahme (Stand 2024) auditiver Inhalte zum Radverkehr in Deutschland über drei Ausspielwege: lineares Radio, Rundfunk-Mediatheken und Streaming/Po…",
+          "research_aspects": "list[5]",
+          "aspect_extraction": "object[3 fields]",
+          "previous_hypotheses_count": 0,
+          "retrieval_results": "list[0]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "hypotheses": "list[0]",
+          "payload_guard": "object[2 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "generation_iteration": 1,
+        "research_plan_reasoning": "Die Frage zielt auf eine Bestandsaufnahme (Stand 2024) auditiver Inhalte zum Radverkehr in Deutschland über drei Ausspielwege: lineares Radio, Rundfunk-Mediatheken und Streaming/Podcast-Plattformen. Für ein vollständiges Scouting sollten (1) öffentlich-rechtliche und private Radiosender inkl. Mediatheken, (2) reine Podcast-/Streamingformate, (3) ggf. regulative/branchenbezogene Verzeichnisse und (4) Suchbegriffe/Synonyme rund um Radverkehr und Verkehrspolitik systematisch abgedeckt werden.",
+        "research_aspects": [
+          {
+            "aspect": "Mapping linearer Radioformate (ÖR & privat)",
+            "description": "Erfasst Sendungen/Serien im linearen Radioprogramm mit regelmäßigem oder wiederkehrendem Radverkehrsbezug bis 2024, differenziert nach Sendern und Sendeplätzen.",
+            "related_task_ids": []
+          },
+          {
+            "aspect": "Analyse von Rundfunk-Mediatheken (ARD/ZDF/Deutschlandradio)",
+            "description": "Identifiziert On-Demand-Audioinhalte in den zugehörigen Mediatheken, inklusive Serien, Beiträge und Themendossiers, um auch nicht-linear auffindbare Radverkehrsformate abzudecken.",
+            "related_task_ids": []
+          },
+          {
+            "aspect": "Scouting von Podcasts/Streamingplattformen",
+            "description": "Ermittelt primär radverkehrs-, fahrradmobilitäts- oder radpolitikorientierte Podcasts aus Deutschland auf Plattformen wie Spotify/Apple/Deezer sowie unabhängigen Hosts (Stand 2024).",
+            "related_task_ids": []
+          },
+          {
+            "aspect": "Quellen- und Verzeichnisstrategie (Branchenregister)",
+            "description": "Nutzt Sender- und Podcast-Verzeichnisse sowie Institutionen/Regulatorik-Quellen (z.B. Landesmedienanstalten, ARD-Senderübersichten), um Vollständigkeit und Validierung der Bestandsaufnahme zu erhöhen.",
+            "related_task_ids": []
+          },
+          {
+            "aspect": "Suchwort- und Themencluster für systematische Recherche",
+            "description": "Leitet Synonyme und Subthemen (z.B. Fahrradinfrastruktur, StVO, Vision Zero, Lastenrad, Bikepacking) ab, um Suchabdeckung zu maximieren und relevante Formate trotz variierender Terminologie zu finden.",
+            "related_task_ids": []
+          }
+        ],
+        "aspect_extraction": {
+          "mode": "llm",
+          "parse_diagnostics": {
+            "structured_output_mode": "provider",
+            "token_usage_available": true,
+            "schema_enforcement_mode": "fail",
+            "schema": "HypothesisAspectExtractionResponsePayload",
+            "schema_validation": "ok"
+          },
+          "token_usage": {
+            "input_tokens": 658,
+            "output_tokens": 345,
+            "total_tokens": 1003
+          }
+        },
+        "previous_hypotheses_count": 0,
+        "retrieval_results": []
+      },
+      "output": {
+        "hypotheses": [],
+        "payload_guard": {
+          "used_retry": false,
+          "attempts": [
+            {
+              "attempt": 1,
+              "profile": {
+                "max_docs": 40,
+                "total_chars_budget": 180000,
+                "title_max_chars": 320,
+                "snippet_max_chars": 2400,
+                "identifier_max_chars": 420
+              },
+              "docs_metrics": {
+                "docs_input": 0,
+                "docs_selected": 0,
+                "docs_output": 0,
+                "char_budget": 180000,
+                "chars_used": 0
+              },
+              "status": "ok",
+              "parse": {
+                "structured_output_mode": "provider",
+                "token_usage_available": true,
+                "schema_enforcement_mode": "fail",
+                "schema": "HypothesisResponsePayload",
+                "schema_validation": "ok"
+              }
+            }
+          ]
+        }
+      },
+      "token_usage": {
+        "by_attempt": [
+          {
+            "attempt": 1,
+            "input_tokens": 1153,
+            "output_tokens": 22,
+            "total_tokens": 1175
+          }
+        ],
+        "input_tokens": 1153,
+        "output_tokens": 22,
+        "total_tokens": 1175
+      },
+      "cost": {
+        "model": "gpt-5.2",
+        "provider": "azure_openai",
+        "currency": "EUR",
+        "pricing_scope": "Data Zone",
+        "region": "Germany West Central",
+        "captured_at": "2026-03-31",
+        "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+        "unit": "per_1m_tokens",
+        "tokens": {
+          "input_tokens": 1153,
+          "cached_input_tokens": 0,
+          "non_cached_input_tokens": 1153,
+          "output_tokens": 22,
+          "total_tokens": 1175
+        },
+        "rates": {
+          "input_eur_per_1m_tokens": "1.64",
+          "cached_input_eur_per_1m_tokens": "0.17",
+          "output_eur_per_1m_tokens": "13.05"
+        },
+        "costs": {
+          "input_cost_eur": "0.001891",
+          "cached_input_cost_eur": "0.000000",
+          "output_cost_eur": "0.000287",
+          "total_cost_eur": "0.002178"
+        }
+      },
+      "error": null
+    },
+    {
+      "event_id": "c9e433c31ebd",
+      "ts": "2026-04-09T19:41:42.282348+00:00",
+      "node": "challenge_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.CHALLENGE",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 4334,
+      "input_summary": {
+        "type": "object",
+        "fields": 3,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "hypotheses": "list[0]",
+          "retrieval_results": "list[0]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 13,
+        "preview": {
+          "updated_hypotheses": "list[0]",
+          "challenge_findings": "list[0]",
+          "information_gaps": "list[0]",
+          "followup_tasks": "list[0]",
+          "followup_tasks_generated": 0,
+          "followup_tasks_deduped": 0,
+          "stagnation_detected_count": 0,
+          "pivot_tasks_generated": 0,
+          "avg_evidence_novelty": null,
+          "actionable_gap_count": 0,
+          "final_retrieval_pass_pending": false,
+          "research_plan": "object[2 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "hypotheses": [],
+        "retrieval_results": []
+      },
+      "output": {
+        "updated_hypotheses": [],
+        "challenge_findings": [],
+        "information_gaps": [],
+        "followup_tasks": [],
+        "followup_tasks_generated": 0,
+        "followup_tasks_deduped": 0,
+        "stagnation_detected_count": 0,
+        "pivot_tasks_generated": 0,
+        "avg_evidence_novelty": null,
+        "actionable_gap_count": 0,
+        "final_retrieval_pass_pending": false,
+        "research_plan": {
+          "tasks": [
+            {
+              "task_id": "8f028db5-93e2-477a-9b53-7e76753bf864",
+              "target_agent": "database",
+              "search_intent": "Identifiziere Radiosendungen/Serien in Deutschland mit regelmäßigem Radverkehrsbezug (linear ausgestrahlt) bis einschließlich 2024.",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Radfahren",
+                  "Radweg",
+                  "Sendung"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 1,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Erstellt die Kernliste linearer Radioformate mit Radverkehrsbezug als Basis der Bestandsaufnahme."
+            },
+            {
+              "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+              "target_agent": "database",
+              "search_intent": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024.",
+              "query_parameters": {
+                "keywords": [
+                  "Mediathek",
+                  "ARD Audio",
+                  "Deutschlandfunk",
+                  "RBB",
+                  "Radverkehr"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "report",
+                  "publication"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 2,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt die zugehörigen Mediatheken der Rundfunkanbieter ab und verknüpft Sendungen mit On-Demand-Verfügbarkeit."
+            },
+            {
+              "task_id": "67aff60e-bf09-42ed-9f04-87134cfa04a6",
+              "target_agent": "database",
+              "search_intent": "Ermittle deutschsprachige Podcasts/Streamingformate aus Deutschland, die primär Radverkehr, Fahrradmobilität oder Radpolitik behandeln (Stand 2024).",
+              "query_parameters": {
+                "keywords": [
+                  "Podcast",
+                  "Radverkehr",
+                  "Fahrradmobilität",
+                  "Radpolitik",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 3,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Ergänzt Radio/Mediatheken um plattformspezifische Podcast- und Streamingangebote als zweites Hauptcluster."
+            },
+            {
+              "task_id": "0f2339b7-0151-435b-95ce-a0d76daed529",
+              "target_agent": "database",
+              "search_intent": "Suche Branchen-/Verzeichnisquellen (z.B. Landesmedienanstalten, Senderverzeichnisse, Podcast-Verzeichnisse) mit Einträgen zu Radverkehrs-Audioformaten.",
+              "query_parameters": {
+                "keywords": [
+                  "Landesmedienanstalt",
+                  "Hörfunkprogramm",
+                  "Podcast-Verzeichnis",
+                  "Format",
+                  "Radverkehr"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "report",
+                  "website",
+                  "regulation",
+                  "standard"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 4,
+              "status": "completed",
+              "evidence_modality": "supporting",
+              "task_rationale": "Liefert strukturierte Ausgangslisten/Metadaten, um die Abdeckung zu prüfen und Lücken systematisch zu schließen."
+            },
+            {
+              "task_id": "c1f3bcec-92af-49c0-9248-f2b6b4fca4c0",
+              "target_agent": "database",
+              "search_intent": "Identifiziere Suchbegriffe/Synonyme und thematische Cluster für Radverkehr in Audioformaten (z.B. Bikepacking, Lastenrad, StVO, Vision Zero).",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Lastenrad",
+                  "Bikepacking",
+                  "Verkehrssicherheit",
+                  "Vision Zero"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "language": [
+                    "de",
+                    "en"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 5,
+              "status": "completed",
+              "evidence_modality": "supporting",
+              "task_rationale": "Optimiert die Recherche durch ein kontrolliertes Vokabular und erhöht Recall über unterschiedliche Formulierungen hinweg."
+            }
+          ],
+          "reasoning": "Die Frage zielt auf eine Bestandsaufnahme (Stand 2024) auditiver Inhalte zum Radverkehr in Deutschland über drei Ausspielwege: lineares Radio, Rundfunk-Mediatheken und Streaming/Podcast-Plattformen. Für ein vollständiges Scouting sollten (1) öffentlich-rechtliche und private Radiosender inkl. Mediatheken, (2) reine Podcast-/Streamingformate, (3) ggf. regulative/branchenbezogene Verzeichnisse und (4) Suchbegriffe/Synonyme rund um Radverkehr und Verkehrspolitik systematisch abgedeckt werden."
+        },
+        "payload_guard": {
+          "used_retry": false,
+          "attempts": [
+            {
+              "attempt": 1,
+              "profile": {
+                "docs": {
+                  "max_docs": 36,
+                  "total_chars_budget": 150000,
+                  "title_max_chars": 300,
+                  "snippet_max_chars": 1800,
+                  "identifier_max_chars": 320
+                },
+                "hypotheses": {
+                  "max_hypotheses": 8,
+                  "total_chars_budget": 40000,
+                  "statement_max_chars": 420,
+                  "reasoning_max_chars": 900,
+                  "max_supporting_evidence_ids": 12
+                }
+              },
+              "docs_metrics": {
+                "docs_input": 0,
+                "docs_selected": 0,
+                "docs_output": 0,
+                "char_budget": 150000,
+                "chars_used": 0
+              },
+              "hypotheses_metrics": {
+                "hypotheses_input": 0,
+                "hypotheses_selected": 0,
+                "hypotheses_output": 0,
+                "char_budget": 40000,
+                "chars_used": 0
+              },
+              "status": "ok",
+              "parse": {
+                "structured_output_mode": "provider",
+                "token_usage_available": true,
+                "schema_enforcement_mode": "fail",
+                "schema": "ChallengeResponsePayload",
+                "schema_validation": "ok"
+              }
+            }
+          ]
+        }
+      },
+      "token_usage": {
+        "by_attempt": [
+          {
+            "attempt": 1,
+            "input_tokens": 947,
+            "output_tokens": 153,
+            "total_tokens": 1100
+          }
+        ],
+        "input_tokens": 947,
+        "output_tokens": 153,
+        "total_tokens": 1100
+      },
+      "cost": {
+        "model": "gpt-5.2",
+        "provider": "azure_openai",
+        "currency": "EUR",
+        "pricing_scope": "Data Zone",
+        "region": "Germany West Central",
+        "captured_at": "2026-03-31",
+        "source_url": "https://azure.microsoft.com/en-us/pricing/details/azure-openai/",
+        "unit": "per_1m_tokens",
+        "tokens": {
+          "input_tokens": 947,
+          "cached_input_tokens": 0,
+          "non_cached_input_tokens": 947,
+          "output_tokens": 153,
+          "total_tokens": 1100
+        },
+        "rates": {
+          "input_eur_per_1m_tokens": "1.64",
+          "cached_input_eur_per_1m_tokens": "0.17",
+          "output_eur_per_1m_tokens": "13.05"
+        },
+        "costs": {
+          "input_cost_eur": "0.001553",
+          "cached_input_cost_eur": "0.000000",
+          "output_cost_eur": "0.001997",
+          "total_cost_eur": "0.003550"
+        }
+      },
+      "error": null
+    },
+    {
+      "event_id": "48bc35dc0a85",
+      "ts": "2026-04-09T19:41:42.394774+00:00",
+      "node": "knowledge_synthesis_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.SYNTHESIS",
+      "iteration": 1,
+      "max_iterations": 1,
+      "duration_ms": 2,
+      "input_summary": {
+        "type": "object",
+        "fields": 6,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "user_message": "Forschungsfrage: Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattforme…",
+          "research_plan": "object[2 fields]",
+          "retrieval_results": "list[0]",
+          "hypotheses": "list[0]",
+          "challenge_findings": "list[0]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 3,
+        "preview": {
+          "synthesis_output": "object[19 fields]",
+          "evidence_quality": "object[8 fields]",
+          "evidence_gate": "object[8 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "user_message": "Forschungsfrage: Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?\n\nErkannte Domänen: road",
+        "research_plan": {
+          "tasks": [
+            {
+              "task_id": "8f028db5-93e2-477a-9b53-7e76753bf864",
+              "target_agent": "database",
+              "search_intent": "Identifiziere Radiosendungen/Serien in Deutschland mit regelmäßigem Radverkehrsbezug (linear ausgestrahlt) bis einschließlich 2024.",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Radfahren",
+                  "Radweg",
+                  "Sendung"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 1,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Erstellt die Kernliste linearer Radioformate mit Radverkehrsbezug als Basis der Bestandsaufnahme."
+            },
+            {
+              "task_id": "fa085073-7aa3-4d08-b722-f5a8c4ac1e51",
+              "target_agent": "database",
+              "search_intent": "Finde Inhalte in ARD/ZDF/Deutschlandradio-Mediatheken (Audio/Radio) mit Schwerpunkt Radverkehr/Fahrrad bis 2024.",
+              "query_parameters": {
+                "keywords": [
+                  "Mediathek",
+                  "ARD Audio",
+                  "Deutschlandfunk",
+                  "RBB",
+                  "Radverkehr"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "report",
+                  "publication"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 2,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt die zugehörigen Mediatheken der Rundfunkanbieter ab und verknüpft Sendungen mit On-Demand-Verfügbarkeit."
+            },
+            {
+              "task_id": "67aff60e-bf09-42ed-9f04-87134cfa04a6",
+              "target_agent": "database",
+              "search_intent": "Ermittle deutschsprachige Podcasts/Streamingformate aus Deutschland, die primär Radverkehr, Fahrradmobilität oder Radpolitik behandeln (Stand 2024).",
+              "query_parameters": {
+                "keywords": [
+                  "Podcast",
+                  "Radverkehr",
+                  "Fahrradmobilität",
+                  "Radpolitik",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 3,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Ergänzt Radio/Mediatheken um plattformspezifische Podcast- und Streamingangebote als zweites Hauptcluster."
+            },
+            {
+              "task_id": "0f2339b7-0151-435b-95ce-a0d76daed529",
+              "target_agent": "database",
+              "search_intent": "Suche Branchen-/Verzeichnisquellen (z.B. Landesmedienanstalten, Senderverzeichnisse, Podcast-Verzeichnisse) mit Einträgen zu Radverkehrs-Audioformaten.",
+              "query_parameters": {
+                "keywords": [
+                  "Landesmedienanstalt",
+                  "Hörfunkprogramm",
+                  "Podcast-Verzeichnis",
+                  "Format",
+                  "Radverkehr"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "report",
+                  "website",
+                  "regulation",
+                  "standard"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "language": [
+                    "de"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 4,
+              "status": "completed",
+              "evidence_modality": "supporting",
+              "task_rationale": "Liefert strukturierte Ausgangslisten/Metadaten, um die Abdeckung zu prüfen und Lücken systematisch zu schließen."
+            },
+            {
+              "task_id": "c1f3bcec-92af-49c0-9248-f2b6b4fca4c0",
+              "target_agent": "database",
+              "search_intent": "Identifiziere Suchbegriffe/Synonyme und thematische Cluster für Radverkehr in Audioformaten (z.B. Bikepacking, Lastenrad, StVO, Vision Zero).",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Lastenrad",
+                  "Bikepacking",
+                  "Verkehrssicherheit",
+                  "Vision Zero"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "language": [
+                    "de",
+                    "en"
+                  ],
+                  "geo": [
+                    "DE"
+                  ],
+                  "date_to": "2024-12-31"
+                }
+              },
+              "priority": 5,
+              "status": "completed",
+              "evidence_modality": "supporting",
+              "task_rationale": "Optimiert die Recherche durch ein kontrolliertes Vokabular und erhöht Recall über unterschiedliche Formulierungen hinweg."
+            }
+          ],
+          "reasoning": "Die Frage zielt auf eine Bestandsaufnahme (Stand 2024) auditiver Inhalte zum Radverkehr in Deutschland über drei Ausspielwege: lineares Radio, Rundfunk-Mediatheken und Streaming/Podcast-Plattformen. Für ein vollständiges Scouting sollten (1) öffentlich-rechtliche und private Radiosender inkl. Mediatheken, (2) reine Podcast-/Streamingformate, (3) ggf. regulative/branchenbezogene Verzeichnisse und (4) Suchbegriffe/Synonyme rund um Radverkehr und Verkehrspolitik systematisch abgedeckt werden."
+        },
+        "retrieval_results": [],
+        "hypotheses": [],
+        "challenge_findings": []
+      },
+      "output": {
+        "synthesis_output": {
+          "answer": "",
+          "claims": [],
+          "missing_information": [
+            "Es konnte keine belastbare Antwort aus den verfügbaren Quellen erzeugt werden.",
+            "Gründe: - Keine relevanten Quellen gefunden."
+          ],
+          "hypothesis_mode": true,
+          "hypothesis_gate_reasoning": "score=8/6; scope=2, comparative=1, temporal=1, evidence=2, ambiguity=2; llm_reasoning=Breite Bestandsaufnahme über drei Distributionskanäle (lineares Radio, Mediatheken, Streaming) und viele potenzielle Anbieter/Formate → hoher Scope. Vergleichend insofern, als Formate kanalübergreifend identifiziert/abgegrenzt werden müssen. Zeitlich auf „Stand 2024“ begrenzt, aber mit Abgleich historischer Verfügbarkeit/Status bis 2024. Erfordert vielfältige Evidenz (Programmschemata, Mediatheken-Seiten, Podcast-Plattformen, Verzeichnisse/Regulatorik). Unklarheit durch unscharfe Definition von „Format“ und „zum Thema Radverkehr“ (regelmäßig vs. einzelne Episoden, Mobilität vs. Sport/Bikepacking) → hoher Ambiguitätsgrad.",
+          "outcome_status": "unresolved",
+          "resolution_reason": "Abstention: Evidenzqualität unzureichend für eine belastbare Antwort.",
+          "competing_positions": [],
+          "recommended_next_steps": [],
+          "confidence_by_hypothesis": {},
+          "confidence_disclaimers": [],
+          "source_quality_profile": {
+            "corpus_profile": {
+              "total_sources": 1,
+              "source_type_distribution": {
+                "unknown": {
+                  "count": 1,
+                  "percentage": 100.0
+                }
+              },
+              "review_status_distribution": {
+                "unknown": {
+                  "count": 1,
+                  "percentage": 100.0
+                }
+              },
+              "language_distribution": {
+                "en": {
+                  "count": 1,
+                  "percentage": 100.0
+                }
+              },
+              "access_distribution": {
+                "unknown": {
+                  "count": 1,
+                  "percentage": 100.0
+                }
+              },
+              "citation_impact": {
+                "available_count": 0,
+                "total_count": 1,
+                "coverage_percentage": 0.0,
+                "median": null,
+                "minimum": null,
+                "maximum": null
+              },
+              "temporal_distribution": {
+                "year_histogram": {
+                  "2026": 1
+                },
+                "confidence_distribution": {
+                  "unknown": {
+                    "count": 1,
+                    "percentage": 100.0
+                  }
+                },
+                "min_year": 2026,
+                "max_year": 2026,
+                "median_year": 2026.0,
+                "recent_share_since_year": 2024,
+                "recent_share_percentage": 100.0
+              },
+              "transport_domain_coverage": {},
+              "multi_domain_count": 0,
+              "crawl_freshness": {
+                "stale_count": 0,
+                "failed_count": 0,
+                "fresh_count": 0,
+                "unknown_count": 1,
+                "stale_threshold_days": 90,
+                "stale_source_ids": [],
+                "failed_source_ids": []
+              },
+              "key_metrics": {
+                "peer_reviewed_share": 0.0,
+                "median_year": 2026.0,
+                "open_access_share": 0.0,
+                "high_date_confidence_share": 0.0
+              }
+            },
+            "selection_profile": {
+              "total_sources": 0,
+              "source_type_distribution": {},
+              "review_status_distribution": {},
+              "language_distribution": {},
+              "access_distribution": {},
+              "citation_impact": {
+                "available_count": 0,
+                "total_count": 0,
+                "coverage_percentage": 0.0,
+                "median": null,
+                "minimum": null,
+                "maximum": null
+              },
+              "temporal_distribution": {
+                "year_histogram": {},
+                "confidence_distribution": {},
+                "min_year": null,
+                "max_year": null,
+                "median_year": null,
+                "recent_share_since_year": null,
+                "recent_share_percentage": 0.0
+              },
+              "transport_domain_coverage": {},
+              "multi_domain_count": 0,
+              "crawl_freshness": {
+                "stale_count": 0,
+                "failed_count": 0,
+                "fresh_count": 0,
+                "unknown_count": 0,
+                "stale_threshold_days": 90,
+                "stale_source_ids": [],
+                "failed_source_ids": []
+              },
+              "key_metrics": {
+                "peer_reviewed_share": 0.0,
+                "median_year": null,
+                "open_access_share": 0.0,
+                "high_date_confidence_share": 0.0
+              }
+            },
+            "deltas": [
+              {
+                "dimension": "source_type_distribution",
+                "statement": "The selected sources are 0% unknown, while the broader retrieval set is 100% unknown."
+              },
+              {
+                "dimension": "review_status_distribution",
+                "statement": "The selected sources are 0% unknown, while the broader retrieval set is 100% unknown."
+              },
+              {
+                "dimension": "language_distribution",
+                "statement": "Language 'en' accounts for 100% of the retrieval set but is absent from the selected sources."
+              }
+            ],
+            "selected_source_cards": [],
+            "enrichment_metrics": {
+              "corpus_sources_attempted": 1,
+              "corpus_sources_resolved": 1,
+              "corpus_source_resolution_rate": 100.0,
+              "corpus_crawl_sources_matched": 0,
+              "corpus_crawl_match_rate": 0.0,
+              "corpus_crawl_states_found": 0,
+              "corpus_crawl_state_coverage_rate": 0.0,
+              "selection_sources_attempted": 0,
+              "selection_sources_resolved": 0,
+              "selection_source_resolution_rate": 0.0,
+              "selection_crawl_sources_matched": 0,
+              "selection_crawl_match_rate": 0.0,
+              "selection_crawl_states_found": 0,
+              "selection_crawl_state_coverage_rate": 0.0
+            }
+          },
+          "summary": "",
+          "key_findings": [],
+          "technology_entities": [],
+          "evidence_map": [],
+          "confidence_assessment": "",
+          "limitations": [
+            "Es konnte keine belastbare Antwort aus den verfügbaren Quellen erzeugt werden.",
+            "Gründe: - Keine relevanten Quellen gefunden."
+          ],
+          "suggested_further_research": []
+        },
+        "evidence_quality": {
+          "hard_fail": true,
+          "decision": "abstain",
+          "band": "reject",
+          "confidence_score": 0.0,
+          "should_abstain": true,
+          "signals": {
+            "total_chunks": 0
+          },
+          "threshold_reasons": [],
+          "reasons": [
+            "Keine relevanten Quellen gefunden."
+          ]
+        },
+        "evidence_gate": {
+          "hard_fail": true,
+          "decision": "abstain",
+          "band": "reject",
+          "confidence_score": 0.0,
+          "should_abstain": true,
+          "signals": {
+            "total_chunks": 0
+          },
+          "threshold_reasons": [],
+          "reasons": [
+            "Keine relevanten Quellen gefunden."
+          ]
+        }
+      },
+      "token_usage": null,
+      "cost": null,
+      "error": null
+    }
+  ],
+  "final_output": {
+    "answer": "",
+    "claims": [],
+    "missing_information": [
+      "Es konnte keine belastbare Antwort aus den verfügbaren Quellen erzeugt werden.",
+      "Gründe: - Keine relevanten Quellen gefunden."
+    ],
+    "hypothesis_mode": true,
+    "hypothesis_gate_reasoning": "score=8/6; scope=2, comparative=1, temporal=1, evidence=2, ambiguity=2; llm_reasoning=Breite Bestandsaufnahme über drei Distributionskanäle (lineares Radio, Mediatheken, Streaming) und viele potenzielle Anbieter/Formate → hoher Scope. Vergleichend insofern, als Formate kanalübergreifend identifiziert/abgegrenzt werden müssen. Zeitlich auf „Stand 2024“ begrenzt, aber mit Abgleich historischer Verfügbarkeit/Status bis 2024. Erfordert vielfältige Evidenz (Programmschemata, Mediatheken-Seiten, Podcast-Plattformen, Verzeichnisse/Regulatorik). Unklarheit durch unscharfe Definition von „Format“ und „zum Thema Radverkehr“ (regelmäßig vs. einzelne Episoden, Mobilität vs. Sport/Bikepacking) → hoher Ambiguitätsgrad.",
+    "outcome_status": "unresolved",
+    "resolution_reason": "Abstention: Evidenzqualität unzureichend für eine belastbare Antwort.",
+    "competing_positions": [],
+    "recommended_next_steps": [],
+    "confidence_by_hypothesis": {},
+    "confidence_disclaimers": [],
+    "source_quality_profile": {
+      "corpus_profile": {
+        "total_sources": 1,
+        "source_type_distribution": {
+          "unknown": {
+            "count": 1,
+            "percentage": 100.0
+          }
+        },
+        "review_status_distribution": {
+          "unknown": {
+            "count": 1,
+            "percentage": 100.0
+          }
+        },
+        "language_distribution": {
+          "en": {
+            "count": 1,
+            "percentage": 100.0
+          }
+        },
+        "access_distribution": {
+          "unknown": {
+            "count": 1,
+            "percentage": 100.0
+          }
+        },
+        "citation_impact": {
+          "available_count": 0,
+          "total_count": 1,
+          "coverage_percentage": 0.0,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "temporal_distribution": {
+          "year_histogram": {
+            "2026": 1
+          },
+          "confidence_distribution": {
+            "unknown": {
+              "count": 1,
+              "percentage": 100.0
+            }
+          },
+          "min_year": 2026,
+          "max_year": 2026,
+          "median_year": 2026.0,
+          "recent_share_since_year": 2024,
+          "recent_share_percentage": 100.0
+        },
+        "transport_domain_coverage": {},
+        "multi_domain_count": 0,
+        "crawl_freshness": {
+          "stale_count": 0,
+          "failed_count": 0,
+          "fresh_count": 0,
+          "unknown_count": 1,
+          "stale_threshold_days": 90,
+          "stale_source_ids": [],
+          "failed_source_ids": []
+        },
+        "key_metrics": {
+          "peer_reviewed_share": 0.0,
+          "median_year": 2026.0,
+          "open_access_share": 0.0,
+          "high_date_confidence_share": 0.0
+        }
+      },
+      "selection_profile": {
+        "total_sources": 0,
+        "source_type_distribution": {},
+        "review_status_distribution": {},
+        "language_distribution": {},
+        "access_distribution": {},
+        "citation_impact": {
+          "available_count": 0,
+          "total_count": 0,
+          "coverage_percentage": 0.0,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "temporal_distribution": {
+          "year_histogram": {},
+          "confidence_distribution": {},
+          "min_year": null,
+          "max_year": null,
+          "median_year": null,
+          "recent_share_since_year": null,
+          "recent_share_percentage": 0.0
+        },
+        "transport_domain_coverage": {},
+        "multi_domain_count": 0,
+        "crawl_freshness": {
+          "stale_count": 0,
+          "failed_count": 0,
+          "fresh_count": 0,
+          "unknown_count": 0,
+          "stale_threshold_days": 90,
+          "stale_source_ids": [],
+          "failed_source_ids": []
+        },
+        "key_metrics": {
+          "peer_reviewed_share": 0.0,
+          "median_year": null,
+          "open_access_share": 0.0,
+          "high_date_confidence_share": 0.0
+        }
+      },
+      "deltas": [
+        {
+          "dimension": "source_type_distribution",
+          "statement": "The selected sources are 0% unknown, while the broader retrieval set is 100% unknown."
+        },
+        {
+          "dimension": "review_status_distribution",
+          "statement": "The selected sources are 0% unknown, while the broader retrieval set is 100% unknown."
+        },
+        {
+          "dimension": "language_distribution",
+          "statement": "Language 'en' accounts for 100% of the retrieval set but is absent from the selected sources."
+        }
+      ],
+      "selected_source_cards": [],
+      "enrichment_metrics": {
+        "corpus_sources_attempted": 1,
+        "corpus_sources_resolved": 1,
+        "corpus_source_resolution_rate": 100.0,
+        "corpus_crawl_sources_matched": 0,
+        "corpus_crawl_match_rate": 0.0,
+        "corpus_crawl_states_found": 0,
+        "corpus_crawl_state_coverage_rate": 0.0,
+        "selection_sources_attempted": 0,
+        "selection_sources_resolved": 0,
+        "selection_source_resolution_rate": 0.0,
+        "selection_crawl_sources_matched": 0,
+        "selection_crawl_match_rate": 0.0,
+        "selection_crawl_states_found": 0,
+        "selection_crawl_state_coverage_rate": 0.0
+      }
+    },
+    "summary": "",
+    "key_findings": [],
+    "technology_entities": [],
+    "evidence_map": [],
+    "confidence_assessment": "",
+    "limitations": [
+      "Es konnte keine belastbare Antwort aus den verfügbaren Quellen erzeugt werden.",
+      "Gründe: - Keine relevanten Quellen gefunden."
+    ],
+    "suggested_further_research": []
+  }
+}

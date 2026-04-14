@@ -1,0 +1,2284 @@
+{
+  "metadata": {
+    "schema_version": "v3",
+    "run_id": "0574c386f9e4ae5b",
+    "run_started_at": "20260413T182121Z",
+    "started_at": "2026-04-13T16:21:37.362754+00:00",
+    "last_updated_at": "2026-04-13T16:22:04.986529+00:00",
+    "finished_at": "2026-04-13T16:22:04.986529+00:00",
+    "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+    "status": "completed",
+    "run_type": "live",
+    "config_snapshot": {
+      "fallback_env": {
+        "elasticsearch_url": null,
+        "elasticsearch_index": "chunks_eval",
+        "openai_model": null,
+        "openai_embedding_model": null
+      }
+    },
+    "pricing": null
+  },
+  "summary": {
+    "nodes_total": 7,
+    "nodes_ok": 7,
+    "nodes_error": 0,
+    "total_duration_ms": 42912,
+    "retrieved_docs": 3,
+    "hypotheses": {
+      "total": 0,
+      "proposed": 0,
+      "validated": 0,
+      "challenged": 0
+    },
+    "challenge_findings": 0,
+    "challenge_findings_by_type": {},
+    "claims": 0,
+    "missing_information": 2,
+    "hypothesis_mode": true,
+    "outcome_status": "unresolved",
+    "duration_by_node": {
+      "research_plan_agent": 15573,
+      "hypothesis_gate_agent": 6680,
+      "database_retrieval_agent": 951,
+      "reranker_agent": 7245,
+      "hypothesis_agent": 10130,
+      "challenge_agent": 2332,
+      "knowledge_synthesis_agent": 1
+    },
+    "critical_path_node": "research_plan_agent",
+    "loop_cycles_completed": 1,
+    "challenge_iteration_limit": 2,
+    "challenge_loop_cycles_completed": 1,
+    "normal_loop_iterations_completed": 1,
+    "post_limit_challenge_cycles": 0,
+    "costs": {
+      "model": null,
+      "currency": "EUR",
+      "priced_events": 0,
+      "pricing_reference": null,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "non_cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_cost_eur": "0.000000",
+      "by_agent": {}
+    },
+    "source_quality_profile": {
+      "corpus_total_sources": 2,
+      "selection_total_sources": 0,
+      "selection_peer_reviewed_share": 0.0,
+      "selection_open_access_share": 0.0,
+      "selection_median_year": null,
+      "selection_high_date_confidence_share": 0.0,
+      "delta_count": 3,
+      "selected_source_cards_count": 0,
+      "corpus_source_resolution_rate": 100.0,
+      "corpus_crawl_match_rate": 0.0,
+      "selection_source_resolution_rate": 0.0,
+      "selection_crawl_match_rate": 0.0
+    },
+    "timeline": [
+      {
+        "node": "research_plan_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.PLANNING",
+        "iteration": 0,
+        "duration_ms": 15573,
+        "cost": null,
+        "node_metrics": {
+          "tasks_total": 5,
+          "tasks_database": 5,
+          "tasks_web": 0,
+          "avg_keywords_per_task": 5.0,
+          "source_types_requested": [
+            "publication",
+            "report",
+            "standard",
+            "website"
+          ]
+        }
+      },
+      {
+        "node": "hypothesis_gate_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.RETRIEVAL",
+        "iteration": 0,
+        "duration_ms": 6680,
+        "cost": null,
+        "node_metrics": {
+          "is_hypothesis": true,
+          "score_total": 7,
+          "threshold": 6,
+          "dimension_scores": {
+            "scope_breadth": 2,
+            "comparative_nature": 1,
+            "temporal_depth": 1,
+            "evidence_diversity": 2,
+            "ambiguity_level": 1
+          },
+          "gate_reason_short": "score=7/6; scope=2, comparative=1, temporal=1, evidence=2, ambiguity=1; llm_reasoning=Die Frage ist eine breite Bestandsaufnahme über mehrere Distributionskanäle in Deutschland (Ra…"
+        }
+      },
+      {
+        "node": "database_retrieval_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.RETRIEVAL",
+        "iteration": 0,
+        "duration_ms": 951,
+        "cost": null,
+        "node_metrics": {
+          "db_tasks_executed": 5,
+          "docs_retrieved": 3,
+          "docs_novel": 3,
+          "docs_deduped": 0,
+          "unique_sources": 2,
+          "unique_publishers": 1,
+          "avg_relevance": 0.9858606142717857,
+          "top_k_effective": 15,
+          "final_retrieval_pass_consumed": false
+        }
+      },
+      {
+        "node": "reranker_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.HYPOTHESIS_GENERATION",
+        "iteration": 0,
+        "duration_ms": 7245,
+        "cost": null,
+        "node_metrics": {}
+      },
+      {
+        "node": "hypothesis_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.HYPOTHESIS_GENERATION",
+        "iteration": 0,
+        "duration_ms": 10130,
+        "cost": null,
+        "node_metrics": {
+          "hypotheses_generated": 0,
+          "avg_confidence": null,
+          "min_confidence": null,
+          "max_confidence": null,
+          "avg_evidence_docs": null
+        }
+      },
+      {
+        "node": "challenge_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.CHALLENGE",
+        "iteration": 0,
+        "duration_ms": 2332,
+        "cost": null,
+        "node_metrics": {
+          "hypotheses_updated": 0,
+          "status_validated": 0,
+          "status_challenged": 0,
+          "findings_total": 0,
+          "findings_by_type": {},
+          "actionable_gaps": 0,
+          "followup_tasks_generated": 0,
+          "followup_tasks_deduped": 0,
+          "followup_tasks_added": 0,
+          "stagnation_detected_count": 0,
+          "pivot_tasks_generated": 0,
+          "avg_evidence_novelty": null,
+          "final_retrieval_pass_pending": false
+        }
+      },
+      {
+        "node": "knowledge_synthesis_agent",
+        "status": "ok",
+        "phase": "ExecutionPhase.SYNTHESIS",
+        "iteration": 1,
+        "duration_ms": 1,
+        "cost": null,
+        "node_metrics": {
+          "claims": 0,
+          "missing_information": 2,
+          "outcome_status": "unresolved",
+          "answer_chars": 0,
+          "citations_detected": 0
+        }
+      }
+    ],
+    "termination_reason": "synthesis_outcome:unresolved",
+    "termination_reason_detail": "outcome=unresolved; reason=Abstention: Evidenzqualität unzureichend für eine belastbare Antwort.",
+    "query_parameters_snapshot": {
+      "keywords": [
+        "Radverkehr",
+        "Fahrrad",
+        "Radio",
+        "Deutschland",
+        "Sendung"
+      ],
+      "date_from": null,
+      "date_to": null,
+      "source_types": [
+        "publication",
+        "report",
+        "website"
+      ],
+      "retrieval_mode": "hybrid",
+      "filters": {
+        "date_to": "2024-12-31",
+        "country": "DE"
+      }
+    }
+  },
+  "agent_flow": [
+    {
+      "event_id": "36963a79f39f",
+      "ts": "2026-04-13T16:21:37.362754+00:00",
+      "node": "research_plan_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.PLANNING",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 15573,
+      "input_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "language": "de"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 4,
+        "preview": {
+          "user_message": "Forschungsfrage: Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattforme…",
+          "detected_domain": "road",
+          "research_plan": "object[2 fields]",
+          "parse_diagnostics": "object[5 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "language": "de"
+      },
+      "output": {
+        "user_message": "Forschungsfrage: Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?\n\nErkannte Domänen: road",
+        "detected_domain": "road",
+        "research_plan": {
+          "tasks": [
+            {
+              "task_id": "a6136fa4-7766-4d88-8aca-d61aa1354c0a",
+              "target_agent": "database",
+              "search_intent": "Radiobeiträge und Sendungsformate zu Radverkehr in Deutschland identifizieren",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Radio",
+                  "Deutschland",
+                  "Sendung"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 1,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Ermittelt den Kernbestand an linearen Radioformaten mit explizitem Bezug zum Radverkehr in Deutschland."
+            },
+            {
+              "task_id": "473bb98e-fd9e-42bd-8a1d-b59b4dfda100",
+              "target_agent": "database",
+              "search_intent": "Mediatheken deutscher Radiosender nach Fahrrad- und Radverkehrsaudio durchsuchen",
+              "query_parameters": {
+                "keywords": [
+                  "Mediathek",
+                  "Audiothek",
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "report"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 2,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Erfasst on-demand verfügbare Audioinhalte der Sender und verbindet lineare Formate mit ihren Archiv- oder Abrufangeboten."
+            },
+            {
+              "task_id": "6f7ec664-109c-42c2-b4a0-10f53bd2de6b",
+              "target_agent": "database",
+              "search_intent": "Podcasts und Streamingformate zum Radverkehr auf Plattformen in Deutschland finden",
+              "query_parameters": {
+                "keywords": [
+                  "Podcast",
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Streaming",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "publication",
+                  "report"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 3,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt plattformbasierte Audioformate außerhalb klassischer Radioprogramme ab und erweitert die Marktübersicht."
+            },
+            {
+              "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+              "target_agent": "database",
+              "search_intent": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären",
+              "query_parameters": {
+                "keywords": [
+                  "Audioformat",
+                  "Radioprogramm",
+                  "Mediathek",
+                  "Podcast",
+                  "Definition"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "standard"
+                ],
+                "retrieval_mode": "bm25",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 4,
+              "status": "pending",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            },
+            {
+              "task_id": "3ba6c4ac-27a1-4dce-89f9-842cfc93eb80",
+              "target_agent": "database",
+              "search_intent": "Branchenverzeichnisse und Studien zu Fahrradmedien und Audioangeboten auswerten",
+              "query_parameters": {
+                "keywords": [
+                  "Fahrradmedien",
+                  "Branchenstudie",
+                  "Podcast",
+                  "Radio",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "report",
+                  "publication",
+                  "website"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 5,
+              "status": "pending",
+              "evidence_modality": "supporting",
+              "task_rationale": "Liefert ergänzende Landscape-Evidence und hilft, Lücken oder Nischenformate in der Bestandsaufnahme zu erkennen."
+            }
+          ],
+          "reasoning": "Die Forschungsfrage fokussiert Radverkehr als Teil des Straßenverkehrs und fragt nach einer Bestandsaufnahme auditiver Formate in Deutschland über drei Ausspielwege: lineares Radio, Mediatheken und Streamingplattformen. Für eine belastbare Recherche sollte die Suche nach Kanaltyp und Evidenzart getrennt werden: etablierte Programm- und Archivquellen, plattformspezifische Audioformate sowie ergänzende Branchen- und Katalogquellen zur Validierung des Stands 2024."
+        },
+        "parse_diagnostics": {
+          "structured_output_mode": "provider",
+          "token_usage_available": true,
+          "schema_enforcement_mode": "fail",
+          "schema": "ResearchPlanResponsePayload",
+          "schema_validation": "ok"
+        }
+      },
+      "token_usage": {
+        "input_tokens": 1107,
+        "output_tokens": 753,
+        "total_tokens": 1860
+      },
+      "cost": null,
+      "error": null
+    },
+    {
+      "event_id": "86b81f5a99a5",
+      "ts": "2026-04-13T16:21:44.047752+00:00",
+      "node": "hypothesis_gate_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.RETRIEVAL",
+      "iteration": 0,
+      "max_iterations": 2,
+      "duration_ms": 6680,
+      "input_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "research_plan": "object[2 fields]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "hypothesis_gate": "object[5 fields]",
+          "parse_diagnostics": "object[5 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "research_plan": {
+          "tasks": [
+            {
+              "task_id": "a6136fa4-7766-4d88-8aca-d61aa1354c0a",
+              "target_agent": "database",
+              "search_intent": "Radiobeiträge und Sendungsformate zu Radverkehr in Deutschland identifizieren",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Radio",
+                  "Deutschland",
+                  "Sendung"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 1,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Ermittelt den Kernbestand an linearen Radioformaten mit explizitem Bezug zum Radverkehr in Deutschland."
+            },
+            {
+              "task_id": "473bb98e-fd9e-42bd-8a1d-b59b4dfda100",
+              "target_agent": "database",
+              "search_intent": "Mediatheken deutscher Radiosender nach Fahrrad- und Radverkehrsaudio durchsuchen",
+              "query_parameters": {
+                "keywords": [
+                  "Mediathek",
+                  "Audiothek",
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "report"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 2,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Erfasst on-demand verfügbare Audioinhalte der Sender und verbindet lineare Formate mit ihren Archiv- oder Abrufangeboten."
+            },
+            {
+              "task_id": "6f7ec664-109c-42c2-b4a0-10f53bd2de6b",
+              "target_agent": "database",
+              "search_intent": "Podcasts und Streamingformate zum Radverkehr auf Plattformen in Deutschland finden",
+              "query_parameters": {
+                "keywords": [
+                  "Podcast",
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Streaming",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "publication",
+                  "report"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 3,
+              "status": "pending",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt plattformbasierte Audioformate außerhalb klassischer Radioprogramme ab und erweitert die Marktübersicht."
+            },
+            {
+              "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+              "target_agent": "database",
+              "search_intent": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären",
+              "query_parameters": {
+                "keywords": [
+                  "Audioformat",
+                  "Radioprogramm",
+                  "Mediathek",
+                  "Podcast",
+                  "Definition"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "standard"
+                ],
+                "retrieval_mode": "bm25",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 4,
+              "status": "pending",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            },
+            {
+              "task_id": "3ba6c4ac-27a1-4dce-89f9-842cfc93eb80",
+              "target_agent": "database",
+              "search_intent": "Branchenverzeichnisse und Studien zu Fahrradmedien und Audioangeboten auswerten",
+              "query_parameters": {
+                "keywords": [
+                  "Fahrradmedien",
+                  "Branchenstudie",
+                  "Podcast",
+                  "Radio",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "report",
+                  "publication",
+                  "website"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 5,
+              "status": "pending",
+              "evidence_modality": "supporting",
+              "task_rationale": "Liefert ergänzende Landscape-Evidence und hilft, Lücken oder Nischenformate in der Bestandsaufnahme zu erkennen."
+            }
+          ],
+          "reasoning": "Die Forschungsfrage fokussiert Radverkehr als Teil des Straßenverkehrs und fragt nach einer Bestandsaufnahme auditiver Formate in Deutschland über drei Ausspielwege: lineares Radio, Mediatheken und Streamingplattformen. Für eine belastbare Recherche sollte die Suche nach Kanaltyp und Evidenzart getrennt werden: etablierte Programm- und Archivquellen, plattformspezifische Audioformate sowie ergänzende Branchen- und Katalogquellen zur Validierung des Stands 2024."
+        }
+      },
+      "output": {
+        "hypothesis_gate": {
+          "is_hypothesis": true,
+          "score_total": 7,
+          "threshold": 6,
+          "dimension_scores": {
+            "scope_breadth": 2,
+            "comparative_nature": 1,
+            "temporal_depth": 1,
+            "evidence_diversity": 2,
+            "ambiguity_level": 1
+          },
+          "reasoning": "score=7/6; scope=2, comparative=1, temporal=1, evidence=2, ambiguity=1; llm_reasoning=Die Frage ist eine breite Bestandsaufnahme über mehrere Distributionskanäle in Deutschland (Radio, Mediatheken, Streaming) und erfordert daher breite Abdeckung. Sie ist nur moderat vergleichend, da eher Kategorien/Kanäle parallel erfasst als Hypothesen zwischen klaren Alternativen geprüft werden. Der Zeitbezug 'Stand 2024' verlangt begrenzte Aktualitätsprüfung, aber keine tiefe historische Analyse. Benötigt diverse Evidenz aus Sender-Websites, Mediatheken, Plattformen und ggf. Branchenquellen. Begriffsabgrenzungen zu 'auditiven Formaten' und Kanaltypen erzeugen gewisse, aber nicht extreme Ambiguität."
+        },
+        "parse_diagnostics": {
+          "structured_output_mode": "provider",
+          "token_usage_available": true,
+          "schema_enforcement_mode": "fail",
+          "schema": "HypothesisGateResponsePayload",
+          "schema_validation": "ok"
+        }
+      },
+      "token_usage": {
+        "input_tokens": 1588,
+        "output_tokens": 202,
+        "total_tokens": 1790
+      },
+      "cost": null,
+      "error": null
+    },
+    {
+      "event_id": "a03a3724fb8f",
+      "ts": "2026-04-13T16:21:45.028701+00:00",
+      "node": "database_retrieval_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.RETRIEVAL",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 951,
+      "input_summary": {
+        "type": "object",
+        "fields": 8,
+        "preview": {
+          "index_name": "chunks_eval",
+          "hypothesis_mode": true,
+          "final_retrieval_pass_pending": false,
+          "final_retrieval_pass_used": false,
+          "effective_top_k": 15,
+          "default_retrieval_mode": "hybrid",
+          "task_queries": "list[5]",
+          "tasks": "list[5]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 6,
+        "preview": {
+          "new_retrieval_results": "list[3]",
+          "retrieval_results": "list[3]",
+          "updated_tasks": "list[5]",
+          "deduped_docs_count": 0,
+          "novel_docs_count": 3,
+          "final_retrieval_pass_consumed": false
+        }
+      },
+      "input": {
+        "index_name": "chunks_eval",
+        "hypothesis_mode": true,
+        "final_retrieval_pass_pending": false,
+        "final_retrieval_pass_used": false,
+        "effective_top_k": 15,
+        "default_retrieval_mode": "hybrid",
+        "task_queries": [
+          {
+            "task_id": "a6136fa4-7766-4d88-8aca-d61aa1354c0a",
+            "query": "Radiobeiträge und Sendungsformate zu Radverkehr in Deutschland identifizieren Radverkehr Fahrrad Radio Deutschland Sendung",
+            "retrieval_mode": "hybrid"
+          },
+          {
+            "task_id": "473bb98e-fd9e-42bd-8a1d-b59b4dfda100",
+            "query": "Mediatheken deutscher Radiosender nach Fahrrad- und Radverkehrsaudio durchsuchen Mediathek Audiothek Radverkehr Fahrrad Deutschland",
+            "retrieval_mode": "hybrid"
+          },
+          {
+            "task_id": "6f7ec664-109c-42c2-b4a0-10f53bd2de6b",
+            "query": "Podcasts und Streamingformate zum Radverkehr auf Plattformen in Deutschland finden Podcast Radverkehr Fahrrad Streaming Deutschland",
+            "retrieval_mode": "hybrid"
+          },
+          {
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+            "retrieval_mode": "bm25"
+          },
+          {
+            "task_id": "3ba6c4ac-27a1-4dce-89f9-842cfc93eb80",
+            "query": "Branchenverzeichnisse und Studien zu Fahrradmedien und Audioangeboten auswerten Fahrradmedien Branchenstudie Podcast Radio Deutschland",
+            "retrieval_mode": "vector"
+          }
+        ],
+        "tasks": [
+          {
+            "task_id": "a6136fa4-7766-4d88-8aca-d61aa1354c0a",
+            "target_agent": "database",
+            "search_intent": "Radiobeiträge und Sendungsformate zu Radverkehr in Deutschland identifizieren",
+            "query_parameters": {
+              "keywords": [
+                "Radverkehr",
+                "Fahrrad",
+                "Radio",
+                "Deutschland",
+                "Sendung"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report",
+                "website"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 1,
+            "status": "pending",
+            "evidence_modality": "direct",
+            "task_rationale": "Ermittelt den Kernbestand an linearen Radioformaten mit explizitem Bezug zum Radverkehr in Deutschland."
+          },
+          {
+            "task_id": "473bb98e-fd9e-42bd-8a1d-b59b4dfda100",
+            "target_agent": "database",
+            "search_intent": "Mediatheken deutscher Radiosender nach Fahrrad- und Radverkehrsaudio durchsuchen",
+            "query_parameters": {
+              "keywords": [
+                "Mediathek",
+                "Audiothek",
+                "Radverkehr",
+                "Fahrrad",
+                "Deutschland"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "website",
+                "report"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 2,
+            "status": "pending",
+            "evidence_modality": "direct",
+            "task_rationale": "Erfasst on-demand verfügbare Audioinhalte der Sender und verbindet lineare Formate mit ihren Archiv- oder Abrufangeboten."
+          },
+          {
+            "task_id": "6f7ec664-109c-42c2-b4a0-10f53bd2de6b",
+            "target_agent": "database",
+            "search_intent": "Podcasts und Streamingformate zum Radverkehr auf Plattformen in Deutschland finden",
+            "query_parameters": {
+              "keywords": [
+                "Podcast",
+                "Radverkehr",
+                "Fahrrad",
+                "Streaming",
+                "Deutschland"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "website",
+                "publication",
+                "report"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 3,
+            "status": "pending",
+            "evidence_modality": "direct",
+            "task_rationale": "Deckt plattformbasierte Audioformate außerhalb klassischer Radioprogramme ab und erweitert die Marktübersicht."
+          },
+          {
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "target_agent": "database",
+            "search_intent": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären",
+            "query_parameters": {
+              "keywords": [
+                "Audioformat",
+                "Radioprogramm",
+                "Mediathek",
+                "Podcast",
+                "Definition"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report",
+                "standard"
+              ],
+              "retrieval_mode": "bm25",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 4,
+            "status": "pending",
+            "evidence_modality": "supporting",
+            "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+          },
+          {
+            "task_id": "3ba6c4ac-27a1-4dce-89f9-842cfc93eb80",
+            "target_agent": "database",
+            "search_intent": "Branchenverzeichnisse und Studien zu Fahrradmedien und Audioangeboten auswerten",
+            "query_parameters": {
+              "keywords": [
+                "Fahrradmedien",
+                "Branchenstudie",
+                "Podcast",
+                "Radio",
+                "Deutschland"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "report",
+                "publication",
+                "website"
+              ],
+              "retrieval_mode": "vector",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 5,
+            "status": "pending",
+            "evidence_modality": "supporting",
+            "task_rationale": "Liefert ergänzende Landscape-Evidence und hilft, Lücken oder Nischenformate in der Bestandsaufnahme zu erkennen."
+          }
+        ]
+      },
+      "output": {
+        "new_retrieval_results": [
+          {
+            "document_id": "T5VWQ50BVFQHb0ioQ4Ed",
+            "source_agent": "database",
+            "source_type": "paper",
+            "retrieval_iteration": 1,
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "content": {
+              "title": "On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie.",
+              "abstract_or_snippet": " Raumordnung, das gerade aktualisiert erschienen ist (Siefer et al., 2023). Um sich Fragestellungen rund um Mobilität im nachfrageschwachen Raum zu nä- hern, ist zunächst zu klären, welche Orte als nachfrageschwach verstanden werden - denn nachfrageschwache Zeit-Räume finden sich an allen Orten. Während sie sich in Städten jedoch auf die Nachtstunden beschränken, füllen sie in ländlichen Räumen vielerorts den ganzen Tag. Mit Blick auf die Forschung zu flexiblen Bedienformen und die Kategorisierung durch die Regionalwissenschaft lassen sich verschiedene Konzepte identifizieren. Im „Handbuch zur Planung flexibler Bedienformen im ÖPNV“ (Böhler et al., 2009) wird beispielsweise auf die Kategorisierung in 12 | Wuppertal Institut 202_Wuppertal Paper On-Demand-Ridepooling als Beitrag zu Mobilitätswende und Daseinsvorsorge städtisch/ländlich verzichtet und stattdessen eine Einwohnerdichte unter 200 Ein- wohner*innen/Quadratkilometer (EW/Km2) als Kriterium für die Abgrenzung „nachfrageschwacher Räume“ genutzt. Eine solche, einfach umzusetzende Typisie- rung kann bei einer Kombination mit den administrativen Gebietseinteilungen je- doch zu unzutreffenden Einordnungen führen: Kommunen im ländlichen Raum mit einer Einwohnerschaft von nur wenigen tausend Personen, aber ohne umliegende Wald- und Agrarflächen, weisen teilweise eine höhere Bevölkerungsdichte auf als Mittelstädte mit eingemeindetem, spärlich besiedeltem Umland. Andere Forschungsansätze wählen deutlich komplexere Zugänge zur Ermittlung des Raumtyps: Das Thünen-Institut kombiniert in seiner aktuellen Raumtypologie bei- spielsweise sowohl Siedlungsstrukurmerkmale wie auch den sozioökonomischen Sta- tus einer Region. So wird auch einbezogen, ob eine Region viele",
+              "full_text": null,
+              "url_or_identifier": "/app/data/eval_dataset/docs/On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie..pdf",
+              "publication_date": "2026-03-31 10:00:19.995710+00:00"
+            },
+            "relevance_score": 1.0,
+            "metadata": {
+              "chunk_id": "T5VWQ50BVFQHb0ioQ4Ed",
+              "source_id": "c4e67ae00b1a91b9",
+              "chunk_index": 16,
+              "token_count": 512,
+              "start_index": 25836,
+              "end_index": 27573,
+              "publisher": "eval_dataset",
+              "raw_score": 11.206451,
+              "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+              "retrieval_mode": "bm25",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            }
+          },
+          {
+            "document_id": "TpVWQ50BVFQHb0ioQ4ET",
+            "source_agent": "database",
+            "source_type": "paper",
+            "retrieval_iteration": 1,
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "content": {
+              "title": "On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie.",
+              "abstract_or_snippet": " 2018, S. 1). Um die Kosten für Aufgabenträger bzw. Verkehrsunternehmen zu reduzieren und dennoch eine Grundversorgung sicherzustellen, wurden bereits seit etwa 1980 voll- flexible Bedienungsformen im ÖPNV entwickelt und in nachfrageschwachen Räu- men umgesetzt (Gies und Langer, 2021, S. 10). Einen Überblick zur Geschichte des Bedarfsverkehrs bieten Mehlert und Schiefelbusch (2018). Die Idee dieser seitdem kontinuierlich weiterentwickelten bedarfsgerechten Bedienungsformen ist es, ein öf- fentliches Verkehrsangebot nur noch dann zu erbringen, wenn auch tatsächlich eine entsprechende Nachfrage besteht. Auf diesem Wege soll die Bereitstellung des Ange- botes gesichert, die Klimabilanz durch effizienten Fahrzeugeinsatz optimiert und gleichzeitig die ökonomische Tragfähigkeit verbessert werden. Diese klassischen fle- xiblen ÖPNV-Angebote sind inzwischen weit verbreitet und entsprechend praxiser- probt (u. A. Rufbus, Anrufsammeltaxi). Überwiegend sind sie jedoch weiterhin an einen Fahrplan und an feste Haltestellen gebunden. Zudem bieten sie oftmals nur eine Minimalversorgung und keine attraktive Alternative zum eigenen Pkw. Auf- grund ihrer hohen Kosten werden sie zudem teilweise nicht offensiv beworben (Gies & Langer, 2021, S. 8). Konkrete Handreichungen zu klassischen flexiblen Bedienfor- men für Aufgabenträger und Verkehrsunternehmen bietet beispielsweise ein Pla- nungsleitfaden des Bundesministeriums für Digitales und Verkehr (BMDV, siehe Sommer, 2016) sowie das Handbuch zur Planung flexibler Bedienformen des Bun- desamtes für Bau-, Stadt- und Raumordnung, das gerade aktualisiert erschienen ist (Siefer et al., 2023). Um sich Fragestellungen rund um Mobilität im nachfrageschwachen Raum zu nä- hern, ist zunächst zu klären",
+              "full_text": null,
+              "url_or_identifier": "/app/data/eval_dataset/docs/On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie..pdf",
+              "publication_date": "2026-03-31 10:00:19.985589+00:00"
+            },
+            "relevance_score": 0.9904802153688085,
+            "metadata": {
+              "chunk_id": "TpVWQ50BVFQHb0ioQ4ET",
+              "source_id": "c4e67ae00b1a91b9",
+              "chunk_index": 15,
+              "token_count": 512,
+              "start_index": 24267,
+              "end_index": 26016,
+              "publisher": "eval_dataset",
+              "raw_score": 11.099768,
+              "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+              "retrieval_mode": "bm25",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            }
+          },
+          {
+            "document_id": "IJVVQ50BVFQHb0io6YCN",
+            "source_agent": "database",
+            "source_type": "paper",
+            "retrieval_iteration": 1,
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "content": {
+              "title": "WIK Diskussionsbeitrag Nr 315 01",
+              "abstract_or_snippet": "t, Gernot Müller, Mar- cus Stronzik, Matthias Wissner: Stromerzeugung und Stromvertrieb – eine wettbewerbsökonomische Analy- se, August 2007 Nr. 298: Christian Growitsch, Matthias Wissner: Die Liberalisierung des Zähl- und Messwesens, September 2007 Nr. 299: Stephan Jay: in euro- Bedeutung von Bitstrom päischen Breitbandvorleistungsmärk- ten, September 2007 Nr. 300: Christian Growitsch, Gernot Müller, Margarethe Rammerstorfer, Prof. Dr. Christoph Weber (Lehrstuhl für Ener- giewirtschaft, Universität Duisburg- Essen): Determinanten der Preisentwicklung auf dem deutschen Minutenreserve- markt, Oktober 2007 Nr. 301: Gernot Müller:: Zur kostenbasierten Regulierung von Eisenbahninfrastrukturentgelten – Eine ökonomische Analyse von Kostenkon- zepten und Kostentreibern, Dezember 2007 Nr. 302: Patrick Anell, Stephan Jay, Thomas Plückebaum: Internetdiensten – Nachfrage nach Dienstearten, Verkehrseigenschaften und Quality of Service, Dezember 2007 Nr. 303: Christian Growitsch, Margarethe Ram- merstorfer: Zur wettbewerblichen Wirkung des Zweivertragsmodells im deutschen Gasmarkt, Februar 2008 Nr. 304: Patrick Anell, Konrad Zoz: Die Auswirkungen der Festnetzmobil- funksubstitution auf die Kosten des lei- tungsvermittelten Festnetzes, Februar 2008 Nr. 305: Marcus Stronzik, Margarethe Rammer- storfer, Anne Neumann: Wettbewerb im Markt für Erdgasspei- cher, März 2008 Wettbewerbspolitische Beurteilung von Rabattsystemen im Postmarkt, März 2008 Nr. 307: Franz Büllingen, Christin-Isabel Gries, Peter Stamm: Geschäftsmodelle und aktuelle Ent- wicklungen im Markt für Broadband Wireless Access-Dienste, März 2008 Nr. 308: Christian Growitsch, Gernot Müller, Marcus Str",
+              "full_text": null,
+              "url_or_identifier": "/app/data/eval_dataset/docs/WIK_Diskussionsbeitrag_Nr_315_01.pdf",
+              "publication_date": "2026-03-31 09:59:57.067895+00:00"
+            },
+            "relevance_score": 0.9671016274465486,
+            "metadata": {
+              "chunk_id": "IJVVQ50BVFQHb0io6YCN",
+              "source_id": "cdaebc0bc9c2aee7",
+              "chunk_index": 96,
+              "token_count": 512,
+              "start_index": 154319,
+              "end_index": 155992,
+              "publisher": "eval_dataset",
+              "raw_score": 10.837777,
+              "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+              "retrieval_mode": "bm25",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            }
+          }
+        ],
+        "retrieval_results": [
+          {
+            "document_id": "T5VWQ50BVFQHb0ioQ4Ed",
+            "source_agent": "database",
+            "source_type": "paper",
+            "retrieval_iteration": 1,
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "content": {
+              "title": "On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie.",
+              "abstract_or_snippet": " Raumordnung, das gerade aktualisiert erschienen ist (Siefer et al., 2023). Um sich Fragestellungen rund um Mobilität im nachfrageschwachen Raum zu nä- hern, ist zunächst zu klären, welche Orte als nachfrageschwach verstanden werden - denn nachfrageschwache Zeit-Räume finden sich an allen Orten. Während sie sich in Städten jedoch auf die Nachtstunden beschränken, füllen sie in ländlichen Räumen vielerorts den ganzen Tag. Mit Blick auf die Forschung zu flexiblen Bedienformen und die Kategorisierung durch die Regionalwissenschaft lassen sich verschiedene Konzepte identifizieren. Im „Handbuch zur Planung flexibler Bedienformen im ÖPNV“ (Böhler et al., 2009) wird beispielsweise auf die Kategorisierung in 12 | Wuppertal Institut 202_Wuppertal Paper On-Demand-Ridepooling als Beitrag zu Mobilitätswende und Daseinsvorsorge städtisch/ländlich verzichtet und stattdessen eine Einwohnerdichte unter 200 Ein- wohner*innen/Quadratkilometer (EW/Km2) als Kriterium für die Abgrenzung „nachfrageschwacher Räume“ genutzt. Eine solche, einfach umzusetzende Typisie- rung kann bei einer Kombination mit den administrativen Gebietseinteilungen je- doch zu unzutreffenden Einordnungen führen: Kommunen im ländlichen Raum mit einer Einwohnerschaft von nur wenigen tausend Personen, aber ohne umliegende Wald- und Agrarflächen, weisen teilweise eine höhere Bevölkerungsdichte auf als Mittelstädte mit eingemeindetem, spärlich besiedeltem Umland. Andere Forschungsansätze wählen deutlich komplexere Zugänge zur Ermittlung des Raumtyps: Das Thünen-Institut kombiniert in seiner aktuellen Raumtypologie bei- spielsweise sowohl Siedlungsstrukurmerkmale wie auch den sozioökonomischen Sta- tus einer Region. So wird auch einbezogen, ob eine Region viele",
+              "full_text": null,
+              "url_or_identifier": "/app/data/eval_dataset/docs/On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie..pdf",
+              "publication_date": "2026-03-31 10:00:19.995710+00:00"
+            },
+            "relevance_score": 1.0,
+            "metadata": {
+              "chunk_id": "T5VWQ50BVFQHb0ioQ4Ed",
+              "source_id": "c4e67ae00b1a91b9",
+              "chunk_index": 16,
+              "token_count": 512,
+              "start_index": 25836,
+              "end_index": 27573,
+              "publisher": "eval_dataset",
+              "raw_score": 11.206451,
+              "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+              "retrieval_mode": "bm25",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            }
+          },
+          {
+            "document_id": "TpVWQ50BVFQHb0ioQ4ET",
+            "source_agent": "database",
+            "source_type": "paper",
+            "retrieval_iteration": 1,
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "content": {
+              "title": "On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie.",
+              "abstract_or_snippet": " 2018, S. 1). Um die Kosten für Aufgabenträger bzw. Verkehrsunternehmen zu reduzieren und dennoch eine Grundversorgung sicherzustellen, wurden bereits seit etwa 1980 voll- flexible Bedienungsformen im ÖPNV entwickelt und in nachfrageschwachen Räu- men umgesetzt (Gies und Langer, 2021, S. 10). Einen Überblick zur Geschichte des Bedarfsverkehrs bieten Mehlert und Schiefelbusch (2018). Die Idee dieser seitdem kontinuierlich weiterentwickelten bedarfsgerechten Bedienungsformen ist es, ein öf- fentliches Verkehrsangebot nur noch dann zu erbringen, wenn auch tatsächlich eine entsprechende Nachfrage besteht. Auf diesem Wege soll die Bereitstellung des Ange- botes gesichert, die Klimabilanz durch effizienten Fahrzeugeinsatz optimiert und gleichzeitig die ökonomische Tragfähigkeit verbessert werden. Diese klassischen fle- xiblen ÖPNV-Angebote sind inzwischen weit verbreitet und entsprechend praxiser- probt (u. A. Rufbus, Anrufsammeltaxi). Überwiegend sind sie jedoch weiterhin an einen Fahrplan und an feste Haltestellen gebunden. Zudem bieten sie oftmals nur eine Minimalversorgung und keine attraktive Alternative zum eigenen Pkw. Auf- grund ihrer hohen Kosten werden sie zudem teilweise nicht offensiv beworben (Gies & Langer, 2021, S. 8). Konkrete Handreichungen zu klassischen flexiblen Bedienfor- men für Aufgabenträger und Verkehrsunternehmen bietet beispielsweise ein Pla- nungsleitfaden des Bundesministeriums für Digitales und Verkehr (BMDV, siehe Sommer, 2016) sowie das Handbuch zur Planung flexibler Bedienformen des Bun- desamtes für Bau-, Stadt- und Raumordnung, das gerade aktualisiert erschienen ist (Siefer et al., 2023). Um sich Fragestellungen rund um Mobilität im nachfrageschwachen Raum zu nä- hern, ist zunächst zu klären",
+              "full_text": null,
+              "url_or_identifier": "/app/data/eval_dataset/docs/On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie..pdf",
+              "publication_date": "2026-03-31 10:00:19.985589+00:00"
+            },
+            "relevance_score": 0.9904802153688085,
+            "metadata": {
+              "chunk_id": "TpVWQ50BVFQHb0ioQ4ET",
+              "source_id": "c4e67ae00b1a91b9",
+              "chunk_index": 15,
+              "token_count": 512,
+              "start_index": 24267,
+              "end_index": 26016,
+              "publisher": "eval_dataset",
+              "raw_score": 11.099768,
+              "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+              "retrieval_mode": "bm25",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            }
+          },
+          {
+            "document_id": "IJVVQ50BVFQHb0io6YCN",
+            "source_agent": "database",
+            "source_type": "paper",
+            "retrieval_iteration": 1,
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "content": {
+              "title": "WIK Diskussionsbeitrag Nr 315 01",
+              "abstract_or_snippet": "t, Gernot Müller, Mar- cus Stronzik, Matthias Wissner: Stromerzeugung und Stromvertrieb – eine wettbewerbsökonomische Analy- se, August 2007 Nr. 298: Christian Growitsch, Matthias Wissner: Die Liberalisierung des Zähl- und Messwesens, September 2007 Nr. 299: Stephan Jay: in euro- Bedeutung von Bitstrom päischen Breitbandvorleistungsmärk- ten, September 2007 Nr. 300: Christian Growitsch, Gernot Müller, Margarethe Rammerstorfer, Prof. Dr. Christoph Weber (Lehrstuhl für Ener- giewirtschaft, Universität Duisburg- Essen): Determinanten der Preisentwicklung auf dem deutschen Minutenreserve- markt, Oktober 2007 Nr. 301: Gernot Müller:: Zur kostenbasierten Regulierung von Eisenbahninfrastrukturentgelten – Eine ökonomische Analyse von Kostenkon- zepten und Kostentreibern, Dezember 2007 Nr. 302: Patrick Anell, Stephan Jay, Thomas Plückebaum: Internetdiensten – Nachfrage nach Dienstearten, Verkehrseigenschaften und Quality of Service, Dezember 2007 Nr. 303: Christian Growitsch, Margarethe Ram- merstorfer: Zur wettbewerblichen Wirkung des Zweivertragsmodells im deutschen Gasmarkt, Februar 2008 Nr. 304: Patrick Anell, Konrad Zoz: Die Auswirkungen der Festnetzmobil- funksubstitution auf die Kosten des lei- tungsvermittelten Festnetzes, Februar 2008 Nr. 305: Marcus Stronzik, Margarethe Rammer- storfer, Anne Neumann: Wettbewerb im Markt für Erdgasspei- cher, März 2008 Wettbewerbspolitische Beurteilung von Rabattsystemen im Postmarkt, März 2008 Nr. 307: Franz Büllingen, Christin-Isabel Gries, Peter Stamm: Geschäftsmodelle und aktuelle Ent- wicklungen im Markt für Broadband Wireless Access-Dienste, März 2008 Nr. 308: Christian Growitsch, Gernot Müller, Marcus Str",
+              "full_text": null,
+              "url_or_identifier": "/app/data/eval_dataset/docs/WIK_Diskussionsbeitrag_Nr_315_01.pdf",
+              "publication_date": "2026-03-31 09:59:57.067895+00:00"
+            },
+            "relevance_score": 0.9671016274465486,
+            "metadata": {
+              "chunk_id": "IJVVQ50BVFQHb0io6YCN",
+              "source_id": "cdaebc0bc9c2aee7",
+              "chunk_index": 96,
+              "token_count": 512,
+              "start_index": 154319,
+              "end_index": 155992,
+              "publisher": "eval_dataset",
+              "raw_score": 10.837777,
+              "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+              "retrieval_mode": "bm25",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            }
+          }
+        ],
+        "updated_tasks": [
+          {
+            "task_id": "a6136fa4-7766-4d88-8aca-d61aa1354c0a",
+            "target_agent": "database",
+            "search_intent": "Radiobeiträge und Sendungsformate zu Radverkehr in Deutschland identifizieren",
+            "query_parameters": {
+              "keywords": [
+                "Radverkehr",
+                "Fahrrad",
+                "Radio",
+                "Deutschland",
+                "Sendung"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report",
+                "website"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 1,
+            "status": "completed",
+            "evidence_modality": "direct",
+            "task_rationale": "Ermittelt den Kernbestand an linearen Radioformaten mit explizitem Bezug zum Radverkehr in Deutschland."
+          },
+          {
+            "task_id": "473bb98e-fd9e-42bd-8a1d-b59b4dfda100",
+            "target_agent": "database",
+            "search_intent": "Mediatheken deutscher Radiosender nach Fahrrad- und Radverkehrsaudio durchsuchen",
+            "query_parameters": {
+              "keywords": [
+                "Mediathek",
+                "Audiothek",
+                "Radverkehr",
+                "Fahrrad",
+                "Deutschland"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "website",
+                "report"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 2,
+            "status": "completed",
+            "evidence_modality": "direct",
+            "task_rationale": "Erfasst on-demand verfügbare Audioinhalte der Sender und verbindet lineare Formate mit ihren Archiv- oder Abrufangeboten."
+          },
+          {
+            "task_id": "6f7ec664-109c-42c2-b4a0-10f53bd2de6b",
+            "target_agent": "database",
+            "search_intent": "Podcasts und Streamingformate zum Radverkehr auf Plattformen in Deutschland finden",
+            "query_parameters": {
+              "keywords": [
+                "Podcast",
+                "Radverkehr",
+                "Fahrrad",
+                "Streaming",
+                "Deutschland"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "website",
+                "publication",
+                "report"
+              ],
+              "retrieval_mode": "hybrid",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 3,
+            "status": "completed",
+            "evidence_modality": "direct",
+            "task_rationale": "Deckt plattformbasierte Audioformate außerhalb klassischer Radioprogramme ab und erweitert die Marktübersicht."
+          },
+          {
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "target_agent": "database",
+            "search_intent": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären",
+            "query_parameters": {
+              "keywords": [
+                "Audioformat",
+                "Radioprogramm",
+                "Mediathek",
+                "Podcast",
+                "Definition"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "publication",
+                "report",
+                "standard"
+              ],
+              "retrieval_mode": "bm25",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 4,
+            "status": "completed",
+            "evidence_modality": "supporting",
+            "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+          },
+          {
+            "task_id": "3ba6c4ac-27a1-4dce-89f9-842cfc93eb80",
+            "target_agent": "database",
+            "search_intent": "Branchenverzeichnisse und Studien zu Fahrradmedien und Audioangeboten auswerten",
+            "query_parameters": {
+              "keywords": [
+                "Fahrradmedien",
+                "Branchenstudie",
+                "Podcast",
+                "Radio",
+                "Deutschland"
+              ],
+              "date_from": null,
+              "date_to": null,
+              "source_types": [
+                "report",
+                "publication",
+                "website"
+              ],
+              "retrieval_mode": "vector",
+              "filters": {
+                "date_to": "2024-12-31",
+                "country": "DE"
+              }
+            },
+            "priority": 5,
+            "status": "completed",
+            "evidence_modality": "supporting",
+            "task_rationale": "Liefert ergänzende Landscape-Evidence und hilft, Lücken oder Nischenformate in der Bestandsaufnahme zu erkennen."
+          }
+        ],
+        "deduped_docs_count": 0,
+        "novel_docs_count": 3,
+        "final_retrieval_pass_consumed": false
+      },
+      "token_usage": null,
+      "cost": null,
+      "error": null
+    },
+    {
+      "event_id": "3be9a83dc1fe",
+      "ts": "2026-04-13T16:21:52.289455+00:00",
+      "node": "reranker_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.HYPOTHESIS_GENERATION",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 7245,
+      "input_summary": {
+        "type": "object",
+        "fields": 4,
+        "preview": {
+          "chunks": 3,
+          "language": "de",
+          "task_count": 1,
+          "tasks": "list[1]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "kept": 0,
+          "all_chunks": "list[3]"
+        }
+      },
+      "input": {
+        "chunks": 3,
+        "language": "de",
+        "task_count": 1,
+        "tasks": [
+          "e61a8f9a-7e08-4534-a9b4-52161310ef42"
+        ]
+      },
+      "output": {
+        "kept": 0,
+        "all_chunks": [
+          {
+            "document_id": "T5VWQ50BVFQHb0ioQ4Ed",
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+            "reranker_score": 0,
+            "evidence_grade": "irrelevant",
+            "kept": false,
+            "title": "On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie.",
+            "abstract_or_snippet": " Raumordnung, das gerade aktualisiert erschienen ist (Siefer et al., 2023). Um sich Fragestellungen rund um Mobilität im nachfrageschwachen Raum zu nä- hern, ist zunächst zu klären, welche Orte als nachfrageschwach verstanden werden - denn nachfrageschwache Zeit-Räume finden sich an allen Orten. Während sie sich in Städten jedoch auf die Nachtstunden beschränken, füllen sie in ländlichen Räumen vielerorts den ganzen Tag. Mit Blick auf die Forschung zu flexiblen Bedienformen und die Kategorisierung durch die Regionalwissenschaft lassen sich verschiedene Konzepte identifizieren. Im „Handbuch zur Planung flexibler Bedienformen im ÖPNV“ (Böhler et al., 2009) wird beispielsweise auf die Kategorisierung in 12 | Wuppertal Institut 202_Wuppertal Paper On-Demand-Ridepooling als Beitrag zu Mobilitätswende und Daseinsvorsorge städtisch/ländlich verzichtet und stattdessen eine Einwohnerdichte unter 200 Ein- wohner*innen/Quadratkilometer (EW/Km2) als Kriterium für die Abgrenzung „nachfrageschwacher Räume“ genutzt. Eine solche, einfach umzusetzende Typisie- rung kann bei einer Kombination mit den administrativen Gebietseinteilungen je- doch zu unzutreffenden Einordnungen führen: Kommunen im ländlichen Raum mit einer Einwohnerschaft von nur wenigen tausend Personen, aber ohne umliegende Wald- und Agrarflächen, weisen teilweise eine höhere Bevölkerungsdichte auf als Mittelstädte mit eingemeindetem, spärlich besiedeltem Umland. Andere Forschungsansätze wählen deutlich komplexere Zugänge zur Ermittlung des Raumtyps: Das Thünen-Institut kombiniert in seiner aktuellen Raumtypologie bei- spielsweise sowohl Siedlungsstrukurmerkmale wie auch den sozioökonomischen Sta- tus einer Region. So wird auch einbezogen, ob eine Region viele",
+            "domain_applicability": {
+              "is_general_enough": true,
+              "confidence": 0.83,
+              "reason": "Beschreibt allgemeine Mobilitaetskonzepte zu nachfrageschwachen Raeumen und Kategorisierung flexibler Bedienformen; auf Strasse gut uebertragbar."
+            }
+          },
+          {
+            "document_id": "TpVWQ50BVFQHb0ioQ4ET",
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+            "reranker_score": 0,
+            "evidence_grade": "irrelevant",
+            "kept": false,
+            "title": "On-Demand-Ridepooling als Beitrag zur Mobilitätswende und Daseinsvorsorge – Status quo und Systemtypologie.",
+            "abstract_or_snippet": " 2018, S. 1). Um die Kosten für Aufgabenträger bzw. Verkehrsunternehmen zu reduzieren und dennoch eine Grundversorgung sicherzustellen, wurden bereits seit etwa 1980 voll- flexible Bedienungsformen im ÖPNV entwickelt und in nachfrageschwachen Räu- men umgesetzt (Gies und Langer, 2021, S. 10). Einen Überblick zur Geschichte des Bedarfsverkehrs bieten Mehlert und Schiefelbusch (2018). Die Idee dieser seitdem kontinuierlich weiterentwickelten bedarfsgerechten Bedienungsformen ist es, ein öf- fentliches Verkehrsangebot nur noch dann zu erbringen, wenn auch tatsächlich eine entsprechende Nachfrage besteht. Auf diesem Wege soll die Bereitstellung des Ange- botes gesichert, die Klimabilanz durch effizienten Fahrzeugeinsatz optimiert und gleichzeitig die ökonomische Tragfähigkeit verbessert werden. Diese klassischen fle- xiblen ÖPNV-Angebote sind inzwischen weit verbreitet und entsprechend praxiser- probt (u. A. Rufbus, Anrufsammeltaxi). Überwiegend sind sie jedoch weiterhin an einen Fahrplan und an feste Haltestellen gebunden. Zudem bieten sie oftmals nur eine Minimalversorgung und keine attraktive Alternative zum eigenen Pkw. Auf- grund ihrer hohen Kosten werden sie zudem teilweise nicht offensiv beworben (Gies & Langer, 2021, S. 8). Konkrete Handreichungen zu klassischen flexiblen Bedienfor- men für Aufgabenträger und Verkehrsunternehmen bietet beispielsweise ein Pla- nungsleitfaden des Bundesministeriums für Digitales und Verkehr (BMDV, siehe Sommer, 2016) sowie das Handbuch zur Planung flexibler Bedienformen des Bun- desamtes für Bau-, Stadt- und Raumordnung, das gerade aktualisiert erschienen ist (Siefer et al., 2023). Um sich Fragestellungen rund um Mobilität im nachfrageschwachen Raum zu nä- hern, ist zunächst zu klären",
+            "domain_applicability": {
+              "is_general_enough": true,
+              "confidence": 0.9,
+              "reason": "Behandelt allgemeine Prinzipien bedarfsgerechter OePNV-Bedienformen zur Grundversorgung in schwachen Nachfrageraumen; fachlich gut uebertragbar."
+            }
+          },
+          {
+            "document_id": "IJVVQ50BVFQHb0io6YCN",
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "task_query": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären Audioformat Radioprogramm Mediathek Podcast Definition",
+            "reranker_score": 0,
+            "evidence_grade": "irrelevant",
+            "kept": false,
+            "title": "WIK Diskussionsbeitrag Nr 315 01",
+            "abstract_or_snippet": "t, Gernot Müller, Mar- cus Stronzik, Matthias Wissner: Stromerzeugung und Stromvertrieb – eine wettbewerbsökonomische Analy- se, August 2007 Nr. 298: Christian Growitsch, Matthias Wissner: Die Liberalisierung des Zähl- und Messwesens, September 2007 Nr. 299: Stephan Jay: in euro- Bedeutung von Bitstrom päischen Breitbandvorleistungsmärk- ten, September 2007 Nr. 300: Christian Growitsch, Gernot Müller, Margarethe Rammerstorfer, Prof. Dr. Christoph Weber (Lehrstuhl für Ener- giewirtschaft, Universität Duisburg- Essen): Determinanten der Preisentwicklung auf dem deutschen Minutenreserve- markt, Oktober 2007 Nr. 301: Gernot Müller:: Zur kostenbasierten Regulierung von Eisenbahninfrastrukturentgelten – Eine ökonomische Analyse von Kostenkon- zepten und Kostentreibern, Dezember 2007 Nr. 302: Patrick Anell, Stephan Jay, Thomas Plückebaum: Internetdiensten – Nachfrage nach Dienstearten, Verkehrseigenschaften und Quality of Service, Dezember 2007 Nr. 303: Christian Growitsch, Margarethe Ram- merstorfer: Zur wettbewerblichen Wirkung des Zweivertragsmodells im deutschen Gasmarkt, Februar 2008 Nr. 304: Patrick Anell, Konrad Zoz: Die Auswirkungen der Festnetzmobil- funksubstitution auf die Kosten des lei- tungsvermittelten Festnetzes, Februar 2008 Nr. 305: Marcus Stronzik, Margarethe Rammer- storfer, Anne Neumann: Wettbewerb im Markt für Erdgasspei- cher, März 2008 Wettbewerbspolitische Beurteilung von Rabattsystemen im Postmarkt, März 2008 Nr. 307: Franz Büllingen, Christin-Isabel Gries, Peter Stamm: Geschäftsmodelle und aktuelle Ent- wicklungen im Markt für Broadband Wireless Access-Dienste, März 2008 Nr. 308: Christian Growitsch, Gernot Müller, Marcus Str",
+            "domain_applicability": {
+              "is_general_enough": false,
+              "confidence": 0.98,
+              "reason": "Liste von Publikationen zu Strom, Breitband und Messwesen; stark themenfremd und nicht auf die Zieldomaene Strasse uebertragbar."
+            }
+          }
+        ]
+      },
+      "token_usage": {
+        "by_task": [
+          {
+            "input_tokens": 2548,
+            "output_tokens": 85,
+            "total_tokens": 2633,
+            "parse": {
+              "structured_output_mode": "provider",
+              "token_usage_available": true,
+              "schema_enforcement_mode": "fail",
+              "schema": "RerankerResponsePayload",
+              "schema_validation": "ok"
+            },
+            "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+            "score_distribution": {
+              "3": 0,
+              "2": 0,
+              "1": 0,
+              "0": 3
+            },
+            "threshold": 1
+          }
+        ]
+      },
+      "cost": null,
+      "error": null
+    },
+    {
+      "event_id": "685ca6deb394",
+      "ts": "2026-04-13T16:22:02.506123+00:00",
+      "node": "hypothesis_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.HYPOTHESIS_GENERATION",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 10130,
+      "input_summary": {
+        "type": "object",
+        "fields": 7,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "generation_iteration": 1,
+          "research_plan_reasoning": "Die Forschungsfrage fokussiert Radverkehr als Teil des Straßenverkehrs und fragt nach einer Bestandsaufnahme auditiver Formate in Deutschland über drei Ausspielwege: lineares Radio…",
+          "research_aspects": "list[5]",
+          "aspect_extraction": "object[3 fields]",
+          "previous_hypotheses_count": 0,
+          "retrieval_results": "list[0]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 2,
+        "preview": {
+          "hypotheses": "list[0]",
+          "payload_guard": "object[2 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "generation_iteration": 1,
+        "research_plan_reasoning": "Die Forschungsfrage fokussiert Radverkehr als Teil des Straßenverkehrs und fragt nach einer Bestandsaufnahme auditiver Formate in Deutschland über drei Ausspielwege: lineares Radio, Mediatheken und Streamingplattformen. Für eine belastbare Recherche sollte die Suche nach Kanaltyp und Evidenzart getrennt werden: etablierte Programm- und Archivquellen, plattformspezifische Audioformate sowie ergänzende Branchen- und Katalogquellen zur Validierung des Stands 2024.",
+        "research_aspects": [
+          {
+            "aspect": "Kanaltyp-spezifische Formatkartierung",
+            "description": "Erfasst getrennt auditive Radverkehrsformate im linearen Radioprogramm, in senderbezogenen Mediatheken und auf Streamingplattformen, um die Bestandsaufnahme entlang der gefragten Ausspielwege systematisch zu strukturieren.",
+            "related_task_ids": []
+          },
+          {
+            "aspect": "Formatdefinition und Abgrenzung",
+            "description": "Klären muss, welche auditiven Angebote als relevante Formate zählen, etwa Einzelbeiträge, Rubriken, Sendungen, Podcasts oder On-Demand-Audio, damit die Erhebung konsistent und vergleichbar bleibt.",
+            "related_task_ids": []
+          },
+          {
+            "aspect": "Quellen- und Evidenzvalidierung zum Stand 2024",
+            "description": "Nutzt Programmarchive, Mediatheken, Plattformkataloge sowie Branchen- und Verzeichnisquellen, um die Existenz und Aktualität der Formate belastbar für den Referenzzeitpunkt 2024 zu belegen.",
+            "related_task_ids": []
+          },
+          {
+            "aspect": "Thematische Relevanz zum Radverkehr",
+            "description": "Prüft, ob Formate Radverkehr als eigenständiges Thema, wiederkehrenden Schwerpunkt oder verkehrspolitischen Teilaspekt behandeln, damit nur direkt einschlägige Audioangebote berücksichtigt werden.",
+            "related_task_ids": []
+          },
+          {
+            "aspect": "Deutschlandbezug und Marktverortung",
+            "description": "Stellt sicher, dass nur in Deutschland verfügbare oder deutschlandspezifische Audioformate erfasst werden und ordnet sie dem deutschen Audiomarkt beziehungsweise deutschen Anbietern und Plattformpräsenz zu.",
+            "related_task_ids": []
+          }
+        ],
+        "aspect_extraction": {
+          "mode": "llm",
+          "parse_diagnostics": {
+            "structured_output_mode": "provider",
+            "token_usage_available": true,
+            "schema_enforcement_mode": "fail",
+            "schema": "HypothesisAspectExtractionResponsePayload",
+            "schema_validation": "ok"
+          },
+          "token_usage": {
+            "input_tokens": 549,
+            "output_tokens": 330,
+            "total_tokens": 879
+          }
+        },
+        "previous_hypotheses_count": 0,
+        "retrieval_results": []
+      },
+      "output": {
+        "hypotheses": [],
+        "payload_guard": {
+          "used_retry": false,
+          "attempts": [
+            {
+              "attempt": 1,
+              "profile": {
+                "max_docs": 40,
+                "total_chars_budget": 180000,
+                "title_max_chars": 320,
+                "snippet_max_chars": 2400,
+                "identifier_max_chars": 420
+              },
+              "docs_metrics": {
+                "docs_input": 0,
+                "docs_selected": 0,
+                "docs_output": 0,
+                "char_budget": 180000,
+                "chars_used": 0
+              },
+              "status": "ok",
+              "parse": {
+                "structured_output_mode": "provider",
+                "token_usage_available": true,
+                "schema_enforcement_mode": "fail",
+                "schema": "HypothesisResponsePayload",
+                "schema_validation": "ok"
+              }
+            }
+          ]
+        }
+      },
+      "token_usage": {
+        "by_attempt": [
+          {
+            "attempt": 1,
+            "input_tokens": 1119,
+            "output_tokens": 131,
+            "total_tokens": 1250
+          }
+        ],
+        "input_tokens": 1119,
+        "output_tokens": 131,
+        "total_tokens": 1250
+      },
+      "cost": null,
+      "error": null
+    },
+    {
+      "event_id": "c1984294e3a6",
+      "ts": "2026-04-13T16:22:04.887413+00:00",
+      "node": "challenge_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.CHALLENGE",
+      "iteration": 0,
+      "max_iterations": 1,
+      "duration_ms": 2332,
+      "input_summary": {
+        "type": "object",
+        "fields": 3,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "hypotheses": "list[0]",
+          "retrieval_results": "list[0]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 13,
+        "preview": {
+          "updated_hypotheses": "list[0]",
+          "challenge_findings": "list[0]",
+          "information_gaps": "list[0]",
+          "followup_tasks": "list[0]",
+          "followup_tasks_generated": 0,
+          "followup_tasks_deduped": 0,
+          "stagnation_detected_count": 0,
+          "pivot_tasks_generated": 0,
+          "avg_evidence_novelty": null,
+          "actionable_gap_count": 0,
+          "final_retrieval_pass_pending": false,
+          "research_plan": "object[2 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "hypotheses": [],
+        "retrieval_results": []
+      },
+      "output": {
+        "updated_hypotheses": [],
+        "challenge_findings": [],
+        "information_gaps": [],
+        "followup_tasks": [],
+        "followup_tasks_generated": 0,
+        "followup_tasks_deduped": 0,
+        "stagnation_detected_count": 0,
+        "pivot_tasks_generated": 0,
+        "avg_evidence_novelty": null,
+        "actionable_gap_count": 0,
+        "final_retrieval_pass_pending": false,
+        "research_plan": {
+          "tasks": [
+            {
+              "task_id": "a6136fa4-7766-4d88-8aca-d61aa1354c0a",
+              "target_agent": "database",
+              "search_intent": "Radiobeiträge und Sendungsformate zu Radverkehr in Deutschland identifizieren",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Radio",
+                  "Deutschland",
+                  "Sendung"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 1,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Ermittelt den Kernbestand an linearen Radioformaten mit explizitem Bezug zum Radverkehr in Deutschland."
+            },
+            {
+              "task_id": "473bb98e-fd9e-42bd-8a1d-b59b4dfda100",
+              "target_agent": "database",
+              "search_intent": "Mediatheken deutscher Radiosender nach Fahrrad- und Radverkehrsaudio durchsuchen",
+              "query_parameters": {
+                "keywords": [
+                  "Mediathek",
+                  "Audiothek",
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "report"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 2,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Erfasst on-demand verfügbare Audioinhalte der Sender und verbindet lineare Formate mit ihren Archiv- oder Abrufangeboten."
+            },
+            {
+              "task_id": "6f7ec664-109c-42c2-b4a0-10f53bd2de6b",
+              "target_agent": "database",
+              "search_intent": "Podcasts und Streamingformate zum Radverkehr auf Plattformen in Deutschland finden",
+              "query_parameters": {
+                "keywords": [
+                  "Podcast",
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Streaming",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "publication",
+                  "report"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 3,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt plattformbasierte Audioformate außerhalb klassischer Radioprogramme ab und erweitert die Marktübersicht."
+            },
+            {
+              "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+              "target_agent": "database",
+              "search_intent": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären",
+              "query_parameters": {
+                "keywords": [
+                  "Audioformat",
+                  "Radioprogramm",
+                  "Mediathek",
+                  "Podcast",
+                  "Definition"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "standard"
+                ],
+                "retrieval_mode": "bm25",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 4,
+              "status": "completed",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            },
+            {
+              "task_id": "3ba6c4ac-27a1-4dce-89f9-842cfc93eb80",
+              "target_agent": "database",
+              "search_intent": "Branchenverzeichnisse und Studien zu Fahrradmedien und Audioangeboten auswerten",
+              "query_parameters": {
+                "keywords": [
+                  "Fahrradmedien",
+                  "Branchenstudie",
+                  "Podcast",
+                  "Radio",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "report",
+                  "publication",
+                  "website"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 5,
+              "status": "completed",
+              "evidence_modality": "supporting",
+              "task_rationale": "Liefert ergänzende Landscape-Evidence und hilft, Lücken oder Nischenformate in der Bestandsaufnahme zu erkennen."
+            }
+          ],
+          "reasoning": "Die Forschungsfrage fokussiert Radverkehr als Teil des Straßenverkehrs und fragt nach einer Bestandsaufnahme auditiver Formate in Deutschland über drei Ausspielwege: lineares Radio, Mediatheken und Streamingplattformen. Für eine belastbare Recherche sollte die Suche nach Kanaltyp und Evidenzart getrennt werden: etablierte Programm- und Archivquellen, plattformspezifische Audioformate sowie ergänzende Branchen- und Katalogquellen zur Validierung des Stands 2024."
+        },
+        "payload_guard": {
+          "used_retry": false,
+          "attempts": [
+            {
+              "attempt": 1,
+              "profile": {
+                "docs": {
+                  "max_docs": 36,
+                  "total_chars_budget": 150000,
+                  "title_max_chars": 300,
+                  "snippet_max_chars": 1800,
+                  "identifier_max_chars": 320
+                },
+                "hypotheses": {
+                  "max_hypotheses": 8,
+                  "total_chars_budget": 40000,
+                  "statement_max_chars": 420,
+                  "reasoning_max_chars": 900,
+                  "max_supporting_evidence_ids": 12
+                }
+              },
+              "docs_metrics": {
+                "docs_input": 0,
+                "docs_selected": 0,
+                "docs_output": 0,
+                "char_budget": 150000,
+                "chars_used": 0
+              },
+              "hypotheses_metrics": {
+                "hypotheses_input": 0,
+                "hypotheses_selected": 0,
+                "hypotheses_output": 0,
+                "char_budget": 40000,
+                "chars_used": 0
+              },
+              "status": "ok",
+              "parse": {
+                "structured_output_mode": "provider",
+                "token_usage_available": true,
+                "schema_enforcement_mode": "fail",
+                "schema": "ChallengeResponsePayload",
+                "schema_validation": "ok"
+              }
+            }
+          ]
+        }
+      },
+      "token_usage": {
+        "by_attempt": [
+          {
+            "attempt": 1,
+            "input_tokens": 947,
+            "output_tokens": 81,
+            "total_tokens": 1028
+          }
+        ],
+        "input_tokens": 947,
+        "output_tokens": 81,
+        "total_tokens": 1028
+      },
+      "cost": null,
+      "error": null
+    },
+    {
+      "event_id": "74d8adc7c773",
+      "ts": "2026-04-13T16:22:04.945658+00:00",
+      "node": "knowledge_synthesis_agent",
+      "event": "node_end",
+      "status": "ok",
+      "phase": "ExecutionPhase.SYNTHESIS",
+      "iteration": 1,
+      "max_iterations": 1,
+      "duration_ms": 1,
+      "input_summary": {
+        "type": "object",
+        "fields": 6,
+        "preview": {
+          "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+          "user_message": "Forschungsfrage: Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattforme…",
+          "research_plan": "object[2 fields]",
+          "retrieval_results": "list[0]",
+          "hypotheses": "list[0]",
+          "challenge_findings": "list[0]"
+        }
+      },
+      "output_summary": {
+        "type": "object",
+        "fields": 3,
+        "preview": {
+          "synthesis_output": "object[19 fields]",
+          "evidence_quality": "object[8 fields]",
+          "evidence_gate": "object[8 fields]"
+        }
+      },
+      "input": {
+        "query": "Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?",
+        "user_message": "Forschungsfrage: Welche auditiven Formate zum Thema Radverkehr existieren derzeit (Stand: 2024) im linearen Radioprogramm, den zugehörigen Mediatheken sowie auf Streamingplattformen in Deutschland?\n\nErkannte Domänen: road",
+        "research_plan": {
+          "tasks": [
+            {
+              "task_id": "a6136fa4-7766-4d88-8aca-d61aa1354c0a",
+              "target_agent": "database",
+              "search_intent": "Radiobeiträge und Sendungsformate zu Radverkehr in Deutschland identifizieren",
+              "query_parameters": {
+                "keywords": [
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Radio",
+                  "Deutschland",
+                  "Sendung"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "website"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 1,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Ermittelt den Kernbestand an linearen Radioformaten mit explizitem Bezug zum Radverkehr in Deutschland."
+            },
+            {
+              "task_id": "473bb98e-fd9e-42bd-8a1d-b59b4dfda100",
+              "target_agent": "database",
+              "search_intent": "Mediatheken deutscher Radiosender nach Fahrrad- und Radverkehrsaudio durchsuchen",
+              "query_parameters": {
+                "keywords": [
+                  "Mediathek",
+                  "Audiothek",
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "report"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 2,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Erfasst on-demand verfügbare Audioinhalte der Sender und verbindet lineare Formate mit ihren Archiv- oder Abrufangeboten."
+            },
+            {
+              "task_id": "6f7ec664-109c-42c2-b4a0-10f53bd2de6b",
+              "target_agent": "database",
+              "search_intent": "Podcasts und Streamingformate zum Radverkehr auf Plattformen in Deutschland finden",
+              "query_parameters": {
+                "keywords": [
+                  "Podcast",
+                  "Radverkehr",
+                  "Fahrrad",
+                  "Streaming",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "website",
+                  "publication",
+                  "report"
+                ],
+                "retrieval_mode": "hybrid",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 3,
+              "status": "completed",
+              "evidence_modality": "direct",
+              "task_rationale": "Deckt plattformbasierte Audioformate außerhalb klassischer Radioprogramme ab und erweitert die Marktübersicht."
+            },
+            {
+              "task_id": "e61a8f9a-7e08-4534-a9b4-52161310ef42",
+              "target_agent": "database",
+              "search_intent": "Begriffe und Abgrenzungen auditiver Formate im deutschen Audiomarkt klären",
+              "query_parameters": {
+                "keywords": [
+                  "Audioformat",
+                  "Radioprogramm",
+                  "Mediathek",
+                  "Podcast",
+                  "Definition"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "publication",
+                  "report",
+                  "standard"
+                ],
+                "retrieval_mode": "bm25",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 4,
+              "status": "completed",
+              "evidence_modality": "supporting",
+              "task_rationale": "Sichert eine konsistente Kategorisierung der gefundenen Formate über die drei Verbreitungswege hinweg."
+            },
+            {
+              "task_id": "3ba6c4ac-27a1-4dce-89f9-842cfc93eb80",
+              "target_agent": "database",
+              "search_intent": "Branchenverzeichnisse und Studien zu Fahrradmedien und Audioangeboten auswerten",
+              "query_parameters": {
+                "keywords": [
+                  "Fahrradmedien",
+                  "Branchenstudie",
+                  "Podcast",
+                  "Radio",
+                  "Deutschland"
+                ],
+                "date_from": null,
+                "date_to": null,
+                "source_types": [
+                  "report",
+                  "publication",
+                  "website"
+                ],
+                "retrieval_mode": "vector",
+                "filters": {
+                  "date_to": "2024-12-31",
+                  "country": "DE"
+                }
+              },
+              "priority": 5,
+              "status": "completed",
+              "evidence_modality": "supporting",
+              "task_rationale": "Liefert ergänzende Landscape-Evidence und hilft, Lücken oder Nischenformate in der Bestandsaufnahme zu erkennen."
+            }
+          ],
+          "reasoning": "Die Forschungsfrage fokussiert Radverkehr als Teil des Straßenverkehrs und fragt nach einer Bestandsaufnahme auditiver Formate in Deutschland über drei Ausspielwege: lineares Radio, Mediatheken und Streamingplattformen. Für eine belastbare Recherche sollte die Suche nach Kanaltyp und Evidenzart getrennt werden: etablierte Programm- und Archivquellen, plattformspezifische Audioformate sowie ergänzende Branchen- und Katalogquellen zur Validierung des Stands 2024."
+        },
+        "retrieval_results": [],
+        "hypotheses": [],
+        "challenge_findings": []
+      },
+      "output": {
+        "synthesis_output": {
+          "answer": "",
+          "claims": [],
+          "missing_information": [
+            "Es konnte keine belastbare Antwort aus den verfügbaren Quellen erzeugt werden.",
+            "Gründe: - Keine relevanten Quellen gefunden."
+          ],
+          "hypothesis_mode": true,
+          "hypothesis_gate_reasoning": "score=7/6; scope=2, comparative=1, temporal=1, evidence=2, ambiguity=1; llm_reasoning=Die Frage ist eine breite Bestandsaufnahme über mehrere Distributionskanäle in Deutschland (Radio, Mediatheken, Streaming) und erfordert daher breite Abdeckung. Sie ist nur moderat vergleichend, da eher Kategorien/Kanäle parallel erfasst als Hypothesen zwischen klaren Alternativen geprüft werden. Der Zeitbezug 'Stand 2024' verlangt begrenzte Aktualitätsprüfung, aber keine tiefe historische Analyse. Benötigt diverse Evidenz aus Sender-Websites, Mediatheken, Plattformen und ggf. Branchenquellen. Begriffsabgrenzungen zu 'auditiven Formaten' und Kanaltypen erzeugen gewisse, aber nicht extreme Ambiguität.",
+          "outcome_status": "unresolved",
+          "resolution_reason": "Abstention: Evidenzqualität unzureichend für eine belastbare Antwort.",
+          "competing_positions": [],
+          "recommended_next_steps": [],
+          "confidence_by_hypothesis": {},
+          "confidence_disclaimers": [],
+          "source_quality_profile": {
+            "corpus_profile": {
+              "total_sources": 2,
+              "source_type_distribution": {
+                "unknown": {
+                  "count": 2,
+                  "percentage": 100.0
+                }
+              },
+              "review_status_distribution": {
+                "unknown": {
+                  "count": 2,
+                  "percentage": 100.0
+                }
+              },
+              "language_distribution": {
+                "en": {
+                  "count": 2,
+                  "percentage": 100.0
+                }
+              },
+              "access_distribution": {
+                "unknown": {
+                  "count": 2,
+                  "percentage": 100.0
+                }
+              },
+              "citation_impact": {
+                "available_count": 0,
+                "total_count": 2,
+                "coverage_percentage": 0.0,
+                "median": null,
+                "minimum": null,
+                "maximum": null
+              },
+              "temporal_distribution": {
+                "year_histogram": {
+                  "2026": 2
+                },
+                "confidence_distribution": {
+                  "unknown": {
+                    "count": 2,
+                    "percentage": 100.0
+                  }
+                },
+                "min_year": 2026,
+                "max_year": 2026,
+                "median_year": 2026.0,
+                "recent_share_since_year": 2024,
+                "recent_share_percentage": 100.0
+              },
+              "transport_domain_coverage": {},
+              "multi_domain_count": 0,
+              "crawl_freshness": {
+                "stale_count": 0,
+                "failed_count": 0,
+                "fresh_count": 0,
+                "unknown_count": 2,
+                "stale_threshold_days": 90,
+                "stale_source_ids": [],
+                "failed_source_ids": []
+              },
+              "key_metrics": {
+                "peer_reviewed_share": 0.0,
+                "median_year": 2026.0,
+                "open_access_share": 0.0,
+                "high_date_confidence_share": 0.0
+              }
+            },
+            "selection_profile": {
+              "total_sources": 0,
+              "source_type_distribution": {},
+              "review_status_distribution": {},
+              "language_distribution": {},
+              "access_distribution": {},
+              "citation_impact": {
+                "available_count": 0,
+                "total_count": 0,
+                "coverage_percentage": 0.0,
+                "median": null,
+                "minimum": null,
+                "maximum": null
+              },
+              "temporal_distribution": {
+                "year_histogram": {},
+                "confidence_distribution": {},
+                "min_year": null,
+                "max_year": null,
+                "median_year": null,
+                "recent_share_since_year": null,
+                "recent_share_percentage": 0.0
+              },
+              "transport_domain_coverage": {},
+              "multi_domain_count": 0,
+              "crawl_freshness": {
+                "stale_count": 0,
+                "failed_count": 0,
+                "fresh_count": 0,
+                "unknown_count": 0,
+                "stale_threshold_days": 90,
+                "stale_source_ids": [],
+                "failed_source_ids": []
+              },
+              "key_metrics": {
+                "peer_reviewed_share": 0.0,
+                "median_year": null,
+                "open_access_share": 0.0,
+                "high_date_confidence_share": 0.0
+              }
+            },
+            "deltas": [
+              {
+                "dimension": "source_type_distribution",
+                "statement": "The selected sources are 0% unknown, while the broader retrieval set is 100% unknown."
+              },
+              {
+                "dimension": "review_status_distribution",
+                "statement": "The selected sources are 0% unknown, while the broader retrieval set is 100% unknown."
+              },
+              {
+                "dimension": "language_distribution",
+                "statement": "Language 'en' accounts for 100% of the retrieval set but is absent from the selected sources."
+              }
+            ],
+            "selected_source_cards": [],
+            "enrichment_metrics": {
+              "corpus_sources_attempted": 2,
+              "corpus_sources_resolved": 2,
+              "corpus_source_resolution_rate": 100.0,
+              "corpus_crawl_sources_matched": 0,
+              "corpus_crawl_match_rate": 0.0,
+              "corpus_crawl_states_found": 0,
+              "corpus_crawl_state_coverage_rate": 0.0,
+              "selection_sources_attempted": 0,
+              "selection_sources_resolved": 0,
+              "selection_source_resolution_rate": 0.0,
+              "selection_crawl_sources_matched": 0,
+              "selection_crawl_match_rate": 0.0,
+              "selection_crawl_states_found": 0,
+              "selection_crawl_state_coverage_rate": 0.0
+            }
+          },
+          "summary": "",
+          "key_findings": [],
+          "technology_entities": [],
+          "evidence_map": [],
+          "confidence_assessment": "",
+          "limitations": [
+            "Es konnte keine belastbare Antwort aus den verfügbaren Quellen erzeugt werden.",
+            "Gründe: - Keine relevanten Quellen gefunden."
+          ],
+          "suggested_further_research": []
+        },
+        "evidence_quality": {
+          "hard_fail": true,
+          "decision": "abstain",
+          "band": "reject",
+          "confidence_score": 0.0,
+          "should_abstain": true,
+          "signals": {
+            "total_chunks": 0
+          },
+          "threshold_reasons": [],
+          "reasons": [
+            "Keine relevanten Quellen gefunden."
+          ]
+        },
+        "evidence_gate": {
+          "hard_fail": true,
+          "decision": "abstain",
+          "band": "reject",
+          "confidence_score": 0.0,
+          "should_abstain": true,
+          "signals": {
+            "total_chunks": 0
+          },
+          "threshold_reasons": [],
+          "reasons": [
+            "Keine relevanten Quellen gefunden."
+          ]
+        }
+      },
+      "token_usage": null,
+      "cost": null,
+      "error": null
+    }
+  ],
+  "final_output": {
+    "answer": "",
+    "claims": [],
+    "missing_information": [
+      "Es konnte keine belastbare Antwort aus den verfügbaren Quellen erzeugt werden.",
+      "Gründe: - Keine relevanten Quellen gefunden."
+    ],
+    "hypothesis_mode": true,
+    "hypothesis_gate_reasoning": "score=7/6; scope=2, comparative=1, temporal=1, evidence=2, ambiguity=1; llm_reasoning=Die Frage ist eine breite Bestandsaufnahme über mehrere Distributionskanäle in Deutschland (Radio, Mediatheken, Streaming) und erfordert daher breite Abdeckung. Sie ist nur moderat vergleichend, da eher Kategorien/Kanäle parallel erfasst als Hypothesen zwischen klaren Alternativen geprüft werden. Der Zeitbezug 'Stand 2024' verlangt begrenzte Aktualitätsprüfung, aber keine tiefe historische Analyse. Benötigt diverse Evidenz aus Sender-Websites, Mediatheken, Plattformen und ggf. Branchenquellen. Begriffsabgrenzungen zu 'auditiven Formaten' und Kanaltypen erzeugen gewisse, aber nicht extreme Ambiguität.",
+    "outcome_status": "unresolved",
+    "resolution_reason": "Abstention: Evidenzqualität unzureichend für eine belastbare Antwort.",
+    "competing_positions": [],
+    "recommended_next_steps": [],
+    "confidence_by_hypothesis": {},
+    "confidence_disclaimers": [],
+    "source_quality_profile": {
+      "corpus_profile": {
+        "total_sources": 2,
+        "source_type_distribution": {
+          "unknown": {
+            "count": 2,
+            "percentage": 100.0
+          }
+        },
+        "review_status_distribution": {
+          "unknown": {
+            "count": 2,
+            "percentage": 100.0
+          }
+        },
+        "language_distribution": {
+          "en": {
+            "count": 2,
+            "percentage": 100.0
+          }
+        },
+        "access_distribution": {
+          "unknown": {
+            "count": 2,
+            "percentage": 100.0
+          }
+        },
+        "citation_impact": {
+          "available_count": 0,
+          "total_count": 2,
+          "coverage_percentage": 0.0,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "temporal_distribution": {
+          "year_histogram": {
+            "2026": 2
+          },
+          "confidence_distribution": {
+            "unknown": {
+              "count": 2,
+              "percentage": 100.0
+            }
+          },
+          "min_year": 2026,
+          "max_year": 2026,
+          "median_year": 2026.0,
+          "recent_share_since_year": 2024,
+          "recent_share_percentage": 100.0
+        },
+        "transport_domain_coverage": {},
+        "multi_domain_count": 0,
+        "crawl_freshness": {
+          "stale_count": 0,
+          "failed_count": 0,
+          "fresh_count": 0,
+          "unknown_count": 2,
+          "stale_threshold_days": 90,
+          "stale_source_ids": [],
+          "failed_source_ids": []
+        },
+        "key_metrics": {
+          "peer_reviewed_share": 0.0,
+          "median_year": 2026.0,
+          "open_access_share": 0.0,
+          "high_date_confidence_share": 0.0
+        }
+      },
+      "selection_profile": {
+        "total_sources": 0,
+        "source_type_distribution": {},
+        "review_status_distribution": {},
+        "language_distribution": {},
+        "access_distribution": {},
+        "citation_impact": {
+          "available_count": 0,
+          "total_count": 0,
+          "coverage_percentage": 0.0,
+          "median": null,
+          "minimum": null,
+          "maximum": null
+        },
+        "temporal_distribution": {
+          "year_histogram": {},
+          "confidence_distribution": {},
+          "min_year": null,
+          "max_year": null,
+          "median_year": null,
+          "recent_share_since_year": null,
+          "recent_share_percentage": 0.0
+        },
+        "transport_domain_coverage": {},
+        "multi_domain_count": 0,
+        "crawl_freshness": {
+          "stale_count": 0,
+          "failed_count": 0,
+          "fresh_count": 0,
+          "unknown_count": 0,
+          "stale_threshold_days": 90,
+          "stale_source_ids": [],
+          "failed_source_ids": []
+        },
+        "key_metrics": {
+          "peer_reviewed_share": 0.0,
+          "median_year": null,
+          "open_access_share": 0.0,
+          "high_date_confidence_share": 0.0
+        }
+      },
+      "deltas": [
+        {
+          "dimension": "source_type_distribution",
+          "statement": "The selected sources are 0% unknown, while the broader retrieval set is 100% unknown."
+        },
+        {
+          "dimension": "review_status_distribution",
+          "statement": "The selected sources are 0% unknown, while the broader retrieval set is 100% unknown."
+        },
+        {
+          "dimension": "language_distribution",
+          "statement": "Language 'en' accounts for 100% of the retrieval set but is absent from the selected sources."
+        }
+      ],
+      "selected_source_cards": [],
+      "enrichment_metrics": {
+        "corpus_sources_attempted": 2,
+        "corpus_sources_resolved": 2,
+        "corpus_source_resolution_rate": 100.0,
+        "corpus_crawl_sources_matched": 0,
+        "corpus_crawl_match_rate": 0.0,
+        "corpus_crawl_states_found": 0,
+        "corpus_crawl_state_coverage_rate": 0.0,
+        "selection_sources_attempted": 0,
+        "selection_sources_resolved": 0,
+        "selection_source_resolution_rate": 0.0,
+        "selection_crawl_sources_matched": 0,
+        "selection_crawl_match_rate": 0.0,
+        "selection_crawl_states_found": 0,
+        "selection_crawl_state_coverage_rate": 0.0
+      }
+    },
+    "summary": "",
+    "key_findings": [],
+    "technology_entities": [],
+    "evidence_map": [],
+    "confidence_assessment": "",
+    "limitations": [
+      "Es konnte keine belastbare Antwort aus den verfügbaren Quellen erzeugt werden.",
+      "Gründe: - Keine relevanten Quellen gefunden."
+    ],
+    "suggested_further_research": []
+  }
+}

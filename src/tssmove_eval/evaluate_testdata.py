@@ -29,6 +29,7 @@ from ragas.llms import llm_factory
 from ragas.embeddings.base import embedding_factory
 from ragas.metrics.collections import Faithfulness, AnswerRelevancy, AnswerCorrectness, FactualCorrectness
 from dotenv import load_dotenv
+from pathlib import Path
 
 load_dotenv()
 
@@ -52,15 +53,33 @@ DATASET_DIR = "./tmp_ragas"  # directory where ragas saves the dataset CSV
 TESTDOC_DIR = "data/source_docs"
 
 configs = [
-  {
-    "experiment_name": "Antwort_vs_ChatGPTBezug",
-    "col_dict": {"user_input": "Fragestellung", "response": "Antwort", "reference": "ChatGPT Antwort (Bezug zu Dokument)"},
-  },
-  {
-    "experiment_name": "Antwort_vs_ChatGPTGeneric",
-    "col_dict": {"user_input": "Fragestellung", "response": "Antwort",
-                 "reference": "ChatGPT Antwort Generisch (ohne Bezug auf Dokument)"},
-  },
+  #{
+  #  "experiment_name": "Antwort_vs_ChatGPTBezug",
+  #  "col_dict": {"user_input": "Fragestellung", "response": "Antwort", "reference": "ChatGPT Antwort (Bezug zu Dokument)"},
+  #},
+  #{
+  #  "experiment_name": "Antwort_vs_ChatGPTGeneric",
+  #  "col_dict": {"user_input": "Fragestellung", "response": "Antwort",
+  #               "reference": "ChatGPT Antwort Generisch (ohne Bezug auf Dokument)"},
+  #},
+    {
+        "experiment_name": "tssmove_vs_refantwort_eval2",
+        "run_dir": "data/Eval_Dataset_Results_v2",
+        "col_dict": {"user_input": "Fragestellung", "response": "tss_move_antwort",
+                    "reference": "Antwort"},
+    },
+    {
+        "experiment_name": "tssmove_vs_refantwort_eval3",
+        "run_dir": "data/Eval_Dataset_Results_v3",
+        "col_dict": {"user_input": "Fragestellung", "response": "tss_move_antwort",
+                     "reference": "Antwort"},
+    },
+    {
+        "experiment_name": "tssmove_vs_refantwort_fidmove_v2",
+        "run_dir": "data/FIDMove_Results_V2",
+        "col_dict": {"user_input": "Fragestellung", "response": "tss_move_antwort",
+                     "reference": "Antwort"},
+    }
 ]
 
 # ── 2. Sample DataFrame ───────────────────────────────────────────────────────
@@ -159,10 +178,28 @@ async def main():
     #print(df[["user_input", "response"]].to_string(index=False))
     #print()
     df = pd.read_csv('data/TSS-MoVe_Testdaten_Fragestellungen.csv')
+
     df["retrieved_contexts"] = df["Quelle_lokal"].apply(lambda x: load_text(f"{TESTDOC_DIR}/{x}"))
 
     for config in configs:
     #validate_df(df)
+        if "run_dir" in config:
+            queries =  []
+            generated_answers = []
+            for file in Path(config["run_dir"]).glob("*.json"):
+                with open(file, "r", encoding="utf-8") as f:
+                    file_data = json.load(f)
+                    queries.append(file_data["metadata"]["query"])
+                    generated_answers.append(file_data["summary"])
+            for idx, query in enumerate(queries):
+                assert(query == df.iloc[idx, df.columns.get_loc(config["col_dict"]["user_input"])])
+            df[config["col_dict"]["response"]] = generated_answers
+        # query: eingehende     Fragestellung
+        # user_message: eingehende  Fragestellung + Domaine
+        # summary: vollständige  Antwort  des  Systems
+        # claims: identifizierte Aussagen inkl.Quellenverweis
+
+
 
         dataset = build_ragas_dataset(df, name=f"rag_eval_dataset_{config['experiment_name']}",
                                       root_dir=DATASET_DIR, col_dict=config["col_dict"])

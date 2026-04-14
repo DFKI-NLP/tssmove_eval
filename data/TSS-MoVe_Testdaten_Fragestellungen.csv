@@ -598,7 +598,7 @@ Betrieblich ist die **kontinuierliche Überwachung und dynamische Anpassung** de
 
 In Summe erfordert 5G-R für QoS im Schienenverkehr eine Kombination aus physischer Infrastruktur, algorithmischer Optimierung, kontinuierlichem Netzwerkmanagement, regulatorischer Compliance und qualifiziertem Personal. Diese Faktoren sind eng verzahnt und bestimmen die Effektivität des QoS-Angebots für Fahrgäste und Bahnbetreiber.
 ",1-s2.0-S2949867825000224-main.txt
-Welche Ressourcen/Faktoren sind für Einführung und Betrieb von  Quality-of-Service-Technologien  erforderlich?,"Basierend auf dem Dokument zur Verbesserung der Dienstgüte (QoS) in Hochgeschwindigkeitszügen durch ein neuartiges Handover-Schema sind folgende Ressourcen und Faktoren für die Einführung und den Betrieb erforderlich:
+Welche Ressourcen/Faktoren sind für Einführung und Betrieb von Quality-of-Service-Technologien  erforderlich?,"Basierend auf dem Dokument zur Verbesserung der Dienstgüte (QoS) in Hochgeschwindigkeitszügen durch ein neuartiges Handover-Schema sind folgende Ressourcen und Faktoren für die Einführung und den Betrieb erforderlich:
 
 1. Erforderliche Hardware-Ressourcen (Infrastruktur)
 Um das System zu implementieren, ist eine spezifische Onboard-Architektur notwendig:
@@ -667,7 +667,7 @@ Schließlich sind organisatorische Faktoren wie Schulung des Betriebspersonals, 
 
 Diese Ressourcen bilden zusammen ein integriertes System, das nahtlose Kommunikation und stabile QoS in hochmobilen Schienenumgebungen ermöglicht.
 ",s40534-017-0152-8.txt
-Welche Ressourcen/Faktoren sind für Einführung und Betrieb von  Quality-of-Service-Technologien  erforderlich?,"1. Technische und infrastrukturelle Voraussetzungen
+Welche Ressourcen/Faktoren sind für Einführung und Betrieb von Quality-of-Service-Technologien  erforderlich?,"1. Technische und infrastrukturelle Voraussetzungen
 Je nach gewählter Strategie variieren die Anforderungen an die Netzelemente:
 
 Netzkapazität (Bandbreite): Grundsätzlich müssen ausreichende Kapazitäten auf Übertragungswegen und Routern bereitgestellt werden, um Stau und Überlast zu vermeiden. Bei der Strategie der „Überdimensionierung“ ist dies das alleinige Instrument zur Qualitätssicherung.

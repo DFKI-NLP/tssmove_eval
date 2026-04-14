@@ -197,10 +197,11 @@ async def main():
                 config["col_dict"]["response"]: generated_answers
             })
 
-            result = pd.merge(df, new_df, on=config["col_dict"]["user_input"], how='inner')
-            df = result
+            merged_df = pd.merge(df, new_df, on=config["col_dict"]["user_input"], how='inner')
+        else:
+            merged_df = df
 
-        dataset = build_ragas_dataset(df, name=f"rag_eval_dataset_{config['experiment_name']}",
+        dataset = build_ragas_dataset(merged_df, name=f"rag_eval_dataset_{config['experiment_name']}",
                                       root_dir=DATASET_DIR, col_dict=config["col_dict"])
 
         print(f"Running experiment: {config['experiment_name']} ...")

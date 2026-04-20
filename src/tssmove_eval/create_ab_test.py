@@ -97,22 +97,21 @@ def main():
                 "Antwort_A":     ans_a,
                 "Antwort_B":     ans_b,
                 "Bewertung":     "",
+                "Variante_A":   var_a,
+                "Variante_B":   var_b,
             })
-            key_rows.append({
-                "pair_id":       pair_id,
-                "Fragestellung": question,
-                "Variante_A":    var_a,
-                "Variante_B":    var_b,
-            })
+
             pair_id += 1
 
     blind_df = pd.DataFrame(blind_rows)
-    key_df   = pd.DataFrame(key_rows)
+    # Shuffle all rows
+    df_shuffled = blind_df.sample(frac=1, random_state=RANDOM_SEED)
 
     blind_path = DATA_DIR / "ab_test_blind.csv"
     key_path   = DATA_DIR / "ab_test_key.csv"
-    blind_df.to_csv(blind_path, index=False)
-    key_df.to_csv(key_path,   index=False)
+
+    df_shuffled.drop(columns=["Bewertung", "Antwort_A", "Antwort_B"]).to_csv(key_path, index=False)
+    df_shuffled.drop(columns=["Variante_A", "Variante_B"]).to_csv(blind_path, index=False)
 
     print(f"Questions after merge : {len(df)}")
     print(f"Pairs per question    : {len(list(combinations(variants, 2)))}")

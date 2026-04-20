@@ -76,7 +76,7 @@ configs = [
     },
     {
         "experiment_name": "tssmove_vs_refantwort_fidmove_v2",
-        "run_dir": "data/FIDMove_Results_V2",
+        "run_dir": "data/FIDMove_Results_v2",
         "col_dict": {"user_input": "Fragestellung", "response": "tss_move_antwort",
                      "reference": "Antwort"},
     }
@@ -190,7 +190,10 @@ async def main():
                 with open(file, "r", encoding="utf-8") as f:
                     file_data = json.load(f)
                     queries.append(file_data["metadata"]["query"])
-                    generated_answers.append(file_data["final_output"]["summary"])
+                    response = file_data["final_output"]["summary"]
+                    if response == "":
+                        response = " "
+                    generated_answers.append(response)
 
             new_df = pd.DataFrame({
                 config["col_dict"]["user_input"]: queries,
@@ -218,7 +221,7 @@ async def main():
             print(f"  {metric:<25} {results_df[metric].mean():.4f}")
         print()
 
-        output_df = df[[config["col_dict"]["user_input"], config["col_dict"]["response"], config["col_dict"]["reference"]]].copy()
+        output_df = merged_df[[config["col_dict"]["user_input"], config["col_dict"]["response"], config["col_dict"]["reference"]]].copy()
         for metric in metric_names:
             output_df[metric] = results_df[metric]
 

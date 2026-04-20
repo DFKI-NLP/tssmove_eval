@@ -1,0 +1,207 @@
+pair_id,Fragestellung,Variante_A,Variante_B
+139,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",run_fid,original
+113,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,run_v3,run_v2
+16,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,run_fid,chatgpt_bezug
+75,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,run_v3,chatgpt_bezug
+154,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,run_fid,run_v2
+185,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),run_fid,run_v3
+69,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,run_fid,run_v3
+55,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,chatgpt_bezug,run_v3
+18,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,run_v2,run_fid
+169,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",run_fid,original
+156,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",chatgpt_bezug,original
+15,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,chatgpt_bezug,run_v3
+161,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",chatgpt_bezug,run_v3
+60,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,original,chatgpt_bezug
+115,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,run_v3,run_fid
+114,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,run_v2,run_fid
+145,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",run_fid,run_v3
+9,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,run_fid,run_v3
+73,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,run_fid,original
+187,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_v2,original
+112,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,chatgpt_bezug,run_fid
+93,Welche Alternativen gibt es zu LIDAR?,run_v2,chatgpt_bezug
+138,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",original,run_v3
+45,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_v3,chatgpt_bezug
+85,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,run_v3,chatgpt_bezug
+67,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,run_v3,run_v2
+128,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",original,run_v3
+173,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",run_v2,run_v3
+30,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,original,chatgpt_bezug
+68,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,run_fid,run_v2
+82,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,original,run_v3
+119,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",run_fid,original
+183,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),run_v3,run_v2
+24,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,chatgpt_bezug,run_v2
+137,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",original,run_v2
+95,Welche Alternativen gibt es zu LIDAR?,run_v3,run_v2
+56,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,run_fid,chatgpt_bezug
+19,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,run_fid,run_v3
+122,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",chatgpt_bezug,run_fid
+76,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,chatgpt_bezug,run_fid
+5,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,chatgpt_bezug,run_v3
+65,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,chatgpt_bezug,run_v3
+136,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",chatgpt_bezug,original
+97,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,original,run_v2
+168,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",run_v3,original
+123,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",run_v2,run_v3
+165,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",run_fid,run_v3
+12,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,run_v3,original
+35,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,chatgpt_bezug,run_v3
+162,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",run_fid,chatgpt_bezug
+42,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_v3,original
+66,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,run_fid,chatgpt_bezug
+135,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",run_fid,run_v3
+78,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,run_fid,run_v2
+118,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",original,run_v3
+124,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",run_fid,run_v2
+29,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,run_v3,run_fid
+132,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",chatgpt_bezug,run_fid
+170,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",chatgpt_bezug,run_v2
+51,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,run_v2,original
+166,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",chatgpt_bezug,original
+38,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,run_v2,run_fid
+31,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,original,run_v2
+96,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,original,chatgpt_bezug
+158,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",run_v3,original
+41,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_v2,original
+191,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_v3,chatgpt_bezug
+101,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,chatgpt_bezug,run_v3
+26,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,run_fid,chatgpt_bezug
+146,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,original,chatgpt_bezug
+148,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,run_v3,original
+182,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),chatgpt_bezug,run_fid
+2,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,run_v3,original
+46,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_fid,chatgpt_bezug
+104,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,run_fid,run_v2
+144,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",run_fid,run_v2
+159,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",run_fid,original
+36,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,chatgpt_bezug,run_fid
+186,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,original,chatgpt_bezug
+22,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,run_v3,original
+127,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",original,run_v2
+90,Welche Alternativen gibt es zu LIDAR?,chatgpt_bezug,original
+33,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,original,run_fid
+11,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,original,run_v2
+125,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",run_fid,run_v3
+155,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,run_fid,run_v3
+6,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,chatgpt_bezug,run_fid
+27,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,run_v3,run_v2
+109,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,original,run_fid
+4,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,chatgpt_bezug,run_v2
+32,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,original,run_v3
+193,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_v2,run_v3
+141,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",chatgpt_bezug,run_v3
+98,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,original,run_v3
+140,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",run_v2,chatgpt_bezug
+10,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,chatgpt_bezug,original
+62,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,original,run_v3
+100,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,run_v2,chatgpt_bezug
+142,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",run_fid,chatgpt_bezug
+0,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,original,chatgpt_bezug
+175,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",run_fid,run_v3
+178,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),run_v3,original
+70,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,chatgpt_bezug,original
+111,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,run_v3,chatgpt_bezug
+64,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,chatgpt_bezug,run_v2
+44,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_v2,chatgpt_bezug
+126,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",chatgpt_bezug,original
+28,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,run_v2,run_fid
+40,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,original,chatgpt_bezug
+117,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",original,run_v2
+180,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),chatgpt_bezug,run_v2
+152,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,run_fid,chatgpt_bezug
+25,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,run_v3,chatgpt_bezug
+23,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,run_fid,original
+147,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,original,run_v2
+143,"Vor welchen Herausforderungen steht der Einsatz von GNSS in der digitalen Schieneninfrastruktur und wie trägt die Integration von Inertialsensoren (INS) dazu bei, einen ausfallsicheren Bahnbetrieb zu gewährleisten?",run_v2,run_v3
+81,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,run_v2,original
+108,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,run_v3,original
+79,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,run_fid,run_v3
+84,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,run_v2,chatgpt_bezug
+39,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,run_v3,run_fid
+61,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,original,run_v2
+120,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",chatgpt_bezug,run_v2
+86,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,chatgpt_bezug,run_fid
+77,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,run_v3,run_v2
+190,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_v2,chatgpt_bezug
+164,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",run_v2,run_fid
+47,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_v3,run_v2
+94,Welche Alternativen gibt es zu LIDAR?,run_v3,chatgpt_bezug
+150,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,chatgpt_bezug,run_v2
+43,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_fid,original
+174,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",run_v2,run_fid
+3,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,run_fid,original
+105,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,run_v3,run_fid
+53,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,original,run_fid
+133,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",run_v2,run_v3
+176,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),chatgpt_bezug,original
+153,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,run_v2,run_v3
+181,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),chatgpt_bezug,run_v3
+49,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_fid,run_v3
+80,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,original,chatgpt_bezug
+34,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,run_v2,chatgpt_bezug
+7,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,run_v3,run_v2
+110,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,chatgpt_bezug,run_v2
+91,Welche Alternativen gibt es zu LIDAR?,original,run_v2
+83,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,original,run_fid
+172,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",run_fid,chatgpt_bezug
+177,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),run_v2,original
+89,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,run_fid,run_v3
+8,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,run_fid,run_v2
+13,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,run_fid,original
+59,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,run_fid,run_v3
+167,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",original,run_v2
+131,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",run_v3,chatgpt_bezug
+17,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,run_v2,run_v3
+72,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,original,run_v3
+171,"Welche Voraussetzungen/Faktoren müssen für einen Transfer von Technologie Wayside-Sensorik (Streckenseitige Sensoren) in Bereich Rolling
+Stock in Motion erfüllt sein ?",chatgpt_bezug,run_v3
+134,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",run_fid,run_v2
+163,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",run_v2,run_v3
+194,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_fid,run_v2
+63,Was sind die aktuelle Ansätze zum Datenaustausch in der Luftfahrt?,original,run_fid
+54,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,chatgpt_bezug,run_v2
+107,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,run_v2,original
+50,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,chatgpt_bezug,original
+192,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_fid,chatgpt_bezug
+58,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,run_fid,run_v2
+48,Wie ist der aktuelle Entwicklungstand vom digitalen Zwilling?,run_v2,run_fid
+88,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,run_fid,run_v2
+21,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,original,run_v2
+57,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,run_v2,run_v3
+160,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",run_v2,chatgpt_bezug
+189,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_fid,original
+129,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",original,run_fid
+37,Was versteht man unter einem Digitalen Zwilling und welche Hauptfunktionen erfüllt er?,run_v2,run_v3
+157,"Wie kann die Verwaltung von Funkressourcen mittels spieltheoretischer Ansätze dazu beitragen, die Zuverlässigkeit und Dienstgüte (QoS) in Kommunikationssystemen für den städtischen Schienenverkehr zu sichern, wenn verschiedene Übertragungsmodi gleichzeitig genutzt werden?",original,run_v2
+184,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),run_fid,run_v2
+1,Welche technischen Herausforderungen bestehen aktuell bei der Entwicklung autonomer Schiffssysteme?,run_v2,original
+52,Wie ist der aktuelle Entwicklungsstand von Predictive Maintenance bei Flugzeugen?,run_v3,original
+149,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,run_fid,original
+130,"Welchen Einfluss haben verschiedene Arten von Signalstörungen und spezifische Geländeprofile (wie Berge oder Tunnel) auf die Genauigkeit der GNSS-Positionierung, und wie lässt sich dies mathematisch bewerten?",run_v2,chatgpt_bezug
+151,Welche Rolle spielt generative KI im Bereich Predictive Maintenance für Flugzeuge?,chatgpt_bezug,run_v3
+103,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,run_v2,run_v3
+99,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,original,run_fid
+116,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",chatgpt_bezug,original
+87,Was ist der aktuelle Entwicklungsstand von Vehicle-To-X-Kommunikation und welche Herausforderungen gibt es noch?,run_v2,run_v3
+74,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,chatgpt_bezug,run_v2
+121,"Welche Vorteile bietet die GNSS-Technologie speziell für die Realisierung eines „zugzentrierten“ (train-centric) Bahnbetriebs im Vergleich zu herkömmlichen, gleisseitigen Sicherungssystemen?",chatgpt_bezug,run_v3
+195,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_v3,run_fid
+20,Wie unterscheidet sich die zustandsorientierte Instandhaltung (CBM)  von herkömmlichen Methoden?,original,chatgpt_bezug
+188,Welche Kernfunktionen hat die Technologie  V2X-Kommunikation?,run_v3,original
+71,Was versteht man unter Vehicle-To-X-Kommunikation und welche Rolle erfüllt sie?,original,run_v2
+106,Welche Vorteile hat  GNSS gegenüber angrenzenden Technologien?,chatgpt_bezug,original
+14,Was sind die Ziele und Herausforderungen des Instandhaltungsmanagements?,chatgpt_bezug,run_v2
+92,Welche Alternativen gibt es zu LIDAR?,original,run_v3
+179,Wie ist der aktuelle Entwicklungsstand von Technologie Radio Block Centre (RBC),run_fid,original
+102,Was sind aktuelle Ansätze für intelligente Umgebungswahrnehmung beim Autonomen Fahren?,chatgpt_bezug,run_fid

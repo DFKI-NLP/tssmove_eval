@@ -13,6 +13,9 @@ classifiers = ["Programming Language :: Python :: 3"]
 dependencies = [
     "ragas>=0.4.3",
     "openai>=2.29.0",
+    "pandas",
+    "matplotlib",
+    "openpyxl"
 ]
 
 [tool.hatch.build.targets.sdist]
